@@ -46,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frm_manhinh_canbodonvi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_manhinh_canbodonvi.Designer.cs">
-      <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmbqs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmbqs.Designer.cs">
       <DependentUpon>frmbqs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_manhinh_canbodonvi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_manhinh_canbodonvi.Designer.cs">
+      <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
     </Compile>
     <Compile Include="frmdsqn.cs">
       <SubType>Form</SubType>
@@ -72,16 +72,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Quan_li_tieu_chuan_QNDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Quan_li_tieu_chuan_QNDataSet.xsd</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="frm_manhinh_canbodonvi.resx">
-      <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmbqs.resx">
       <DependentUpon>frmbqs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_manhinh_canbodonvi.resx">
+      <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmdsqn.resx">
       <DependentUpon>frmdsqn.cs</DependentUpon>
@@ -107,17 +102,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Quan_li_tieu_chuan_QNDataSet.xsc">
-      <DependentUpon>Quan_li_tieu_chuan_QNDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Quan_li_tieu_chuan_QNDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Quan_li_tieu_chuan_QNDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Quan_li_tieu_chuan_QNDataSet.xss">
-      <DependentUpon>Quan_li_tieu_chuan_QNDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
