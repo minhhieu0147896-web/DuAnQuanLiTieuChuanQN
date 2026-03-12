@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frm_manhinh_canbodonvi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frm_manhinh_canbodonvi.Designer.cs">
+      <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
     </Compile>
     <Compile Include="frmbqs.cs">
       <SubType>Form</SubType>
@@ -77,8 +77,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Quan_li_tieu_chuan_QNDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frm_manhinh_canbodonvi.resx">
+      <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmbqs.resx">
       <DependentUpon>frmbqs.cs</DependentUpon>
