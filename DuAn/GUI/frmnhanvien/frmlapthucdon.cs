@@ -21,5 +21,10 @@ namespace frmnhanvien
         {
 
         }
+
+        private void cbomonan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

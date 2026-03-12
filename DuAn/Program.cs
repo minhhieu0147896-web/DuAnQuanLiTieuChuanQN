@@ -18,7 +18,7 @@ namespace DuAn
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_manhinh_canbodonvi());
+            Application.Run(new frm_manhinh_quannhan());
         }
     }
 }

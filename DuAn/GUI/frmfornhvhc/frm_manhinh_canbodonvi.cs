@@ -24,23 +24,38 @@ namespace frmfornhvhc
 
         private void báoQuânSốToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
             frmbqs f = new frmbqs();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();
         }
 
         private void lịchSửToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
             frmLSQS f=new frmLSQS();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();   
 
         }
 
         private void danhSáchQuânNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
             frmddtc f = new frmddtc();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();
         }
 
@@ -53,6 +68,21 @@ namespace frmfornhvhc
             {
                 Close();
             }
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

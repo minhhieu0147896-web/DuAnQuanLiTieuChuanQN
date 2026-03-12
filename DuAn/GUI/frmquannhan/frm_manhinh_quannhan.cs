@@ -24,15 +24,27 @@ namespace frmquannhan
 
         private void tiêuChuẩnĂnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
             frmtracuutieuchuanan f = new frmtracuutieuchuanan();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();
         }
 
         private void lịchSửCắtCơmToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
             frmlichsucatcom f = new frmlichsucatcom();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();
         }
 
@@ -45,6 +57,11 @@ namespace frmquannhan
             {
                 Close();
             }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
