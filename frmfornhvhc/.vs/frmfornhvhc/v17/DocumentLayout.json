@@ -1,14 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\",
+  "WorkspaceRootPath": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|e:\\clone git\\duanquanlitieuchuanqn\\frmfornhvhc\\frmfornhvhc\\frm_manhinh_canbodonvi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|d:\\13\\duanquanlitieuchuanqn\\frmfornhvhc\\frmfornhvhc\\frmbqs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|solutionrelative:frmfornhvhc\\frmbqs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|d:\\13\\duanquanlitieuchuanqn\\frmfornhvhc\\frmfornhvhc\\frm_manhinh_canbodonvi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|solutionrelative:frmfornhvhc\\frm_manhinh_canbodonvi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frm_manhinh_canbodonvi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|solutionrelative:frmfornhvhc\\frm_manhinh_canbodonvi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frmbqs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|solutionrelative:frmfornhvhc\\frmbqs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|d:\\13\\duanquanlitieuchuanqn\\frmfornhvhc\\frmfornhvhc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|solutionrelative:frmfornhvhc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frmlsqs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|solutionrelative:frmfornhvhc\\frmlsqs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frmdsqn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B09634F5-BA9F-4C3B-91D6-09C00A533AEF}|frmfornhvhc\\frmfornhvhc.csproj|solutionrelative:frmfornhvhc\\frmdsqn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,34 +34,77 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmbqs.cs [Design]",
-              "DocumentMoniker": "E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frmbqs.cs",
-              "RelativeDocumentMoniker": "frmfornhvhc\\frmbqs.cs",
-              "ToolTip": "E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frmbqs.cs [Design]",
-              "RelativeToolTip": "frmfornhvhc\\frmbqs.cs [Design]",
+              "Title": "frm_manhinh_canbodonvi.cs",
+              "DocumentMoniker": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frm_manhinh_canbodonvi.cs",
+              "RelativeDocumentMoniker": "frmfornhvhc\\frm_manhinh_canbodonvi.cs",
+              "ToolTip": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frm_manhinh_canbodonvi.cs",
+              "RelativeToolTip": "frmfornhvhc\\frm_manhinh_canbodonvi.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAcwBoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T07:01:21.981Z"
+              "WhenOpened": "2026-03-12T09:47:52.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\Program.cs",
+              "RelativeDocumentMoniker": "frmfornhvhc\\Program.cs",
+              "ToolTip": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\Program.cs",
+              "RelativeToolTip": "frmfornhvhc\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T09:47:36.311Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "frmbqs.cs [Design]",
+              "DocumentMoniker": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frmbqs.cs",
+              "RelativeDocumentMoniker": "frmfornhvhc\\frmbqs.cs",
+              "ToolTip": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frmbqs.cs [Design]",
+              "RelativeToolTip": "frmfornhvhc\\frmbqs.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T09:46:50.337Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmLSQS.cs [Design]",
+              "DocumentMoniker": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frmLSQS.cs",
+              "RelativeDocumentMoniker": "frmfornhvhc\\frmLSQS.cs",
+              "ToolTip": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frmLSQS.cs [Design]",
+              "RelativeToolTip": "frmfornhvhc\\frmLSQS.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T07:18:50.608Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmdsqn.cs [Design]",
+              "DocumentMoniker": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frmdsqn.cs",
+              "RelativeDocumentMoniker": "frmfornhvhc\\frmdsqn.cs",
+              "ToolTip": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frmdsqn.cs [Design]",
+              "RelativeToolTip": "frmfornhvhc\\frmdsqn.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T07:17:35.064Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "frm_manhinh_canbodonvi.cs [Design]",
-              "DocumentMoniker": "E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frm_manhinh_canbodonvi.cs",
+              "DocumentMoniker": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frm_manhinh_canbodonvi.cs",
               "RelativeDocumentMoniker": "frmfornhvhc\\frm_manhinh_canbodonvi.cs",
-              "ToolTip": "E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frm_manhinh_canbodonvi.cs [Design]",
+              "ToolTip": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmfornhvhc\\frmfornhvhc\\frm_manhinh_canbodonvi.cs [Design]",
               "RelativeToolTip": "frmfornhvhc\\frm_manhinh_canbodonvi.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-12T07:01:15.782Z",

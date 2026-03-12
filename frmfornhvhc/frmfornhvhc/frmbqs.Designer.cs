@@ -28,37 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblbuoi = new System.Windows.Forms.Label();
+            this.lblNgay = new System.Windows.Forms.Label();
+            this.lbldonvi = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblhienthi = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenQN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchucvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colkhongan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.collydo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quanlitieuchuanQNDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quan_li_tieu_chuan_QNDataSet = new frmfornhvhc.Quan_li_tieu_chuan_QNDataSet();
-            this.btnsave = new System.Windows.Forms.Button();
-            this.cbobuoi = new System.Windows.Forms.ComboBox();
-            this.lblbuoi = new System.Windows.Forms.Label();
-            this.cbodonvi = new System.Windows.Forms.ComboBox();
-            this.lbldv = new System.Windows.Forms.Label();
-            this.lbldate = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.quannhanBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quan_nhanTableAdapter = new frmfornhvhc.Quan_li_tieu_chuan_QNDataSetTableAdapters.Quan_nhanTableAdapter();
-            this.quanlitieuchuanQNDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnluu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlitieuchuanQNDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quan_li_tieu_chuan_QNDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quannhanBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlitieuchuanQNDataSetBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -69,62 +59,111 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Panel1.Controls.Add(this.btnsave);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
+            this.splitContainer1.Panel1.Controls.Add(this.btnluu);
+            this.splitContainer1.Panel1.Controls.Add(this.lblhienthi);
+            this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker1);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.lbldonvi);
+            this.splitContainer1.Panel1.Controls.Add(this.lblNgay);
+            this.splitContainer1.Panel1.Controls.Add(this.lblbuoi);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.Controls.Add(this.cbobuoi);
-            this.splitContainer1.Panel2.Controls.Add(this.lblbuoi);
-            this.splitContainer1.Panel2.Controls.Add(this.cbodonvi);
-            this.splitContainer1.Panel2.Controls.Add(this.lbldv);
-            this.splitContainer1.Panel2.Controls.Add(this.lbldate);
-            this.splitContainer1.Panel2.Controls.Add(this.dateTimePicker1);
-            this.splitContainer1.Size = new System.Drawing.Size(1321, 527);
-            this.splitContainer1.SplitterDistance = 790;
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Size = new System.Drawing.Size(1142, 450);
+            this.splitContainer1.SplitterDistance = 290;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // lblbuoi
+            // 
+            this.lblbuoi.AutoSize = true;
+            this.lblbuoi.Location = new System.Drawing.Point(28, 61);
+            this.lblbuoi.Name = "lblbuoi";
+            this.lblbuoi.Size = new System.Drawing.Size(40, 18);
+            this.lblbuoi.TabIndex = 0;
+            this.lblbuoi.Text = "Buổi";
+            // 
+            // lblNgay
+            // 
+            this.lblNgay.AutoSize = true;
+            this.lblNgay.Location = new System.Drawing.Point(28, 104);
+            this.lblNgay.Name = "lblNgay";
+            this.lblNgay.Size = new System.Drawing.Size(44, 18);
+            this.lblNgay.TabIndex = 1;
+            this.lblNgay.Text = "Ngày";
+            // 
+            // lbldonvi
+            // 
+            this.lbldonvi.AutoSize = true;
+            this.lbldonvi.Location = new System.Drawing.Point(28, 149);
+            this.lbldonvi.Name = "lbldonvi";
+            this.lbldonvi.Size = new System.Drawing.Size(54, 18);
+            this.lbldonvi.TabIndex = 2;
+            this.lbldonvi.Text = "Đơn vị";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Sáng ",
+            "Trưa",
+            "Chiều"});
+            this.comboBox1.Location = new System.Drawing.Point(84, 58);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 26);
+            this.comboBox1.TabIndex = 3;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(84, 104);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker1.TabIndex = 4;
+            // 
+            // lblhienthi
+            // 
+            this.lblhienthi.AutoSize = true;
+            this.lblhienthi.Location = new System.Drawing.Point(81, 149);
+            this.lblhienthi.Name = "lblhienthi";
+            this.lblhienthi.Size = new System.Drawing.Size(53, 18);
+            this.lblhienthi.TabIndex = 5;
+            this.lblhienthi.Text = "hienthi";
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSTT,
-            this.colTenQN,
+            this.colten,
             this.colchucvu,
             this.colchedo,
-            this.colAn,
+            this.colan,
             this.colkhongan,
             this.collydo});
-            this.dataGridView1.DataSource = this.quanlitieuchuanQNDataSetBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 22);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(733, 356);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_2);
+            this.dataGridView1.Size = new System.Drawing.Size(848, 450);
+            this.dataGridView1.TabIndex = 0;
             // 
             // colSTT
             // 
             this.colSTT.HeaderText = "STT";
             this.colSTT.MinimumWidth = 8;
             this.colSTT.Name = "colSTT";
-            this.colSTT.Width = 50;
+            this.colSTT.Width = 70;
             // 
-            // colTenQN
+            // colten
             // 
-            this.colTenQN.DataPropertyName = "quannhan_hoten";
-            this.colTenQN.HeaderText = "Tên Quân Nhân";
-            this.colTenQN.MinimumWidth = 8;
-            this.colTenQN.Name = "colTenQN";
-            this.colTenQN.Width = 200;
+            this.colten.HeaderText = "Tên quân nhân";
+            this.colten.MinimumWidth = 8;
+            this.colten.Name = "colten";
+            this.colten.Width = 150;
             // 
             // colchucvu
             // 
-            this.colchucvu.DataPropertyName = "quannhan_chucvu";
             this.colchucvu.HeaderText = "Chức vụ";
             this.colchucvu.MinimumWidth = 8;
             this.colchucvu.Name = "colchucvu";
@@ -132,148 +171,59 @@
             // 
             // colchedo
             // 
-            this.colchedo.DataPropertyName = "chedo_ten";
             this.colchedo.HeaderText = "Chế độ";
             this.colchedo.MinimumWidth = 8;
             this.colchedo.Name = "colchedo";
             this.colchedo.Width = 150;
             // 
-            // colAn
+            // colan
             // 
-            this.colAn.HeaderText = "Ăn";
-            this.colAn.MinimumWidth = 8;
-            this.colAn.Name = "colAn";
-            this.colAn.Width = 50;
+            this.colan.HeaderText = "Ăn";
+            this.colan.MinimumWidth = 8;
+            this.colan.Name = "colan";
             // 
             // colkhongan
             // 
             this.colkhongan.HeaderText = "Không ăn";
             this.colkhongan.MinimumWidth = 8;
             this.colkhongan.Name = "colkhongan";
-            this.colkhongan.Width = 70;
             // 
             // collydo
             // 
             this.collydo.HeaderText = "Lý do";
             this.collydo.MinimumWidth = 8;
             this.collydo.Name = "collydo";
+            this.collydo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.collydo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.collydo.Width = 150;
             // 
-            // quanlitieuchuanQNDataSetBindingSource
+            // btnluu
             // 
-            this.quanlitieuchuanQNDataSetBindingSource.DataSource = this.quan_li_tieu_chuan_QNDataSet;
-            this.quanlitieuchuanQNDataSetBindingSource.Position = 0;
-            // 
-            // quan_li_tieu_chuan_QNDataSet
-            // 
-            this.quan_li_tieu_chuan_QNDataSet.DataSetName = "Quan_li_tieu_chuan_QNDataSet";
-            this.quan_li_tieu_chuan_QNDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // btnsave
-            // 
-            this.btnsave.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnsave.Location = new System.Drawing.Point(348, 436);
-            this.btnsave.Name = "btnsave";
-            this.btnsave.Size = new System.Drawing.Size(134, 30);
-            this.btnsave.TabIndex = 1;
-            this.btnsave.Text = "Lưu quân số";
-            this.btnsave.UseVisualStyleBackColor = false;
-            this.btnsave.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // cbobuoi
-            // 
-            this.cbobuoi.FormattingEnabled = true;
-            this.cbobuoi.Items.AddRange(new object[] {
-            "Sáng",
-            "Trưa",
-            "Chiều"});
-            this.cbobuoi.Location = new System.Drawing.Point(109, 88);
-            this.cbobuoi.Name = "cbobuoi";
-            this.cbobuoi.Size = new System.Drawing.Size(121, 26);
-            this.cbobuoi.TabIndex = 5;
-            // 
-            // lblbuoi
-            // 
-            this.lblbuoi.AutoSize = true;
-            this.lblbuoi.Location = new System.Drawing.Point(21, 88);
-            this.lblbuoi.Name = "lblbuoi";
-            this.lblbuoi.Size = new System.Drawing.Size(40, 18);
-            this.lblbuoi.TabIndex = 4;
-            this.lblbuoi.Text = "Buổi";
-            this.lblbuoi.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // cbodonvi
-            // 
-            this.cbodonvi.FormattingEnabled = true;
-            this.cbodonvi.Items.AddRange(new object[] {
-            "c1",
-            "c2",
-            "c3"});
-            this.cbodonvi.Location = new System.Drawing.Point(109, 170);
-            this.cbodonvi.Name = "cbodonvi";
-            this.cbodonvi.Size = new System.Drawing.Size(121, 26);
-            this.cbodonvi.TabIndex = 3;
-            this.cbodonvi.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // lbldv
-            // 
-            this.lbldv.AutoSize = true;
-            this.lbldv.Location = new System.Drawing.Point(21, 178);
-            this.lbldv.Name = "lbldv";
-            this.lbldv.Size = new System.Drawing.Size(62, 18);
-            this.lbldv.TabIndex = 2;
-            this.lbldv.Text = "Đơn vị: ";
-            // 
-            // lbldate
-            // 
-            this.lbldate.AutoSize = true;
-            this.lbldate.Location = new System.Drawing.Point(21, 134);
-            this.lbldate.Name = "lbldate";
-            this.lbldate.Size = new System.Drawing.Size(82, 18);
-            this.lbldate.TabIndex = 1;
-            this.lbldate.Text = "Ngày nhập";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(109, 128);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(121, 26);
-            this.dateTimePicker1.TabIndex = 0;
-            // 
-            // quannhanBindingSource
-            // 
-            this.quannhanBindingSource.DataMember = "Quan_nhan";
-            this.quannhanBindingSource.DataSource = this.quan_li_tieu_chuan_QNDataSet;
-            // 
-            // quan_nhanTableAdapter
-            // 
-            this.quan_nhanTableAdapter.ClearBeforeFill = true;
-            // 
-            // quanlitieuchuanQNDataSetBindingSource1
-            // 
-            this.quanlitieuchuanQNDataSetBindingSource1.DataSource = this.quan_li_tieu_chuan_QNDataSet;
-            this.quanlitieuchuanQNDataSetBindingSource1.Position = 0;
+            this.btnluu.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnluu.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnluu.Location = new System.Drawing.Point(99, 236);
+            this.btnluu.Name = "btnluu";
+            this.btnluu.Size = new System.Drawing.Size(75, 37);
+            this.btnluu.TabIndex = 6;
+            this.btnluu.Text = "Lưu";
+            this.btnluu.UseVisualStyleBackColor = false;
             // 
             // frmbqs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1321, 527);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ClientSize = new System.Drawing.Size(1142, 450);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmbqs";
-            this.Text = "frmbqs";
-            this.Load += new System.EventHandler(this.frmbqs_Load);
+            this.Text = "Báo quân số";
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlitieuchuanQNDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quan_li_tieu_chuan_QNDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quannhanBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlitieuchuanQNDataSetBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,25 +231,20 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ComboBox cbodonvi;
-        private System.Windows.Forms.Label lbldv;
-        private System.Windows.Forms.Label lbldate;
+        private System.Windows.Forms.Label lblhienthi;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private Quan_li_tieu_chuan_QNDataSet quan_li_tieu_chuan_QNDataSet;
-        private System.Windows.Forms.BindingSource quannhanBindingSource;
-        private Quan_li_tieu_chuan_QNDataSetTableAdapters.Quan_nhanTableAdapter quan_nhanTableAdapter;
-        private System.Windows.Forms.BindingSource quanlitieuchuanQNDataSetBindingSource;
-        private System.Windows.Forms.Button btnsave;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lbldonvi;
+        private System.Windows.Forms.Label lblNgay;
         private System.Windows.Forms.Label lblbuoi;
-        private System.Windows.Forms.ComboBox cbobuoi;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource quanlitieuchuanQNDataSetBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTenQN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colten;
         private System.Windows.Forms.DataGridViewTextBoxColumn colchucvu;
         private System.Windows.Forms.DataGridViewTextBoxColumn colchedo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colAn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colan;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colkhongan;
         private System.Windows.Forms.DataGridViewTextBoxColumn collydo;
+        private System.Windows.Forms.Button btnluu;
     }
 }
