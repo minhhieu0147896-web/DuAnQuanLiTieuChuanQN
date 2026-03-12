@@ -1,0 +1,14 @@
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\obj\Debug\frmfornhvhc.csproj.AssemblyReference.cache
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\obj\Debug\frmfornhvhc.Properties.Resources.resources
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\obj\Debug\frmfornhvhc.csproj.GenerateResource.cache
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\obj\Debug\frmfornhvhc.csproj.CoreCompileInputs.cache
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\bin\Debug\frmfornhvhc.exe.config
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\bin\Debug\frmfornhvhc.exe
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\bin\Debug\frmfornhvhc.pdb
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\obj\Debug\frmfornhvhc.frmmain.resources
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\obj\Debug\frmfornhvhc.exe
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\obj\Debug\frmfornhvhc.pdb
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\obj\Debug\frmfornhvhc.exe.config
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\obj\Debug\frmfornhvhc.frmbqs.resources
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\obj\Debug\frmfornhvhc.frmLSQS.resources
+E:\hoclaptrinh\btNNLT\W1\winform\frmfornhvhc\frmfornhvhc\obj\Debug\frmfornhvhc.frmddtc.resources

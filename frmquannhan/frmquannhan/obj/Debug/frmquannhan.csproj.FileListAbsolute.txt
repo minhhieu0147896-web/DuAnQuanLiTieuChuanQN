@@ -1,0 +1,12 @@
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\obj\Debug\frmquannhan.csproj.AssemblyReference.cache
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\obj\Debug\frmquannhan.frmquannhan.resources
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\obj\Debug\frmquannhan.frmlichsucatcom.resources
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\obj\Debug\frmquannhan.frmtracuutieuchuanan.resources
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\obj\Debug\frmquannhan.Properties.Resources.resources
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\obj\Debug\frmquannhan.csproj.GenerateResource.cache
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\obj\Debug\frmquannhan.csproj.CoreCompileInputs.cache
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\bin\Debug\frmquannhan.exe.config
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\bin\Debug\frmquannhan.exe
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\bin\Debug\frmquannhan.pdb
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\obj\Debug\frmquannhan.exe
+E:\hoclaptrinh\btNNLT\W1\winform\frmquannhan\frmquannhan\obj\Debug\frmquannhan.pdb
