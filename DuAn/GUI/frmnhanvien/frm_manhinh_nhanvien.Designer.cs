@@ -1,6 +1,6 @@
 ﻿namespace frmnhanvien
 {
-    partial class frmnhanvien
+    partial class frm_manhinh_nhanvien
     {
         /// <summary>
         /// Required designer variable.

@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace frmfornhvhc
 {
-    public partial class frmmain : Form
+    public partial class frm_manhinh_canbodonvi : Form
     {
-        public frmmain()
+        public frm_manhinh_canbodonvi()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void frm_manhinh_canbodonvi_Load(object sender, EventArgs e)
         {
 
         }

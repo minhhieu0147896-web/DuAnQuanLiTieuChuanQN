@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace frmnhanvien
 {
-    public partial class frmnhanvien : Form
+    public partial class frm_manhinh_nhanvien : Form
     {
-        public frmnhanvien()
+        public frm_manhinh_nhanvien()
         {
             InitializeComponent();
         }

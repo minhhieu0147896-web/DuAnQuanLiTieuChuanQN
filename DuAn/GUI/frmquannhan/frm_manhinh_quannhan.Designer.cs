@@ -1,6 +1,6 @@
 ﻿namespace frmquannhan
 {
-    partial class frmquannhan
+    partial class frm_manhinh_quannhan
     {
         /// <summary>
         /// Required designer variable.

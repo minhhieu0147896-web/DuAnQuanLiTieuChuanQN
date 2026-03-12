@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace frmquannhan
 {
-    public partial class frmquannhan : Form
+    public partial class frm_manhinh_quannhan : Form
     {
-        public frmquannhan()
+        public frm_manhinh_quannhan()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace frmfornhvhc
 {
-    partial class frmmain
+    partial class frm_manhinh_canbodonvi
     {
         /// <summary>
         /// Required designer variable.
@@ -122,9 +122,9 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmmain";
+            this.Name = "frm_manhinh_canbodonvi";
             this.Text = "Cán bộ đơn vị";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.frm_manhinh_canbodonvi_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
