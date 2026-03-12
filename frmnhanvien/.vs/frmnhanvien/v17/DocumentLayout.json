@@ -1,13 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\",
+  "WorkspaceRootPath": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AC8A035B-3608-4FD8-A8BE-045E506F9D54}|frmnhanvien\\frmnhanvien.csproj|e:\\clone git\\duanquanlitieuchuanqn\\frmnhanvien\\frmnhanvien\\frm_manhinh_nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{AC8A035B-3608-4FD8-A8BE-045E506F9D54}|frmnhanvien\\frmnhanvien.csproj|d:\\13\\duanquanlitieuchuanqn\\frmnhanvien\\frmnhanvien\\frmlapthucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AC8A035B-3608-4FD8-A8BE-045E506F9D54}|frmnhanvien\\frmnhanvien.csproj|solutionrelative:frmnhanvien\\frmlapthucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC8A035B-3608-4FD8-A8BE-045E506F9D54}|frmnhanvien\\frmnhanvien.csproj|d:\\13\\duanquanlitieuchuanqn\\frmnhanvien\\frmnhanvien\\frm_manhinh_nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{AC8A035B-3608-4FD8-A8BE-045E506F9D54}|frmnhanvien\\frmnhanvien.csproj|solutionrelative:frmnhanvien\\frm_manhinh_nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC8A035B-3608-4FD8-A8BE-045E506F9D54}|frmnhanvien\\frmnhanvien.csproj|E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\frmnhanvien\\frmbaocaoquanso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{AC8A035B-3608-4FD8-A8BE-045E506F9D54}|frmnhanvien\\frmnhanvien.csproj|D:\\13\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\frmnhanvien\\frmbaocaoquanso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{AC8A035B-3608-4FD8-A8BE-045E506F9D54}|frmnhanvien\\frmnhanvien.csproj|solutionrelative:frmnhanvien\\frmbaocaoquanso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -18,34 +22,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmlapthucdon.cs [Design]",
+              "DocumentMoniker": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\frmnhanvien\\frmlapthucdon.cs",
+              "RelativeDocumentMoniker": "frmnhanvien\\frmlapthucdon.cs",
+              "ToolTip": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\frmnhanvien\\frmlapthucdon.cs [Design]",
+              "RelativeToolTip": "frmnhanvien\\frmlapthucdon.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T07:09:15.125Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "frmbaocaoquanso.cs [Design]",
-              "DocumentMoniker": "E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\frmnhanvien\\frmbaocaoquanso.cs",
+              "DocumentMoniker": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\frmnhanvien\\frmbaocaoquanso.cs",
               "RelativeDocumentMoniker": "frmnhanvien\\frmbaocaoquanso.cs",
               "ToolTip": "E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\frmnhanvien\\frmbaocaoquanso.cs [Design]",
-              "RelativeToolTip": "frmnhanvien\\frmbaocaoquanso.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-12T07:02:03.192Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "frm_manhinh_nhanvien.cs [Design]",
-              "DocumentMoniker": "E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\frmnhanvien\\frm_manhinh_nhanvien.cs",
+              "DocumentMoniker": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\frmnhanvien\\frm_manhinh_nhanvien.cs",
               "RelativeDocumentMoniker": "frmnhanvien\\frm_manhinh_nhanvien.cs",
-              "ToolTip": "E:\\Clone Git\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\frmnhanvien\\frm_manhinh_nhanvien.cs [Design]",
+              "ToolTip": "D:\\13\\DuAnQuanLiTieuChuanQN\\frmnhanvien\\frmnhanvien\\frm_manhinh_nhanvien.cs [Design]",
               "RelativeToolTip": "frmnhanvien\\frm_manhinh_nhanvien.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-12T07:01:58.518Z",
