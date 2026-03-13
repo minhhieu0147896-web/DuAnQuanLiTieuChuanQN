@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DuAn.GUI.frmfornhvhc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,11 @@ namespace frmfornhvhc
 
         private void frm_manhinh_canbodonvi_Load(object sender, EventArgs e)
         {
+            frmtrangchu f = new frmtrangchu();
+            f.MdiParent = this;
+          
+            this.WindowState = FormWindowState.Maximized;
+            f.Show();
 
         }
 
@@ -83,6 +89,14 @@ namespace frmfornhvhc
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmtrangchu f = new frmtrangchu();
+            f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
+            f.Show();
         }
     }
 }

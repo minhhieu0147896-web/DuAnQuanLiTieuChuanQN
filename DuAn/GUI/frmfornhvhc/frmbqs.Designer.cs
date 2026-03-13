@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnluu = new System.Windows.Forms.Button();
+            this.btnhienthids = new System.Windows.Forms.Button();
+            this.lblbuoi = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblhienthi = new System.Windows.Forms.Label();
+            this.lblNgay = new System.Windows.Forms.Label();
+            this.lbldonvi = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colten = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,22 +46,12 @@
             this.colan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colkhongan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.collydo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnluu = new System.Windows.Forms.Button();
-            this.lblhienthi = new System.Windows.Forms.Label();
-            this.lbldonvi = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lblNgay = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lblbuoi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -63,7 +62,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
+            this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel2);
             // 
             // splitContainer1.Panel2
             // 
@@ -71,6 +70,115 @@
             this.splitContainer1.Size = new System.Drawing.Size(1142, 450);
             this.splitContainer1.SplitterDistance = 290;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.24925F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.75075F));
+            this.tableLayoutPanel2.Controls.Add(this.btnluu, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.btnhienthids, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.lblbuoi, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblhienthi, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lblNgay, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lbldonvi, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker1, 1, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 86);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(287, 174);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // btnluu
+            // 
+            this.btnluu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnluu.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnluu.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnluu.Location = new System.Drawing.Point(176, 130);
+            this.btnluu.Name = "btnluu";
+            this.btnluu.Size = new System.Drawing.Size(75, 37);
+            this.btnluu.TabIndex = 9;
+            this.btnluu.Text = "Lưu";
+            this.btnluu.UseVisualStyleBackColor = false;
+            // 
+            // btnhienthids
+            // 
+            this.btnhienthids.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnhienthids.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnhienthids.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnhienthids.Location = new System.Drawing.Point(3, 133);
+            this.btnhienthids.Name = "btnhienthids";
+            this.btnhienthids.Size = new System.Drawing.Size(135, 31);
+            this.btnhienthids.TabIndex = 10;
+            this.btnhienthids.Text = "Hiển thị danh sách";
+            this.btnhienthids.UseVisualStyleBackColor = false;
+            // 
+            // lblbuoi
+            // 
+            this.lblbuoi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblbuoi.AutoSize = true;
+            this.lblbuoi.Location = new System.Drawing.Point(50, 18);
+            this.lblbuoi.Name = "lblbuoi";
+            this.lblbuoi.Size = new System.Drawing.Size(40, 18);
+            this.lblbuoi.TabIndex = 1;
+            this.lblbuoi.Text = "Buổi";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Sáng ",
+            "Trưa",
+            "Chiều"});
+            this.comboBox1.Location = new System.Drawing.Point(153, 14);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 26);
+            this.comboBox1.TabIndex = 4;
+            // 
+            // lblhienthi
+            // 
+            this.lblhienthi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblhienthi.AutoSize = true;
+            this.lblhienthi.Location = new System.Drawing.Point(187, 99);
+            this.lblhienthi.Name = "lblhienthi";
+            this.lblhienthi.Size = new System.Drawing.Size(53, 18);
+            this.lblhienthi.TabIndex = 8;
+            this.lblhienthi.Text = "hienthi";
+            // 
+            // lblNgay
+            // 
+            this.lblNgay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNgay.AutoSize = true;
+            this.lblNgay.Location = new System.Drawing.Point(48, 65);
+            this.lblNgay.Name = "lblNgay";
+            this.lblNgay.Size = new System.Drawing.Size(44, 18);
+            this.lblNgay.TabIndex = 5;
+            this.lblNgay.Text = "Ngày";
+            // 
+            // lbldonvi
+            // 
+            this.lbldonvi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbldonvi.AutoSize = true;
+            this.lbldonvi.Location = new System.Drawing.Point(43, 99);
+            this.lbldonvi.Name = "lbldonvi";
+            this.lbldonvi.Size = new System.Drawing.Size(54, 18);
+            this.lbldonvi.TabIndex = 7;
+            this.lbldonvi.Text = "Đơn vị";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePicker1.Location = new System.Drawing.Point(153, 61);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(121, 26);
+            this.dateTimePicker1.TabIndex = 6;
             // 
             // dataGridView1
             // 
@@ -90,7 +198,7 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(848, 450);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 2;
             // 
             // colSTT
             // 
@@ -136,102 +244,6 @@
             this.collydo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.collydo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.28042F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.71957F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 71F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(290, 450);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnluu);
-            this.panel1.Controls.Add(this.lblhienthi);
-            this.panel1.Controls.Add(this.lbldonvi);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.lblNgay);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.lblbuoi);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 91);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(284, 284);
-            this.panel1.TabIndex = 8;
-            // 
-            // btnluu
-            // 
-            this.btnluu.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnluu.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnluu.Location = new System.Drawing.Point(99, 207);
-            this.btnluu.Name = "btnluu";
-            this.btnluu.Size = new System.Drawing.Size(75, 37);
-            this.btnluu.TabIndex = 9;
-            this.btnluu.Text = "Lưu";
-            this.btnluu.UseVisualStyleBackColor = false;
-            // 
-            // lblhienthi
-            // 
-            this.lblhienthi.AutoSize = true;
-            this.lblhienthi.Location = new System.Drawing.Point(96, 162);
-            this.lblhienthi.Name = "lblhienthi";
-            this.lblhienthi.Size = new System.Drawing.Size(53, 18);
-            this.lblhienthi.TabIndex = 8;
-            this.lblhienthi.Text = "hienthi";
-            // 
-            // lbldonvi
-            // 
-            this.lbldonvi.AutoSize = true;
-            this.lbldonvi.Location = new System.Drawing.Point(36, 162);
-            this.lbldonvi.Name = "lbldonvi";
-            this.lbldonvi.Size = new System.Drawing.Size(54, 18);
-            this.lbldonvi.TabIndex = 7;
-            this.lbldonvi.Text = "Đơn vị";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(99, 101);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(121, 26);
-            this.dateTimePicker1.TabIndex = 6;
-            // 
-            // lblNgay
-            // 
-            this.lblNgay.AutoSize = true;
-            this.lblNgay.Location = new System.Drawing.Point(39, 101);
-            this.lblNgay.Name = "lblNgay";
-            this.lblNgay.Size = new System.Drawing.Size(44, 18);
-            this.lblNgay.TabIndex = 5;
-            this.lblNgay.Text = "Ngày";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Sáng ",
-            "Trưa",
-            "Chiều"});
-            this.comboBox1.Location = new System.Drawing.Point(99, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 26);
-            this.comboBox1.TabIndex = 4;
-            // 
-            // lblbuoi
-            // 
-            this.lblbuoi.AutoSize = true;
-            this.lblbuoi.Location = new System.Drawing.Point(39, 51);
-            this.lblbuoi.Name = "lblbuoi";
-            this.lblbuoi.Size = new System.Drawing.Size(40, 18);
-            this.lblbuoi.TabIndex = 1;
-            this.lblbuoi.Text = "Buổi";
-            // 
             // frmbqs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -246,10 +258,9 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -257,6 +268,15 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button btnluu;
+        private System.Windows.Forms.Label lblhienthi;
+        private System.Windows.Forms.Label lbldonvi;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label lblNgay;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblbuoi;
+        private System.Windows.Forms.Button btnhienthids;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn colten;
@@ -265,14 +285,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn colan;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colkhongan;
         private System.Windows.Forms.DataGridViewTextBoxColumn collydo;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnluu;
-        private System.Windows.Forms.Label lblhienthi;
-        private System.Windows.Forms.Label lbldonvi;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label lblNgay;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label lblbuoi;
     }
 }

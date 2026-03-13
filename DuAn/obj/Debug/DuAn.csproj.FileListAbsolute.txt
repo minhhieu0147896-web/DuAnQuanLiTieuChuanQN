@@ -79,3 +79,4 @@ D:\13\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResource.cache
 D:\13\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
 D:\13\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 D:\13\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
+D:\13\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmtrangchu.resources
