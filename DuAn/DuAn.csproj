@@ -88,6 +88,12 @@
     <Compile Include="GUI\frmfornhvhc\frm_manhinh_canbodonvi.Designer.cs">
       <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmlogin\frmmhlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmlogin\frmmhlogin.Designer.cs">
+      <DependentUpon>frmmhlogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmnhanvien\frmbaocaoquanso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmfornhvhc\frm_manhinh_canbodonvi.resx">
       <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmlogin\frmmhlogin.resx">
+      <DependentUpon>frmmhlogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmbaocaoquanso.resx">
       <DependentUpon>frmbaocaoquanso.cs</DependentUpon>
