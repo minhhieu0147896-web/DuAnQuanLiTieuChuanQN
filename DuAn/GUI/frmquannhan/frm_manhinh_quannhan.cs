@@ -1,4 +1,5 @@
-﻿using System;
+﻿using frmlogin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -62,6 +63,19 @@ namespace frmquannhan
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không ?", "Xác nhận",
+              MessageBoxButtons.YesNo,
+              MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                frmmhlogin f = new frmmhlogin();
+                f.Show();
+                this.Hide();
+            }
         }
     }
 }

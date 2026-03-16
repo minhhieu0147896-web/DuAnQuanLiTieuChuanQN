@@ -1,4 +1,5 @@
 ﻿using DuAn.GUI.frmfornhvhc;
+using frmlogin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,7 @@ namespace frmfornhvhc
         {
             frmtrangchu f = new frmtrangchu();
             f.MdiParent = this;
-          
+
             this.WindowState = FormWindowState.Maximized;
             f.Show();
 
@@ -46,10 +47,10 @@ namespace frmfornhvhc
             {
                 child.Close();
             }
-            frmLSQS f=new frmLSQS();
+            frmLSQS f = new frmLSQS();
             f.MdiParent = this;
             f.Dock = DockStyle.Fill;
-            f.Show();   
+            f.Show();
 
         }
 
@@ -97,6 +98,20 @@ namespace frmfornhvhc
             f.MdiParent = this;
             f.Dock = DockStyle.Fill;
             f.Show();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không ?", "Xác nhận",
+              MessageBoxButtons.YesNo,
+              MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                frmmhlogin f = new frmmhlogin();
+                f.Show();
+                this.Hide();
+
+            }
         }
     }
 }
