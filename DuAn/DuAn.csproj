@@ -52,36 +52,48 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-	  <Compile Include="GUI\frmfornhvhc\frmbaoquanso.cs">
-		  <SubType>Form</SubType>
-	  </Compile>
-	  <Compile Include="GUI\frmfornhvhc\frmbaoquanso.Designer.cs">
-		  <DependentUpon>frmbaoquanso.cs</DependentUpon>
-	  </Compile>
-	  <Compile Include="GUI\frmfornhvhc\frmbqs.cs">
-		  <SubType>Form</SubType>
-	  </Compile>
-	  <Compile Include="GUI\frmfornhvhc\frmbqs.Designer.cs">
-		  <DependentUpon>frmbqs.cs</DependentUpon>
-	  </Compile>
-	  <Compile Include="GUI\frmfornhvhc\frmdsqn.cs">
-		  <SubType>Form</SubType>
-	  </Compile>
-	  <Compile Include="GUI\frmfornhvhc\frmdsqn.Designer.cs">
-		  <DependentUpon>frmdsqn.cs</DependentUpon>
-	  </Compile>
-	  <Compile Include="GUI\frmfornhvhc\frmLSQS.cs">
-		  <SubType>Form</SubType>
-	  </Compile>
-	  <Compile Include="GUI\frmfornhvhc\frmLSQS.Designer.cs">
-		  <DependentUpon>frmLSQS.cs</DependentUpon>
-	  </Compile>
-	  <Compile Include="GUI\frmfornhvhc\frm_manhinh_canbodonvi.cs">
-		  <SubType>Form</SubType>
-	  </Compile>
-	  <Compile Include="GUI\frmfornhvhc\frm_manhinh_canbodonvi.Designer.cs">
-		  <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmbaoquanso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmbaoquanso.Designer.cs">
+      <DependentUpon>frmbaoquanso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmbqs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmbqs.Designer.cs">
+      <DependentUpon>frmbqs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmdsqn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmdsqn.Designer.cs">
+      <DependentUpon>frmdsqn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmLSQS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmLSQS.Designer.cs">
+      <DependentUpon>frmLSQS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmtrangchu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmtrangchu.Designer.cs">
+      <DependentUpon>frmtrangchu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frm_manhinh_canbodonvi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frm_manhinh_canbodonvi.Designer.cs">
+      <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmlogin\frmmhlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmlogin\frmmhlogin.Designer.cs">
+      <DependentUpon>frmmhlogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmnhanvien\frmbaocaoquanso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,21 +150,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-	  <EmbeddedResource Include="GUI\frmfornhvhc\frmbaoquanso.resx">
-		  <DependentUpon>frmbaoquanso.cs</DependentUpon>
-	  </EmbeddedResource>
-	  <EmbeddedResource Include="GUI\frmfornhvhc\frmbqs.resx">
-		  <DependentUpon>frmbqs.cs</DependentUpon>
-	  </EmbeddedResource>
-	  <EmbeddedResource Include="GUI\frmfornhvhc\frmdsqn.resx">
-		  <DependentUpon>frmdsqn.cs</DependentUpon>
-	  </EmbeddedResource>
-	  <EmbeddedResource Include="GUI\frmfornhvhc\frmLSQS.resx">
-		  <DependentUpon>frmLSQS.cs</DependentUpon>
-	  </EmbeddedResource>
-	  <EmbeddedResource Include="GUI\frmfornhvhc\frm_manhinh_canbodonvi.resx">
-		  <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
-	  </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmfornhvhc\frmbaoquanso.resx">
+      <DependentUpon>frmbaoquanso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmfornhvhc\frmbqs.resx">
+      <DependentUpon>frmbqs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmfornhvhc\frmdsqn.resx">
+      <DependentUpon>frmdsqn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmfornhvhc\frmLSQS.resx">
+      <DependentUpon>frmLSQS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmfornhvhc\frmtrangchu.resx">
+      <DependentUpon>frmtrangchu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmfornhvhc\frm_manhinh_canbodonvi.resx">
+      <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmlogin\frmmhlogin.resx">
+      <DependentUpon>frmmhlogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmbaocaoquanso.resx">
       <DependentUpon>frmbaocaoquanso.cs</DependentUpon>
     </EmbeddedResource>

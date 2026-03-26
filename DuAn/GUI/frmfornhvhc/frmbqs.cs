@@ -16,5 +16,16 @@ namespace frmfornhvhc
         {
             InitializeComponent();
         }
+
+       
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnluu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

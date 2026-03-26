@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using frmlogin;
 
 namespace frmnhanvien
 {
@@ -24,15 +25,27 @@ namespace frmnhanvien
 
         private void danhSáchThựcPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmdsthucpham f= new frmdsthucpham();
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
+            frmdsthucpham f = new frmdsthucpham();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();
         }
 
         private void lậpThựcĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
             frmlapthucdon f = new frmlapthucdon();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();
         }
 
@@ -43,22 +56,40 @@ namespace frmnhanvien
 
         private void tínhThựcPhẩmCầnSửDụngToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
             frmtinhtpcansudung f = new frmtinhtpcansudung();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();
         }
 
         private void báoCáoThựcPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           frmbaocaothucpham f = new frmbaocaothucpham();
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
+            frmbaocaothucpham f = new frmbaocaothucpham();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();
         }
 
         private void báoCáoQuânSốToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
             frmbaocaoquanso f = new frmbaocaoquanso();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();
         }
 
@@ -71,6 +102,20 @@ namespace frmnhanvien
             {
                 Close();
             }
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không ?","Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (result==DialogResult.Yes)
+            {
+                frmmhlogin f = new frmmhlogin();
+                f.Show();
+                this.Hide();
+            }
+
         }
     }
 }

@@ -72,13 +72,14 @@
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -116,7 +117,7 @@
             // lậpThựcĐơnToolStripMenuItem
             // 
             this.lậpThựcĐơnToolStripMenuItem.Name = "lậpThựcĐơnToolStripMenuItem";
-            this.lậpThựcĐơnToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.lậpThựcĐơnToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
             this.lậpThựcĐơnToolStripMenuItem.Text = "Lập thực đơn";
             this.lậpThựcĐơnToolStripMenuItem.Click += new System.EventHandler(this.lậpThựcĐơnToolStripMenuItem_Click);
             // 
@@ -151,7 +152,7 @@
             this.báoCáoQuânSốToolStripMenuItem.Text = "Báo cáo quân số";
             this.báoCáoQuânSốToolStripMenuItem.Click += new System.EventHandler(this.báoCáoQuânSốToolStripMenuItem_Click);
             // 
-            // frmnhanvien
+            // frm_manhinh_nhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -160,8 +161,9 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmnhanvien";
+            this.Name = "frm_manhinh_nhanvien";
             this.Text = "Nhân viên hậu cần";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

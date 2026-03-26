@@ -1,4 +1,5 @@
-﻿using System;
+﻿using frmlogin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,15 +25,27 @@ namespace frmquannhan
 
         private void tiêuChuẩnĂnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
             frmtracuutieuchuanan f = new frmtracuutieuchuanan();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();
         }
 
         private void lịchSửCắtCơmToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
             frmlichsucatcom f = new frmlichsucatcom();
             f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
             f.Show();
         }
 
@@ -44,6 +57,24 @@ namespace frmquannhan
             if (result == DialogResult.Yes)
             {
                 Close();
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không ?", "Xác nhận",
+              MessageBoxButtons.YesNo,
+              MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                frmmhlogin f = new frmmhlogin();
+                f.Show();
+                this.Hide();
             }
         }
     }
