@@ -11,6 +11,23 @@ namespace DuAn.DAO
 {
     internal class DataProvider
     {
+        // Bước 1: Biến lưu instance duy nhất
+        private static DataProvider _instance;
+
+        // Bước 2: Property để truy cập instance từ bên ngoài
+        public static DataProvider Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new DataProvider();
+                return _instance;
+            }
+        }
+
+        // Bước 3: Constructor private - khóa không cho tạo bằng "new" từ bên ngoài
+        private DataProvider() { }
+
         private string connectionString = "Data Source=localhost\\ SQLEXPRESS;Initial Catalog=Quan_li_tieu_chuan_QN;Integrated Security=True;Encrypt=False";
         public DataTable ExecuteQuery(string query)
         {
