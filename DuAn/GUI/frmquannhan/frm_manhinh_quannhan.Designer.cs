@@ -40,14 +40,14 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hệThốngToolStripMenuItem,
             this.traCứuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(711, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -58,21 +58,21 @@
             this.đăngXuấtToolStripMenuItem,
             this.thoátToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
+            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             this.hệThốngToolStripMenuItem.Click += new System.EventHandler(this.hệThốngToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -82,28 +82,28 @@
             this.tiêuChuẩnĂnToolStripMenuItem,
             this.lịchSửCắtCơmToolStripMenuItem});
             this.traCứuToolStripMenuItem.Name = "traCứuToolStripMenuItem";
-            this.traCứuToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
+            this.traCứuToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.traCứuToolStripMenuItem.Text = "Tra cứu";
             // 
             // tiêuChuẩnĂnToolStripMenuItem
             // 
             this.tiêuChuẩnĂnToolStripMenuItem.Name = "tiêuChuẩnĂnToolStripMenuItem";
-            this.tiêuChuẩnĂnToolStripMenuItem.Size = new System.Drawing.Size(236, 34);
+            this.tiêuChuẩnĂnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.tiêuChuẩnĂnToolStripMenuItem.Text = "Tiêu chuẩn ăn";
             this.tiêuChuẩnĂnToolStripMenuItem.Click += new System.EventHandler(this.tiêuChuẩnĂnToolStripMenuItem_Click);
             // 
             // lịchSửCắtCơmToolStripMenuItem
             // 
             this.lịchSửCắtCơmToolStripMenuItem.Name = "lịchSửCắtCơmToolStripMenuItem";
-            this.lịchSửCắtCơmToolStripMenuItem.Size = new System.Drawing.Size(236, 34);
+            this.lịchSửCắtCơmToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.lịchSửCắtCơmToolStripMenuItem.Text = "Lịch sử cắt cơm";
             this.lịchSửCắtCơmToolStripMenuItem.Click += new System.EventHandler(this.lịchSửCắtCơmToolStripMenuItem_Click);
             // 
             // frm_manhinh_quannhan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 400);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
