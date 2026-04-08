@@ -20,7 +20,7 @@ namespace DuAn
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_manhinh_quannhan());
+            Application.Run(new frmmhlogin());
         }
     }
 }

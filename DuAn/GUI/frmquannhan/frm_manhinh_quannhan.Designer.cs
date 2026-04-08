@@ -175,8 +175,9 @@
             this.hethongcontainer.Controls.Add(this.panel7);
             this.hethongcontainer.Location = new System.Drawing.Point(3, 82);
             this.hethongcontainer.Name = "hethongcontainer";
-            this.hethongcontainer.Size = new System.Drawing.Size(247, 232);
+            this.hethongcontainer.Size = new System.Drawing.Size(247, 76);
             this.hethongcontainer.TabIndex = 9;
+            this.hethongcontainer.Paint += new System.Windows.Forms.PaintEventHandler(this.hethongcontainer_Paint);
             // 
             // panel2
             // 

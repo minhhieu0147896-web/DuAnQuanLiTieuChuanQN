@@ -45,7 +45,7 @@ namespace frmlogin
             else
             {
                 MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               frm_manhinh_quannhan frm = new frm_manhinh_quannhan();
+               frm_manhinh_canbodonvi frm = new frm_manhinh_canbodonvi();
               //  frm_manhinh_canbodonvi  frm = new frm_manhinh_canbodonvi();
                 frm.Show();
                 this.Hide();

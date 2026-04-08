@@ -131,6 +131,11 @@ namespace DuAn.GUI.frmquannhan
             }
 
         }
+
+        private void hethongcontainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

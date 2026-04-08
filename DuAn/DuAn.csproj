@@ -52,12 +52,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmfornhvhc\frmbaoquanso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmfornhvhc\frmbaoquanso.Designer.cs">
-      <DependentUpon>frmbaoquanso.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\frmfornhvhc\frmbqs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,9 +144,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\frmfornhvhc\frmbaoquanso.resx">
-      <DependentUpon>frmbaoquanso.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmfornhvhc\frmbqs.resx">
       <DependentUpon>frmbqs.cs</DependentUpon>
     </EmbeddedResource>

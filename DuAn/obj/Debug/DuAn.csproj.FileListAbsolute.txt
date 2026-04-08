@@ -111,7 +111,6 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
 D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.AssemblyReference.cache
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmbaoquanso.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmbqs.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmddtc.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmLSQS.resources
