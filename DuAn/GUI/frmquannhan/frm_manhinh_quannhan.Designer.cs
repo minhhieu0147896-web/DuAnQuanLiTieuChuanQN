@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_manhinh_quannhan));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnHam = new System.Windows.Forms.PictureBox();
             this.lblgioithieu = new System.Windows.Forms.Label();
+            this.btnHam = new System.Windows.Forms.PictureBox();
             this.slidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlichsucatcom = new System.Windows.Forms.FlowLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -91,6 +91,16 @@
             this.panel1.Size = new System.Drawing.Size(1195, 54);
             this.panel1.TabIndex = 0;
             // 
+            // lblgioithieu
+            // 
+            this.lblgioithieu.AutoSize = true;
+            this.lblgioithieu.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgioithieu.Location = new System.Drawing.Point(42, 15);
+            this.lblgioithieu.Name = "lblgioithieu";
+            this.lblgioithieu.Size = new System.Drawing.Size(582, 21);
+            this.lblgioithieu.TabIndex = 2;
+            this.lblgioithieu.Text = "Phần mềm kiểm soát chế độ, tiêu chuẩn ăn của quân nhân | Quân nhân";
+            // 
             // btnHam
             // 
             this.btnHam.Image = ((System.Drawing.Image)(resources.GetObject("btnHam.Image")));
@@ -102,16 +112,6 @@
             this.btnHam.TabStop = false;
             this.btnHam.Click += new System.EventHandler(this.btnHam_Click);
             // 
-            // lblgioithieu
-            // 
-            this.lblgioithieu.AutoSize = true;
-            this.lblgioithieu.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblgioithieu.Location = new System.Drawing.Point(42, 15);
-            this.lblgioithieu.Name = "lblgioithieu";
-            this.lblgioithieu.Size = new System.Drawing.Size(582, 21);
-            this.lblgioithieu.TabIndex = 2;
-            this.lblgioithieu.Text = "Phần mềm kiểm soát chế độ, tiêu chuẩn ăn của quân nhân | Quân nhân";
-            // 
             // slidebar
             // 
             this.slidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
@@ -120,7 +120,7 @@
             this.slidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.slidebar.Location = new System.Drawing.Point(0, 54);
             this.slidebar.Name = "slidebar";
-            this.slidebar.Size = new System.Drawing.Size(247, 628);
+            this.slidebar.Size = new System.Drawing.Size(251, 628);
             this.slidebar.TabIndex = 2;
             // 
             // pnlichsucatcom
@@ -175,7 +175,7 @@
             this.hethongcontainer.Controls.Add(this.panel7);
             this.hethongcontainer.Location = new System.Drawing.Point(3, 82);
             this.hethongcontainer.Name = "hethongcontainer";
-            this.hethongcontainer.Size = new System.Drawing.Size(247, 67);
+            this.hethongcontainer.Size = new System.Drawing.Size(247, 232);
             this.hethongcontainer.TabIndex = 9;
             // 
             // panel2
@@ -186,7 +186,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(344, 67);
+            this.panel2.Size = new System.Drawing.Size(318, 67);
             this.panel2.TabIndex = 4;
             // 
             // pictureBox2
@@ -224,7 +224,7 @@
             this.panel3.Location = new System.Drawing.Point(3, 76);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(344, 67);
+            this.panel3.Size = new System.Drawing.Size(318, 67);
             this.panel3.TabIndex = 7;
             // 
             // panel4
@@ -362,7 +362,7 @@
             this.panel7.Location = new System.Drawing.Point(3, 149);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel7.Size = new System.Drawing.Size(342, 59);
+            this.panel7.Size = new System.Drawing.Size(316, 59);
             this.panel7.TabIndex = 6;
             // 
             // pictureBox7

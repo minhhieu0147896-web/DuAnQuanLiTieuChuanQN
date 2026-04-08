@@ -7,6 +7,7 @@ using frmnhanvien;
 using frmfornhvhc;
 using frmquannhan;
 using frmlogin;
+using DuAn.GUI.frmquannhan;
 namespace DuAn
 {
     internal static class Program
@@ -19,7 +20,7 @@ namespace DuAn
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmmhlogin());
+            Application.Run(new frm_manhinh_quannhan());
         }
     }
 }

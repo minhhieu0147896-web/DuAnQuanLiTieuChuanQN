@@ -194,7 +194,7 @@ namespace frmfornhvhc
                 flsqs.MdiParent = this;
 
                 flsqs.Dock = DockStyle.Fill;
-                fbqs.FormClosed += (s, args) => flsqs = null;
+           
                 flsqs.Show();
             }
         }

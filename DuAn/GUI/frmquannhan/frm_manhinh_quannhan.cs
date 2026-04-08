@@ -51,7 +51,7 @@ namespace DuAn.GUI.frmquannhan
             if (hethongExpand == false)
             {
                 hethongcontainer.Height += 5;
-                if (hethongcontainer.Height >= 217)
+                if (hethongcontainer.Height >= 140)
                 {
                     hethongtrasition.Stop();
                     hethongExpand = true;
@@ -60,7 +60,7 @@ namespace DuAn.GUI.frmquannhan
             else
             {
                 hethongcontainer.Height -= 5;
-                if (hethongcontainer.Height <= 67)
+                if (hethongcontainer.Height <= 50)
                 {
                     hethongtrasition.Stop();
                     hethongExpand = false;
@@ -73,7 +73,7 @@ namespace DuAn.GUI.frmquannhan
             if (slidebarExpand)
             {
                 slidebar.Width -= 10;
-                if (slidebar.Width <= 67)
+                if (slidebar.Width <= 50)
                 {
                     slidebarExpand = false;
                     slidebartransition.Stop();
@@ -86,7 +86,7 @@ namespace DuAn.GUI.frmquannhan
             else
             {
                 slidebar.Width += 10;
-                if (slidebar.Width >= 247)
+                if (slidebar.Width >= 170)
                 {
                     slidebarExpand = true;
                     slidebartransition.Stop();
