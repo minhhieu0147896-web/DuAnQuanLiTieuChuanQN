@@ -126,9 +126,9 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmtinhtpcansudung.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frm_manhinh_nhanvien.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmlichsucatcom.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmtracuutieuchuanan.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frm_manhinh_quannhan.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.Properties.Resources.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResource.cache
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frm_manhinh_quannhan.resources

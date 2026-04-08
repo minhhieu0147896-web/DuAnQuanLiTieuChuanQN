@@ -50,9 +50,9 @@
             this.pnlogin.Controls.Add(this.label3);
             this.pnlogin.Controls.Add(this.label2);
             this.pnlogin.Controls.Add(this.textBox1);
-            this.pnlogin.Location = new System.Drawing.Point(243, 95);
+            this.pnlogin.Location = new System.Drawing.Point(219, 95);
             this.pnlogin.Name = "pnlogin";
-            this.pnlogin.Size = new System.Drawing.Size(478, 400);
+            this.pnlogin.Size = new System.Drawing.Size(502, 400);
             this.pnlogin.TabIndex = 6;
             this.pnlogin.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
@@ -61,7 +61,7 @@
             this.lbldangnhap.AutoSize = true;
             this.lbldangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldangnhap.ForeColor = System.Drawing.Color.Transparent;
-            this.lbldangnhap.Location = new System.Drawing.Point(162, 64);
+            this.lbldangnhap.Location = new System.Drawing.Point(193, 64);
             this.lbldangnhap.Name = "lbldangnhap";
             this.lbldangnhap.Size = new System.Drawing.Size(162, 32);
             this.lbldangnhap.TabIndex = 10;
@@ -73,7 +73,7 @@
             this.button2.BackColor = System.Drawing.Color.IndianRed;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.button2.Location = new System.Drawing.Point(265, 262);
+            this.button2.Location = new System.Drawing.Point(305, 262);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 36);
             this.button2.TabIndex = 9;
@@ -87,7 +87,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(94, 262);
+            this.button1.Location = new System.Drawing.Point(133, 262);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 36);
             this.button1.TabIndex = 8;
@@ -98,10 +98,10 @@
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(150, 192);
+            this.textBox3.Location = new System.Drawing.Point(168, 191);
             this.textBox3.Name = "textBox3";
             this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(292, 19);
+            this.textBox3.Size = new System.Drawing.Size(304, 19);
             this.textBox3.TabIndex = 7;
             // 
             // label3
@@ -133,9 +133,9 @@
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(150, 143);
+            this.textBox1.Location = new System.Drawing.Point(168, 142);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(292, 19);
+            this.textBox1.Size = new System.Drawing.Size(304, 19);
             this.textBox1.TabIndex = 1;
             // 
             // frmmhlogin

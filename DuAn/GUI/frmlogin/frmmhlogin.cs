@@ -1,5 +1,6 @@
 ﻿using frmnhanvien;
 using frmquannhan;
+using frmfornhvhc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DuAn.GUI.frmquannhan;
 
 namespace frmlogin
 {
@@ -43,7 +45,8 @@ namespace frmlogin
             else
             {
                 MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frm_manhinh_nhanvien frm = new frm_manhinh_nhanvien();
+               frm_manhinh_quannhan frm = new frm_manhinh_quannhan();
+              //  frm_manhinh_canbodonvi  frm = new frm_manhinh_canbodonvi();
                 frm.Show();
                 this.Hide();
 
@@ -110,7 +113,8 @@ namespace frmlogin
             else
             {
                 MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frm_manhinh_nhanvien frm = new frm_manhinh_nhanvien();
+              //  frm_manhinh_quannhan frm = new frm_manhinh_quannhan();
+                frm_manhinh_canbodonvi frm = new frm_manhinh_canbodonvi();
                 frm.Show();
                 this.Hide();
 

@@ -130,12 +130,6 @@
     <Compile Include="GUI\frmnhanvien\frm_manhinh_nhanvien.Designer.cs">
       <DependentUpon>frm_manhinh_nhanvien.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmquannhan\frm_manhinh_quannhan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmquannhan\frm_manhinh_quannhan.Designer.cs">
-      <DependentUpon>frm_manhinh_quannhan.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\frmquannhan\frmlichsucatcom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +141,12 @@
     </Compile>
     <Compile Include="GUI\frmquannhan\frmtracuutieuchuanan.Designer.cs">
       <DependentUpon>frmtracuutieuchuanan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmquannhan\frm_manhinh_quannhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmquannhan\frm_manhinh_quannhan.Designer.cs">
+      <DependentUpon>frm_manhinh_quannhan.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

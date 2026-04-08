@@ -117,5 +117,10 @@ namespace frmnhanvien
             }
 
         }
+
+        private void frm_manhinh_nhanvien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
