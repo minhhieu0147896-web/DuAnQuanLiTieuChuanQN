@@ -98,5 +98,10 @@ namespace DuAn.DAO
 
             return result;
         }
+
+        public SqlConnection GetConnection()
+        {
+            return new SqlConnection(connectionString);
+        }
     }
 }

@@ -106,3 +106,5 @@ D:\1_github\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResource.ca
 D:\1_github\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
 D:\1_github\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 D:\1_github\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmtrangchu.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmlogin.frmmhlogin.resources
