@@ -131,3 +131,4 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frm_manhinh_quannhan.resources
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.ucgiaodienchinh.resources

@@ -82,6 +82,12 @@
     <Compile Include="GUI\frmfornhvhc\frm_manhinh_canbodonvi.Designer.cs">
       <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmfornhvhc\ucgiaodienchinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\ucgiaodienchinh.Designer.cs">
+      <DependentUpon>ucgiaodienchinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmlogin\frmmhlogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmfornhvhc\frm_manhinh_canbodonvi.resx">
       <DependentUpon>frm_manhinh_canbodonvi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmfornhvhc\ucgiaodienchinh.resx">
+      <DependentUpon>ucgiaodienchinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmlogin\frmmhlogin.resx">
       <DependentUpon>frmmhlogin.cs</DependentUpon>
