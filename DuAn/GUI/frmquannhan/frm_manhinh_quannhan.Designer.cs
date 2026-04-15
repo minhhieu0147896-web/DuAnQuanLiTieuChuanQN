@@ -122,6 +122,7 @@
             this.slidebar.Name = "slidebar";
             this.slidebar.Size = new System.Drawing.Size(251, 628);
             this.slidebar.TabIndex = 2;
+            this.slidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.slidebar_Paint);
             // 
             // pnlichsucatcom
             // 

@@ -151,7 +151,7 @@
             this.lbltieude.AutoSize = true;
             this.lbltieude.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltieude.ForeColor = System.Drawing.Color.White;
-            this.lbltieude.Location = new System.Drawing.Point(540, 24);
+            this.lbltieude.Location = new System.Drawing.Point(460, 20);
             this.lbltieude.Name = "lbltieude";
             this.lbltieude.Size = new System.Drawing.Size(375, 45);
             this.lbltieude.TabIndex = 0;
