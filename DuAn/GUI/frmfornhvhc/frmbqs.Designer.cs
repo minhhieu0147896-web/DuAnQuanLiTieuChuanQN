@@ -286,6 +286,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlfilter);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmbqs";
             this.Text = "Báo quân số";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

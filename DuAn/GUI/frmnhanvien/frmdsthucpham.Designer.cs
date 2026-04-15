@@ -37,20 +37,20 @@
             this.pntieude = new System.Windows.Forms.Panel();
             this.lbltieude = new System.Windows.Forms.Label();
             this.pnlluachon = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtkcal = new System.Windows.Forms.TextBox();
+            this.txtdonvi = new System.Windows.Forms.TextBox();
+            this.txtgia = new System.Windows.Forms.TextBox();
+            this.txtten = new System.Windows.Forms.TextBox();
+            this.lblkcal = new System.Windows.Forms.Label();
+            this.lbldonvi = new System.Windows.Forms.Label();
+            this.lblgia = new System.Windows.Forms.Label();
+            this.lblten = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btntracuu = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblten = new System.Windows.Forms.Label();
-            this.lblgia = new System.Windows.Forms.Label();
-            this.lbldonvi = new System.Windows.Forms.Label();
-            this.lblkcal = new System.Windows.Forms.Label();
-            this.txtten = new System.Windows.Forms.TextBox();
-            this.txtgia = new System.Windows.Forms.TextBox();
-            this.txtdonvi = new System.Windows.Forms.TextBox();
-            this.txtkcal = new System.Windows.Forms.TextBox();
             this.pndata = new System.Windows.Forms.Panel();
             this.dgvlscc = new System.Windows.Forms.DataGridView();
             this.colstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,9 +60,9 @@
             this.coltkcal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pntieude.SuspendLayout();
             this.pnlluachon.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel2.SuspendLayout();
             this.pndata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).BeginInit();
             this.SuspendLayout();
@@ -124,6 +124,86 @@
             this.pnlluachon.Size = new System.Drawing.Size(1078, 183);
             this.pnlluachon.TabIndex = 4;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtkcal);
+            this.panel2.Controls.Add(this.txtdonvi);
+            this.panel2.Controls.Add(this.txtgia);
+            this.panel2.Controls.Add(this.txtten);
+            this.panel2.Controls.Add(this.lblkcal);
+            this.panel2.Controls.Add(this.lbldonvi);
+            this.panel2.Controls.Add(this.lblgia);
+            this.panel2.Controls.Add(this.lblten);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(735, 183);
+            this.panel2.TabIndex = 7;
+            // 
+            // txtkcal
+            // 
+            this.txtkcal.Location = new System.Drawing.Point(98, 138);
+            this.txtkcal.Name = "txtkcal";
+            this.txtkcal.Size = new System.Drawing.Size(482, 26);
+            this.txtkcal.TabIndex = 8;
+            // 
+            // txtdonvi
+            // 
+            this.txtdonvi.Location = new System.Drawing.Point(98, 99);
+            this.txtdonvi.Name = "txtdonvi";
+            this.txtdonvi.Size = new System.Drawing.Size(482, 26);
+            this.txtdonvi.TabIndex = 7;
+            // 
+            // txtgia
+            // 
+            this.txtgia.Location = new System.Drawing.Point(98, 60);
+            this.txtgia.Name = "txtgia";
+            this.txtgia.Size = new System.Drawing.Size(482, 26);
+            this.txtgia.TabIndex = 6;
+            // 
+            // txtten
+            // 
+            this.txtten.Location = new System.Drawing.Point(98, 21);
+            this.txtten.Name = "txtten";
+            this.txtten.Size = new System.Drawing.Size(482, 26);
+            this.txtten.TabIndex = 5;
+            // 
+            // lblkcal
+            // 
+            this.lblkcal.AutoSize = true;
+            this.lblkcal.Location = new System.Drawing.Point(33, 138);
+            this.lblkcal.Name = "lblkcal";
+            this.lblkcal.Size = new System.Drawing.Size(39, 20);
+            this.lblkcal.TabIndex = 4;
+            this.lblkcal.Text = "Kcal";
+            // 
+            // lbldonvi
+            // 
+            this.lbldonvi.AutoSize = true;
+            this.lbldonvi.Location = new System.Drawing.Point(33, 100);
+            this.lbldonvi.Name = "lbldonvi";
+            this.lbldonvi.Size = new System.Drawing.Size(53, 20);
+            this.lbldonvi.TabIndex = 3;
+            this.lbldonvi.Text = "Đơn vị";
+            // 
+            // lblgia
+            // 
+            this.lblgia.AutoSize = true;
+            this.lblgia.Location = new System.Drawing.Point(33, 62);
+            this.lblgia.Name = "lblgia";
+            this.lblgia.Size = new System.Drawing.Size(34, 20);
+            this.lblgia.TabIndex = 2;
+            this.lblgia.Text = "Giá";
+            // 
+            // lblten
+            // 
+            this.lblten.AutoSize = true;
+            this.lblten.Location = new System.Drawing.Point(33, 24);
+            this.lblten.Name = "lblten";
+            this.lblten.Size = new System.Drawing.Size(36, 20);
+            this.lblten.TabIndex = 0;
+            this.lblten.Text = "Tên";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button2);
@@ -136,6 +216,26 @@
             this.panel1.Size = new System.Drawing.Size(343, 183);
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LightCoral;
+            this.button2.Location = new System.Drawing.Point(107, 106);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(129, 58);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "  Xóa";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightGreen;
+            this.button1.Location = new System.Drawing.Point(25, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 58);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Thêm";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
             // 
@@ -157,106 +257,6 @@
             this.btntracuu.TabIndex = 9;
             this.btntracuu.Text = "  Tra cứu";
             this.btntracuu.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightGreen;
-            this.button1.Location = new System.Drawing.Point(25, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 58);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.LightCoral;
-            this.button2.Location = new System.Drawing.Point(107, 106);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 58);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "  Xóa";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.txtkcal);
-            this.panel2.Controls.Add(this.txtdonvi);
-            this.panel2.Controls.Add(this.txtgia);
-            this.panel2.Controls.Add(this.txtten);
-            this.panel2.Controls.Add(this.lblkcal);
-            this.panel2.Controls.Add(this.lbldonvi);
-            this.panel2.Controls.Add(this.lblgia);
-            this.panel2.Controls.Add(this.lblten);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(735, 183);
-            this.panel2.TabIndex = 7;
-            // 
-            // lblten
-            // 
-            this.lblten.AutoSize = true;
-            this.lblten.Location = new System.Drawing.Point(33, 24);
-            this.lblten.Name = "lblten";
-            this.lblten.Size = new System.Drawing.Size(36, 20);
-            this.lblten.TabIndex = 0;
-            this.lblten.Text = "Tên";
-            // 
-            // lblgia
-            // 
-            this.lblgia.AutoSize = true;
-            this.lblgia.Location = new System.Drawing.Point(33, 62);
-            this.lblgia.Name = "lblgia";
-            this.lblgia.Size = new System.Drawing.Size(34, 20);
-            this.lblgia.TabIndex = 2;
-            this.lblgia.Text = "Giá";
-            // 
-            // lbldonvi
-            // 
-            this.lbldonvi.AutoSize = true;
-            this.lbldonvi.Location = new System.Drawing.Point(33, 100);
-            this.lbldonvi.Name = "lbldonvi";
-            this.lbldonvi.Size = new System.Drawing.Size(53, 20);
-            this.lbldonvi.TabIndex = 3;
-            this.lbldonvi.Text = "Đơn vị";
-            // 
-            // lblkcal
-            // 
-            this.lblkcal.AutoSize = true;
-            this.lblkcal.Location = new System.Drawing.Point(33, 138);
-            this.lblkcal.Name = "lblkcal";
-            this.lblkcal.Size = new System.Drawing.Size(39, 20);
-            this.lblkcal.TabIndex = 4;
-            this.lblkcal.Text = "Kcal";
-            // 
-            // txtten
-            // 
-            this.txtten.Location = new System.Drawing.Point(98, 21);
-            this.txtten.Name = "txtten";
-            this.txtten.Size = new System.Drawing.Size(482, 26);
-            this.txtten.TabIndex = 5;
-            // 
-            // txtgia
-            // 
-            this.txtgia.Location = new System.Drawing.Point(98, 60);
-            this.txtgia.Name = "txtgia";
-            this.txtgia.Size = new System.Drawing.Size(482, 26);
-            this.txtgia.TabIndex = 6;
-            // 
-            // txtdonvi
-            // 
-            this.txtdonvi.Location = new System.Drawing.Point(98, 99);
-            this.txtdonvi.Name = "txtdonvi";
-            this.txtdonvi.Size = new System.Drawing.Size(482, 26);
-            this.txtdonvi.TabIndex = 7;
-            // 
-            // txtkcal
-            // 
-            this.txtkcal.Location = new System.Drawing.Point(98, 138);
-            this.txtkcal.Name = "txtkcal";
-            this.txtkcal.Size = new System.Drawing.Size(482, 26);
-            this.txtkcal.TabIndex = 8;
             // 
             // pndata
             // 
@@ -355,10 +355,10 @@
             this.pntieude.ResumeLayout(false);
             this.pntieude.PerformLayout();
             this.pnlluachon.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pndata.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).EndInit();
             this.ResumeLayout(false);
