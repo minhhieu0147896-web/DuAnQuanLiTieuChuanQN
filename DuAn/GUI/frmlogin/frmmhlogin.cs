@@ -35,24 +35,7 @@ namespace frmlogin
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if(string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox3.Text))
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin đăng nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               frm_manhinh_canbodonvi frm = new frm_manhinh_canbodonvi();
-              //  frm_manhinh_canbodonvi  frm = new frm_manhinh_canbodonvi();
-                frm.Show();
-                this.Hide();
-
-                // connect form login vs form khac o day
-            }
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -124,7 +107,7 @@ namespace frmlogin
                 return;
             }
 
-            MessageBox.Show($"Đăng nhập thành công! Xin chào {acc.HoTen}",
+            MessageBox.Show($"Đăng nhập thành công! Xin chào {acc.TenDangNhap}",
                             "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Phân quyền theo vai_tro
