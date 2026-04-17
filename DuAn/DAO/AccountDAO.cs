@@ -48,12 +48,10 @@ namespace DuAn.DAO
                         {
                             return new AccountModel
                             {
-                                MaTK = (int)reader["tai_khoan_id"],
-                                TenDangNhap = reader["ten_dang_nhap"].ToString(),
-                                VaiTro = (int)reader["vai_tro"],
-                                HoTen = reader["ho_ten"].ToString(),
-                                // Đọc thêm daidoi_id (Kiểm tra DBNull nếu cột này Allow Nulls, nếu không thì ép kiểu trực tiếp)
-                                DaiDoiId = reader["daidoi_id"] != DBNull.Value ? (int)reader["daidoi_id"] : 0
+                                MaTK = (int)reader["user_id"],
+                                TenDangNhap = reader["user_taikhoan"].ToString(),
+                                VaiTro = (int)reader["user_vai_tro"],
+                                
                             };
                         }
                     }

@@ -131,7 +131,7 @@ namespace frmlogin
             // Thay số 1/2 cho đúng với giá trị thực tế trong DB của bạn
             if (acc.VaiTro == 1) // QuanNhan
             {
-                frmquannhan.frm_manhinh_quannhan frm = new frmquannhan.frm_manhinh_quannhan();
+                DuAn.GUI.frmquannhan.frm_manhinh_quannhan frm = new DuAn.GUI.frmquannhan.frm_manhinh_quannhan();
                 frm.Show();
             }
             else if (acc.VaiTro == 2) // NhanVien
