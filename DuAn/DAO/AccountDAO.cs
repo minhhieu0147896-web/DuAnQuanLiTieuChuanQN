@@ -28,11 +28,11 @@ namespace DuAn.DAO
         // Đổi return type từ bool → AccountModel để lấy được VaiTro
         public AccountModel Login(string username, string password)
         {
-            string query = @"SELECT tai_khoan_id, ten_dang_nhap, vai_tro, ho_ten, daidoi_id
-                             FROM   [dbo].[TAI_KHOAN]
-                             WHERE  ten_dang_nhap = @username
-                               AND  mat_khau     = @password
-                               AND  is_active    = 1";
+            string query = @"SELECT user_id, user_taikhoan, user_vai_tro, user_mat_khau
+                             FROM   [dbo].[User]
+                             WHERE  user_taikhoan = @username
+                               AND  mat_khau     = @password";
+                             
 
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {

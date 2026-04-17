@@ -104,22 +104,50 @@ namespace frmlogin
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            button1.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox3.Text))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin đăng nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin đăng nhập",
+                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            // Gọi DAO để xác thực
+            DuAn.DAO.AccountModel acc = DuAn.DAO.AccountDAO.Instance.Login(
+                textBox1.Text.Trim(),
+                textBox3.Text.Trim()
+            );
+
+            if (acc == null)
+            {
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!",
+                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show($"Đăng nhập thành công! Xin chào {acc.HoTen}",
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Phân quyền theo vai_tro
+            // Thay số 1/2 cho đúng với giá trị thực tế trong DB của bạn
+            if (acc.VaiTro == 1) // QuanNhan
+            {
+                frmquannhan.frm_manhinh_quannhan frm = new frmquannhan.frm_manhinh_quannhan();
+                frm.Show();
+            }
+            else if (acc.VaiTro == 2) // NhanVien
+            {
+                frmnhanvien.frm_manhinh_nhanvien frm = new frmnhanvien.frm_manhinh_nhanvien();
+                frm.Show();
             }
             else
             {
-                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-              //  frm_manhinh_quannhan frm = new frm_manhinh_quannhan();
-                frm_manhinh_canbodonvi frm = new frm_manhinh_canbodonvi();
-                frm.Show();
-                this.Hide();
-
-                // connect form login vs form khac o day
+                MessageBox.Show("Vai trò không hợp lệ!", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            this.Hide();
+
         }
 
         private void lbldangnhap_Click(object sender, EventArgs e)
