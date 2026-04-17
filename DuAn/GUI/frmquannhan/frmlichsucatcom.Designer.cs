@@ -42,12 +42,12 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lbldenngay = new System.Windows.Forms.Label();
             this.lbltungay = new System.Windows.Forms.Label();
-            this.pnllscc = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnltogtien = new System.Windows.Forms.Panel();
-            this.lbltong = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblsum = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbltong = new System.Windows.Forms.Label();
+            this.pnllscc = new System.Windows.Forms.Panel();
             this.dgvlscc = new System.Windows.Forms.DataGridView();
             this.colstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,10 +58,10 @@
             this.pnlluachon.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.pnllscc.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnltogtien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnllscc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,17 +168,6 @@
             this.lbltungay.TabIndex = 5;
             this.lbltungay.Text = "Từ ngày";
             // 
-            // pnllscc
-            // 
-            this.pnllscc.Controls.Add(this.panel4);
-            this.pnllscc.Controls.Add(this.dgvlscc);
-            this.pnllscc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnllscc.Location = new System.Drawing.Point(0, 140);
-            this.pnllscc.Name = "pnllscc";
-            this.pnllscc.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.pnllscc.Size = new System.Drawing.Size(916, 408);
-            this.pnllscc.TabIndex = 2;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.pnltogtien);
@@ -200,6 +189,28 @@
             this.pnltogtien.Size = new System.Drawing.Size(363, 50);
             this.pnltogtien.TabIndex = 3;
             // 
+            // lblsum
+            // 
+            this.lblsum.AutoSize = true;
+            this.lblsum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.lblsum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.lblsum.Location = new System.Drawing.Point(265, 11);
+            this.lblsum.Name = "lblsum";
+            this.lblsum.Size = new System.Drawing.Size(87, 29);
+            this.lblsum.TabIndex = 1;
+            this.lblsum.Text = "0 VND";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // lbltong
             // 
             this.lbltong.AutoSize = true;
@@ -212,27 +223,16 @@
             this.lbltong.TabIndex = 0;
             this.lbltong.Text = "Tổng tiền cắt cơm";
             // 
-            // pictureBox1
+            // pnllscc
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lblsum
-            // 
-            this.lblsum.AutoSize = true;
-            this.lblsum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.lblsum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.lblsum.Location = new System.Drawing.Point(265, 11);
-            this.lblsum.Name = "lblsum";
-            this.lblsum.Size = new System.Drawing.Size(87, 29);
-            this.lblsum.TabIndex = 1;
-            this.lblsum.Text = "0 VND";
+            this.pnllscc.Controls.Add(this.dgvlscc);
+            this.pnllscc.Controls.Add(this.panel4);
+            this.pnllscc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnllscc.Location = new System.Drawing.Point(0, 140);
+            this.pnllscc.Name = "pnllscc";
+            this.pnllscc.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnllscc.Size = new System.Drawing.Size(916, 408);
+            this.pnllscc.TabIndex = 2;
             // 
             // dgvlscc
             // 
@@ -269,8 +269,8 @@
             this.dgvlscc.Name = "dgvlscc";
             this.dgvlscc.RowHeadersWidth = 62;
             this.dgvlscc.RowTemplate.Height = 28;
-            this.dgvlscc.Size = new System.Drawing.Size(906, 408);
-            this.dgvlscc.TabIndex = 0;
+            this.dgvlscc.Size = new System.Drawing.Size(906, 358);
+            this.dgvlscc.TabIndex = 3;
             // 
             // colstt
             // 
@@ -322,11 +322,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.pnllscc.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.pnltogtien.ResumeLayout(false);
             this.pnltogtien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnllscc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).EndInit();
             this.ResumeLayout(false);
 
@@ -337,6 +337,18 @@
         private System.Windows.Forms.Panel pnltieude;
         private System.Windows.Forms.Label lbllscc;
         private System.Windows.Forms.Panel pnlluachon;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btntracuu;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label lbldenngay;
+        private System.Windows.Forms.Label lbltungay;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnltogtien;
+        private System.Windows.Forms.Label lbltong;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblsum;
         private System.Windows.Forms.Panel pnllscc;
         private System.Windows.Forms.DataGridView dgvlscc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colstt;
@@ -344,17 +356,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colbuoi;
         private System.Windows.Forms.DataGridViewTextBoxColumn collydo;
         private System.Windows.Forms.DataGridViewTextBoxColumn coltien;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lblsum;
-        private System.Windows.Forms.Label lbltong;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel pnltogtien;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btntracuu;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label lbldenngay;
-        private System.Windows.Forms.Label lbltungay;
     }
 }

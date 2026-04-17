@@ -43,7 +43,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblbuoi = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnbang = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colten = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.pnbang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1142, 60);
+            this.panel1.Size = new System.Drawing.Size(1200, 79);
             this.panel1.TabIndex = 0;
             // 
             // lblbqs
@@ -74,7 +74,7 @@
             this.lblbqs.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblbqs.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblbqs.ForeColor = System.Drawing.Color.White;
-            this.lblbqs.Location = new System.Drawing.Point(448, 9);
+            this.lblbqs.Location = new System.Drawing.Point(491, 18);
             this.lblbqs.Name = "lblbqs";
             this.lblbqs.Size = new System.Drawing.Size(255, 45);
             this.lblbqs.TabIndex = 0;
@@ -85,9 +85,9 @@
             this.pnlfilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.pnlfilter.Controls.Add(this.pnlchilfilter);
             this.pnlfilter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlfilter.Location = new System.Drawing.Point(0, 60);
+            this.pnlfilter.Location = new System.Drawing.Point(0, 79);
             this.pnlfilter.Name = "pnlfilter";
-            this.pnlfilter.Size = new System.Drawing.Size(1142, 139);
+            this.pnlfilter.Size = new System.Drawing.Size(1200, 155);
             this.pnlfilter.TabIndex = 1;
             // 
             // pnlchilfilter
@@ -104,7 +104,7 @@
             this.pnlchilfilter.Controls.Add(this.dateTimePicker1);
             this.pnlchilfilter.Controls.Add(this.comboBox1);
             this.pnlchilfilter.Controls.Add(this.lblbuoi);
-            this.pnlchilfilter.Location = new System.Drawing.Point(99, 17);
+            this.pnlchilfilter.Location = new System.Drawing.Point(128, 25);
             this.pnlchilfilter.Name = "pnlchilfilter";
             this.pnlchilfilter.Size = new System.Drawing.Size(956, 100);
             this.pnlchilfilter.TabIndex = 0;
@@ -196,20 +196,19 @@
             this.lblbuoi.TabIndex = 0;
             this.lblbuoi.Text = "Buổi";
             // 
-            // panel2
+            // pnbang
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 199);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(1142, 376);
-            this.panel2.TabIndex = 2;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.pnbang.Controls.Add(this.dataGridView1);
+            this.pnbang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnbang.Location = new System.Drawing.Point(0, 234);
+            this.pnbang.Name = "pnbang";
+            this.pnbang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnbang.Size = new System.Drawing.Size(1200, 466);
+            this.pnbang.TabIndex = 2;
+            this.pnbang.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -227,12 +226,13 @@
             this.colan,
             this.colKan,
             this.collydo});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(10, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(1132, 376);
+            this.dataGridView1.Size = new System.Drawing.Size(1190, 466);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -282,11 +282,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1142, 575);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.Controls.Add(this.pnbang);
             this.Controls.Add(this.pnlfilter);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "frmbqs";
             this.Text = "Báo quân số";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -296,7 +297,7 @@
             this.pnlchilfilter.ResumeLayout(false);
             this.pnlchilfilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.pnbang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -316,7 +317,7 @@
         private System.Windows.Forms.Button btnluu;
         private System.Windows.Forms.Button btnhienthi;
         private System.Windows.Forms.Label lblngay;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnbang;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colstt;
         private System.Windows.Forms.DataGridViewTextBoxColumn colten;

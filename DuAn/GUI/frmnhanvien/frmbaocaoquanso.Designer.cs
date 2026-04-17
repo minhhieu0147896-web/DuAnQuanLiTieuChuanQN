@@ -36,19 +36,19 @@
             this.lblbcqs = new System.Windows.Forms.Label();
             this.pnlluachon = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbochedo = new System.Windows.Forms.ComboBox();
+            this.lblchedo = new System.Windows.Forms.Label();
+            this.lblb = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbdv = new System.Windows.Forms.ComboBox();
+            this.lbldv = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.btntracuu = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lbldenngay = new System.Windows.Forms.Label();
             this.lbltungay = new System.Windows.Forms.Label();
-            this.lbldv = new System.Windows.Forms.Label();
-            this.cbdv = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lblb = new System.Windows.Forms.Label();
-            this.lblchedo = new System.Windows.Forms.Label();
-            this.cbochedo = new System.Windows.Forms.ComboBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnbang = new System.Windows.Forms.Panel();
             this.dgvlscc = new System.Windows.Forms.DataGridView();
             this.colstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,32 +57,32 @@
             this.coldonvi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colqsan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colquansokan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lbltqs = new System.Windows.Forms.Label();
-            this.lblso = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.pntong = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbltqs = new System.Windows.Forms.Label();
+            this.lblso = new System.Windows.Forms.Label();
             this.pntitle.SuspendLayout();
             this.pnlluachon.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.pnbang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pntong.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pntitle
@@ -137,6 +137,71 @@
             this.panel1.Size = new System.Drawing.Size(1040, 121);
             this.panel1.TabIndex = 6;
             // 
+            // cbochedo
+            // 
+            this.cbochedo.FormattingEnabled = true;
+            this.cbochedo.Location = new System.Drawing.Point(399, 72);
+            this.cbochedo.Name = "cbochedo";
+            this.cbochedo.Size = new System.Drawing.Size(111, 28);
+            this.cbochedo.TabIndex = 15;
+            // 
+            // lblchedo
+            // 
+            this.lblchedo.AutoSize = true;
+            this.lblchedo.ForeColor = System.Drawing.Color.Black;
+            this.lblchedo.Location = new System.Drawing.Point(304, 80);
+            this.lblchedo.Name = "lblchedo";
+            this.lblchedo.Size = new System.Drawing.Size(60, 20);
+            this.lblchedo.TabIndex = 14;
+            this.lblchedo.Text = "Chế độ";
+            // 
+            // lblb
+            // 
+            this.lblb.AutoSize = true;
+            this.lblb.ForeColor = System.Drawing.Color.Black;
+            this.lblb.Location = new System.Drawing.Point(14, 80);
+            this.lblb.Name = "lblb";
+            this.lblb.Size = new System.Drawing.Size(41, 20);
+            this.lblb.TabIndex = 13;
+            this.lblb.Text = "Buổi";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(85, 72);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(111, 28);
+            this.comboBox1.TabIndex = 12;
+            // 
+            // cbdv
+            // 
+            this.cbdv.FormattingEnabled = true;
+            this.cbdv.Location = new System.Drawing.Point(710, 29);
+            this.cbdv.Name = "cbdv";
+            this.cbdv.Size = new System.Drawing.Size(101, 28);
+            this.cbdv.TabIndex = 11;
+            // 
+            // lbldv
+            // 
+            this.lbldv.AutoSize = true;
+            this.lbldv.ForeColor = System.Drawing.Color.Black;
+            this.lbldv.Location = new System.Drawing.Point(639, 33);
+            this.lbldv.Name = "lbldv";
+            this.lbldv.Size = new System.Drawing.Size(53, 20);
+            this.lbldv.TabIndex = 10;
+            this.lbldv.Text = "Đơn vị";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(896, 50);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(399, 28);
@@ -182,80 +247,15 @@
             this.lbltungay.TabIndex = 5;
             this.lbltungay.Text = "Từ ngày";
             // 
-            // lbldv
+            // pnbang
             // 
-            this.lbldv.AutoSize = true;
-            this.lbldv.ForeColor = System.Drawing.Color.Black;
-            this.lbldv.Location = new System.Drawing.Point(639, 33);
-            this.lbldv.Name = "lbldv";
-            this.lbldv.Size = new System.Drawing.Size(53, 20);
-            this.lbldv.TabIndex = 10;
-            this.lbldv.Text = "Đơn vị";
-            // 
-            // cbdv
-            // 
-            this.cbdv.FormattingEnabled = true;
-            this.cbdv.Location = new System.Drawing.Point(710, 29);
-            this.cbdv.Name = "cbdv";
-            this.cbdv.Size = new System.Drawing.Size(101, 28);
-            this.cbdv.TabIndex = 11;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(85, 72);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(111, 28);
-            this.comboBox1.TabIndex = 12;
-            // 
-            // lblb
-            // 
-            this.lblb.AutoSize = true;
-            this.lblb.ForeColor = System.Drawing.Color.Black;
-            this.lblb.Location = new System.Drawing.Point(14, 80);
-            this.lblb.Name = "lblb";
-            this.lblb.Size = new System.Drawing.Size(41, 20);
-            this.lblb.TabIndex = 13;
-            this.lblb.Text = "Buổi";
-            // 
-            // lblchedo
-            // 
-            this.lblchedo.AutoSize = true;
-            this.lblchedo.ForeColor = System.Drawing.Color.Black;
-            this.lblchedo.Location = new System.Drawing.Point(304, 80);
-            this.lblchedo.Name = "lblchedo";
-            this.lblchedo.Size = new System.Drawing.Size(60, 20);
-            this.lblchedo.TabIndex = 14;
-            this.lblchedo.Text = "Chế độ";
-            // 
-            // cbochedo
-            // 
-            this.cbochedo.FormattingEnabled = true;
-            this.cbochedo.Location = new System.Drawing.Point(399, 72);
-            this.cbochedo.Name = "cbochedo";
-            this.cbochedo.Size = new System.Drawing.Size(111, 28);
-            this.cbochedo.TabIndex = 15;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(896, 50);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dgvlscc);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 260);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(1222, 327);
-            this.panel2.TabIndex = 0;
+            this.pnbang.Controls.Add(this.dgvlscc);
+            this.pnbang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnbang.Location = new System.Drawing.Point(0, 260);
+            this.pnbang.Name = "pnbang";
+            this.pnbang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnbang.Size = new System.Drawing.Size(1222, 394);
+            this.pnbang.TabIndex = 0;
             // 
             // dgvlscc
             // 
@@ -294,7 +294,7 @@
             this.dgvlscc.Name = "dgvlscc";
             this.dgvlscc.RowHeadersWidth = 62;
             this.dgvlscc.RowTemplate.Height = 28;
-            this.dgvlscc.Size = new System.Drawing.Size(1212, 327);
+            this.dgvlscc.Size = new System.Drawing.Size(1212, 394);
             this.dgvlscc.TabIndex = 1;
             this.dgvlscc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvlscc_CellContentClick);
             // 
@@ -302,6 +302,7 @@
             // 
             this.colstt.FillWeight = 59.65909F;
             this.colstt.HeaderText = "STT";
+            this.colstt.MinimumWidth = 8;
             this.colstt.Name = "colstt";
             // 
             // colngay
@@ -346,65 +347,69 @@
             this.colquansokan.MinimumWidth = 8;
             this.colquansokan.Name = "colquansokan";
             // 
-            // panel3
+            // pntong
             // 
-            this.panel3.Controls.Add(this.panel6);
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 587);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1222, 67);
-            this.panel3.TabIndex = 3;
+            this.pntong.Controls.Add(this.panel6);
+            this.pntong.Controls.Add(this.panel5);
+            this.pntong.Controls.Add(this.panel4);
+            this.pntong.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pntong.Location = new System.Drawing.Point(0, 592);
+            this.pntong.Name = "pntong";
+            this.pntong.Size = new System.Drawing.Size(1222, 62);
+            this.pntong.TabIndex = 3;
+            this.pntong.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // lbltqs
+            // panel6
             // 
-            this.lbltqs.AutoSize = true;
-            this.lbltqs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltqs.Location = new System.Drawing.Point(59, 13);
-            this.lbltqs.Name = "lbltqs";
-            this.lbltqs.Size = new System.Drawing.Size(154, 25);
-            this.lbltqs.TabIndex = 0;
-            this.lbltqs.Text = "Tổng quân số ăn";
+            this.panel6.Controls.Add(this.pictureBox4);
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Controls.Add(this.label4);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel6.Location = new System.Drawing.Point(922, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(300, 62);
+            this.panel6.TabIndex = 6;
             // 
-            // lblso
+            // pictureBox4
             // 
-            this.lblso.AutoSize = true;
-            this.lblso.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblso.ForeColor = System.Drawing.Color.Green;
-            this.lblso.Location = new System.Drawing.Point(219, 8);
-            this.lblso.Name = "lblso";
-            this.lblso.Size = new System.Drawing.Size(28, 32);
-            this.lblso.TabIndex = 1;
-            this.lblso.Text = "0";
-            this.lblso.Click += new System.EventHandler(this.label2_Click);
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(14, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
             // 
-            // pictureBox1
+            // label3
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(4, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(49, 42);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(59, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(152, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Số ngày báo cáo";
             // 
-            // panel4
+            // label4
             // 
-            this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Controls.Add(this.lbltqs);
-            this.panel4.Controls.Add(this.lblso);
-            this.panel4.Location = new System.Drawing.Point(69, 9);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(265, 49);
-            this.panel4.TabIndex = 4;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Green;
+            this.label4.Location = new System.Drawing.Point(249, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 32);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "0";
             // 
             // panel5
             // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Controls.Add(this.pictureBox3);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(386, 9);
+            this.panel5.Location = new System.Drawing.Point(417, 8);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(326, 49);
             this.panel5.TabIndex = 5;
@@ -441,46 +446,48 @@
             this.label2.Text = "0";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
-            // panel6
+            // panel4
             // 
-            this.panel6.Controls.Add(this.pictureBox4);
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Location = new System.Drawing.Point(765, 9);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(300, 49);
-            this.panel6.TabIndex = 6;
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Controls.Add(this.lbltqs);
+            this.panel4.Controls.Add(this.lblso);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(265, 62);
+            this.panel4.TabIndex = 4;
             // 
-            // pictureBox4
+            // pictureBox1
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(14, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(4, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 42);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
-            // label3
+            // lbltqs
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(59, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Số ngày báo cáo";
+            this.lbltqs.AutoSize = true;
+            this.lbltqs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltqs.Location = new System.Drawing.Point(59, 13);
+            this.lbltqs.Name = "lbltqs";
+            this.lbltqs.Size = new System.Drawing.Size(154, 25);
+            this.lbltqs.TabIndex = 0;
+            this.lbltqs.Text = "Tổng quân số ăn";
             // 
-            // label4
+            // lblso
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Green;
-            this.label4.Location = new System.Drawing.Point(249, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 32);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "0";
+            this.lblso.AutoSize = true;
+            this.lblso.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblso.ForeColor = System.Drawing.Color.Green;
+            this.lblso.Location = new System.Drawing.Point(219, 8);
+            this.lblso.Name = "lblso";
+            this.lblso.Size = new System.Drawing.Size(28, 32);
+            this.lblso.TabIndex = 1;
+            this.lblso.Text = "0";
+            this.lblso.Click += new System.EventHandler(this.label2_Click);
             // 
             // frmbaocaoquanso
             // 
@@ -489,8 +496,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1222, 654);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pntong);
+            this.Controls.Add(this.pnbang);
             this.Controls.Add(this.pnlluachon);
             this.Controls.Add(this.pntitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -501,18 +508,18 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.pnbang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).EndInit();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.pntong.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -535,7 +542,7 @@
         private System.Windows.Forms.ComboBox cbdv;
         private System.Windows.Forms.Label lbldv;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnbang;
         private System.Windows.Forms.DataGridView dgvlscc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colstt;
         private System.Windows.Forms.DataGridViewTextBoxColumn colngay;
@@ -544,7 +551,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn coldonvi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colqsan;
         private System.Windows.Forms.DataGridViewTextBoxColumn colquansokan;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pntong;
         private System.Windows.Forms.Label lblso;
         private System.Windows.Forms.Label lbltqs;
         private System.Windows.Forms.Panel panel4;

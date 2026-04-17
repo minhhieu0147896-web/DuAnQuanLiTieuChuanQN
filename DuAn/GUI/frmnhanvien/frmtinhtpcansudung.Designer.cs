@@ -36,6 +36,7 @@
             this.lbltieude = new System.Windows.Forms.Label();
             this.pnlfilter = new System.Windows.Forms.Panel();
             this.pnlchilfilter = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnluu = new System.Windows.Forms.Button();
             this.btnhienthi = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cbobuoi = new System.Windows.Forms.ComboBox();
             this.lblbuoi = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnbang = new System.Windows.Forms.Panel();
             this.dgvlscc = new System.Windows.Forms.DataGridView();
             this.colstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,8 +63,8 @@
             this.pntitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnbang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).BeginInit();
             this.panel1.SuspendLayout();
@@ -81,7 +81,7 @@
             this.pntitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pntitle.Location = new System.Drawing.Point(0, 0);
             this.pntitle.Name = "pntitle";
-            this.pntitle.Size = new System.Drawing.Size(1094, 80);
+            this.pntitle.Size = new System.Drawing.Size(1200, 80);
             this.pntitle.TabIndex = 0;
             // 
             // lbltieude
@@ -90,7 +90,7 @@
             this.lbltieude.AutoSize = true;
             this.lbltieude.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltieude.ForeColor = System.Drawing.Color.White;
-            this.lbltieude.Location = new System.Drawing.Point(340, 18);
+            this.lbltieude.Location = new System.Drawing.Point(393, 18);
             this.lbltieude.Name = "lbltieude";
             this.lbltieude.Size = new System.Drawing.Size(538, 45);
             this.lbltieude.TabIndex = 2;
@@ -103,7 +103,7 @@
             this.pnlfilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlfilter.Location = new System.Drawing.Point(0, 80);
             this.pnlfilter.Name = "pnlfilter";
-            this.pnlfilter.Size = new System.Drawing.Size(1094, 139);
+            this.pnlfilter.Size = new System.Drawing.Size(1200, 139);
             this.pnlfilter.TabIndex = 3;
             // 
             // pnlchilfilter
@@ -119,10 +119,21 @@
             this.pnlchilfilter.Controls.Add(this.dateTimePicker1);
             this.pnlchilfilter.Controls.Add(this.cbobuoi);
             this.pnlchilfilter.Controls.Add(this.lblbuoi);
-            this.pnlchilfilter.Location = new System.Drawing.Point(75, 17);
+            this.pnlchilfilter.Location = new System.Drawing.Point(128, 17);
             this.pnlchilfilter.Name = "pnlchilfilter";
             this.pnlchilfilter.Size = new System.Drawing.Size(956, 100);
             this.pnlchilfilter.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(125)))), ((int)(((byte)(219)))));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(631, 36);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -193,25 +204,14 @@
             this.lblbuoi.TabIndex = 0;
             this.lblbuoi.Text = "Buổi";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(125)))), ((int)(((byte)(219)))));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(631, 36);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
             // pnbang
             // 
             this.pnbang.Controls.Add(this.dgvlscc);
-            this.pnbang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnbang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnbang.Location = new System.Drawing.Point(0, 219);
             this.pnbang.Name = "pnbang";
             this.pnbang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.pnbang.Size = new System.Drawing.Size(1094, 321);
+            this.pnbang.Size = new System.Drawing.Size(1200, 481);
             this.pnbang.TabIndex = 4;
             // 
             // dgvlscc
@@ -249,13 +249,14 @@
             this.dgvlscc.Name = "dgvlscc";
             this.dgvlscc.RowHeadersWidth = 62;
             this.dgvlscc.RowTemplate.Height = 28;
-            this.dgvlscc.Size = new System.Drawing.Size(1084, 321);
+            this.dgvlscc.Size = new System.Drawing.Size(1190, 481);
             this.dgvlscc.TabIndex = 4;
             // 
             // colstt
             // 
             this.colstt.FillWeight = 59.65909F;
             this.colstt.HeaderText = "STT";
+            this.colstt.MinimumWidth = 8;
             this.colstt.Name = "colstt";
             // 
             // coltp
@@ -289,10 +290,10 @@
             // 
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 540);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 631);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1094, 101);
+            this.panel1.Size = new System.Drawing.Size(1200, 69);
             this.panel1.TabIndex = 5;
             // 
             // panel6
@@ -300,15 +301,16 @@
             this.panel6.Controls.Add(this.pictureBox4);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.label4);
-            this.panel6.Location = new System.Drawing.Point(12, 32);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(282, 49);
+            this.panel6.Size = new System.Drawing.Size(282, 69);
             this.panel6.TabIndex = 8;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(14, 3);
+            this.pictureBox4.Location = new System.Drawing.Point(14, 13);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(40, 40);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -319,7 +321,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(59, 13);
+            this.label3.Location = new System.Drawing.Point(59, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 25);
             this.label3.TabIndex = 0;
@@ -330,7 +332,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Green;
-            this.label4.Location = new System.Drawing.Point(249, 10);
+            this.label4.Location = new System.Drawing.Point(249, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 32);
             this.label4.TabIndex = 1;
@@ -341,15 +343,16 @@
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Controls.Add(this.lbltqs);
             this.panel4.Controls.Add(this.lblso);
-            this.panel4.Location = new System.Drawing.Point(817, 32);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(935, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(265, 49);
+            this.panel4.Size = new System.Drawing.Size(265, 69);
             this.panel4.TabIndex = 7;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(4, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(7, 12);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(49, 42);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -360,7 +363,7 @@
             // 
             this.lbltqs.AutoSize = true;
             this.lbltqs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltqs.Location = new System.Drawing.Point(59, 13);
+            this.lbltqs.Location = new System.Drawing.Point(62, 22);
             this.lbltqs.Name = "lbltqs";
             this.lbltqs.Size = new System.Drawing.Size(118, 25);
             this.lbltqs.TabIndex = 0;
@@ -371,7 +374,7 @@
             this.lblso.AutoSize = true;
             this.lblso.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblso.ForeColor = System.Drawing.Color.Green;
-            this.lblso.Location = new System.Drawing.Point(219, 8);
+            this.lblso.Location = new System.Drawing.Point(222, 17);
             this.lblso.Name = "lblso";
             this.lblso.Size = new System.Drawing.Size(28, 32);
             this.lblso.TabIndex = 1;
@@ -383,24 +386,26 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1094, 641);
+            this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnbang);
             this.Controls.Add(this.pnlfilter);
             this.Controls.Add(this.pntitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "frmtinhtpcansudung";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmtinhtpcansudung";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pntitle.ResumeLayout(false);
             this.pntitle.PerformLayout();
             this.pnlfilter.ResumeLayout(false);
             this.pnlfilter.PerformLayout();
             this.pnlchilfilter.ResumeLayout(false);
             this.pnlchilfilter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnbang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).EndInit();
             this.panel1.ResumeLayout(false);
