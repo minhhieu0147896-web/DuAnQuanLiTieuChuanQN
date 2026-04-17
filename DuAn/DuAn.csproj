@@ -88,9 +88,6 @@
     <Compile Include="GUI\frmlogin\frmmhlogin.Designer.cs">
       <DependentUpon>frmmhlogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmnhanvien\AccountDAO.cs" />
-    <Compile Include="GUI\frmnhanvien\AccountModel.cs" />
-    <Compile Include="GUI\frmnhanvien\DataProvider.cs" />
     <Compile Include="GUI\frmnhanvien\frmbaocaoquanso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +142,9 @@
     <Compile Include="GUI\frmquannhan\frm_manhinh_quannhan.Designer.cs">
       <DependentUpon>frm_manhinh_quannhan.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewFolder1\AccountDAO.cs" />
+    <Compile Include="NewFolder1\AccountModel.cs" />
+    <Compile Include="NewFolder1\DataProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\frmfornhvhc\frmbqs.resx">
