@@ -88,6 +88,9 @@
     <Compile Include="GUI\frmlogin\frmmhlogin.Designer.cs">
       <DependentUpon>frmmhlogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmnhanvien\AccountDAO.cs" />
+    <Compile Include="GUI\frmnhanvien\AccountModel.cs" />
+    <Compile Include="GUI\frmnhanvien\DataProvider.cs" />
     <Compile Include="GUI\frmnhanvien\frmbaocaoquanso.cs">
       <SubType>Form</SubType>
     </Compile>
