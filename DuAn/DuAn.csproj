@@ -46,20 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\AccountDAO.cs" />
-    <Compile Include="DAO\AccountModel.cs" />
-    <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\frmfornhvhc\frmbaoquanso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmfornhvhc\frmbaoquanso.Designer.cs">
-      <DependentUpon>frmbaoquanso.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmfornhvhc\frmbqs.cs">
       <SubType>Form</SubType>
@@ -133,12 +124,6 @@
     <Compile Include="GUI\frmnhanvien\frm_manhinh_nhanvien.Designer.cs">
       <DependentUpon>frm_manhinh_nhanvien.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmquannhan\frm_manhinh_quannhan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmquannhan\frm_manhinh_quannhan.Designer.cs">
-      <DependentUpon>frm_manhinh_quannhan.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\frmquannhan\frmlichsucatcom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,11 +136,14 @@
     <Compile Include="GUI\frmquannhan\frmtracuutieuchuanan.Designer.cs">
       <DependentUpon>frmtracuutieuchuanan.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmquannhan\frm_manhinh_quannhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmquannhan\frm_manhinh_quannhan.Designer.cs">
+      <DependentUpon>frm_manhinh_quannhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\frmfornhvhc\frmbaoquanso.resx">
-      <DependentUpon>frmbaoquanso.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmfornhvhc\frmbqs.resx">
       <DependentUpon>frmbqs.cs</DependentUpon>
     </EmbeddedResource>

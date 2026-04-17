@@ -14,6 +14,9 @@ namespace frmfornhvhc
 {
     public partial class frm_manhinh_canbodonvi : Form
     {
+        frmbqs fbqs;
+        frmLSQS flsqs;
+
         public frm_manhinh_canbodonvi()
         {
             InitializeComponent();
@@ -23,51 +26,135 @@ namespace frmfornhvhc
         {
             frmtrangchu f = new frmtrangchu();
             f.MdiParent = this;
-
             this.WindowState = FormWindowState.Maximized;
             f.Show();
 
         }
+          
+             bool hethongExpand = false;
 
-        private void báoQuânSốToolStripMenuItem_Click(object sender, EventArgs e)
+        private void hethongtrasition_Tick(object sender, EventArgs e)
         {
-            foreach (Form child in this.MdiChildren)
+            if (hethongExpand == false)
             {
-                child.Close();
+                hethongcontainer.Height += 5;
+                if (hethongcontainer.Height >= 217)
+                {
+                    hethongtrasition.Stop();
+                    hethongExpand = true;
+                }
             }
-            frmbqs f = new frmbqs();
-            f.MdiParent = this;
-            f.Dock = DockStyle.Fill;
-            f.Show();
+            else
+            {
+                hethongcontainer.Height -= 5;
+                if (hethongcontainer.Height <= 67)
+                {
+                    hethongtrasition.Stop();
+                    hethongExpand = false;
+                }
+            }
         }
 
-        private void lịchSửToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnhethong_Click(object sender, EventArgs e)
         {
-            foreach (Form child in this.MdiChildren)
+            hethongtrasition.Start();
+        }
+        bool quansoExpand = false;
+        private void quansotransition_Tick(object sender, EventArgs e)
+        {
+
+            if (quansoExpand == false)
             {
-                child.Close();
+                quansocontainer.Height += 5;
+                if (quansocontainer.Height >= 217)
+                {
+                    quansotransition.Stop();
+                    quansoExpand = true;
+                }
             }
-            frmLSQS f = new frmLSQS();
-            f.MdiParent = this;
-            f.Dock = DockStyle.Fill;
-            f.Show();
+            else
+            {
+                quansocontainer.Height -= 5;
+                if (quansocontainer.Height <= 67)
+                {
+                    quansotransition.Stop();
+                    quansoExpand = false;
+                }
+            }
+        }
+        bool slidebarExpand = true;
+
+        private void slidebartransition_Tick(object sender, EventArgs e)
+        {
+            if (slidebarExpand)
+            {
+                slidebar.Width -= 10;
+                if (slidebar.Width <= 67)
+                {
+                    slidebarExpand = false;
+                    slidebartransition.Stop();
+                    hethongcontainer.Width = slidebar.Width;
+                    quansocontainer.Width = slidebar.Width;
+
+                }
+            }
+            else
+            {
+                slidebar.Width += 10;
+                if (slidebar.Width >= 247)
+                {
+                    slidebarExpand = true;
+                    slidebartransition.Stop();
+                    hethongcontainer.Width = slidebar.Width;
+                    quansocontainer.Width = slidebar.Width;
+
+                }
+            }
+        }
+
+        private void btnHam_Click(object sender, EventArgs e)
+        {
+            slidebartransition.Start();
+        }
+
+        private void btnquanso_Click(object sender, EventArgs e)
+        {
+            quansotransition.Start();
 
         }
 
-        private void danhSáchQuânNhânToolStripMenuItem_Click(object sender, EventArgs e)
+        private void slidebar_Paint(object sender, PaintEventArgs e)
         {
-            foreach (Form child in this.MdiChildren)
-            {
-                child.Close();
-            }
-            frmddtc f = new frmddtc();
-            f.MdiParent = this;
-            f.Dock = DockStyle.Fill;
-            f.Show();
+
         }
 
-        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnbqs_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void btnlsa_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btndangxuat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không ?", "Xác nhận",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                frmmhlogin f = new frmmhlogin();
+                f.Show();
+                this.Hide();
+
+            }
+        }
+
+        private void btnthoat_Click(object sender, EventArgs e)
+        {
+
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận ",
                MessageBoxButtons.YesNo,
                MessageBoxIcon.Question);
@@ -77,40 +164,38 @@ namespace frmfornhvhc
             }
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void hethongcontainer_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void btnbqs_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmtrangchu f = new frmtrangchu();
-            f.MdiParent = this;
-            f.Dock = DockStyle.Fill;
-            f.Show();
-        }
-
-        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không ?", "Xác nhận",
-              MessageBoxButtons.YesNo,
-              MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (fbqs == null)
             {
-                frmmhlogin f = new frmmhlogin();
-                f.Show();
-                this.Hide();
+                fbqs = new frmbqs();
+                fbqs.MdiParent = this;
+                fbqs.Dock = DockStyle.Fill;
+                fbqs.FormClosed += (s, args) => fbqs = null;
+                fbqs.Show();
+            }
+        }
 
+        private void btnlsa_Click_1(object sender, EventArgs e)
+        {
+            if (flsqs == null)
+            {
+                flsqs = new frmLSQS();
+                flsqs.MdiParent = this;
+
+                flsqs.Dock = DockStyle.Fill;
+           
+                flsqs.Show();
             }
         }
     }

@@ -7,6 +7,7 @@ using frmnhanvien;
 using frmfornhvhc;
 using frmquannhan;
 using frmlogin;
+using DuAn.GUI.frmquannhan;
 namespace DuAn
 {
     internal static class Program

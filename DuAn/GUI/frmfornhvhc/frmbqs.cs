@@ -27,5 +27,20 @@ namespace frmfornhvhc
         {
 
         }
+
+        private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnluu_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

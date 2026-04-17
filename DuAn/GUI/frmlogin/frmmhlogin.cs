@@ -1,5 +1,6 @@
 ﻿using frmnhanvien;
 using frmquannhan;
+using frmfornhvhc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DuAn.GUI.frmquannhan;
 
 namespace frmlogin
 {
@@ -21,7 +23,11 @@ namespace frmlogin
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            textBox1.BackColor = Color.Gainsboro;
+            textBox3.BackColor = Color.Gainsboro;
 
+            textBox1.ForeColor = Color.Black;
+            textBox3.ForeColor = Color.Black;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,51 +37,22 @@ namespace frmlogin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox3.Text))
+            if(string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox3.Text))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin đăng nhập",
-                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin đăng nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
-
-            // Gọi DAO để xác thực
-            DuAn.DAO.AccountModel acc = DuAn.DAO.AccountDAO.Instance.Login(
-                textBox1.Text.Trim(),
-                textBox3.Text.Trim()
-            );
-
-            if (acc == null)
-            {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!",
-                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            MessageBox.Show($"Đăng nhập thành công! Xin chào {acc.HoTen}",
-                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Phân quyền theo vai_tro
-            // Thay số 1/2 cho đúng với giá trị thực tế trong DB của bạn
-            if (acc.VaiTro == 1) // QuanNhan
-            {
-                frmquannhan.frm_manhinh_quannhan frm = new frmquannhan.frm_manhinh_quannhan();
-                frm.Show();
-            }
-            else if (acc.VaiTro == 2) // NhanVien
-            {
-                frmnhanvien.frm_manhinh_nhanvien frm = new frmnhanvien.frm_manhinh_nhanvien();
-                frm.Show();
             }
             else
             {
-                MessageBox.Show("Vai trò không hợp lệ!", "Lỗi",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               frm_manhinh_canbodonvi frm = new frm_manhinh_canbodonvi();
+              //  frm_manhinh_canbodonvi  frm = new frm_manhinh_canbodonvi();
+                frm.Show();
+                this.Hide();
+
+                // connect form login vs form khac o day
             }
-
-            this.Hide();
         }
-
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -108,6 +85,67 @@ namespace frmlogin
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+            pnlogin.BackColor = Color.FromArgb(120, 0, 0, 0);
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            int radius = 30;
+
+            path.AddArc(0, 0, radius, radius, 180, 90);
+            path.AddArc(pnlogin.Width - radius, 0, radius, radius, 270, 90);
+            path.AddArc(pnlogin.Width - radius, pnlogin.Height - radius, radius, radius, 0, 90);
+            path.AddArc(0, pnlogin.Height - radius, radius, radius, 90, 90);
+            path.CloseAllFigures();
+
+            pnlogin.Region = new Region(path);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            button1.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox3.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin đăng nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+              //  frm_manhinh_quannhan frm = new frm_manhinh_quannhan();
+                frm_manhinh_canbodonvi frm = new frm_manhinh_canbodonvi();
+                frm.Show();
+                this.Hide();
+
+                // connect form login vs form khac o day
+            }
+        }
+
+        private void lbldangnhap_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận ",
+              MessageBoxButtons.YesNo,
+              MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }
