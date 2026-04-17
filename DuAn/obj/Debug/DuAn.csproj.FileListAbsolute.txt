@@ -36,6 +36,7 @@ E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.AssemblyReference.cache
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmbaoquanso.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmbqs.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmddtc.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmLSQS.resources
@@ -48,6 +49,7 @@ E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmtinhtpcansudung
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frm_manhinh_nhanvien.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmlichsucatcom.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmtracuutieuchuanan.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frm_manhinh_quannhan.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.Properties.Resources.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResource.cache
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
@@ -129,6 +131,30 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frm_manhinh_quannhan.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmtrangchu.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmlogin.frmmhlogin.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frm_manhinh_quannhan.resources
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.ucgiaodienchinh.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe.config
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.AssemblyReference.cache
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmbqs.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmddtc.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmLSQS.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmtrangchu.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frm_manhinh_canbodonvi.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.ucgiaodienchinh.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmlogin.frmmhlogin.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaoquanso.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaothucpham.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmdsthucpham.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmlapthucdon.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmtinhtpcansudung.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frm_manhinh_nhanvien.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmlichsucatcom.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmtracuutieuchuanan.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frm_manhinh_quannhan.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.Properties.Resources.resources
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResource.cache
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
+E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb

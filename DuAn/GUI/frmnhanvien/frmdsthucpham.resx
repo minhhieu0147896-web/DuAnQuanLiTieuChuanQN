@@ -117,25 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="colSTT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAA/ZJREFUeF7t
+        mo1R3DAQRikhJVACHYQOoIPQAXQAHYQOQgehA+gAOoAOoAPyPnl1s96Tj7vDks3Fb2YHW/Zpf7xayTJH
+        CwsLCwsLC6Py8fFxjFwi18hf5MGJ2iQ/7fbDAIfk9G/kBdmWN+QPcm7dfD8wXo7Lia+i7Di1br8HGKxU
+        LvGO3CFXyGmQC+QWeUZKKBA/TMU8kYGIxnZETp/YbZ/CvcqeG0QB82gYbd1PUzBMzj/JSscjsrfB/FZ9
+        KhAe1YcLu2UeYFDJ+Ru73IP2M0RF0c8AG4PEdQ2RmA3zyQSM8WkvQ3vVm3MFSHVBT6/Erd06CPecIL4+
+        qK9juzwdGBFTNDqvpzfkeGar6Y77FEifCU92aRowQMXK00t7zlXZI6+Iqn2u/jtVdu5XJniu7FJ7UK7q
+        nnm05gTn0Xk5Pkrxoh9NoxllV/vpEaXx6a8WKzrumlZoNhjVSPpTQDPFglsVlCqNM3fWnODcL3t7mTEW
+        9Osz7MWa2yGlne7Eakri2BdFPaVq6UnfviC2mxZR5tP/3ZoTnPvAVF2w0L+vQe2GAcp8EVqlP8e+Qr9a
+        czXQ4YdBlaFWBGU+zVeR13HXlOjVhRqgw2fimzXXB2X3nc6Er/6+vcl63XQlrKk+6NK0lvEBKLbXxHQl
+        rKk+6BoKQJ4aq4//DLr8MrvNuwGKBp805yqEzVZmyQLDmuqDLl/sJn03NxsS1lQfdPkAfPoqWwt0+yX3
+        szXXB2Ve8WSvpOgeXI5XB4V+GTrJxgR6/S5U2y10FG5chqoNUYWuMkToN76Ntn0lRuF5pzex9k7eNSeq
+        TIn0q73ETNv0z6DYT4dxN0jjU8Nk9JcU+oz7DdPsDaI4GlL9lRQdcQd6mqefwQCfBRoKVZ8G/ccd6Gl3
+        hjFAT8RvT+npVClI9Bu/Nc7jAwmGaPnrp8VRP2HRl4IcP7lNtgArgkFxF1jD4dIu7w19qM7Er07Tjvsh
+        MCxmglA2/LJbtobfaJ4vfV5PT56/0qWp8Dr9YC5gkAwvfeJWIPRN8MxuXYNrckr/QRKfuFBgV2OeY198
+        FSj9Nv+XyfTfDTFC+4YxGyIKSsnZiFadvWrPuX8PKKHsaLs6jMgAREtiP0vswprjHru+iWoz0s5giFJU
+        wVDqDmWGrskpLbM/Ndzu8ygrYlDmE4QSGLf3QobfFvclOI4z0ryDsC84Nbgxw/nhBwGH4hDorQx13jWv
+        OMggxCn3/wqCnEF2DcKDXToMcGifIPSuf3twaJsg+KJ5b82HA05tDALHfgOn3dfkluBYKQjpv9ARFcDM
+        PN8oxwDnSkGINPl4Oxk4uCkI89pMqQnOqvrrHUOi/1847Ce/sLCwsLDwVY6O/gHt+eRAv8leAAAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <metadata name="colstt.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colTenTP.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="colten.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colDonvitinh.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="colgia.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colgiatien.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="coldonvi.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colkcal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colprotein.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="collipit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="coltkcal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>
