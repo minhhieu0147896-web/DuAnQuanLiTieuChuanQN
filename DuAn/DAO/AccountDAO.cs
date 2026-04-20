@@ -31,7 +31,7 @@ namespace DuAn.DAO
             string query = @"SELECT user_id, user_taikhoan, user_vai_tro, user_mat_khau
                              FROM   [dbo].[User]
                              WHERE  user_taikhoan = @username
-                               AND  mat_khau     = @password";
+                               AND  user_mat_khau = @password";
                              
 
             using (SqlConnection conn = DataProvider.Instance.GetConnection())

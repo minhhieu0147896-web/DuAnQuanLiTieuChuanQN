@@ -21,6 +21,9 @@ namespace DuAn
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmmhlogin());
+            //Application.Run(new frmfornhvhc());
+            //Application.Run(new frmquannhan());
+            //Application.Run(new frmnhanvien());
         }
     }
 }

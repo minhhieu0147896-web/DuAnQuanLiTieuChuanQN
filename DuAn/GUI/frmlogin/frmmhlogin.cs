@@ -124,7 +124,7 @@ namespace frmlogin
                 return;
             }
 
-            MessageBox.Show($"Đăng nhập thành công! Xin chào {acc.HoTen}",
+            MessageBox.Show($"Đăng nhập thành công! Xin chào {acc.TenDangNhap}",
                             "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Phân quyền theo vai_tro

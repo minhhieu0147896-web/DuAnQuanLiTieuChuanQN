@@ -136,6 +136,11 @@ namespace DuAn.GUI.frmquannhan
         {
 
         }
+
+        private void slidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

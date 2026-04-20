@@ -26,5 +26,10 @@ namespace frmfornhvhc
         {
 
         }
+
+        private void ucgiaodienchinh1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
