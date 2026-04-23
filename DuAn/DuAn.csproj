@@ -48,9 +48,15 @@
   <ItemGroup>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\AccountModel.cs" />
+    <Compile Include="DAO\BuoiAnDAO.cs" />
+    <Compile Include="DAO\ChiTietThucDonDAO.cs" />
     <Compile Include="DAO\MonAnDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\ThucDonDAO.cs" />
+    <Compile Include="DTO\BuoiAnModel.cs" />
+    <Compile Include="DTO\ChiTietThucDonModel.cs" />
     <Compile Include="DTO\MonAnModel.cs" />
+    <Compile Include="DTO\ThucDonModel.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

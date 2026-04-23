@@ -14,10 +14,60 @@ namespace frmnhanvien
 {
     public partial class frmlapthucdon : Form
     {
+        private int currentUserId = 1;
+        private int currentCheDoId = 1;
+        private ThucDonModel currentThucDon = null;
+
         public frmlapthucdon()
         {
             InitializeComponent();
+
+            SetupDataGridView();
+            LoadBuoiAn();
             LoadLoaiMon();
+
+            dtpNgay.ValueChanged += dtpNgay_ValueChanged;
+            cboBuoi.SelectedIndexChanged += cboBuoi_SelectedIndexChanged;
+            cboLoaiMon.SelectedIndexChanged += cboLoaiMon_SelectedIndexChanged;
+            btnThemVaoThucDon.Click += btnThemVaoThucDon_Click;
+            btnhienthi.Click += btnhienthi_Click;
+            btnluu.Click += btnluu_Click;
+        }
+
+        private void SetupDataGridView()
+        {
+            dgvThucDon.AutoGenerateColumns = false;
+            dgvThucDon.Columns.Clear();
+
+            dgvThucDon.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "ColLoaiMon",
+                HeaderText = "Loại món",
+                DataPropertyName = "LoaiMon",
+                Width = 120
+            });
+            dgvThucDon.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "ColTenMon",
+                HeaderText = "Tên món",
+                DataPropertyName = "TenMon",
+                Width = 250
+            });
+            dgvThucDon.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "ColMonAnId",
+                DataPropertyName = "MonAnId",
+                Visible = false
+            });
+        }
+
+        private void LoadBuoiAn()
+        {
+            List<BuoiAnModel> dsBuoi = BuoiAnDAO.Instance.GetAll();
+            cboBuoi.DataSource = dsBuoi;
+            cboBuoi.DisplayMember = "TenBuoi";
+            cboBuoi.ValueMember = "BuoiAnId";
+            cboBuoi.SelectedIndex = -1;
         }
         private void LoadLoaiMon()
         {
@@ -36,26 +86,21 @@ namespace frmnhanvien
 
         }
 
-        private void cboloaimon_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboLoaiMon_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboLoaiMon.SelectedItem == null)
             {
-                cboDanhSachMon.DataSource = null; // Xóa danh sách món cũ
+                cboDanhSachMon.DataSource = null;
                 return;
             }
 
-            string loaiMonDaChon = cboLoaiMon.SelectedItem.ToString();
+            string loaiMon = cboLoaiMon.SelectedItem.ToString();
+            List<MonAnModel> dsMon = MonAnDAO.Instance.GetByLoaiMon(loaiMon);
 
-            // Lấy danh sách món theo loại từ DB
-            List<MonAnModel> dsMon = MonAnDAO.Instance.GetByLoaiMon(loaiMonDaChon);
-
-            // Gán vào ComboBox món ăn
-            cboDanhSachMon.DataSource = null;                // Reset
-            cboDanhSachMon.DataSource = dsMon;               // Gán danh sách mới
-            cboDanhSachMon.DisplayMember = "TenMon";         // Hiển thị tên món
-            cboDanhSachMon.ValueMember = "MonAnId";          // Giá trị ID
-
-            // Không tự động chọn món nào ban đầu (để trống)
+            cboDanhSachMon.DataSource = null;
+            cboDanhSachMon.DataSource = dsMon;
+            cboDanhSachMon.DisplayMember = "TenMon";
+            cboDanhSachMon.ValueMember = "MonAnId";
             cboDanhSachMon.SelectedIndex = -1;
         }
 
@@ -64,8 +109,40 @@ namespace frmnhanvien
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnThemVaoThucDon_Click(object sender, EventArgs e)
         {
+            if (!(cboBuoi.SelectedValue is int buoianId))
+            {
+                MessageBox.Show("Vui lòng chọn buổi ăn!", "Thông báo");
+                return;
+            }
+            if (!(cboDanhSachMon.SelectedItem is MonAnModel mon))
+            {
+                MessageBox.Show("Vui lòng chọn món ăn!", "Thông báo");
+                return;
+            }
+
+            DateTime ngay = dtpNgay.Value.Date;
+
+            if (currentThucDon == null)
+                currentThucDon = ThucDonDAO.Instance.GetOrCreate(currentUserId, currentCheDoId, ngay);
+
+            bool success = ChiTietThucDonDAO.Instance.Insert(
+                currentThucDon.ThucDonId,
+                ngay,
+                buoianId,
+                mon.MonAnId
+            );
+
+            if (success)
+            {
+                LoadThucDonChiTiet();
+                MessageBox.Show("Đã thêm món vào thực đơn!", "Thành công");
+            }
+            else
+            {
+                MessageBox.Show("Món này đã có trong buổi, hoặc xảy ra lỗi!", "Lỗi");
+            }
 
         }
 
@@ -74,13 +151,14 @@ namespace frmnhanvien
 
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void dtpNgay_ValueChanged(object sender, EventArgs e)
         {
-
+            LoadThucDonChiTiet();
         }
 
-        private void cbobuoi_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboBuoi_SelectedIndexChanged(object sender, EventArgs e)
         {
+            LoadThucDonChiTiet();
 
         }
 
@@ -92,6 +170,83 @@ namespace frmnhanvien
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void pntitle_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvThucDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnhienthi_Click(object sender, EventArgs e)
+        {
+            LoadThucDonChiTiet();
+
+        }
+
+        private void btnluu_Click(object sender, EventArgs e)
+        {
+            if (currentThucDon == null)
+            {
+                if (dtpNgay.Value != null)
+                {
+                    DateTime ngay = dtpNgay.Value.Date;
+                    currentThucDon = ThucDonDAO.Instance.GetOrCreate(currentUserId, currentCheDoId, ngay);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn ngày và buổi trước khi lưu!", "Thông báo");
+                    return;
+                }
+            }
+
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc muốn lưu thực đơn tuần này không?\nTrạng thái sẽ chuyển thành 'Chờ duyệt'.",
+                "Xác nhận lưu",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes)
+                return;
+
+            bool updateResult = ThucDonDAO.Instance.UpdateTrangThai(currentThucDon.ThucDonId, "ChoDuyet");
+
+            if (updateResult)
+            {
+                currentThucDon.TrangThai = "ChoDuyet";
+                MessageBox.Show("Lưu thực đơn tuần thành công! Trạng thái: Chờ duyệt.", "Thành công");
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi xảy ra khi lưu thực đơn!", "Lỗi");
+            }
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LoadThucDonChiTiet()
+        {
+            // Ép kiểu an toàn với pattern matching
+            if (!(cboBuoi.SelectedValue is int buoianId) || dtpNgay.Value == null)
+                return;
+
+            DateTime ngay = dtpNgay.Value.Date;
+
+            currentThucDon = ThucDonDAO.Instance.GetOrCreate(currentUserId, currentCheDoId, ngay);
+
+            List<ChiTietThucDonModel> dsChiTiet = ChiTietThucDonDAO.Instance
+                .GetByThucDonNgayBuoi(currentThucDon.ThucDonId, ngay, buoianId);
+
+            dgvThucDon.DataSource = null;
+            dgvThucDon.DataSource = dsChiTiet;
         }
     }
 }

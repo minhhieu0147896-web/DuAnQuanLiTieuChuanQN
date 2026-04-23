@@ -14,7 +14,7 @@ namespace DuAn.DAO
         private static ThucDonDAO instance;
         public static ThucDonDAO Instance
         {
-            get { instance ??= new ThucDonDAO(); return instance; }
+            get { instance = new ThucDonDAO(); return instance; }
             private set => instance = value;
         }
         private ThucDonDAO() { }
@@ -89,6 +89,16 @@ namespace DuAn.DAO
         {
             string query = $"SELECT ISNULL(MAX({column}), 0) + 1 FROM {table}";
             return Convert.ToInt32(DataProvider.Instance.ExecuteScalar(query));
+        }
+
+        // Trong ThucDonDAO.cs
+        public bool UpdateTrangThai(int thucdonId, string trangThaiMoi)
+        {
+            string query = "UPDATE Thuc_don SET trang_thai = @trangThai WHERE thucdon_id = @id";
+            int rows = DataProvider.Instance.ExecuteNonQuery(query,
+                new SqlParameter("@trangThai", trangThaiMoi),
+                new SqlParameter("@id", thucdonId));
+            return rows > 0;
         }
     }
 }

@@ -39,8 +39,8 @@
             this.lblngay = new System.Windows.Forms.Label();
             this.cbocd = new System.Windows.Forms.ComboBox();
             this.lblchedo = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.cbobuoi = new System.Windows.Forms.ComboBox();
+            this.dtpNgay = new System.Windows.Forms.DateTimePicker();
+            this.cboBuoi = new System.Windows.Forms.ComboBox();
             this.lblbuoi = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -48,7 +48,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnthemmon = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnThemVaoThucDon = new System.Windows.Forms.Button();
             this.cboDanhSachMon = new System.Windows.Forms.ComboBox();
             this.lbldanhsachan = new System.Windows.Forms.Label();
             this.cboLoaiMon = new System.Windows.Forms.ComboBox();
@@ -56,7 +56,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblloaimon = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvThucDon = new System.Windows.Forms.DataGridView();
             this.pntitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
@@ -68,7 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThucDon)).BeginInit();
             this.SuspendLayout();
             // 
             // pntitle
@@ -81,6 +81,7 @@
             this.pntitle.Name = "pntitle";
             this.pntitle.Size = new System.Drawing.Size(1067, 64);
             this.pntitle.TabIndex = 0;
+            this.pntitle.Paint += new System.Windows.Forms.PaintEventHandler(this.pntitle_Paint);
             // 
             // lbltieude
             // 
@@ -116,8 +117,8 @@
             this.pnlchilfilter.Controls.Add(this.lblngay);
             this.pnlchilfilter.Controls.Add(this.cbocd);
             this.pnlchilfilter.Controls.Add(this.lblchedo);
-            this.pnlchilfilter.Controls.Add(this.dateTimePicker1);
-            this.pnlchilfilter.Controls.Add(this.cbobuoi);
+            this.pnlchilfilter.Controls.Add(this.dtpNgay);
+            this.pnlchilfilter.Controls.Add(this.cboBuoi);
             this.pnlchilfilter.Controls.Add(this.lblbuoi);
             this.pnlchilfilter.Location = new System.Drawing.Point(114, 14);
             this.pnlchilfilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -149,6 +150,7 @@
             this.btnluu.TabIndex = 7;
             this.btnluu.Text = "    Lưu";
             this.btnluu.UseVisualStyleBackColor = false;
+            this.btnluu.Click += new System.EventHandler(this.btnluu_Click);
             // 
             // btnhienthi
             // 
@@ -162,6 +164,7 @@
             this.btnhienthi.TabIndex = 6;
             this.btnhienthi.Text = "Hiển thị";
             this.btnhienthi.UseVisualStyleBackColor = false;
+            this.btnhienthi.Click += new System.EventHandler(this.btnhienthi_Click);
             // 
             // lblngay
             // 
@@ -191,24 +194,25 @@
             this.lblchedo.TabIndex = 3;
             this.lblchedo.Text = "Chế độ";
             // 
-            // dateTimePicker1
+            // dtpNgay
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(308, 18);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(242, 22);
-            this.dateTimePicker1.TabIndex = 2;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dtpNgay.CalendarMonthBackground = System.Drawing.SystemColors.HighlightText;
+            this.dtpNgay.Location = new System.Drawing.Point(308, 18);
+            this.dtpNgay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpNgay.Name = "dtpNgay";
+            this.dtpNgay.Size = new System.Drawing.Size(242, 22);
+            this.dtpNgay.TabIndex = 2;
+            this.dtpNgay.ValueChanged += new System.EventHandler(this.dtpNgay_ValueChanged);
             // 
-            // cbobuoi
+            // cboBuoi
             // 
-            this.cbobuoi.FormattingEnabled = true;
-            this.cbobuoi.Location = new System.Drawing.Point(88, 18);
-            this.cbobuoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbobuoi.Name = "cbobuoi";
-            this.cbobuoi.Size = new System.Drawing.Size(116, 24);
-            this.cbobuoi.TabIndex = 1;
-            this.cbobuoi.SelectedIndexChanged += new System.EventHandler(this.cbobuoi_SelectedIndexChanged);
+            this.cboBuoi.FormattingEnabled = true;
+            this.cboBuoi.Location = new System.Drawing.Point(88, 18);
+            this.cboBuoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboBuoi.Name = "cboBuoi";
+            this.cboBuoi.Size = new System.Drawing.Size(116, 24);
+            this.cboBuoi.TabIndex = 1;
+            this.cboBuoi.SelectedIndexChanged += new System.EventHandler(this.cboBuoi_SelectedIndexChanged);
             // 
             // lblbuoi
             // 
@@ -260,7 +264,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.dgvThucDon);
             this.panel3.Controls.Add(this.pnthemmon);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 175);
@@ -272,7 +276,7 @@
             // pnthemmon
             // 
             this.pnthemmon.Controls.Add(this.pictureBox3);
-            this.pnthemmon.Controls.Add(this.button1);
+            this.pnthemmon.Controls.Add(this.btnThemVaoThucDon);
             this.pnthemmon.Controls.Add(this.cboDanhSachMon);
             this.pnthemmon.Controls.Add(this.lbldanhsachan);
             this.pnthemmon.Controls.Add(this.cboLoaiMon);
@@ -297,20 +301,20 @@
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
             // 
-            // button1
+            // btnThemVaoThucDon
             // 
-            this.button1.BackColor = System.Drawing.Color.LightPink;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(17, 272);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(269, 46);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "    Thêm vào thực đơn";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnThemVaoThucDon.BackColor = System.Drawing.Color.DeepPink;
+            this.btnThemVaoThucDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemVaoThucDon.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemVaoThucDon.ForeColor = System.Drawing.Color.White;
+            this.btnThemVaoThucDon.Location = new System.Drawing.Point(17, 272);
+            this.btnThemVaoThucDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThemVaoThucDon.Name = "btnThemVaoThucDon";
+            this.btnThemVaoThucDon.Size = new System.Drawing.Size(269, 46);
+            this.btnThemVaoThucDon.TabIndex = 9;
+            this.btnThemVaoThucDon.Text = "    Thêm vào thực đơn";
+            this.btnThemVaoThucDon.UseVisualStyleBackColor = false;
+            this.btnThemVaoThucDon.Click += new System.EventHandler(this.btnThemVaoThucDon_Click);
             // 
             // cboDanhSachMon
             // 
@@ -341,7 +345,7 @@
             this.cboLoaiMon.Name = "cboLoaiMon";
             this.cboLoaiMon.Size = new System.Drawing.Size(300, 24);
             this.cboLoaiMon.TabIndex = 3;
-            this.cboLoaiMon.SelectedIndexChanged += new System.EventHandler(this.cboloaimon_SelectedIndexChanged);
+            this.cboLoaiMon.SelectedIndexChanged += new System.EventHandler(this.cboLoaiMon_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -354,6 +358,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(336, 44);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox2
             // 
@@ -388,16 +393,17 @@
             this.lblloaimon.TabIndex = 1;
             this.lblloaimon.Text = "Loại món";
             // 
-            // dataGridView1
+            // dgvThucDon
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(324, -115);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(740, 451);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvThucDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThucDon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvThucDon.Location = new System.Drawing.Point(336, 0);
+            this.dgvThucDon.Name = "dgvThucDon";
+            this.dgvThucDon.RowHeadersWidth = 51;
+            this.dgvThucDon.RowTemplate.Height = 24;
+            this.dgvThucDon.Size = new System.Drawing.Size(731, 341);
+            this.dgvThucDon.TabIndex = 3;
+            this.dgvThucDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThucDon_CellContentClick);
             // 
             // frmlapthucdon
             // 
@@ -432,7 +438,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThucDon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -449,8 +455,8 @@
         private System.Windows.Forms.Label lblngay;
         private System.Windows.Forms.ComboBox cbocd;
         private System.Windows.Forms.Label lblchedo;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox cbobuoi;
+        private System.Windows.Forms.DateTimePicker dtpNgay;
+        private System.Windows.Forms.ComboBox cboBuoi;
         private System.Windows.Forms.Label lblbuoi;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -458,7 +464,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnthemmon;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnThemVaoThucDon;
         private System.Windows.Forms.ComboBox cboDanhSachMon;
         private System.Windows.Forms.Label lbldanhsachan;
         private System.Windows.Forms.Panel panel1;
@@ -466,6 +472,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblloaimon;
         private System.Windows.Forms.ComboBox cboLoaiMon;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvThucDon;
     }
 }
