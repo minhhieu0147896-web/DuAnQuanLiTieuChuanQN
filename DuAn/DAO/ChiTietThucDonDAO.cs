@@ -13,7 +13,7 @@ namespace DuAn.DAO
         private static ChiTietThucDonDAO instance;
         public static ChiTietThucDonDAO Instance
         {
-            get { instance ??= new ChiTietThucDonDAO(); return instance; }
+            get { instance = new ChiTietThucDonDAO(); return instance; }
             private set => instance = value;
         }
         private ChiTietThucDonDAO() { }
