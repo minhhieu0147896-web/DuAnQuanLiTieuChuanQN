@@ -33,6 +33,8 @@ namespace frmnhanvien
             btnThemVaoThucDon.Click += btnThemVaoThucDon_Click;
             btnhienthi.Click += btnhienthi_Click;
             btnluu.Click += btnluu_Click;
+
+            btnHD.Click += btnHD_Click;
         }
 
         private void SetupDataGridView()
@@ -398,7 +400,8 @@ namespace frmnhanvien
 
         private void btnHD_Click(object sender, EventArgs e)
         {
-
+            frmHuongDanLapThucDon frm = new frmHuongDanLapThucDon();
+            frm.ShowDialog();
         }
     }
 }

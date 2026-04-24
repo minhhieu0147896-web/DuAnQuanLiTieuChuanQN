@@ -145,7 +145,6 @@ E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmlogin.frmmhlogin.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaoquanso.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaothucpham.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmdsthucpham.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmHuongDanLapThucDon.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmlapthucdon.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmtinhtpcansudung.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frm_manhinh_nhanvien.resources
@@ -160,3 +159,4 @@ E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
