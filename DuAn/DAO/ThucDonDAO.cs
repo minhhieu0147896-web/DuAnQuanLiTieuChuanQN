@@ -14,7 +14,12 @@ namespace DuAn.DAO
         private static ThucDonDAO instance;
         public static ThucDonDAO Instance
         {
-            get { instance = new ThucDonDAO(); return instance; }
+            get
+            {
+                if (instance == null)
+                    instance = new ThucDonDAO();
+                return instance;
+            }
             private set => instance = value;
         }
         private ThucDonDAO() { }
