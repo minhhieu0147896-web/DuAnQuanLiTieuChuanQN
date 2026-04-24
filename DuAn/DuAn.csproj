@@ -197,6 +197,9 @@
     <EmbeddedResource Include="GUI\frmnhanvien\frmdsthucpham.resx">
       <DependentUpon>frmdsthucpham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmnhanvien\frmHuongDanLapThucDon.resx">
+      <DependentUpon>frmHuongDanLapThucDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmlapthucdon.resx">
       <DependentUpon>frmlapthucdon.cs</DependentUpon>
     </EmbeddedResource>

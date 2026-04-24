@@ -33,6 +33,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.lbltieude = new System.Windows.Forms.Label();
             this.pnlfilter = new System.Windows.Forms.Panel();
+            this.btnBo = new System.Windows.Forms.Button();
             this.pnlchilfilter = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnluu = new System.Windows.Forms.Button();
@@ -58,8 +59,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblloaimon = new System.Windows.Forms.Label();
-            this.btnBo = new System.Windows.Forms.Button();
-            this.btnHuongDan = new System.Windows.Forms.Button();
+            this.btnHD = new System.Windows.Forms.Button();
             this.pntitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
@@ -125,6 +125,18 @@
             this.pnlfilter.Size = new System.Drawing.Size(1067, 111);
             this.pnlfilter.TabIndex = 2;
             this.pnlfilter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlfilter_Paint);
+            // 
+            // btnBo
+            // 
+            this.btnBo.BackColor = System.Drawing.Color.Yellow;
+            this.btnBo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBo.Location = new System.Drawing.Point(940, 14);
+            this.btnBo.Name = "btnBo";
+            this.btnBo.Size = new System.Drawing.Size(104, 80);
+            this.btnBo.TabIndex = 1;
+            this.btnBo.Text = "Xóa món";
+            this.btnBo.UseVisualStyleBackColor = false;
+            this.btnBo.Click += new System.EventHandler(this.btnBo_Click);
             // 
             // pnlchilfilter
             // 
@@ -260,7 +272,7 @@
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel2.Controls.Add(this.btnHuongDan);
+            this.panel2.Controls.Add(this.btnHD);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Location = new System.Drawing.Point(0, 516);
@@ -457,29 +469,18 @@
             this.lblloaimon.Text = "Loại món";
             this.lblloaimon.Click += new System.EventHandler(this.lblloaimon_Click);
             // 
-            // btnBo
+            // btnHD
             // 
-            this.btnBo.BackColor = System.Drawing.Color.Yellow;
-            this.btnBo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBo.Location = new System.Drawing.Point(940, 14);
-            this.btnBo.Name = "btnBo";
-            this.btnBo.Size = new System.Drawing.Size(104, 80);
-            this.btnBo.TabIndex = 1;
-            this.btnBo.Text = "Xóa món";
-            this.btnBo.UseVisualStyleBackColor = false;
-            this.btnBo.Click += new System.EventHandler(this.btnBo_Click);
-            // 
-            // btnHuongDan
-            // 
-            this.btnHuongDan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnHuongDan.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuongDan.Location = new System.Drawing.Point(533, 0);
-            this.btnHuongDan.Name = "btnHuongDan";
-            this.btnHuongDan.Size = new System.Drawing.Size(193, 44);
-            this.btnHuongDan.TabIndex = 11;
-            this.btnHuongDan.Text = "Hướng dẫn sử dụng";
-            this.btnHuongDan.UseVisualStyleBackColor = false;
-            this.btnHuongDan.Click += new System.EventHandler(this.btnHuongDan_Click);
+            this.btnHD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnHD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHD.Location = new System.Drawing.Point(414, 0);
+            this.btnHD.Name = "btnHD";
+            this.btnHD.Size = new System.Drawing.Size(241, 44);
+            this.btnHD.TabIndex = 11;
+            this.btnHD.Text = "Hướng dẫn lập thực đơn";
+            this.btnHD.UseVisualStyleBackColor = false;
+            this.btnHD.Click += new System.EventHandler(this.btnHD_Click);
             // 
             // frmlapthucdon
             // 
@@ -552,6 +553,6 @@
         private System.Windows.Forms.DataGridView dgvThucDon;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnBo;
-        private System.Windows.Forms.Button btnHuongDan;
+        private System.Windows.Forms.Button btnHD;
     }
 }

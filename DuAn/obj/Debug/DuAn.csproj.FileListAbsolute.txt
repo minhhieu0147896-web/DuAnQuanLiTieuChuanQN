@@ -31,28 +31,6 @@ E:\Nhật kí sửa chữa của dự án\DuAn (22h11 12.03)\obj\Debug\DuAn.exe.
 E:\Nhật kí sửa chữa của dự án\DuAn (22h11 12.03)\obj\Debug\frmfornhvhc.frm_manhinh_canbodonvi.resources
 E:\Nhật kí sửa chữa của dự án\DuAn (22h11 12.03)\obj\Debug\frmnhanvien.frm_manhinh_nhanvien.resources
 E:\Nhật kí sửa chữa của dự án\DuAn (22h11 12.03)\obj\Debug\frmquannhan.frm_manhinh_quannhan.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe.config
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.AssemblyReference.cache
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmbqs.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmddtc.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmLSQS.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frm_manhinh_canbodonvi.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaoquanso.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaothucpham.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmdsthucpham.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmlapthucdon.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmtinhtpcansudung.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frm_manhinh_nhanvien.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmlichsucatcom.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmtracuutieuchuanan.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.Properties.Resources.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResource.cache
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
 D:\13\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe.config
 D:\13\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
 D:\13\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
@@ -156,7 +134,29 @@ E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResour
 E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
 E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.AssemblyReference.cache
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmbqs.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmddtc.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmLSQS.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmtrangchu.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frm_manhinh_canbodonvi.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.ucgiaodienchinh.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmlogin.frmmhlogin.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaoquanso.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaothucpham.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmdsthucpham.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmHuongDanLapThucDon.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmlapthucdon.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmtinhtpcansudung.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frm_manhinh_nhanvien.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmlichsucatcom.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmtracuutieuchuanan.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frm_manhinh_quannhan.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.Properties.Resources.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResource.cache
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe.config
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
