@@ -1,5 +1,6 @@
 ﻿using DuAn.DAO;
 using DuAn.DTO;
+using DuAn.GUI.frmnhanvien;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -393,6 +394,13 @@ namespace frmnhanvien
                     }
                 }
             }
-         }
+        }
+
+        private void btnHuongDan_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
     }
 }

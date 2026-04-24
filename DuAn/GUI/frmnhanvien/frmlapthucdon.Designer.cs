@@ -59,6 +59,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblloaimon = new System.Windows.Forms.Label();
             this.btnBo = new System.Windows.Forms.Button();
+            this.btnHuongDan = new System.Windows.Forms.Button();
             this.pntitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
@@ -259,6 +260,7 @@
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.Controls.Add(this.btnHuongDan);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Location = new System.Drawing.Point(0, 516);
@@ -467,6 +469,18 @@
             this.btnBo.UseVisualStyleBackColor = false;
             this.btnBo.Click += new System.EventHandler(this.btnBo_Click);
             // 
+            // btnHuongDan
+            // 
+            this.btnHuongDan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnHuongDan.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuongDan.Location = new System.Drawing.Point(533, 0);
+            this.btnHuongDan.Name = "btnHuongDan";
+            this.btnHuongDan.Size = new System.Drawing.Size(193, 44);
+            this.btnHuongDan.TabIndex = 11;
+            this.btnHuongDan.Text = "Hướng dẫn sử dụng";
+            this.btnHuongDan.UseVisualStyleBackColor = false;
+            this.btnHuongDan.Click += new System.EventHandler(this.btnHuongDan_Click);
+            // 
             // frmlapthucdon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -538,5 +552,6 @@
         private System.Windows.Forms.DataGridView dgvThucDon;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnBo;
+        private System.Windows.Forms.Button btnHuongDan;
     }
 }

@@ -123,6 +123,12 @@
     <Compile Include="GUI\frmnhanvien\frmdsthucpham.Designer.cs">
       <DependentUpon>frmdsthucpham.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmnhanvien\frmHuongDanLapThucDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\frmHuongDanLapThucDon.Designer.cs">
+      <DependentUpon>frmHuongDanLapThucDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmnhanvien\frmlapthucdon.cs">
       <SubType>Form</SubType>
     </Compile>
