@@ -100,5 +100,7 @@ namespace DuAn.DAO
                 new SqlParameter("@monanId", monanId));
             return rows > 0;
         }
+
+
     }
 }

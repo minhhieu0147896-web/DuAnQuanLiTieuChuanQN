@@ -354,5 +354,45 @@ namespace frmnhanvien
                 }
             }
         }
+
+        private void btnBo_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra có dòng nào được chọn không
+            if (dgvThucDon.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn món cần bỏ trong danh sách!");
+                return;
+            }
+
+            // Lấy món ăn từ dòng đang chọn
+            var selectedRow = dgvThucDon.SelectedRows[0];
+            if (selectedRow.DataBoundItem is ChiTietThucDonModel monDuocChon)
+            {
+                // Xác nhận xóa
+                DialogResult result = MessageBox.Show($"Bạn có chắc muốn bỏ món '{monDuocChon.TenMon}'?",
+                                                      "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    // Xóa khỏi database
+                    bool deleted = ChiTietThucDonDAO.Instance.Delete(
+                        currentThucDon.ThucDonId,
+                        monDuocChon.Ngay,
+                        monDuocChon.BuoiAnId,
+                        monDuocChon.MonAnId
+                    );
+
+                    if (deleted)
+                    {
+                        // Load lại DataGridView
+                        LoadThucDonChiTiet();
+                        MessageBox.Show("Đã xóa món thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi khi xóa món!");
+                    }
+                }
+            }
+         }
     }
 }

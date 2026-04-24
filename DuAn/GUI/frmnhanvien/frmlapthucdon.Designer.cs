@@ -58,6 +58,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblloaimon = new System.Windows.Forms.Label();
+            this.btnBo = new System.Windows.Forms.Button();
             this.pntitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
@@ -115,6 +116,7 @@
             // 
             this.pnlfilter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlfilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.pnlfilter.Controls.Add(this.btnBo);
             this.pnlfilter.Controls.Add(this.pnlchilfilter);
             this.pnlfilter.Location = new System.Drawing.Point(0, 64);
             this.pnlfilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -140,7 +142,7 @@
             this.pnlchilfilter.Location = new System.Drawing.Point(114, 14);
             this.pnlchilfilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlchilfilter.Name = "pnlchilfilter";
-            this.pnlchilfilter.Size = new System.Drawing.Size(850, 80);
+            this.pnlchilfilter.Size = new System.Drawing.Size(828, 80);
             this.pnlchilfilter.TabIndex = 0;
             this.pnlchilfilter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlchilfilter_Paint);
             // 
@@ -149,7 +151,7 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(133)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(729, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(718, 29);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(27, 24);
@@ -164,7 +166,7 @@
             this.btnluu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(133)))));
             this.btnluu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnluu.ForeColor = System.Drawing.Color.White;
-            this.btnluu.Location = new System.Drawing.Point(719, 18);
+            this.btnluu.Location = new System.Drawing.Point(708, 18);
             this.btnluu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnluu.Name = "btnluu";
             this.btnluu.Size = new System.Drawing.Size(88, 42);
@@ -179,7 +181,7 @@
             this.btnhienthi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(125)))), ((int)(((byte)(219)))));
             this.btnhienthi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhienthi.ForeColor = System.Drawing.Color.White;
-            this.btnhienthi.Location = new System.Drawing.Point(605, 18);
+            this.btnhienthi.Location = new System.Drawing.Point(594, 18);
             this.btnhienthi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnhienthi.Name = "btnhienthi";
             this.btnhienthi.Size = new System.Drawing.Size(88, 42);
@@ -192,7 +194,7 @@
             // 
             this.lblngay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblngay.AutoSize = true;
-            this.lblngay.Location = new System.Drawing.Point(241, 21);
+            this.lblngay.Location = new System.Drawing.Point(230, 21);
             this.lblngay.Name = "lblngay";
             this.lblngay.Size = new System.Drawing.Size(40, 16);
             this.lblngay.TabIndex = 5;
@@ -203,7 +205,7 @@
             // 
             this.cbocd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbocd.FormattingEnabled = true;
-            this.cbocd.Location = new System.Drawing.Point(88, 53);
+            this.cbocd.Location = new System.Drawing.Point(77, 53);
             this.cbocd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbocd.Name = "cbocd";
             this.cbocd.Size = new System.Drawing.Size(116, 24);
@@ -214,7 +216,7 @@
             // 
             this.lblchedo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblchedo.AutoSize = true;
-            this.lblchedo.Location = new System.Drawing.Point(28, 55);
+            this.lblchedo.Location = new System.Drawing.Point(17, 55);
             this.lblchedo.Name = "lblchedo";
             this.lblchedo.Size = new System.Drawing.Size(50, 16);
             this.lblchedo.TabIndex = 3;
@@ -225,7 +227,7 @@
             // 
             this.dtpNgay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpNgay.CalendarMonthBackground = System.Drawing.SystemColors.HighlightText;
-            this.dtpNgay.Location = new System.Drawing.Point(308, 18);
+            this.dtpNgay.Location = new System.Drawing.Point(297, 18);
             this.dtpNgay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpNgay.Name = "dtpNgay";
             this.dtpNgay.Size = new System.Drawing.Size(242, 22);
@@ -236,7 +238,7 @@
             // 
             this.cboBuoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboBuoi.FormattingEnabled = true;
-            this.cboBuoi.Location = new System.Drawing.Point(88, 18);
+            this.cboBuoi.Location = new System.Drawing.Point(77, 18);
             this.cboBuoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboBuoi.Name = "cboBuoi";
             this.cboBuoi.Size = new System.Drawing.Size(116, 24);
@@ -247,7 +249,7 @@
             // 
             this.lblbuoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblbuoi.AutoSize = true;
-            this.lblbuoi.Location = new System.Drawing.Point(28, 21);
+            this.lblbuoi.Location = new System.Drawing.Point(17, 21);
             this.lblbuoi.Name = "lblbuoi";
             this.lblbuoi.Size = new System.Drawing.Size(34, 16);
             this.lblbuoi.TabIndex = 0;
@@ -453,6 +455,18 @@
             this.lblloaimon.Text = "Loại món";
             this.lblloaimon.Click += new System.EventHandler(this.lblloaimon_Click);
             // 
+            // btnBo
+            // 
+            this.btnBo.BackColor = System.Drawing.Color.Yellow;
+            this.btnBo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBo.Location = new System.Drawing.Point(940, 14);
+            this.btnBo.Name = "btnBo";
+            this.btnBo.Size = new System.Drawing.Size(104, 80);
+            this.btnBo.TabIndex = 1;
+            this.btnBo.Text = "Xóa món";
+            this.btnBo.UseVisualStyleBackColor = false;
+            this.btnBo.Click += new System.EventHandler(this.btnBo_Click);
+            // 
             // frmlapthucdon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -523,5 +537,6 @@
         private System.Windows.Forms.ComboBox cboLoaiMon;
         private System.Windows.Forms.DataGridView dgvThucDon;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnBo;
     }
 }
