@@ -248,5 +248,111 @@ namespace frmnhanvien
             dgvThucDon.DataSource = null;
             dgvThucDon.DataSource = dsChiTiet;
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lbltieude_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlchilfilter_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblngay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblchedo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblbuoi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlfilter_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnthemmon_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbldanhsachan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblloaimon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmlapthucdon_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Chỉ hỏi xác nhận nếu form được đóng bởi hành động của người dùng (nhấn X)
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?",
+                                                       "Xác nhận thoát",
+                                                       MessageBoxButtons.YesNo,
+                                                       MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
     }
 }

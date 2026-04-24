@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmlapthucdon));
             this.pntitle = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.lbltieude = new System.Windows.Forms.Label();
             this.pnlfilter = new System.Windows.Forms.Panel();
             this.pnlchilfilter = new System.Windows.Forms.Panel();
@@ -46,6 +47,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dgvThucDon = new System.Windows.Forms.DataGridView();
             this.pnthemmon = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnThemVaoThucDon = new System.Windows.Forms.Button();
@@ -56,7 +58,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblloaimon = new System.Windows.Forms.Label();
-            this.dgvThucDon = new System.Windows.Forms.DataGridView();
             this.pntitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
@@ -64,24 +65,38 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThucDon)).BeginInit();
             this.pnthemmon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvThucDon)).BeginInit();
             this.SuspendLayout();
             // 
             // pntitle
             // 
+            this.pntitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pntitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.pntitle.Controls.Add(this.btnExit);
             this.pntitle.Controls.Add(this.lbltieude);
-            this.pntitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pntitle.Location = new System.Drawing.Point(0, 0);
             this.pntitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pntitle.Name = "pntitle";
             this.pntitle.Size = new System.Drawing.Size(1067, 64);
             this.pntitle.TabIndex = 0;
             this.pntitle.Paint += new System.Windows.Forms.PaintEventHandler(this.pntitle_Paint);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnExit.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(987, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(80, 64);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // lbltieude
             // 
@@ -94,17 +109,19 @@
             this.lbltieude.Size = new System.Drawing.Size(218, 37);
             this.lbltieude.TabIndex = 1;
             this.lbltieude.Text = "LẬP THỰC ĐƠN";
+            this.lbltieude.Click += new System.EventHandler(this.lbltieude_Click);
             // 
             // pnlfilter
             // 
+            this.pnlfilter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlfilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.pnlfilter.Controls.Add(this.pnlchilfilter);
-            this.pnlfilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlfilter.Location = new System.Drawing.Point(0, 64);
             this.pnlfilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlfilter.Name = "pnlfilter";
             this.pnlfilter.Size = new System.Drawing.Size(1067, 111);
             this.pnlfilter.TabIndex = 2;
+            this.pnlfilter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlfilter_Paint);
             // 
             // pnlchilfilter
             // 
@@ -125,9 +142,11 @@
             this.pnlchilfilter.Name = "pnlchilfilter";
             this.pnlchilfilter.Size = new System.Drawing.Size(850, 80);
             this.pnlchilfilter.TabIndex = 0;
+            this.pnlchilfilter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlchilfilter_Paint);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(133)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(729, 29);
@@ -137,9 +156,11 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnluu
             // 
+            this.btnluu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnluu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(133)))));
             this.btnluu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnluu.ForeColor = System.Drawing.Color.White;
@@ -154,6 +175,7 @@
             // 
             // btnhienthi
             // 
+            this.btnhienthi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnhienthi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(125)))), ((int)(((byte)(219)))));
             this.btnhienthi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhienthi.ForeColor = System.Drawing.Color.White;
@@ -168,15 +190,18 @@
             // 
             // lblngay
             // 
+            this.lblngay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblngay.AutoSize = true;
             this.lblngay.Location = new System.Drawing.Point(241, 21);
             this.lblngay.Name = "lblngay";
             this.lblngay.Size = new System.Drawing.Size(40, 16);
             this.lblngay.TabIndex = 5;
             this.lblngay.Text = "Ngày";
+            this.lblngay.Click += new System.EventHandler(this.lblngay_Click);
             // 
             // cbocd
             // 
+            this.cbocd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbocd.FormattingEnabled = true;
             this.cbocd.Location = new System.Drawing.Point(88, 53);
             this.cbocd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -187,15 +212,18 @@
             // 
             // lblchedo
             // 
+            this.lblchedo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblchedo.AutoSize = true;
             this.lblchedo.Location = new System.Drawing.Point(28, 55);
             this.lblchedo.Name = "lblchedo";
             this.lblchedo.Size = new System.Drawing.Size(50, 16);
             this.lblchedo.TabIndex = 3;
             this.lblchedo.Text = "Chế độ";
+            this.lblchedo.Click += new System.EventHandler(this.lblchedo_Click);
             // 
             // dtpNgay
             // 
+            this.dtpNgay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpNgay.CalendarMonthBackground = System.Drawing.SystemColors.HighlightText;
             this.dtpNgay.Location = new System.Drawing.Point(308, 18);
             this.dtpNgay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -206,6 +234,7 @@
             // 
             // cboBuoi
             // 
+            this.cboBuoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboBuoi.FormattingEnabled = true;
             this.cboBuoi.Location = new System.Drawing.Point(88, 18);
             this.cboBuoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -216,28 +245,31 @@
             // 
             // lblbuoi
             // 
+            this.lblbuoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblbuoi.AutoSize = true;
             this.lblbuoi.Location = new System.Drawing.Point(28, 21);
             this.lblbuoi.Name = "lblbuoi";
             this.lblbuoi.Size = new System.Drawing.Size(34, 16);
             this.lblbuoi.TabIndex = 0;
             this.lblbuoi.Text = "Buổi";
+            this.lblbuoi.Click += new System.EventHandler(this.lblbuoi_Click);
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 516);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1067, 44);
             this.panel2.TabIndex = 4;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox4
             // 
+            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(133)))));
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(753, 0);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -246,11 +278,12 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 10;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.BackColor = System.Drawing.Color.LightGreen;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
@@ -261,20 +294,35 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "  Lưu thực đơn tuần";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel3
             // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.Controls.Add(this.dgvThucDon);
             this.panel3.Controls.Add(this.pnthemmon);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 175);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1067, 341);
             this.panel3.TabIndex = 5;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // dgvThucDon
+            // 
+            this.dgvThucDon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvThucDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThucDon.Location = new System.Drawing.Point(336, 0);
+            this.dgvThucDon.Name = "dgvThucDon";
+            this.dgvThucDon.RowHeadersWidth = 51;
+            this.dgvThucDon.RowTemplate.Height = 24;
+            this.dgvThucDon.Size = new System.Drawing.Size(731, 341);
+            this.dgvThucDon.TabIndex = 3;
+            this.dgvThucDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThucDon_CellContentClick);
             // 
             // pnthemmon
             // 
+            this.pnthemmon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnthemmon.Controls.Add(this.pictureBox3);
             this.pnthemmon.Controls.Add(this.btnThemVaoThucDon);
             this.pnthemmon.Controls.Add(this.cboDanhSachMon);
@@ -282,15 +330,16 @@
             this.pnthemmon.Controls.Add(this.cboLoaiMon);
             this.pnthemmon.Controls.Add(this.panel1);
             this.pnthemmon.Controls.Add(this.lblloaimon);
-            this.pnthemmon.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnthemmon.Location = new System.Drawing.Point(0, 0);
             this.pnthemmon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnthemmon.Name = "pnthemmon";
             this.pnthemmon.Size = new System.Drawing.Size(336, 341);
             this.pnthemmon.TabIndex = 2;
+            this.pnthemmon.Paint += new System.Windows.Forms.PaintEventHandler(this.pnthemmon_Paint);
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.BackColor = System.Drawing.Color.LightPink;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(30, 282);
@@ -300,9 +349,11 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // btnThemVaoThucDon
             // 
+            this.btnThemVaoThucDon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThemVaoThucDon.BackColor = System.Drawing.Color.DeepPink;
             this.btnThemVaoThucDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemVaoThucDon.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -318,6 +369,7 @@
             // 
             // cboDanhSachMon
             // 
+            this.cboDanhSachMon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboDanhSachMon.FormattingEnabled = true;
             this.cboDanhSachMon.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.cboDanhSachMon.Location = new System.Drawing.Point(17, 206);
@@ -329,6 +381,7 @@
             // 
             // lbldanhsachan
             // 
+            this.lbldanhsachan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbldanhsachan.AutoSize = true;
             this.lbldanhsachan.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldanhsachan.Location = new System.Drawing.Point(12, 173);
@@ -336,9 +389,11 @@
             this.lbldanhsachan.Size = new System.Drawing.Size(156, 23);
             this.lbldanhsachan.TabIndex = 4;
             this.lbldanhsachan.Text = "Danh sách món ăn";
+            this.lbldanhsachan.Click += new System.EventHandler(this.lbldanhsachan_Click);
             // 
             // cboLoaiMon
             // 
+            this.cboLoaiMon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboLoaiMon.FormattingEnabled = true;
             this.cboLoaiMon.Location = new System.Drawing.Point(17, 106);
             this.cboLoaiMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -349,10 +404,10 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
@@ -362,6 +417,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(3, 8);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -370,6 +426,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label1
             // 
@@ -382,9 +439,11 @@
             this.label1.Size = new System.Drawing.Size(102, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Chọn món ăn";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblloaimon
             // 
+            this.lblloaimon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblloaimon.AutoSize = true;
             this.lblloaimon.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblloaimon.Location = new System.Drawing.Point(12, 71);
@@ -392,18 +451,7 @@
             this.lblloaimon.Size = new System.Drawing.Size(84, 23);
             this.lblloaimon.TabIndex = 1;
             this.lblloaimon.Text = "Loại món";
-            // 
-            // dgvThucDon
-            // 
-            this.dgvThucDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvThucDon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvThucDon.Location = new System.Drawing.Point(336, 0);
-            this.dgvThucDon.Name = "dgvThucDon";
-            this.dgvThucDon.RowHeadersWidth = 51;
-            this.dgvThucDon.RowTemplate.Height = 24;
-            this.dgvThucDon.Size = new System.Drawing.Size(731, 341);
-            this.dgvThucDon.TabIndex = 3;
-            this.dgvThucDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThucDon_CellContentClick);
+            this.lblloaimon.Click += new System.EventHandler(this.lblloaimon_Click);
             // 
             // frmlapthucdon
             // 
@@ -422,6 +470,7 @@
             this.Name = "frmlapthucdon";
             this.Text = "frmlapthucdon";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmlapthucdon_FormClosing);
             this.pntitle.ResumeLayout(false);
             this.pntitle.PerformLayout();
             this.pnlfilter.ResumeLayout(false);
@@ -432,13 +481,13 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThucDon)).EndInit();
             this.pnthemmon.ResumeLayout(false);
             this.pnthemmon.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvThucDon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -473,5 +522,6 @@
         private System.Windows.Forms.Label lblloaimon;
         private System.Windows.Forms.ComboBox cboLoaiMon;
         private System.Windows.Forms.DataGridView dgvThucDon;
+        private System.Windows.Forms.Button btnExit;
     }
 }
