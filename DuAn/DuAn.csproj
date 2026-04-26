@@ -48,9 +48,13 @@
   <ItemGroup>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\AccountModel.cs" />
+<<<<<<< Updated upstream
     <Compile Include="DAO\BuoiAnDAO.cs" />
     <Compile Include="DAO\ChiTietThucDonDAO.cs" />
     <Compile Include="DAO\MonAnDAO.cs" />
+=======
+    <Compile Include="DAO\baoquansoDAO.cs" />
+>>>>>>> Stashed changes
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ThucDonDAO.cs" />
     <Compile Include="DTO\BuoiAnModel.cs" />

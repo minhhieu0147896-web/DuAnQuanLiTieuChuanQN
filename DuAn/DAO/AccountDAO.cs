@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
 
 namespace DuAn.DAO
 {
@@ -28,38 +29,34 @@ namespace DuAn.DAO
         // Đổi return type từ bool → AccountModel để lấy được VaiTro
         public AccountModel Login(string username, string password)
         {
-            string query = @"SELECT user_id, user_taikhoan, user_vai_tro, user_mat_khau
-                             FROM   [dbo].[User]
-                             WHERE  user_taikhoan = @username
-                               AND  user_mat_khau = @password";
-                             
+            string query = @"SELECT user_id, user_taikhoan, user_vai_tro
+                     FROM   [dbo].[User]
+                     WHERE  user_taikhoan = @username
+                       AND  user_mat_khau = @password";
 
-            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            SqlParameter[] parameters =
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+        new SqlParameter("@username", username),
+        new SqlParameter("@password", password)
+    };
+
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, parameters);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+
+                return new AccountModel
                 {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return new AccountModel
-                            {
-                                MaTK = (int)reader["user_id"],
-                                TenDangNhap = reader["user_taikhoan"].ToString(),
-                                VaiTro = (int)reader["user_vai_tro"],
-                                
-                            };
-                        }
-                    }
-                }
+                    MaTK = Convert.ToInt32(row["user_id"]),
+                    TenDangNhap = row["user_taikhoan"].ToString(),
+                    VaiTro = Convert.ToInt32(row["user_vai_tro"])
+                };
             }
-            return null;
 
+            return null;
         }
+
 
     }
 }
