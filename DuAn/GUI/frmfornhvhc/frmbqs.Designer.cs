@@ -89,6 +89,7 @@
             this.pnlfilter.Name = "pnlfilter";
             this.pnlfilter.Size = new System.Drawing.Size(1200, 155);
             this.pnlfilter.TabIndex = 1;
+            this.pnlfilter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlfilter_Paint);
             // 
             // pnlchilfilter
             // 

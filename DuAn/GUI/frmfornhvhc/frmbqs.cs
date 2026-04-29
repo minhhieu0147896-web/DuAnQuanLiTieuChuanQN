@@ -47,5 +47,10 @@ namespace frmfornhvhc
         {
 
         }
+
+        private void pnlfilter_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
