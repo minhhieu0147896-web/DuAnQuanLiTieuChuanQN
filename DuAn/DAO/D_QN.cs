@@ -41,7 +41,7 @@ namespace DuAn.DAO
             cmd.ExecuteNonQuery();       // CHẠY INSERT
             conn.Close();                // ĐÓNG
         }
-        public DataTable GetAllCheDo()
+        public static DataTable GetAllCheDo()
         {
             SqlConnection conn = DataProvider.Instance.GetConnection();
 
@@ -56,7 +56,7 @@ namespace DuAn.DAO
 
             return dt;
         }
-        public DataTable GetAllDonVi()
+        public static DataTable GetAllDonVi()
         {
             SqlConnection conn = DataProvider.Instance.GetConnection();
 

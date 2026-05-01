@@ -28,7 +28,10 @@ namespace DuAn.DAO
         // Bước 3: Constructor private - khóa không cho tạo bằng "new" từ bên ngoài
         private DataProvider() { }
 
-        private string connectionString = "Data Source=localhost\\sqlexpress;Initial Catalog=QuanLyTieuChuanQuanNhan;Integrated Security=True;Encrypt=False";
+        // private string connectionString = "Data Source=localhost\\sqlexpress;Initial Catalog=QuanLyTieuChuanQuanNhan;Integrated Security=True;Encrypt=False";
+        private string connectionString =
+  "Data Source=DESKTOP-LO80BEU;Initial Catalog=QuanLyTieuChuanQuanNhan;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
+
         public DataTable ExecuteQuery(string query)
         {
             DataTable data = new DataTable();

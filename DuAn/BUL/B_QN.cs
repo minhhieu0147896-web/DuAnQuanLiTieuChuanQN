@@ -19,24 +19,24 @@ namespace DuAn.BUL
         {
              D_QN.insertqn(qn);
         }
-        D_QN dal = new D_QN();
 
-        public DataTable GetAllCheDo()
+
+        public static DataTable GetAllCheDo()
         {
-            return dal.GetAllCheDo();
+            return D_QN.GetAllCheDo();
         }
 
-        public DataTable GetAllDonVi()
+        public static DataTable GetAllDonVi()
         {
-            return dal.GetAllDonVi();
+            return D_QN .GetAllDonVi();
         }
         public static void UpdateQN(DuAn.DTO.quannhan qn)
         {
             D_QN.UpdateQN(qn);
         }
-            public static void DeleteQN(int id)
-            {
-                D_QN.DeleteQN(id);
+        public static void DeleteQN(int id)
+        {
+             D_QN.DeleteQN(id);
         }
 
     }

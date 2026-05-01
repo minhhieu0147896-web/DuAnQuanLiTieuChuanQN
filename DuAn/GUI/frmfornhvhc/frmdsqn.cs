@@ -18,17 +18,17 @@ namespace DuAn.GUI.frmfornhvhc
     {
         
 
-        B_QN bqn = new B_QN();
+    
         void LoadCheDo()
         {
-            cbochedo.DataSource = bqn.GetAllCheDo();
+            cbochedo.DataSource = B_QN.GetAllCheDo();
 
             cbochedo.DisplayMember = "chedo_ten";
             cbochedo.ValueMember = "chedo_id";
         }
         void LoadDonvi()
         {
-            cbodonvi.DataSource = bqn.GetAllDonVi();
+            cbodonvi.DataSource = B_QN.GetAllDonVi();
 
             cbodonvi.DisplayMember = "donvi_ten";
             cbodonvi.ValueMember = "donvi_id";
