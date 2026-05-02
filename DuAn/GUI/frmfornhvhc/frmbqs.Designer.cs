@@ -31,7 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmbqs));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pntitle = new System.Windows.Forms.Panel();
+            this.pnthoat = new System.Windows.Forms.Panel();
+            this.btnthoat = new System.Windows.Forms.Button();
             this.lblbqs = new System.Windows.Forms.Label();
             this.pnlfilter = new System.Windows.Forms.Panel();
             this.pnlchilfilter = new System.Windows.Forms.Panel();
@@ -51,7 +53,8 @@
             this.colchedo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedoid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colKan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.panel1.SuspendLayout();
+            this.pntitle.SuspendLayout();
+            this.pnthoat.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,15 +62,38 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvbqs)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pntitle
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.panel1.Controls.Add(this.lblbqs);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 79);
-            this.panel1.TabIndex = 0;
+            this.pntitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.pntitle.Controls.Add(this.pnthoat);
+            this.pntitle.Controls.Add(this.lblbqs);
+            this.pntitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pntitle.Location = new System.Drawing.Point(0, 0);
+            this.pntitle.Name = "pntitle";
+            this.pntitle.Size = new System.Drawing.Size(1200, 79);
+            this.pntitle.TabIndex = 0;
+            this.pntitle.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // pnthoat
+            // 
+            this.pnthoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnthoat.Controls.Add(this.btnthoat);
+            this.pnthoat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnthoat.Location = new System.Drawing.Point(1162, 0);
+            this.pnthoat.Name = "pnthoat";
+            this.pnthoat.Size = new System.Drawing.Size(38, 40);
+            this.pnthoat.TabIndex = 1;
+            // 
+            // btnthoat
+            // 
+            this.btnthoat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnthoat.Location = new System.Drawing.Point(-14, 0);
+            this.btnthoat.Name = "btnthoat";
+            this.btnthoat.Size = new System.Drawing.Size(62, 41);
+            this.btnthoat.TabIndex = 2;
+            this.btnthoat.Text = " X";
+            this.btnthoat.UseVisualStyleBackColor = true;
+            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
             // 
             // lblbqs
             // 
@@ -294,14 +320,15 @@
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.pnbang);
             this.Controls.Add(this.pnlfilter);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pntitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "frmbqs";
             this.Text = "Báo quân số";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmbqs_Load);
-            this.panel1.ResumeLayout(false);
+            this.pntitle.ResumeLayout(false);
+            this.pnthoat.ResumeLayout(false);
             this.pnlfilter.ResumeLayout(false);
             this.pnlfilter.PerformLayout();
             this.pnlchilfilter.ResumeLayout(false);
@@ -315,7 +342,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pntitle;
         private System.Windows.Forms.Label lblbqs;
         private System.Windows.Forms.Panel pnlfilter;
         private System.Windows.Forms.Panel pnlchilfilter;
@@ -335,5 +362,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colchedo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colchedoid;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colKan;
+        private System.Windows.Forms.Panel pnthoat;
+        private System.Windows.Forms.Button btnthoat;
     }
 }

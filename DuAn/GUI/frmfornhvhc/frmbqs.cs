@@ -123,7 +123,7 @@ namespace frmfornhvhc
 
                     int chedo_id =
                         Convert.ToInt32(
-                            row.Cells["colCheDoID"].Value
+                            row.Cells["colchedoid"].Value
                         );
 
                     if (khongan == true)
@@ -147,6 +147,7 @@ namespace frmfornhvhc
                             demchedo.Add(chedo_id, 1);
                         }
                     }
+                }
                     foreach (var item in demchedo)
                     {
                         quansoan qsa = new quansoan();
@@ -160,7 +161,7 @@ namespace frmfornhvhc
                     btnluu.Enabled = false;
                     MessageBox.Show("Lưu cắt cơm thành công!");
                     ResetForm();
-                }
+                
             }
             catch (Exception ex)
             {
@@ -203,6 +204,22 @@ namespace frmfornhvhc
 
             dgvbqs.DataSource = B_BQS.loadbqs(madv);
             KiemTraNutLuu();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnthoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận ",
+              MessageBoxButtons.YesNo,
+              MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }

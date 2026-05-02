@@ -60,6 +60,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbltqs = new System.Windows.Forms.Label();
             this.lblso = new System.Windows.Forms.Label();
+            this.btnthoat = new System.Windows.Forms.Button();
             this.pntitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
@@ -77,6 +78,7 @@
             // pntitle
             // 
             this.pntitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.pntitle.Controls.Add(this.btnthoat);
             this.pntitle.Controls.Add(this.lbltieude);
             this.pntitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pntitle.Location = new System.Drawing.Point(0, 0);
@@ -380,6 +382,18 @@
             this.lblso.TabIndex = 1;
             this.lblso.Text = "0";
             // 
+            // btnthoat
+            // 
+            this.btnthoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnthoat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnthoat.Location = new System.Drawing.Point(1144, 0);
+            this.btnthoat.Name = "btnthoat";
+            this.btnthoat.Size = new System.Drawing.Size(56, 41);
+            this.btnthoat.TabIndex = 5;
+            this.btnthoat.Text = " X";
+            this.btnthoat.UseVisualStyleBackColor = true;
+            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
+            // 
             // frmtinhtpcansudung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -449,5 +463,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lbltqs;
         private System.Windows.Forms.Label lblso;
+        private System.Windows.Forms.Button btnthoat;
     }
 }
