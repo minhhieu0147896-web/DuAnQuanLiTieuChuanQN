@@ -47,12 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUL\B_BQS.cs" />
+    <Compile Include="BUL\B_LSBQS.cs" />
+    <Compile Include="BUL\B_LSCC.cs" />
     <Compile Include="BUL\B_QN.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\AccountModel.cs" />
     <Compile Include="DAO\BuoiAnDAO.cs" />
     <Compile Include="DAO\ChiTietThucDonDAO.cs" />
     <Compile Include="DAO\D_BQS.cs" />
+    <Compile Include="DAO\D_LSBQS.cs" />
+    <Compile Include="DAO\D_LSCC.cs" />
     <Compile Include="DAO\D_QN.cs" />
     <Compile Include="DAO\MonAnDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
@@ -60,6 +64,8 @@
     <Compile Include="DTO\BuoiAnModel.cs" />
     <Compile Include="DTO\catcom.cs" />
     <Compile Include="DTO\ChiTietThucDonModel.cs" />
+    <Compile Include="DTO\LSBQS.cs" />
+    <Compile Include="DTO\LSCC.cs" />
     <Compile Include="DTO\MonAnModel.cs" />
     <Compile Include="DTO\quannhan.cs" />
     <Compile Include="DTO\quansoan.cs" />
