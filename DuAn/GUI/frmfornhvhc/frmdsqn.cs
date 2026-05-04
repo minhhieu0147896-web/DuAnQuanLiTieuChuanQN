@@ -182,5 +182,10 @@ namespace DuAn.GUI.frmfornhvhc
             dgvdsqn.DataSource = B_QN.TimKiemQN(donvi, chedo);
         
          }
+
+        private void cbodonvi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

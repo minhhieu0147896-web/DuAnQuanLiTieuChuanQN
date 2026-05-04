@@ -43,6 +43,10 @@
             this.lbltieude = new System.Windows.Forms.Label();
             this.pnlluachon = new System.Windows.Forms.Panel();
             this.pnkhung = new System.Windows.Forms.Panel();
+            this.cbodonvi = new System.Windows.Forms.ComboBox();
+            this.lbldonvi = new System.Windows.Forms.Label();
+            this.cbobuoi = new System.Windows.Forms.ComboBox();
+            this.lblbuoi = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dtpdenngay = new System.Windows.Forms.DateTimePicker();
             this.btntracuu = new System.Windows.Forms.Button();
@@ -51,10 +55,6 @@
             this.lbltungay = new System.Windows.Forms.Label();
             this.pnbang = new System.Windows.Forms.Panel();
             this.dgvlsbqs = new System.Windows.Forms.DataGridView();
-            this.cbodonvi = new System.Windows.Forms.ComboBox();
-            this.lbldonvi = new System.Windows.Forms.Label();
-            this.cbobuoi = new System.Windows.Forms.ComboBox();
-            this.lblbuoi = new System.Windows.Forms.Label();
             this.colngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colbuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colbuoiid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -205,6 +205,41 @@
             this.pnkhung.Size = new System.Drawing.Size(752, 95);
             this.pnkhung.TabIndex = 6;
             // 
+            // cbodonvi
+            // 
+            this.cbodonvi.FormattingEnabled = true;
+            this.cbodonvi.Location = new System.Drawing.Point(85, 58);
+            this.cbodonvi.Name = "cbodonvi";
+            this.cbodonvi.Size = new System.Drawing.Size(130, 28);
+            this.cbodonvi.TabIndex = 13;
+            // 
+            // lbldonvi
+            // 
+            this.lbldonvi.AutoSize = true;
+            this.lbldonvi.Location = new System.Drawing.Point(26, 58);
+            this.lbldonvi.Name = "lbldonvi";
+            this.lbldonvi.Size = new System.Drawing.Size(53, 20);
+            this.lbldonvi.TabIndex = 12;
+            this.lbldonvi.Text = "Đơn vị";
+            // 
+            // cbobuoi
+            // 
+            this.cbobuoi.FormattingEnabled = true;
+            this.cbobuoi.Location = new System.Drawing.Point(399, 50);
+            this.cbobuoi.Name = "cbobuoi";
+            this.cbobuoi.Size = new System.Drawing.Size(130, 28);
+            this.cbobuoi.TabIndex = 11;
+            this.cbobuoi.SelectedIndexChanged += new System.EventHandler(this.cbobuoi_SelectedIndexChanged);
+            // 
+            // lblbuoi
+            // 
+            this.lblbuoi.AutoSize = true;
+            this.lblbuoi.Location = new System.Drawing.Point(329, 53);
+            this.lblbuoi.Name = "lblbuoi";
+            this.lblbuoi.Size = new System.Drawing.Size(41, 20);
+            this.lblbuoi.TabIndex = 10;
+            this.lblbuoi.Text = "Buổi";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
@@ -317,40 +352,6 @@
             this.dgvlsbqs.RowTemplate.Height = 30;
             this.dgvlsbqs.Size = new System.Drawing.Size(1154, 424);
             this.dgvlsbqs.TabIndex = 0;
-            // 
-            // cbodonvi
-            // 
-            this.cbodonvi.FormattingEnabled = true;
-            this.cbodonvi.Location = new System.Drawing.Point(85, 58);
-            this.cbodonvi.Name = "cbodonvi";
-            this.cbodonvi.Size = new System.Drawing.Size(130, 28);
-            this.cbodonvi.TabIndex = 13;
-            // 
-            // lbldonvi
-            // 
-            this.lbldonvi.AutoSize = true;
-            this.lbldonvi.Location = new System.Drawing.Point(26, 58);
-            this.lbldonvi.Name = "lbldonvi";
-            this.lbldonvi.Size = new System.Drawing.Size(53, 20);
-            this.lbldonvi.TabIndex = 12;
-            this.lbldonvi.Text = "Đơn vị";
-            // 
-            // cbobuoi
-            // 
-            this.cbobuoi.FormattingEnabled = true;
-            this.cbobuoi.Location = new System.Drawing.Point(399, 50);
-            this.cbobuoi.Name = "cbobuoi";
-            this.cbobuoi.Size = new System.Drawing.Size(130, 28);
-            this.cbobuoi.TabIndex = 11;
-            // 
-            // lblbuoi
-            // 
-            this.lblbuoi.AutoSize = true;
-            this.lblbuoi.Location = new System.Drawing.Point(329, 53);
-            this.lblbuoi.Name = "lblbuoi";
-            this.lblbuoi.Size = new System.Drawing.Size(41, 20);
-            this.lblbuoi.TabIndex = 10;
-            this.lblbuoi.Text = "Buổi";
             // 
             // colngay
             // 

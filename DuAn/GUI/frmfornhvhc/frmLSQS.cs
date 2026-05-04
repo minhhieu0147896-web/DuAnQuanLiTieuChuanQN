@@ -22,10 +22,22 @@ namespace frmfornhvhc
         }
         void LoadBuoi()
         {
-            cbobuoi.DataSource = B_BQS.loadbuoi();
+          
+            DataTable dt = B_BQS.loadbuoi();
 
+            // thêm dòng chọn buổi
+            DataRow row = dt.NewRow();
+            row["buoian_id"] = 0;
+            row["buoian_ten"] = "-- Tất cả buổi --";
+
+            dt.Rows.InsertAt(row, 0);
+
+            cbobuoi.DataSource = dt;
             cbobuoi.DisplayMember = "buoian_ten";
             cbobuoi.ValueMember = "buoian_id";
+
+            // mặc định chọn dòng đầu
+            cbobuoi.SelectedIndex = 0;
         }
         void LoadDonvi()
         {
@@ -84,6 +96,11 @@ namespace frmfornhvhc
         {
             LoadBuoi();
             LoadDonvi();
+        }
+
+        private void cbobuoi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
