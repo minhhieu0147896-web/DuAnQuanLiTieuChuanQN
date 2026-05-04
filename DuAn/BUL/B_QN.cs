@@ -38,6 +38,10 @@ namespace DuAn.BUL
         {
              D_QN.DeleteQN(id);
         }
+        public static DataTable TimKiemQN(int donvi, int chedo)
+        {
+            return D_QN.TimKiemQN(donvi, chedo);
+        }
 
     }
 }

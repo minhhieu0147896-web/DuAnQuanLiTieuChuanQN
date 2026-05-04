@@ -23,7 +23,8 @@ namespace DuAn
             //   Application.Run(new frmlapthucdon());
            // Application.Run(new frmbqs());
           //  Application.Run(new frmlichsucatcom());
-            Application.Run(new frmLSQS());
+          //  Application.Run(new frmLSQS());
+          Application.Run(new frm_manhinh_canbodonvi());
             //Application.Run(new frmfornhvhc());
             //Application.Run(new frmquannhan());
             //Application.Run(new frmnhanvien());

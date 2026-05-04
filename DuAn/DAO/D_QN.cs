@@ -3,6 +3,7 @@ using DuAn.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -102,6 +103,25 @@ namespace DuAn.DAO
 
             conn.Close();
         }
+        public static DataTable TimKiemQN(int donvi, int chedo)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("sp_timkiemdsqn", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@donvi_id", donvi);
+            cmd.Parameters.AddWithValue("@chedo_id", chedo);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            conn.Close();
+            return dt;
+        }
+
 
     }
 }

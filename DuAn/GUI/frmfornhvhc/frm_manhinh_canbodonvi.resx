@@ -283,6 +283,18 @@
   <metadata name="slidebartransition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>413, 21</value>
   </metadata>
+  <data name="pictureBox13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAXNJREFUaEPt
+        mY1twkAMRjNCR2AERmADGKEbwEZlg7JB2QA2KRuE9yWOFFWVqt6fSeQnWUKJ8uxEuTvn6IIgCILgVej7
+        /o3YEx/EF3EjJvRbx3Rub5e8FhS2JT6J/6JrtqbxgyI2hJ5wLnJsTNsWEu+Ib1VRCLl2pm8DCY9D6joc
+        LU1dSHQa81XlZOnqQAK9Tq2o85oh1sAuOSb+QrnKTwBIz4O+LWdLXwaEWie8KLfOILuMThcuVkYeiNR2
+        uGKl5IHnMOpcOVg56SDxGOQ/yR/0SK6jy5WrlZMOknkr7sXNyknHRO5YOemYxx0rJx0c91Hlyt3KSQfJ
+        agb7aqbf1SyI62hRBK7lN40C2TraeIFw+R9WAqk+dR+Dvg3KVWevC/HyNx8mSNBiO+jd0tWFRDVvps1N
+        TJBQr1nJMSNX2y3TCRJrAigxm8nhs4k9hyK0zqQsmrrG/2+F36Aw9WZ6wuqa558A+q1jOpffOwVBEARB
+        MbruCSTPkV5VDJ8XAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

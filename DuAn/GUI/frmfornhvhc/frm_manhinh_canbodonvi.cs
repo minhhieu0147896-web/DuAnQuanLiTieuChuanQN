@@ -16,6 +16,7 @@ namespace frmfornhvhc
     {
         frmbqs fbqs;
         frmLSQS flsqs;
+        frmdsqn fdsqn;
 
         public frm_manhinh_canbodonvi()
         {
@@ -66,7 +67,7 @@ namespace frmfornhvhc
             if (quansoExpand == false)
             {
                 quansocontainer.Height += 5;
-                if (quansocontainer.Height >= 217)
+                if (quansocontainer.Height >= 277)
                 {
                     quansotransition.Stop();
                     quansoExpand = true;
@@ -196,6 +197,23 @@ namespace frmfornhvhc
                 flsqs.Dock = DockStyle.Fill;
            
                 flsqs.Show();
+            }
+        }
+
+        private void btndsqn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btndsqn_Click_1(object sender, EventArgs e)
+        {
+            if (fdsqn == null)
+            {
+                fdsqn = new frmdsqn();
+                fdsqn.MdiParent = this;
+                fdsqn.Dock = DockStyle.Fill;
+                fdsqn.FormClosed += (s, args) => fdsqn = null;
+                fdsqn.Show();
             }
         }
     }

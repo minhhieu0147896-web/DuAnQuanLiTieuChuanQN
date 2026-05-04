@@ -21,17 +21,39 @@ namespace DuAn.GUI.frmfornhvhc
     
         void LoadCheDo()
         {
-            cbochedo.DataSource = B_QN.GetAllCheDo();
+            DataTable dt = B_QN.GetAllCheDo();
 
+            // thêm dòng mặc định
+            DataRow row = dt.NewRow();
+            row["chedo_id"] = 0;
+            row["chedo_ten"] = "Tất cả chế độ";
+
+            dt.Rows.InsertAt(row, 0);
+
+            cbochedo.DataSource = dt;
             cbochedo.DisplayMember = "chedo_ten";
             cbochedo.ValueMember = "chedo_id";
+
+            // mặc định chọn dòng đầu
+            cbochedo.SelectedIndex = 0;
         }
         void LoadDonvi()
         {
-            cbodonvi.DataSource = B_QN.GetAllDonVi();
+            DataTable dt = B_QN.GetAllDonVi();
 
+            // thêm dòng chọn đơn vị
+            DataRow row = dt.NewRow();
+            row["donvi_id"] = 0;
+            row["donvi_ten"] = "-- Chọn đơn vị --";
+
+            dt.Rows.InsertAt(row, 0);
+
+            cbodonvi.DataSource = dt;
             cbodonvi.DisplayMember = "donvi_ten";
             cbodonvi.ValueMember = "donvi_id";
+
+            // mặc định chọn dòng đầu
+            cbodonvi.SelectedIndex = 0;
         }
 
         public frmdsqn()
@@ -42,9 +64,10 @@ namespace DuAn.GUI.frmfornhvhc
         private void frmquannhan_Load(object sender, EventArgs e)
         {
             dgvdsqn.AutoGenerateColumns = false;
-            dgvdsqn.DataSource= B_QN.getallqn();
+      
             LoadCheDo();
             LoadDonvi();
+            dgvdsqn.DataSource = null;
         }
 
         private void dgvdsqn_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -144,5 +167,20 @@ namespace DuAn.GUI.frmfornhvhc
         {
 
         }
+
+        private void btntimkiem_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(cbodonvi.SelectedValue) == 0)
+            {
+                MessageBox.Show("Vui lòng chọn đơn vị");
+                return;
+            }
+
+            int donvi = Convert.ToInt32(cbodonvi.SelectedValue);
+            int chedo = Convert.ToInt32(cbochedo.SelectedValue);
+
+            dgvdsqn.DataSource = B_QN.TimKiemQN(donvi, chedo);
+        
+         }
     }
 }
