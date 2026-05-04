@@ -22,12 +22,23 @@ namespace frmfornhvhc
         {
             InitializeComponent();
         }
+        void CloseAllChildForms()
+        {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+        }
 
         private void frm_manhinh_canbodonvi_Load(object sender, EventArgs e)
         {
+            this.IsMdiContainer = true; 
+            this.WindowState = FormWindowState.Maximized;
+
+            CloseAllChildForms();
             frmtrangchu f = new frmtrangchu();
             f.MdiParent = this;
-            this.WindowState = FormWindowState.Maximized;
+           f.Dock = DockStyle.Fill;
             f.Show();
 
         }
@@ -177,27 +188,25 @@ namespace frmfornhvhc
 
         private void btnbqs_Click_1(object sender, EventArgs e)
         {
-            if (fbqs == null)
-            {
-                fbqs = new frmbqs();
+            CloseAllChildForms();
+            fbqs = new frmbqs();
                 fbqs.MdiParent = this;
                 fbqs.Dock = DockStyle.Fill;
                 fbqs.FormClosed += (s, args) => fbqs = null;
                 fbqs.Show();
-            }
+            
         }
 
         private void btnlsa_Click_1(object sender, EventArgs e)
         {
-            if (flsqs == null)
-            {
-                flsqs = new frmLSQS();
+            CloseAllChildForms();
+            flsqs = new frmLSQS();
                 flsqs.MdiParent = this;
 
                 flsqs.Dock = DockStyle.Fill;
            
                 flsqs.Show();
-            }
+            
         }
 
         private void btndsqn_Click(object sender, EventArgs e)
@@ -207,14 +216,13 @@ namespace frmfornhvhc
 
         private void btndsqn_Click_1(object sender, EventArgs e)
         {
-            if (fdsqn == null)
-            {
-                fdsqn = new frmdsqn();
+            CloseAllChildForms();
+            fdsqn = new frmdsqn();
                 fdsqn.MdiParent = this;
                 fdsqn.Dock = DockStyle.Fill;
                 fdsqn.FormClosed += (s, args) => fdsqn = null;
                 fdsqn.Show();
-            }
+            
         }
     }
 }
