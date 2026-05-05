@@ -133,11 +133,9 @@ E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 E:\Branches\giao\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.AssemblyReference.cache
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmbqs.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmddtc.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmLSQS.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmtrangchu.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frm_manhinh_canbodonvi.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.ucgiaodienchinh.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmlogin.frmmhlogin.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaoquanso.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaothucpham.resources
@@ -146,7 +144,6 @@ E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmlapthucdon.reso
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmtinhtpcansudung.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frm_manhinh_nhanvien.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmlichsucatcom.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmtracuutieuchuanan.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frm_manhinh_quannhan.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.Properties.Resources.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResource.cache
@@ -158,3 +155,4 @@ E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmdsqn.resources
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmdsqn.resources
