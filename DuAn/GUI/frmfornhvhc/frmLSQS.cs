@@ -41,10 +41,17 @@ namespace frmfornhvhc
         }
         void LoadDonvi()
         {
-            cbodonvi.DataSource = B_QN.GetAllDonVi();
+            DataTable dt = B_QN.GetAllDonVi();
+            DataRow row = dt.NewRow();
+            row["donvi_id"] = 0;
+            row["donvi_ten"] = "-- Chọn đơn vị --";
 
+            dt.Rows.InsertAt(row, 0);
+
+            cbodonvi.DataSource = dt;
             cbodonvi.DisplayMember = "donvi_ten";
             cbodonvi.ValueMember = "donvi_id";
+            cbodonvi.SelectedIndex = 0;
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -99,6 +106,11 @@ namespace frmfornhvhc
         }
 
         private void cbobuoi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbodonvi_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

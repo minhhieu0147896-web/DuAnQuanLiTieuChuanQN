@@ -54,17 +54,36 @@ namespace frmfornhvhc
         }
         void LoadBuoi()
         {
-            cbobuoi.DataSource = B_BQS.loadbuoi();
+            DataTable dt = B_BQS.loadbuoi();
 
+            // thêm dòng chọn buổi
+            DataRow row = dt.NewRow();
+            row["buoian_id"] = 0;
+            row["buoian_ten"] = "--Chọn buổi ăn --";
+
+            dt.Rows.InsertAt(row, 0);
+
+            cbobuoi.DataSource = dt;
             cbobuoi.DisplayMember = "buoian_ten";
             cbobuoi.ValueMember = "buoian_id";
         }
         void LoadDonvi()
         {
-            cbodonvi.DataSource = B_QN.GetAllDonVi();
+            DataTable dt = B_QN.GetAllDonVi();
 
+            // thêm dòng chọn đơn vị
+            DataRow row = dt.NewRow();
+            row["donvi_id"] = 0;
+            row["donvi_ten"] = "-- Chọn đơn vị --";
+
+            dt.Rows.InsertAt(row, 0);
+
+            cbodonvi.DataSource = dt;
             cbodonvi.DisplayMember = "donvi_ten";
             cbodonvi.ValueMember = "donvi_id";
+
+            // mặc định chọn dòng đầu
+            cbodonvi.SelectedIndex = 0;
         }
       
 
@@ -220,6 +239,11 @@ namespace frmfornhvhc
             {
                 Close();
             }
+        }
+
+        private void cbodonvi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

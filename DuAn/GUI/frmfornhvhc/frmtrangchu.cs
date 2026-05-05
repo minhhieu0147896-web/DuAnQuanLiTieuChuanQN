@@ -1,4 +1,5 @@
-﻿using System;
+﻿using frmfornhvhc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,31 @@ namespace DuAn.GUI.frmfornhvhc
 {
     public partial class frmtrangchu : Form
     {
+       
         public frmtrangchu()
         {
             InitializeComponent();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btncnbqs_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btncndsqn_Click(object sender, EventArgs e)
+        {
+          
+
+        }
+
+        private void btnclsbqs_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
