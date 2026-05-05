@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmlapthucdon));
             this.pntitle = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
             this.lbltieude = new System.Windows.Forms.Label();
             this.pnlfilter = new System.Windows.Forms.Panel();
             this.btnBo = new System.Windows.Forms.Button();
@@ -45,6 +44,7 @@
             this.cboBuoi = new System.Windows.Forms.ComboBox();
             this.lblbuoi = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnHD = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -59,7 +59,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblloaimon = new System.Windows.Forms.Label();
-            this.btnHD = new System.Windows.Forms.Button();
             this.pntitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
@@ -78,7 +77,6 @@
             // 
             this.pntitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pntitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.pntitle.Controls.Add(this.btnExit);
             this.pntitle.Controls.Add(this.lbltieude);
             this.pntitle.Location = new System.Drawing.Point(0, 0);
             this.pntitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -86,19 +84,6 @@
             this.pntitle.Size = new System.Drawing.Size(1067, 64);
             this.pntitle.TabIndex = 0;
             this.pntitle.Paint += new System.Windows.Forms.PaintEventHandler(this.pntitle_Paint);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnExit.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(987, 0);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(80, 64);
-            this.btnExit.TabIndex = 4;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // lbltieude
             // 
@@ -281,6 +266,19 @@
             this.panel2.Size = new System.Drawing.Size(1067, 44);
             this.panel2.TabIndex = 4;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnHD
+            // 
+            this.btnHD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnHD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHD.Location = new System.Drawing.Point(414, 0);
+            this.btnHD.Name = "btnHD";
+            this.btnHD.Size = new System.Drawing.Size(241, 44);
+            this.btnHD.TabIndex = 11;
+            this.btnHD.Text = "Hướng dẫn lập thực đơn";
+            this.btnHD.UseVisualStyleBackColor = false;
+            this.btnHD.Click += new System.EventHandler(this.btnHD_Click);
             // 
             // pictureBox4
             // 
@@ -469,19 +467,6 @@
             this.lblloaimon.Text = "Loại món";
             this.lblloaimon.Click += new System.EventHandler(this.lblloaimon_Click);
             // 
-            // btnHD
-            // 
-            this.btnHD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnHD.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHD.Location = new System.Drawing.Point(414, 0);
-            this.btnHD.Name = "btnHD";
-            this.btnHD.Size = new System.Drawing.Size(241, 44);
-            this.btnHD.TabIndex = 11;
-            this.btnHD.Text = "Hướng dẫn lập thực đơn";
-            this.btnHD.UseVisualStyleBackColor = false;
-            this.btnHD.Click += new System.EventHandler(this.btnHD_Click);
-            // 
             // frmlapthucdon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -551,7 +536,6 @@
         private System.Windows.Forms.Label lblloaimon;
         private System.Windows.Forms.ComboBox cboLoaiMon;
         private System.Windows.Forms.DataGridView dgvThucDon;
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnBo;
         private System.Windows.Forms.Button btnHD;
     }
