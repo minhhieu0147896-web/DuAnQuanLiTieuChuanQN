@@ -32,7 +32,7 @@ namespace DuAn.BUL
         }
         public static void UpdateQN(DuAn.DTO.quannhan qn)
         {
-            D_QN.UpdateQN(qn);
+             D_QN.UpdateQN(qn);
         }
         public static void DeleteQN(int id)
         {

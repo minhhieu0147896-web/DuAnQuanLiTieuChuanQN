@@ -133,15 +133,15 @@ namespace DuAn.GUI.frmfornhvhc
                 dgvdsqn.DataSource = B_QN.getallqn();
             
         }
-        int idchon = 0;
+        int maqn_cu = 0;
       
         private void dgvdsqn_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
             DataGridViewRow row = dgvdsqn.Rows[e.RowIndex];
-           idchon = Convert.ToInt32(row.Cells["colid"].Value);
-            txtmaqn.Text = idchon.ToString();
+           maqn_cu = Convert.ToInt32(row.Cells["colid"].Value);
+            txtmaqn.Text = maqn_cu.ToString();
             txtten.Text = row.Cells["colten"].Value.ToString();
             cbodonvi.Text = row.Cells["coldonvi"].Value.ToString();
             cbochedo.Text = row.Cells["colchedo"].Value.ToString();
@@ -150,47 +150,31 @@ namespace DuAn.GUI.frmfornhvhc
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
+            if (maqn_cu == 0)
+            {
+                MessageBox.Show("Vui lòng chọn quân nhân cần sửa");
+                return;
+            }
            
-            string inputmaqn = txtmaqn.Text.Trim();
-            if (string.IsNullOrWhiteSpace(inputmaqn))
-            {
-                MessageBox.Show("Mã quân nhân không được để trống");
-                txtmaqn.Focus();
-                return;
-            }
-            if (!int.TryParse(inputmaqn, out int maqn))
-            {
-                MessageBox.Show("Mã quân nhân phải là số");
-                txtmaqn.Focus();
-                return;
-            }
-            if (maqn != idchon)
-            {
-                if (B_QN.checkmaqn(maqn) == 1)
-                {
-                    MessageBox.Show("Mã quân nhân đã tồn tại, vui lòng nhập mã khác");
-                    txtmaqn.Focus();
-                    return;
-                }
-            }
 
             string ten = txtten.Text.Trim();
             int donvi = Convert.ToInt32(cbodonvi.SelectedValue);
             int chedo = Convert.ToInt32(cbochedo.SelectedValue);
 
-            quannhan qn = new quannhan(maqn, ten, donvi, chedo);
+            quannhan qn = new quannhan(maqn_cu,ten, donvi, chedo);
 
             B_QN.UpdateQN(qn);
+          
 
             MessageBox.Show("Cập nhật thành công");
 
             dgvdsqn.DataSource = B_QN.getallqn();
-            idchon=maqn;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (idchon == 0)
+            if (maqn_cu == 0)
             {
                 MessageBox.Show("Vui lòng chọn quân nhân cần xóa");
                 return;
@@ -204,14 +188,14 @@ namespace DuAn.GUI.frmfornhvhc
 
             if (r == DialogResult.Yes)
             {
-                B_QN.DeleteQN(idchon);
+                B_QN.DeleteQN(maqn_cu);
 
                 MessageBox.Show("Xóa thành công");
 
                 dgvdsqn.DataSource = B_QN.getallqn();
 
-                txtten.Clear();
-                idchon = 0;
+               ResetForm();
+               maqn_cu = 0;
             }
         }
 

@@ -74,22 +74,23 @@ namespace DuAn.DAO
 
             return dt;
         }
-        public static void UpdateQN(DuAn.DTO.quannhan qn)
-        {
+        public static void UpdateQN(DuAn.DTO.quannhan qn)       {
             SqlConnection conn = DataProvider.Instance.GetConnection();
-            conn.Open();
+         
 
             SqlCommand cmd = new SqlCommand("sp_updateqn", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
+           
             cmd.Parameters.AddWithValue("@quannhan_id", qn.Quannhan_id1);
             cmd.Parameters.AddWithValue("@quannhan_hoten", qn.Quannhan_ten1);
             cmd.Parameters.AddWithValue("@donvi_id", qn.Donvi_id1);
             cmd.Parameters.AddWithValue("@chedo_id", qn.Chedo_id1);
-
+            conn.Open();
             cmd.ExecuteNonQuery();
 
             conn.Close();
+          
         }
         public static void DeleteQN(int id)
         {
