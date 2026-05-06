@@ -55,7 +55,22 @@ namespace DuAn.GUI.frmfornhvhc
             // mặc định chọn dòng đầu
             cbodonvi.SelectedIndex = 0;
         }
+        private void ResetForm()
+        {
+            // TextBox
+            txtmaqn.Clear();
+            txtten.Clear();
 
+            // ComboBox (về trạng thái chưa chọn)
+            cbodonvi.SelectedIndex = 0;
+            cbochedo.SelectedIndex = 0;
+
+            // Nếu có checkbox/radio thì reset luôn (nếu có)
+            // chkSomething.Checked = false;
+
+            // Focus lại ô đầu tiên cho đẹp UX
+            txtmaqn.Focus();
+        }
         public frmdsqn()
         {
             InitializeComponent();
@@ -89,21 +104,44 @@ namespace DuAn.GUI.frmfornhvhc
         private void button1_Click(object sender, EventArgs e)
         {
             string ten=txtten.Text.Trim();
-            int donvi=Convert.ToInt32(cbodonvi.SelectedValue);
-            int chedo=Convert.ToInt32(cbochedo.SelectedValue);
-            quannhan qn = new quannhan(ten, donvi, chedo);
-            B_QN.insertQN(qn);
-            MessageBox.Show("Bạn dã thêm thành công");
-            dgvdsqn.DataSource=B_QN.getallqn();
+            string inputmaqn= txtmaqn.Text.Trim();
+            if (string.IsNullOrWhiteSpace(inputmaqn))
+            {
+                MessageBox.Show("Mã quân nhân không được để trống");
+                txtmaqn.Focus();
+                return;
 
+            }
+            if (!int.TryParse(inputmaqn, out int maqn))
+            {
+                MessageBox.Show("Mã quân nhân phải là số");
+                txtmaqn.Focus();
+                return;
+            }
+            if (B_QN.checkmaqn(maqn) == 1)
+            {
+                MessageBox.Show("Mã quân nhân đã tồn tại, vui lòng nhập mã khác");
+                txtmaqn.Focus();
+                return;
+            }    
+
+                int donvi = Convert.ToInt32(cbodonvi.SelectedValue);
+                int chedo = Convert.ToInt32(cbochedo.SelectedValue);
+                quannhan qn = new quannhan(maqn, ten, donvi, chedo);
+                B_QN.insertQN(qn);
+                MessageBox.Show("Bạn đã thêm thành công");
+                dgvdsqn.DataSource = B_QN.getallqn();
+            
         }
         int idchon = 0;
+      
         private void dgvdsqn_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
             DataGridViewRow row = dgvdsqn.Rows[e.RowIndex];
            idchon = Convert.ToInt32(row.Cells["colid"].Value);
+            txtmaqn.Text = idchon.ToString();
             txtten.Text = row.Cells["colten"].Value.ToString();
             cbodonvi.Text = row.Cells["coldonvi"].Value.ToString();
             cbochedo.Text = row.Cells["colchedo"].Value.ToString();
@@ -112,23 +150,42 @@ namespace DuAn.GUI.frmfornhvhc
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            if (idchon == 0)
+           
+            string inputmaqn = txtmaqn.Text.Trim();
+            if (string.IsNullOrWhiteSpace(inputmaqn))
             {
-                MessageBox.Show("Vui lòng chọn quân nhân cần sửa");
+                MessageBox.Show("Mã quân nhân không được để trống");
+                txtmaqn.Focus();
                 return;
+            }
+            if (!int.TryParse(inputmaqn, out int maqn))
+            {
+                MessageBox.Show("Mã quân nhân phải là số");
+                txtmaqn.Focus();
+                return;
+            }
+            if (maqn != idchon)
+            {
+                if (B_QN.checkmaqn(maqn) == 1)
+                {
+                    MessageBox.Show("Mã quân nhân đã tồn tại, vui lòng nhập mã khác");
+                    txtmaqn.Focus();
+                    return;
+                }
             }
 
             string ten = txtten.Text.Trim();
             int donvi = Convert.ToInt32(cbodonvi.SelectedValue);
             int chedo = Convert.ToInt32(cbochedo.SelectedValue);
 
-            quannhan qn = new quannhan(idchon, ten, donvi, chedo);
+            quannhan qn = new quannhan(maqn, ten, donvi, chedo);
 
             B_QN.UpdateQN(qn);
 
             MessageBox.Show("Cập nhật thành công");
 
             dgvdsqn.DataSource = B_QN.getallqn();
+            idchon=maqn;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -186,6 +243,26 @@ namespace DuAn.GUI.frmfornhvhc
         private void cbodonvi_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnreset_Click(object sender, EventArgs e)
+        {
+            ResetForm();
+        }
+
+        private void btnreset_Click_1(object sender, EventArgs e)
+        {
+            ResetForm();
         }
     }
 }

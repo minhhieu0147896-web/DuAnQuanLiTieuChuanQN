@@ -32,9 +32,11 @@ namespace DuAn.DAO
             SqlConnection conn = DataProvider.Instance.GetConnection();
             SqlCommand cmd = new SqlCommand("sp_insertqn", conn);
             cmd.CommandType= CommandType.StoredProcedure;
+            cmd.Parameters.Add("quannhan_id", SqlDbType.Int);
             cmd.Parameters.Add("quannhan_hoten", SqlDbType.NVarChar, 50);
             cmd.Parameters.Add("donvi_id", SqlDbType.Int);
             cmd.Parameters.Add("chedo_id", SqlDbType.Int);
+            cmd.Parameters["quannhan_id"].Value = qn.Quannhan_id1;
             cmd.Parameters["quannhan_hoten"].Value = qn.Quannhan_ten1;
             cmd.Parameters["donvi_id"].Value = qn.Donvi_id1;
             cmd.Parameters["chedo_id"].Value = qn.Chedo_id1;
@@ -121,7 +123,17 @@ namespace DuAn.DAO
             conn.Close();
             return dt;
         }
-
-
-    }
+        public static int checkmaqn(int maqn)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+          
+            SqlCommand cmd = new SqlCommand("sp_checkmaqn", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@quannhan_id",maqn);
+            conn.Open();
+            int result= (int)cmd.ExecuteScalar();
+            conn.Close();
+            return result;
+        }
+        }
 }

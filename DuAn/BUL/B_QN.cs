@@ -42,6 +42,9 @@ namespace DuAn.BUL
         {
             return D_QN.TimKiemQN(donvi, chedo);
         }
-
+        public static int checkmaqn(int id)
+        {
+            return D_QN.checkmaqn(id);
+        }
     }
 }

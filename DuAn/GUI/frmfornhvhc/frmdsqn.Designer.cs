@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnltitle = new System.Windows.Forms.Panel();
             this.lblbqs = new System.Windows.Forms.Label();
             this.pnlfilter = new System.Windows.Forms.Panel();
@@ -42,6 +43,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnupdate = new System.Windows.Forms.Button();
             this.pnldien = new System.Windows.Forms.Panel();
+            this.txtmaqn = new System.Windows.Forms.TextBox();
+            this.lblma = new System.Windows.Forms.Label();
             this.cbodonvi = new System.Windows.Forms.ComboBox();
             this.cbochedo = new System.Windows.Forms.ComboBox();
             this.txtten = new System.Windows.Forms.TextBox();
@@ -54,6 +57,7 @@
             this.colten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coldonvi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnreset = new System.Windows.Forms.Button();
             this.pnltitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlcrud.SuspendLayout();
@@ -97,6 +101,7 @@
             // 
             // pnlcrud
             // 
+            this.pnlcrud.Controls.Add(this.btnreset);
             this.pnlcrud.Controls.Add(this.btntimkiem);
             this.pnlcrud.Controls.Add(this.btnxoa);
             this.pnlcrud.Controls.Add(this.btnthem);
@@ -166,6 +171,8 @@
             // 
             // pnldien
             // 
+            this.pnldien.Controls.Add(this.txtmaqn);
+            this.pnldien.Controls.Add(this.lblma);
             this.pnldien.Controls.Add(this.cbodonvi);
             this.pnldien.Controls.Add(this.cbochedo);
             this.pnldien.Controls.Add(this.txtten);
@@ -179,10 +186,28 @@
             this.pnldien.TabIndex = 8;
             this.pnldien.Paint += new System.Windows.Forms.PaintEventHandler(this.pnldien_Paint);
             // 
+            // txtmaqn
+            // 
+            this.txtmaqn.Location = new System.Drawing.Point(166, 18);
+            this.txtmaqn.Name = "txtmaqn";
+            this.txtmaqn.Size = new System.Drawing.Size(156, 26);
+            this.txtmaqn.TabIndex = 9;
+            this.txtmaqn.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // lblma
+            // 
+            this.lblma.AutoSize = true;
+            this.lblma.Location = new System.Drawing.Point(28, 24);
+            this.lblma.Name = "lblma";
+            this.lblma.Size = new System.Drawing.Size(116, 20);
+            this.lblma.TabIndex = 8;
+            this.lblma.Text = "Mã Quân Nhân";
+            this.lblma.Click += new System.EventHandler(this.label1_Click);
+            // 
             // cbodonvi
             // 
             this.cbodonvi.FormattingEnabled = true;
-            this.cbodonvi.Location = new System.Drawing.Point(99, 97);
+            this.cbodonvi.Location = new System.Drawing.Point(166, 147);
             this.cbodonvi.Name = "cbodonvi";
             this.cbodonvi.Size = new System.Drawing.Size(280, 28);
             this.cbodonvi.TabIndex = 7;
@@ -191,22 +216,22 @@
             // cbochedo
             // 
             this.cbochedo.FormattingEnabled = true;
-            this.cbochedo.Location = new System.Drawing.Point(99, 59);
+            this.cbochedo.Location = new System.Drawing.Point(166, 100);
             this.cbochedo.Name = "cbochedo";
             this.cbochedo.Size = new System.Drawing.Size(280, 28);
             this.cbochedo.TabIndex = 6;
             // 
             // txtten
             // 
-            this.txtten.Location = new System.Drawing.Point(98, 21);
+            this.txtten.Location = new System.Drawing.Point(166, 56);
             this.txtten.Name = "txtten";
-            this.txtten.Size = new System.Drawing.Size(482, 26);
+            this.txtten.Size = new System.Drawing.Size(363, 26);
             this.txtten.TabIndex = 5;
             // 
             // lbldonvi
             // 
             this.lbldonvi.AutoSize = true;
-            this.lbldonvi.Location = new System.Drawing.Point(33, 100);
+            this.lbldonvi.Location = new System.Drawing.Point(50, 150);
             this.lbldonvi.Name = "lbldonvi";
             this.lbldonvi.Size = new System.Drawing.Size(53, 20);
             this.lbldonvi.TabIndex = 3;
@@ -215,7 +240,7 @@
             // lblchedo
             // 
             this.lblchedo.AutoSize = true;
-            this.lblchedo.Location = new System.Drawing.Point(33, 62);
+            this.lblchedo.Location = new System.Drawing.Point(50, 97);
             this.lblchedo.Name = "lblchedo";
             this.lblchedo.Size = new System.Drawing.Size(60, 20);
             this.lblchedo.TabIndex = 2;
@@ -224,7 +249,7 @@
             // lblten
             // 
             this.lblten.AutoSize = true;
-            this.lblten.Location = new System.Drawing.Point(33, 24);
+            this.lblten.Location = new System.Drawing.Point(50, 56);
             this.lblten.Name = "lblten";
             this.lblten.Size = new System.Drawing.Size(36, 20);
             this.lblten.TabIndex = 0;
@@ -272,6 +297,14 @@
             this.dgvdsqn.EnableHeadersVisualStyles = false;
             this.dgvdsqn.Location = new System.Drawing.Point(10, 0);
             this.dgvdsqn.Name = "dgvdsqn";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdsqn.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvdsqn.RowHeadersWidth = 62;
             this.dgvdsqn.RowTemplate.Height = 28;
             this.dgvdsqn.Size = new System.Drawing.Size(1039, 361);
@@ -306,6 +339,17 @@
             this.colchedo.HeaderText = "Chế độ";
             this.colchedo.MinimumWidth = 8;
             this.colchedo.Name = "colchedo";
+            // 
+            // btnreset
+            // 
+            this.btnreset.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnreset.Location = new System.Drawing.Point(151, 71);
+            this.btnreset.Name = "btnreset";
+            this.btnreset.Size = new System.Drawing.Size(93, 46);
+            this.btnreset.TabIndex = 13;
+            this.btnreset.Text = "Reset";
+            this.btnreset.UseVisualStyleBackColor = false;
+            this.btnreset.Click += new System.EventHandler(this.btnreset_Click_1);
             // 
             // frmdsqn
             // 
@@ -355,6 +399,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn coldonvi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colchedo;
         private System.Windows.Forms.Button btntimkiem;
+        private System.Windows.Forms.TextBox txtmaqn;
+        private System.Windows.Forms.Label lblma;
+        private System.Windows.Forms.Button btnreset;
     }
 }
 
