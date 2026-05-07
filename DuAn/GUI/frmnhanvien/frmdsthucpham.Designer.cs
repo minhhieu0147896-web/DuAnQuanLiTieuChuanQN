@@ -254,6 +254,7 @@
             this.btnxoa.TabIndex = 11;
             this.btnxoa.Text = "  Xóa";
             this.btnxoa.UseVisualStyleBackColor = false;
+            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
             // 
             // btnthem
             // 
@@ -337,6 +338,7 @@
             this.dgvdstp.RowTemplate.Height = 28;
             this.dgvdstp.Size = new System.Drawing.Size(1068, 453);
             this.dgvdstp.TabIndex = 1;
+            this.dgvdstp.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdstp_CellClick);
             this.dgvdstp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvlscc_CellContentClick);
             // 
             // coltpid

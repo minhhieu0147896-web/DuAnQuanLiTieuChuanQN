@@ -59,5 +59,19 @@ namespace DuAn.DAO
 
             conn.Close();
         }
+        public static void Deletetp(int id)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("sp_deletetp", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@thucpham_id", id);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }

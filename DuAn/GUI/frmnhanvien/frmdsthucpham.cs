@@ -34,11 +34,11 @@ namespace frmnhanvien
         {
 
         }
-
+        
         private void dgvlscc_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-
+   
             DataGridViewRow row = dgvdstp.Rows[e.RowIndex];
            txtten.Text = row.Cells["colthucpham"].Value.ToString();
             txtdonvi.Text = row.Cells["coldonvi"].Value.ToString();
@@ -101,6 +101,54 @@ namespace frmnhanvien
             ResetForm();
             dgvdstp.DataSource = B_DSTP.getalltp();
 
+        }
+
+        private void btnxoa_Click(object sender, EventArgs e)
+        {
+            int thucpham_id = Convert.ToInt32(dgvdstp.CurrentRow.Cells["coltpid"].Value);
+            DialogResult tb;
+
+            tb = MessageBox.Show
+            (
+                "Bạn có muốn xóa không?",
+                "Thông báo",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (thucpham_id == 0)
+            {
+                MessageBox.Show("Vui lòng chọn thực phẩm cần xóa");
+                return;
+            }
+
+            DialogResult r = MessageBox.Show(
+                "Bạn chắc chắn muốn xóa?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (r == DialogResult.Yes)
+            {
+                B_DSTP.Deletetp(thucpham_id);
+
+                MessageBox.Show("Xóa thành công");
+
+                dgvdstp.DataSource = B_DSTP.getalltp();
+                ResetForm();
+              
+            }
+        }
+
+        private void dgvdstp_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow row = dgvdstp.Rows[e.RowIndex];
+            txtten.Text = row.Cells["colthucpham"].Value.ToString();
+            txtdonvi.Text = row.Cells["coldonvi"].Value.ToString();
+            txtgia.Text = row.Cells["colgia"].Value.ToString();
+            txtkcal.Text = row.Cells["colkcal"].Value.ToString();
         }
     }
 }

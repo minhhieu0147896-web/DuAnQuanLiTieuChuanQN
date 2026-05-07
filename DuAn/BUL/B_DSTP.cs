@@ -22,5 +22,9 @@ namespace DuAn.BUL
         {
             D_DSTP.Updatetp(tp);
         }
+        public static void Deletetp(int id)
+        {
+            D_DSTP.Deletetp(id);
+        }
     }
 }
