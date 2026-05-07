@@ -101,7 +101,7 @@ namespace DuAn.GUI.frmfornhvhc
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)  //them
         {
             string ten=txtten.Text.Trim();
             string inputmaqn= txtmaqn.Text.Trim();

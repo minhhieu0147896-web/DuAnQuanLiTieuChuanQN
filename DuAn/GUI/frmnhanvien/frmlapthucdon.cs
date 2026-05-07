@@ -254,7 +254,21 @@ namespace frmnhanvien
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+
+            // Tìm form đã mở trong danh sách Application.OpenForms
+            var existingForm = Application.OpenForms["frm_manhinh_nhanvien"];
+            if (existingForm != null)
+            {
+                existingForm.Show();
+                existingForm.BringToFront();
+            }
+            else
+            {
+                var frm = new frm_manhinh_nhanvien();
+                frm.Show();
+                frm.FormClosed += (s, args) => this.Close();
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

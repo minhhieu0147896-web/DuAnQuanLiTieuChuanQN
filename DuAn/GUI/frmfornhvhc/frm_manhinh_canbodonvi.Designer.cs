@@ -53,6 +53,9 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.btnlsa = new System.Windows.Forms.Button();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.btndsqn = new System.Windows.Forms.Button();
             this.hethongcontainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -75,9 +78,6 @@
             this.hethongtrasition = new System.Windows.Forms.Timer(this.components);
             this.quansotransition = new System.Windows.Forms.Timer(this.components);
             this.slidebartransition = new System.Windows.Forms.Timer(this.components);
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.btndsqn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHam)).BeginInit();
             this.slidebar.SuspendLayout();
@@ -94,6 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.hethongcontainer.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -107,8 +109,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -129,9 +129,9 @@
             this.lblgioithieu.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblgioithieu.Location = new System.Drawing.Point(55, 16);
             this.lblgioithieu.Name = "lblgioithieu";
-            this.lblgioithieu.Size = new System.Drawing.Size(574, 21);
+            this.lblgioithieu.Size = new System.Drawing.Size(602, 21);
             this.lblgioithieu.TabIndex = 1;
-            this.lblgioithieu.Text = "Phần mềm kiểm soát chế độ, tiêu chuẩn ăn của quân nhân | Nhân viên";
+            this.lblgioithieu.Text = "Phần mềm kiểm soát chế độ, tiêu chuẩn ăn của quân nhân | cán bộ đơn vị";
             // 
             // btnHam
             // 
@@ -376,9 +376,45 @@
             this.btnlsa.Name = "btnlsa";
             this.btnlsa.Size = new System.Drawing.Size(354, 107);
             this.btnlsa.TabIndex = 0;
-            this.btnlsa.Text = "Lịch sử cắt cơm";
+            this.btnlsa.Text = "Lịch sử báo quân số";
             this.btnlsa.UseVisualStyleBackColor = false;
             this.btnlsa.Click += new System.EventHandler(this.btnlsa_Click_1);
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.panel14.Controls.Add(this.pictureBox13);
+            this.panel14.Controls.Add(this.btndsqn);
+            this.panel14.Location = new System.Drawing.Point(3, 214);
+            this.panel14.Name = "panel14";
+            this.panel14.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel14.Size = new System.Drawing.Size(312, 59);
+            this.panel14.TabIndex = 10;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(21, 3);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox13.Size = new System.Drawing.Size(28, 38);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox13.TabIndex = 1;
+            this.pictureBox13.TabStop = false;
+            // 
+            // btndsqn
+            // 
+            this.btndsqn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.btndsqn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btndsqn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btndsqn.Location = new System.Drawing.Point(-15, -30);
+            this.btndsqn.Name = "btndsqn";
+            this.btndsqn.Size = new System.Drawing.Size(330, 118);
+            this.btndsqn.TabIndex = 0;
+            this.btndsqn.Text = "Danh sách quân nhân";
+            this.btndsqn.UseVisualStyleBackColor = false;
+            this.btndsqn.Click += new System.EventHandler(this.btndsqn_Click_1);
             // 
             // hethongcontainer
             // 
@@ -619,42 +655,6 @@
             this.slidebartransition.Interval = 5;
             this.slidebartransition.Tick += new System.EventHandler(this.slidebartransition_Tick);
             // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.panel14.Controls.Add(this.pictureBox13);
-            this.panel14.Controls.Add(this.btndsqn);
-            this.panel14.Location = new System.Drawing.Point(3, 214);
-            this.panel14.Name = "panel14";
-            this.panel14.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel14.Size = new System.Drawing.Size(312, 59);
-            this.panel14.TabIndex = 10;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(21, 3);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pictureBox13.Size = new System.Drawing.Size(28, 38);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox13.TabIndex = 1;
-            this.pictureBox13.TabStop = false;
-            // 
-            // btndsqn
-            // 
-            this.btndsqn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.btndsqn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btndsqn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btndsqn.Location = new System.Drawing.Point(-15, -30);
-            this.btndsqn.Name = "btndsqn";
-            this.btndsqn.Size = new System.Drawing.Size(330, 118);
-            this.btndsqn.TabIndex = 0;
-            this.btndsqn.Text = "Danh sách quân nhân";
-            this.btndsqn.UseVisualStyleBackColor = false;
-            this.btndsqn.Click += new System.EventHandler(this.btndsqn_Click_1);
-            // 
             // frm_manhinh_canbodonvi
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -685,6 +685,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.hethongcontainer.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -698,8 +700,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.panel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.ResumeLayout(false);
 
         }
