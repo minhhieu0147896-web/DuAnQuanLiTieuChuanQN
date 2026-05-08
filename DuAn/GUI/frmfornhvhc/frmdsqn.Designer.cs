@@ -109,6 +109,7 @@
             // 
             // pnlcrud
             // 
+            this.pnlcrud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlcrud.Controls.Add(this.pictureBox5);
             this.pnlcrud.Controls.Add(this.pictureBox4);
             this.pnlcrud.Controls.Add(this.pictureBox3);
@@ -119,7 +120,6 @@
             this.pnlcrud.Controls.Add(this.btnthem);
             this.pnlcrud.Controls.Add(this.pictureBox2);
             this.pnlcrud.Controls.Add(this.btnupdate);
-            this.pnlcrud.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlcrud.Location = new System.Drawing.Point(625, 0);
             this.pnlcrud.Name = "pnlcrud";
             this.pnlcrud.Size = new System.Drawing.Size(424, 187);
@@ -194,6 +194,8 @@
             // 
             // pnldien
             // 
+            this.pnldien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnldien.Controls.Add(this.txtmaqn);
             this.pnldien.Controls.Add(this.lblma);
             this.pnldien.Controls.Add(this.cbodonvi);
@@ -202,7 +204,6 @@
             this.pnldien.Controls.Add(this.lbldonvi);
             this.pnldien.Controls.Add(this.lblchedo);
             this.pnldien.Controls.Add(this.lblten);
-            this.pnldien.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnldien.Location = new System.Drawing.Point(0, 0);
             this.pnldien.Name = "pnldien";
             this.pnldien.Size = new System.Drawing.Size(625, 187);
@@ -211,16 +212,20 @@
             // 
             // txtmaqn
             // 
+            this.txtmaqn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtmaqn.Location = new System.Drawing.Point(166, 18);
             this.txtmaqn.Name = "txtmaqn";
-            this.txtmaqn.Size = new System.Drawing.Size(156, 26);
+            this.txtmaqn.Size = new System.Drawing.Size(363, 26);
             this.txtmaqn.TabIndex = 9;
             this.txtmaqn.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lblma
             // 
+            this.lblma.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblma.AutoSize = true;
-            this.lblma.Location = new System.Drawing.Point(28, 24);
+            this.lblma.Location = new System.Drawing.Point(29, 21);
             this.lblma.Name = "lblma";
             this.lblma.Size = new System.Drawing.Size(116, 20);
             this.lblma.TabIndex = 8;
@@ -229,6 +234,8 @@
             // 
             // cbodonvi
             // 
+            this.cbodonvi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbodonvi.FormattingEnabled = true;
             this.cbodonvi.Location = new System.Drawing.Point(166, 147);
             this.cbodonvi.Name = "cbodonvi";
@@ -238,6 +245,8 @@
             // 
             // cbochedo
             // 
+            this.cbochedo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbochedo.FormattingEnabled = true;
             this.cbochedo.Location = new System.Drawing.Point(166, 100);
             this.cbochedo.Name = "cbochedo";
@@ -246,6 +255,8 @@
             // 
             // txtten
             // 
+            this.txtten.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtten.Location = new System.Drawing.Point(166, 56);
             this.txtten.Name = "txtten";
             this.txtten.Size = new System.Drawing.Size(363, 26);
@@ -253,6 +264,8 @@
             // 
             // lbldonvi
             // 
+            this.lbldonvi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbldonvi.AutoSize = true;
             this.lbldonvi.Location = new System.Drawing.Point(50, 150);
             this.lbldonvi.Name = "lbldonvi";
@@ -262,6 +275,8 @@
             // 
             // lblchedo
             // 
+            this.lblchedo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblchedo.AutoSize = true;
             this.lblchedo.Location = new System.Drawing.Point(50, 97);
             this.lblchedo.Name = "lblchedo";
@@ -271,6 +286,8 @@
             // 
             // lblten
             // 
+            this.lblten.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblten.AutoSize = true;
             this.lblten.Location = new System.Drawing.Point(50, 56);
             this.lblten.Name = "lblten";

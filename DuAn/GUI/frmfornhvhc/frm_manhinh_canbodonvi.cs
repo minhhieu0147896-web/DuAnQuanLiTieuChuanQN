@@ -59,7 +59,7 @@ namespace frmfornhvhc
             else
             {
                 hethongcontainer.Height -= 5;
-                if (hethongcontainer.Height <= 67)
+                if (hethongcontainer.Height <= 60)
                 {
                     hethongtrasition.Stop();
                     hethongExpand = false;

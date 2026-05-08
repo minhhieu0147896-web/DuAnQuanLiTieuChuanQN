@@ -182,7 +182,7 @@
             // pictureBox11
             // 
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(16, 8);
+            this.pictureBox11.Location = new System.Drawing.Point(17, 1);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.pictureBox11.Size = new System.Drawing.Size(38, 48);
