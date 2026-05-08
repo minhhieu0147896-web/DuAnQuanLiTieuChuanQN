@@ -1,4 +1,5 @@
-﻿using frmfornhvhc;
+﻿using DuAn.DTO;
+using frmfornhvhc;
 using frmlogin;
 using frmquannhan;
 using System;
@@ -16,6 +17,7 @@ namespace DuAn.GUI.frmquannhan
     public partial class frm_manhinh_quannhan : Form
     {
         frmlichsucatcom flscc;
+        public qnlogin qnDangNhap;
         public frm_manhinh_quannhan()
         {
             InitializeComponent();
@@ -35,6 +37,8 @@ namespace DuAn.GUI.frmquannhan
             CloseAllChildForms();
             frmtrangchu f = new frmtrangchu();
             f.MdiParent = this;
+            f.qnDangNhap = qnDangNhap;
+
             f.Dock = DockStyle.Fill;
             f.Show();
         }

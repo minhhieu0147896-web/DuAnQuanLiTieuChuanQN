@@ -1,6 +1,8 @@
-﻿using frmnhanvien;
-using frmquannhan;
+﻿using DuAn.GUI.frmlogin;
+using DuAn.GUI.frmquannhan;
 using frmfornhvhc;
+using frmnhanvien;
+using frmquannhan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DuAn.GUI.frmquannhan;
 
 namespace frmlogin
 {
@@ -175,5 +176,15 @@ namespace frmlogin
                 Close();
             }
         }
+
+        private void lnkquannhan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            frmtracuuquannhan f = new frmtracuuquannhan();
+            f.ShowDialog();
+        }
+
+
     }
 }
+

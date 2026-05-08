@@ -51,6 +51,7 @@
     <Compile Include="BUL\B_LSBQS.cs" />
     <Compile Include="BUL\B_LSCC.cs" />
     <Compile Include="BUL\B_QN.cs" />
+    <Compile Include="BUL\B_QNlogin.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\AccountModel.cs" />
     <Compile Include="DAO\BuoiAnDAO.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="DAO\D_LSBQS.cs" />
     <Compile Include="DAO\D_LSCC.cs" />
     <Compile Include="DAO\D_QN.cs" />
+    <Compile Include="DAO\D_qnlogin.cs" />
     <Compile Include="DAO\MonAnDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ThucDonDAO.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="DTO\LSBQS.cs" />
     <Compile Include="DTO\LSCC.cs" />
     <Compile Include="DTO\MonAnModel.cs" />
+    <Compile Include="DTO\qnlogin.cs" />
     <Compile Include="DTO\quannhan.cs" />
     <Compile Include="DTO\quansoan.cs" />
     <Compile Include="DTO\ThucDonModel.cs" />
@@ -114,6 +117,12 @@
     </Compile>
     <Compile Include="GUI\frmlogin\frmmhlogin.Designer.cs">
       <DependentUpon>frmmhlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmlogin\frmtracuuquannhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmlogin\frmtracuuquannhan.Designer.cs">
+      <DependentUpon>frmtracuuquannhan.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmnhanvien\frmbaocaoquanso.cs">
       <SubType>Form</SubType>
@@ -191,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmlogin\frmmhlogin.resx">
       <DependentUpon>frmmhlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmlogin\frmtracuuquannhan.resx">
+      <DependentUpon>frmtracuuquannhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmbaocaoquanso.resx">
       <DependentUpon>frmbaocaoquanso.cs</DependentUpon>

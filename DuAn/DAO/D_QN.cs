@@ -136,5 +136,132 @@ namespace DuAn.DAO
             conn.Close();
             return result;
         }
+        public static DataTable GetQNPaging(int page, int pagesize)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd = new SqlCommand("sp_getqn_paging", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@page", page);
+            cmd.Parameters.AddWithValue("@pagesize", pagesize);
+
+            conn.Open();
+
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            conn.Close();
+
+            return dt;
         }
+        public static int CountQN()
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd = new SqlCommand("sp_countqn", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            conn.Open();
+
+            int total = (int)cmd.ExecuteScalar();
+
+            conn.Close();
+
+            return total;
+        }
+        public static DataTable TimKiemQNPaging(int donvi, int chedo, int page, int pagesize)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+            SqlCommand cmd = new SqlCommand("sp_timkiemdsqn_paging", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Truyền tham số gọn trên một dòng
+            cmd.Parameters.AddWithValue("@donvi_id", donvi);
+            cmd.Parameters.AddWithValue("@chedo_id", chedo);
+            cmd.Parameters.AddWithValue("@page", page);
+            cmd.Parameters.AddWithValue("@pagesize", pagesize);
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                conn.Open();
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu cần
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        public static int CountTimKiemQN(int donvi, int chedo)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd = new SqlCommand("sp_count_timkiemqn", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@donvi_id", donvi);
+
+            cmd.Parameters.AddWithValue("@chedo_id", chedo);
+
+            conn.Open();
+
+            int total = Convert.ToInt32(cmd.ExecuteScalar());
+
+            conn.Close();
+
+            return total;
+        }
+        public static int CountQSDonVi(int donvi)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd = new SqlCommand("sp_count_qs_donvi", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@donvi_id", donvi);
+
+            conn.Open();
+
+            int total = Convert.ToInt32(cmd.ExecuteScalar());
+
+            conn.Close();
+
+            return total;
+        }
+        public static int CountQSCheDo(int donvi, int chedo)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd = new SqlCommand("sp_count_qs_chedo", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@donvi_id", donvi);
+
+            cmd.Parameters.AddWithValue("@chedo_id", chedo);
+
+            conn.Open();
+
+            int total = Convert.ToInt32(cmd.ExecuteScalar());
+
+            conn.Close();
+
+            return total;
+        }
+    }
 }

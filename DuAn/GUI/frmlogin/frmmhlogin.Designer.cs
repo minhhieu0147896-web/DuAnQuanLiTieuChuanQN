@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmmhlogin));
             this.pnlogin = new System.Windows.Forms.Panel();
+            this.lnkquannhan = new System.Windows.Forms.LinkLabel();
             this.lbldangnhap = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             // pnlogin
             // 
             this.pnlogin.BackColor = System.Drawing.Color.Gray;
+            this.pnlogin.Controls.Add(this.lnkquannhan);
             this.pnlogin.Controls.Add(this.lbldangnhap);
             this.pnlogin.Controls.Add(this.button2);
             this.pnlogin.Controls.Add(this.button1);
@@ -55,6 +57,18 @@
             this.pnlogin.Size = new System.Drawing.Size(502, 400);
             this.pnlogin.TabIndex = 6;
             this.pnlogin.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            // 
+            // lnkquannhan
+            // 
+            this.lnkquannhan.AutoSize = true;
+            this.lnkquannhan.LinkColor = System.Drawing.Color.Maroon;
+            this.lnkquannhan.Location = new System.Drawing.Point(225, 224);
+            this.lnkquannhan.Name = "lnkquannhan";
+            this.lnkquannhan.Size = new System.Drawing.Size(247, 20);
+            this.lnkquannhan.TabIndex = 11;
+            this.lnkquannhan.TabStop = true;
+            this.lnkquannhan.Text = "Đăng nhập với tư cách quân nhân";
+            this.lnkquannhan.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkquannhan_LinkClicked);
             // 
             // lbldangnhap
             // 
@@ -168,6 +182,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.LinkLabel lnkquannhan;
     }
 }
 

@@ -157,3 +157,4 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmdsqn.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmdsqn.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmtrangchu.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmlogin.frmtracuuquannhan.resources

@@ -22,6 +22,7 @@ namespace DuAn.GUI.frmquannhan
 {
     public partial class frmtrangchu : Form
     {
+        public qnlogin qnDangNhap;
         public frmtrangchu()
         {
             InitializeComponent();
@@ -34,10 +35,28 @@ namespace DuAn.GUI.frmquannhan
 
         private void frmtrangchu_Load(object sender, EventArgs e)
         {
+            if (qnDangNhap != null)
+            {
+                lbltieude.Text =
+                    "Chào mừng, " +
+                    qnDangNhap.quannhan_hoten;
 
+                lbldonvi.Text =
+                    "Đơn vị: " +
+                    qnDangNhap.donvi_ten;
+
+                lblchedo.Text =
+                    "Chế độ: " +
+                    qnDangNhap.chedo_ten;
+            }
         }
 
         private void pnllsbqs_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lbldonvi_Click(object sender, EventArgs e)
         {
 
         }

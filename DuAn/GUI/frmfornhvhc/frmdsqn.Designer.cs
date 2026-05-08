@@ -28,15 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmdsqn));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnltitle = new System.Windows.Forms.Panel();
             this.lblbqs = new System.Windows.Forms.Label();
             this.pnlfilter = new System.Windows.Forms.Panel();
             this.pnlcrud = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnreset = new System.Windows.Forms.Button();
             this.btntimkiem = new System.Windows.Forms.Button();
             this.btnxoa = new System.Windows.Forms.Button();
@@ -53,26 +57,48 @@
             this.lblchedo = new System.Windows.Forms.Label();
             this.lblten = new System.Windows.Forms.Label();
             this.pnldgv = new System.Windows.Forms.Panel();
+            this.pnlpaging = new System.Windows.Forms.Panel();
+            this.pnltrang = new System.Windows.Forms.Panel();
+            this.btnsau = new System.Windows.Forms.Button();
+            this.btnnext = new System.Windows.Forms.Button();
+            this.lbltrang = new System.Windows.Forms.Label();
             this.dgvdsqn = new System.Windows.Forms.DataGridView();
             this.colid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coldonvi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pnltrangthai = new System.Windows.Forms.Panel();
+            this.tlptrangthai = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblchedo2 = new System.Windows.Forms.Label();
+            this.pnlbqs = new System.Windows.Forms.Panel();
+            this.lbltongqs = new System.Windows.Forms.Label();
+            this.pnllsbqs = new System.Windows.Forms.Panel();
+            this.lblchedo1 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pnltitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlcrud.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnldien.SuspendLayout();
             this.pnldgv.SuspendLayout();
+            this.pnlpaging.SuspendLayout();
+            this.pnltrang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdsqn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.pnltrangthai.SuspendLayout();
+            this.tlptrangthai.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.pnlbqs.SuspendLayout();
+            this.pnllsbqs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // pnltitle
@@ -125,6 +151,50 @@
             this.pnlcrud.Size = new System.Drawing.Size(424, 187);
             this.pnlcrud.TabIndex = 9;
             this.pnlcrud.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlcrud_Paint);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.SandyBrown;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(280, 114);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 17;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.LemonChiffon;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(161, 70);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 16;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.LightCoral;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(25, 114);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 15;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.LightGreen;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(25, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
             // 
             // btnreset
             // 
@@ -297,57 +367,110 @@
             // 
             // pnldgv
             // 
+            this.pnldgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnldgv.Controls.Add(this.pnlpaging);
             this.pnldgv.Controls.Add(this.dgvdsqn);
-            this.pnldgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnldgv.Location = new System.Drawing.Point(0, 266);
             this.pnldgv.Name = "pnldgv";
             this.pnldgv.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.pnldgv.Size = new System.Drawing.Size(1049, 361);
+            this.pnldgv.Size = new System.Drawing.Size(1049, 311);
             this.pnldgv.TabIndex = 3;
+            // 
+            // pnlpaging
+            // 
+            this.pnlpaging.BackColor = System.Drawing.Color.White;
+            this.pnlpaging.Controls.Add(this.pnltrang);
+            this.pnlpaging.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlpaging.Location = new System.Drawing.Point(10, 274);
+            this.pnlpaging.Name = "pnlpaging";
+            this.pnlpaging.Size = new System.Drawing.Size(1039, 37);
+            this.pnlpaging.TabIndex = 3;
+            // 
+            // pnltrang
+            // 
+            this.pnltrang.Controls.Add(this.btnsau);
+            this.pnltrang.Controls.Add(this.btnnext);
+            this.pnltrang.Controls.Add(this.lbltrang);
+            this.pnltrang.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnltrang.Location = new System.Drawing.Point(800, 0);
+            this.pnltrang.Name = "pnltrang";
+            this.pnltrang.Size = new System.Drawing.Size(239, 37);
+            this.pnltrang.TabIndex = 3;
+            // 
+            // btnsau
+            // 
+            this.btnsau.Location = new System.Drawing.Point(3, 0);
+            this.btnsau.Name = "btnsau";
+            this.btnsau.Size = new System.Drawing.Size(48, 31);
+            this.btnsau.TabIndex = 0;
+            this.btnsau.Text = "<<";
+            this.btnsau.UseVisualStyleBackColor = true;
+            this.btnsau.Click += new System.EventHandler(this.btnsau_Click);
+            // 
+            // btnnext
+            // 
+            this.btnnext.Location = new System.Drawing.Point(191, 3);
+            this.btnnext.Name = "btnnext";
+            this.btnnext.Size = new System.Drawing.Size(45, 31);
+            this.btnnext.TabIndex = 1;
+            this.btnnext.Text = ">>";
+            this.btnnext.UseVisualStyleBackColor = true;
+            this.btnnext.Click += new System.EventHandler(this.btnnext_Click);
+            // 
+            // lbltrang
+            // 
+            this.lbltrang.AutoSize = true;
+            this.lbltrang.Location = new System.Drawing.Point(79, 5);
+            this.lbltrang.Name = "lbltrang";
+            this.lbltrang.Size = new System.Drawing.Size(46, 20);
+            this.lbltrang.TabIndex = 2;
+            this.lbltrang.Text = "trang";
             // 
             // dgvdsqn
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvdsqn.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvdsqn.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvdsqn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvdsqn.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdsqn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdsqn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvdsqn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdsqn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colid,
             this.colten,
             this.coldonvi,
             this.colchedo});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvdsqn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvdsqn.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvdsqn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvdsqn.EnableHeadersVisualStyles = false;
             this.dgvdsqn.Location = new System.Drawing.Point(10, 0);
             this.dgvdsqn.Name = "dgvdsqn";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdsqn.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdsqn.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvdsqn.RowHeadersWidth = 62;
             this.dgvdsqn.RowTemplate.Height = 28;
-            this.dgvdsqn.Size = new System.Drawing.Size(1039, 361);
+            this.dgvdsqn.Size = new System.Drawing.Size(1039, 311);
             this.dgvdsqn.TabIndex = 2;
             this.dgvdsqn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdsqn_CellClick);
             this.dgvdsqn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdsqn_CellContentClick);
@@ -380,55 +503,148 @@
             this.colchedo.MinimumWidth = 8;
             this.colchedo.Name = "colchedo";
             // 
-            // pictureBox1
+            // pnltrangthai
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.LightGreen;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(25, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
+            this.pnltrangthai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnltrangthai.BackColor = System.Drawing.Color.White;
+            this.pnltrangthai.Controls.Add(this.tlptrangthai);
+            this.pnltrangthai.Location = new System.Drawing.Point(0, 577);
+            this.pnltrangthai.Name = "pnltrangthai";
+            this.pnltrangthai.Size = new System.Drawing.Size(1049, 210);
+            this.pnltrangthai.TabIndex = 4;
             // 
-            // pictureBox3
+            // tlptrangthai
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.LightCoral;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(25, 114);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 15;
-            this.pictureBox3.TabStop = false;
+            this.tlptrangthai.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlptrangthai.ColumnCount = 3;
+            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.83735F));
+            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.16265F));
+            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tlptrangthai.Controls.Add(this.panel2, 2, 0);
+            this.tlptrangthai.Controls.Add(this.pnlbqs, 0, 0);
+            this.tlptrangthai.Controls.Add(this.pnllsbqs, 1, 0);
+            this.tlptrangthai.Location = new System.Drawing.Point(42, 23);
+            this.tlptrangthai.Name = "tlptrangthai";
+            this.tlptrangthai.RowCount = 1;
+            this.tlptrangthai.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlptrangthai.Size = new System.Drawing.Size(962, 175);
+            this.tlptrangthai.TabIndex = 4;
             // 
-            // pictureBox4
+            // panel2
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.LemonChiffon;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(161, 70);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 16;
-            this.pictureBox4.TabStop = false;
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(243)))), ((int)(((byte)(199)))));
+            this.panel2.Controls.Add(this.pictureBox8);
+            this.panel2.Controls.Add(this.lblchedo2);
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
+            this.panel2.Location = new System.Drawing.Point(671, 10);
+            this.panel2.Margin = new System.Windows.Forms.Padding(10);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel2.Size = new System.Drawing.Size(281, 155);
+            this.panel2.TabIndex = 4;
             // 
-            // pictureBox5
+            // lblchedo2
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.SandyBrown;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(280, 114);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 17;
-            this.pictureBox5.TabStop = false;
+            this.lblchedo2.AutoSize = true;
+            this.lblchedo2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblchedo2.ForeColor = System.Drawing.Color.Black;
+            this.lblchedo2.Location = new System.Drawing.Point(43, 56);
+            this.lblchedo2.Name = "lblchedo2";
+            this.lblchedo2.Size = new System.Drawing.Size(169, 32);
+            this.lblchedo2.TabIndex = 3;
+            this.lblchedo2.Text = "Chế độ SQ_CS";
+            // 
+            // pnlbqs
+            // 
+            this.pnlbqs.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pnlbqs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
+            this.pnlbqs.Controls.Add(this.pictureBox6);
+            this.pnlbqs.Controls.Add(this.lbltongqs);
+            this.pnlbqs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
+            this.pnlbqs.Location = new System.Drawing.Point(10, 10);
+            this.pnlbqs.Margin = new System.Windows.Forms.Padding(10);
+            this.pnlbqs.Name = "pnlbqs";
+            this.pnlbqs.Padding = new System.Windows.Forms.Padding(5);
+            this.pnlbqs.Size = new System.Drawing.Size(290, 155);
+            this.pnlbqs.TabIndex = 0;
+            // 
+            // lbltongqs
+            // 
+            this.lbltongqs.AutoSize = true;
+            this.lbltongqs.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltongqs.ForeColor = System.Drawing.Color.Black;
+            this.lbltongqs.Location = new System.Drawing.Point(21, 56);
+            this.lbltongqs.Name = "lbltongqs";
+            this.lbltongqs.Size = new System.Drawing.Size(213, 32);
+            this.lbltongqs.TabIndex = 1;
+            this.lbltongqs.Text = "      Tổng quân số";
+            // 
+            // pnllsbqs
+            // 
+            this.pnllsbqs.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnllsbqs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(252)))), ((int)(((byte)(231)))));
+            this.pnllsbqs.Controls.Add(this.pictureBox7);
+            this.pnllsbqs.Controls.Add(this.lblchedo1);
+            this.pnllsbqs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
+            this.pnllsbqs.Location = new System.Drawing.Point(320, 10);
+            this.pnllsbqs.Margin = new System.Windows.Forms.Padding(10);
+            this.pnllsbqs.Name = "pnllsbqs";
+            this.pnllsbqs.Padding = new System.Windows.Forms.Padding(5);
+            this.pnllsbqs.Size = new System.Drawing.Size(331, 155);
+            this.pnllsbqs.TabIndex = 4;
+            // 
+            // lblchedo1
+            // 
+            this.lblchedo1.AutoSize = true;
+            this.lblchedo1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblchedo1.ForeColor = System.Drawing.Color.Black;
+            this.lblchedo1.Location = new System.Drawing.Point(46, 56);
+            this.lblchedo1.Name = "lblchedo1";
+            this.lblchedo1.Size = new System.Drawing.Size(200, 32);
+            this.lblchedo1.TabIndex = 2;
+            this.lblchedo1.Text = "Chế độ Học viên";
+            this.lblchedo1.Click += new System.EventHandler(this.lblchedo1_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(126, 18);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(43, 38);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 2;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(134, 8);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(52, 45);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 3;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(100, 8);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(56, 48);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 4;
+            this.pictureBox8.TabStop = false;
             // 
             // frmdsqn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 627);
+            this.ClientSize = new System.Drawing.Size(1049, 787);
+            this.Controls.Add(this.pnltrangthai);
             this.Controls.Add(this.pnldgv);
             this.Controls.Add(this.pnlfilter);
             this.Controls.Add(this.pnltitle);
@@ -439,15 +655,29 @@
             this.pnltitle.ResumeLayout(false);
             this.pnlfilter.ResumeLayout(false);
             this.pnlcrud.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnldien.ResumeLayout(false);
             this.pnldien.PerformLayout();
             this.pnldgv.ResumeLayout(false);
+            this.pnlpaging.ResumeLayout(false);
+            this.pnltrang.ResumeLayout(false);
+            this.pnltrang.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdsqn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.pnltrangthai.ResumeLayout(false);
+            this.tlptrangthai.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.pnlbqs.ResumeLayout(false);
+            this.pnlbqs.PerformLayout();
+            this.pnllsbqs.ResumeLayout(false);
+            this.pnllsbqs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -483,6 +713,22 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Panel pnlpaging;
+        private System.Windows.Forms.Label lbltrang;
+        private System.Windows.Forms.Button btnnext;
+        private System.Windows.Forms.Button btnsau;
+        private System.Windows.Forms.Panel pnltrang;
+        private System.Windows.Forms.Panel pnltrangthai;
+        private System.Windows.Forms.TableLayoutPanel tlptrangthai;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlbqs;
+        private System.Windows.Forms.Panel pnllsbqs;
+        private System.Windows.Forms.Label lbltongqs;
+        private System.Windows.Forms.Label lblchedo1;
+        private System.Windows.Forms.Label lblchedo2;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }
 

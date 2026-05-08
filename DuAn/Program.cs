@@ -25,11 +25,12 @@ namespace DuAn
             // Application.Run(new frmbqs());
             //  Application.Run(new frmlichsucatcom());
             //Application.Run(new frmLSQS());
-            //Application.Run(new frm_manhinh_canbodonvi());
+           Application.Run(new frm_manhinh_quannhan());
             //Application.Run(new frmfornhvhc());
             //Application.Run(new frmquannhan());
             //Application.Run(new frmnhanvien());
-                Application.Run(new frmdsthucpham());
+              //  Application.Run(new frmdsthucpham());
+              
         }
     }
 }

@@ -46,5 +46,30 @@ namespace DuAn.BUL
         {
             return D_QN.checkmaqn(id);
         }
+        public static DataTable GetQNPaging(int page,int pagesize)
+        {
+            return D_QN.GetQNPaging(page,pagesize);
+        }
+        public static int CountQN()
+        {
+            return D_QN.CountQN();
+        }
+        public static DataTable TimKiemQNPaging(int donvi,int chedo,int page,int pagesize)
+        {
+            return D_QN.TimKiemQNPaging( donvi, chedo,page,pagesize);
+        }
+        public static int CountTimKiemQN(int donvi, int chedo)
+        {
+            return D_QN.CountTimKiemQN(donvi, chedo);
+        }
+
+        public static int CountQSDonVi(int donvi)
+        {
+            return D_QN.CountQSDonVi(donvi);
+        }
+        public static int CountQSCheDo(int donvi, int chedo)
+        {
+            return D_QN.CountQSCheDo(donvi, chedo);
+        }
     }
 }

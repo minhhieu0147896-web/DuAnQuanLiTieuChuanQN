@@ -16,9 +16,18 @@ namespace DuAn.GUI.frmfornhvhc
 {
     public partial class frmdsqn : Form
     {
-        
 
-    
+
+        int page = 1;
+
+        int pagesize = 20;
+
+        int totalpage = 0;
+        bool dangTimKiem = false;
+
+        int donvi_timkiem = 0;
+
+        int chedo_timkiem = 0;
         void LoadCheDo()
         {
             DataTable dt = B_QN.GetAllCheDo();
@@ -36,6 +45,7 @@ namespace DuAn.GUI.frmfornhvhc
 
             // mặc định chọn dòng đầu
             cbochedo.SelectedIndex = 0;
+
         }
         void LoadDonvi()
         {
@@ -75,7 +85,37 @@ namespace DuAn.GUI.frmfornhvhc
         {
             InitializeComponent();
         }
+        void LoadThongKe()
+        {
+            if (donvi_timkiem == 0)
+            {
+                lbltongqs.Text = "Tổng quân số\n0";
 
+                lblchedo1.Text = "Chế độ Học viên\n0";
+
+                lblchedo2.Text = "Chế độ CS_SQ \n0";
+
+                return;
+            }
+
+            int tongqs =
+                B_QN.CountQSDonVi(donvi_timkiem);
+
+            int chedo1 =
+                B_QN.CountQSCheDo(donvi_timkiem, 1);
+
+            int chedo2 =
+                B_QN.CountQSCheDo(donvi_timkiem, 2);
+
+            lbltongqs.Text =
+                "Tổng quân số đơn vị\n" + tongqs;
+
+            lblchedo1.Text =
+                "Quân số chế độ Học viên\n" + chedo1;
+
+            lblchedo2.Text =
+                "Quân số chế độ CS_SQ \n" + chedo2;
+        }
         private void frmquannhan_Load(object sender, EventArgs e)
         {
             dgvdsqn.AutoGenerateColumns = false;
@@ -83,13 +123,39 @@ namespace DuAn.GUI.frmfornhvhc
             LoadCheDo();
             LoadDonvi();
             dgvdsqn.DataSource = null;
+            LoadThongKe();
+            LoadPage();
         }
 
         private void dgvdsqn_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
            
         }
+        void LoadPage()
+        {
+            if (dangTimKiem == false)
+            {
+                dgvdsqn.DataSource = B_QN.GetQNPaging(page, pagesize);
 
+                int tongdong = B_QN.CountQN();
+
+                totalpage = (int)Math.Ceiling((double)tongdong / pagesize);
+            }
+            else
+            {
+                dgvdsqn.DataSource = B_QN.TimKiemQNPaging(donvi_timkiem, chedo_timkiem, page, pagesize);
+
+                int tongdong = B_QN.CountTimKiemQN(donvi_timkiem, chedo_timkiem);
+
+                totalpage = (int)Math.Ceiling((double)tongdong / pagesize);
+            }
+
+            lbltrang.Text = "Trang " + page + "/" + totalpage;
+
+            btnsau.Enabled = page > 1;
+
+            btnnext.Enabled = page < totalpage;
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận ",
@@ -130,8 +196,10 @@ namespace DuAn.GUI.frmfornhvhc
                 quannhan qn = new quannhan(maqn, ten, donvi, chedo);
                 B_QN.insertQN(qn);
                 MessageBox.Show("Bạn đã thêm thành công");
-                dgvdsqn.DataSource = B_QN.getallqn();
-            
+                LoadPage();
+            LoadThongKe();
+           
+
         }
         int maqn_cu = 0;
       
@@ -167,9 +235,9 @@ namespace DuAn.GUI.frmfornhvhc
           
 
             MessageBox.Show("Cập nhật thành công");
+            LoadPage(); 
+                LoadThongKe();
 
-            dgvdsqn.DataSource = B_QN.getallqn();
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -192,11 +260,13 @@ namespace DuAn.GUI.frmfornhvhc
 
                 MessageBox.Show("Xóa thành công");
 
-                dgvdsqn.DataSource = B_QN.getallqn();
+               LoadPage();
+                    LoadThongKe();
 
-               ResetForm();
+                ResetForm();
                maqn_cu = 0;
             }
+
         }
 
         private void pnlcrud_Paint(object sender, PaintEventArgs e)
@@ -217,12 +287,18 @@ namespace DuAn.GUI.frmfornhvhc
                 return;
             }
 
-            int donvi = Convert.ToInt32(cbodonvi.SelectedValue);
-            int chedo = Convert.ToInt32(cbochedo.SelectedValue);
+            donvi_timkiem = Convert.ToInt32(cbodonvi.SelectedValue);
 
-            dgvdsqn.DataSource = B_QN.TimKiemQN(donvi, chedo);
-        
-         }
+            chedo_timkiem = Convert.ToInt32(cbochedo.SelectedValue);
+
+            dangTimKiem = true;
+
+            page = 1;
+
+            LoadPage();
+                LoadThongKe();
+
+        }
 
         private void cbodonvi_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -250,6 +326,47 @@ namespace DuAn.GUI.frmfornhvhc
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnnext_Click(object sender, EventArgs e)
+        {
+            if (page >= totalpage)
+            {
+                MessageBox.Show(
+                    "Đây là trang cuối cùng",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                return;
+            }
+
+            page++;
+
+            LoadPage();
+        }
+
+        private void btnsau_Click(object sender, EventArgs e)
+        {
+            if (page <= 1)
+            {
+                MessageBox.Show(
+                    "Đây là trang đầu tiên",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                return;
+            }
+
+            page--;
+
+            LoadPage();
+        }
+
+        private void lblchedo1_Click(object sender, EventArgs e)
         {
 
         }

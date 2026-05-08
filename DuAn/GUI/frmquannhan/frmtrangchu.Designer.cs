@@ -34,20 +34,24 @@
             this.lblhd = new System.Windows.Forms.Label();
             this.lbltieude = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnllsbqs = new System.Windows.Forms.Panel();
             this.btnclsbqs = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lbllsbqs = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lbldonvi = new System.Windows.Forms.Label();
+            this.lblchedo = new System.Windows.Forms.Label();
             this.pnltieude.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnllsbqs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnltieude
             // 
+            this.pnltieude.Controls.Add(this.lblchedo);
+            this.pnltieude.Controls.Add(this.lbldonvi);
             this.pnltieude.Controls.Add(this.pictureBox3);
             this.pnltieude.Controls.Add(this.lblhd);
             this.pnltieude.Controls.Add(this.lbltieude);
@@ -73,7 +77,7 @@
             this.lblhd.AutoSize = true;
             this.lblhd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblhd.ForeColor = System.Drawing.Color.Gray;
-            this.lblhd.Location = new System.Drawing.Point(30, 99);
+            this.lblhd.Location = new System.Drawing.Point(30, 133);
             this.lblhd.Name = "lblhd";
             this.lblhd.Size = new System.Drawing.Size(402, 28);
             this.lblhd.TabIndex = 1;
@@ -104,18 +108,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(965, 307);
             this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(148, 22);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 77);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // pnllsbqs
             // 
@@ -175,6 +167,41 @@
             this.lbllsbqs.TabIndex = 1;
             this.lbllsbqs.Text = "Tra cứu";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(148, 22);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 77);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lbldonvi
+            // 
+            this.lbldonvi.AutoSize = true;
+            this.lbldonvi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldonvi.ForeColor = System.Drawing.Color.Black;
+            this.lbldonvi.Location = new System.Drawing.Point(30, 94);
+            this.lbldonvi.Name = "lbldonvi";
+            this.lbldonvi.Size = new System.Drawing.Size(78, 28);
+            this.lbldonvi.TabIndex = 3;
+            this.lbldonvi.Text = "Đơn vị: ";
+            this.lbldonvi.Click += new System.EventHandler(this.lbldonvi_Click);
+            // 
+            // lblchedo
+            // 
+            this.lblchedo.AutoSize = true;
+            this.lblchedo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblchedo.ForeColor = System.Drawing.Color.Black;
+            this.lblchedo.Location = new System.Drawing.Point(251, 94);
+            this.lblchedo.Name = "lblchedo";
+            this.lblchedo.Size = new System.Drawing.Size(78, 28);
+            this.lblchedo.TabIndex = 4;
+            this.lblchedo.Text = "Chế độ:";
+            // 
             // frmtrangchu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -191,9 +218,9 @@
             this.pnltieude.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnllsbqs.ResumeLayout(false);
             this.pnllsbqs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -210,5 +237,7 @@
         private System.Windows.Forms.Button btnclsbqs;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbllsbqs;
+        private System.Windows.Forms.Label lbldonvi;
+        private System.Windows.Forms.Label lblchedo;
     }
 }
