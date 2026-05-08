@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DuAn.GUI.frmquannhan
+namespace DuAn.GUI.frmfornhvhc
 {
     public partial class frm_manhinh_quannhan : Form
     {

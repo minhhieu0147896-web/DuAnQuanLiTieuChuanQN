@@ -1,4 +1,4 @@
-﻿namespace DuAn.GUI.frmquannhan
+﻿namespace DuAn.GUI.frmfornhvhc
 {
     partial class frm_manhinh_quannhan
     {

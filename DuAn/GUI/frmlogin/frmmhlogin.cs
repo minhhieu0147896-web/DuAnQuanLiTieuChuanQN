@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DuAn.GUI.frmquannhan;
+using DuAn.GUI.frmfornhvhc;
 
 namespace frmlogin
 {
@@ -131,7 +131,7 @@ namespace frmlogin
             // Thay số 1/2 cho đúng với giá trị thực tế trong DB của bạn
             if (acc.VaiTro == 1) // QuanNhan
             {
-                DuAn.GUI.frmquannhan.frm_manhinh_quannhan frm = new DuAn.GUI.frmquannhan.frm_manhinh_quannhan();
+                frmfornhvhc.frm_manhinh_canbodonvi frm = new frmfornhvhc.frm_manhinh_canbodonvi();
                 frm.Show();
             }
             else if (acc.VaiTro == 2) // NhanVien
