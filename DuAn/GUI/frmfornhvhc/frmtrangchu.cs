@@ -39,5 +39,10 @@ namespace DuAn.GUI.frmfornhvhc
         {
            
         }
+
+        private void frmtrangchu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

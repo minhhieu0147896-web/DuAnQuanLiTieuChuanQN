@@ -20,23 +20,34 @@ namespace DuAn.GUI.frmquannhan
         {
             InitializeComponent();
         }
-
+        void CloseAllChildForms()
+        {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+        }
         private void frm_manhinh_quannhan_Load(object sender, EventArgs e)
         {
-       
+            this.IsMdiContainer = true;
+            this.WindowState = FormWindowState.Maximized;
+
+            CloseAllChildForms();
+            frmtrangchu f = new frmtrangchu();
+            f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
+            f.Show();
         }
 
         private void btnquanso_Click(object sender, EventArgs e)
         {
-            if (flscc == null)
-            {
-                flscc = new frmlichsucatcom();
-                flscc.MdiParent = this;
-
-                flscc.Dock = DockStyle.Fill;
-                flscc.FormClosed += (s, args) => flscc = null;
-                flscc.Show();
-            }
+            CloseAllChildForms();
+            flscc = new frmlichsucatcom();
+            flscc.MdiParent = this;
+            flscc.Dock = DockStyle.Fill;
+            flscc.FormClosed += (s, args) => flscc = null;
+            flscc.Show();
+            
         }
 
         private void btnhethong_Click(object sender, EventArgs e)

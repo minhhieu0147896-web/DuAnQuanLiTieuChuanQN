@@ -160,6 +160,12 @@
     <Compile Include="GUI\frmquannhan\frmlichsucatcom.Designer.cs">
       <DependentUpon>frmlichsucatcom.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmquannhan\frmtrangchu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmquannhan\frmtrangchu.Designer.cs">
+      <DependentUpon>frmtrangchu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmquannhan\frm_manhinh_quannhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmquannhan\frmlichsucatcom.resx">
       <DependentUpon>frmlichsucatcom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmquannhan\frmtrangchu.resx">
+      <DependentUpon>frmtrangchu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmquannhan\frm_manhinh_quannhan.resx">
       <DependentUpon>frm_manhinh_quannhan.cs</DependentUpon>

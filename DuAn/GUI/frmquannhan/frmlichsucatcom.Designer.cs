@@ -53,7 +53,6 @@
             this.lblsum = new System.Windows.Forms.Label();
             this.pnllscc = new System.Windows.Forms.Panel();
             this.dgvlscc = new System.Windows.Forms.DataGridView();
-            this.btnthoat = new System.Windows.Forms.Button();
             this.colhoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colbuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +74,6 @@
             // pnltieude
             // 
             this.pnltieude.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.pnltieude.Controls.Add(this.btnthoat);
             this.pnltieude.Controls.Add(this.lbllscc);
             this.pnltieude.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnltieude.Location = new System.Drawing.Point(0, 0);
@@ -288,7 +286,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightBlue;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -311,19 +309,7 @@
             this.dgvlscc.RowTemplate.Height = 28;
             this.dgvlscc.Size = new System.Drawing.Size(906, 310);
             this.dgvlscc.TabIndex = 3;
-            // 
-            // btnthoat
-            // 
-            this.btnthoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnthoat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnthoat.ForeColor = System.Drawing.Color.Black;
-            this.btnthoat.Location = new System.Drawing.Point(868, 0);
-            this.btnthoat.Name = "btnthoat";
-            this.btnthoat.Size = new System.Drawing.Size(48, 42);
-            this.btnthoat.TabIndex = 3;
-            this.btnthoat.Text = " X";
-            this.btnthoat.UseVisualStyleBackColor = true;
-            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
+            this.dgvlscc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvlscc_CellContentClick);
             // 
             // colhoten
             // 
@@ -427,7 +413,6 @@
         private System.Windows.Forms.DataGridView dgvlscc;
         private System.Windows.Forms.TextBox txtqn_id;
         private System.Windows.Forms.Label lblma;
-        private System.Windows.Forms.Button btnthoat;
         private System.Windows.Forms.DataGridViewTextBoxColumn colhoten;
         private System.Windows.Forms.DataGridViewTextBoxColumn colngay;
         private System.Windows.Forms.DataGridViewTextBoxColumn colbuoi;

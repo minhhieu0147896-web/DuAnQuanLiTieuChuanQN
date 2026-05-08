@@ -86,7 +86,6 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe.config
 D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
 D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.AssemblyReference.cache
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmbqs.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmLSQS.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmtrangchu.resources
@@ -156,3 +155,5 @@ E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmdsqn.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmdsqn.resources
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmtrangchu.resources
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config

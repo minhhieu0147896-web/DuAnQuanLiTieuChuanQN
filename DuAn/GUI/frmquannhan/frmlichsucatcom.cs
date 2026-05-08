@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using DuAn.BUL;
 using System.Data.SqlClient;
 using DuAn.DAO;
-using DuAn.DTO;
+
 
 namespace frmquannhan
 {
@@ -71,6 +71,11 @@ namespace frmquannhan
             {
                 Close();
             }
+        }
+
+        private void dgvlscc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

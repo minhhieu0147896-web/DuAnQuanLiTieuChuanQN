@@ -325,6 +325,7 @@
             this.Name = "frmtrangchu";
             this.Text = "Trang chủ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmtrangchu_Load);
             this.pnltieude.ResumeLayout(false);
             this.pnltieude.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
