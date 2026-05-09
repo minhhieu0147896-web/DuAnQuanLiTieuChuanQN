@@ -143,7 +143,6 @@ E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmlapthucdon.reso
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmtinhtpcansudung.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frm_manhinh_nhanvien.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmlichsucatcom.resources
-E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frm_manhinh_quannhan.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.Properties.Resources.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResource.cache
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
@@ -155,6 +154,14 @@ E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmdsqn.resources
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmdsqn.resources
+<<<<<<< Updated upstream
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmtrangchu.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
+<<<<<<< HEAD
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmlogin.frmtracuuquannhan.resources
+=======
+=======
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frm_manhinh_quannhan.resources
+>>>>>>> Stashed changes
+E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmtrangchu.resources
+>>>>>>> 72650025ec5c75e68fed3025a109b6737db21ddf
