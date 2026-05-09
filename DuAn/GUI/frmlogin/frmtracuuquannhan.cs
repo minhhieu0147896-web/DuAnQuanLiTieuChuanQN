@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DuAn.BUL;
 using DuAn.GUI.frmquannhan;
+using DuAn.GUI.frmfornhvhc;
 
 namespace DuAn.GUI.frmlogin
 {

@@ -12,10 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
-=======
+
 using DuAn.GUI.frmfornhvhc;
->>>>>>> 72650025ec5c75e68fed3025a109b6737db21ddf
 
 namespace frmlogin
 {

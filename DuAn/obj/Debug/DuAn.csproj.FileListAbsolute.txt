@@ -160,8 +160,33 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
 <<<<<<< HEAD
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmlogin.frmtracuuquannhan.resources
 =======
-=======
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frm_manhinh_quannhan.resources
 >>>>>>> Stashed changes
 E:\Clone Git\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmtrangchu.resources
 >>>>>>> 72650025ec5c75e68fed3025a109b6737db21ddf
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.AssemblyReference.cache
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmbqs.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmdsqn.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frmLSQS.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmtrangchu.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmfornhvhc.frm_manhinh_canbodonvi.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmlogin.frmmhlogin.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmlogin.frmtracuuquannhan.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaoquanso.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmbaocaothucpham.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmdsthucpham.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmlapthucdon.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frmtinhtpcansudung.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmnhanvien.frm_manhinh_nhanvien.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\frmquannhan.frmlichsucatcom.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmtrangchu.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frm_manhinh_quannhan.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.Properties.Resources.resources
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResource.cache
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
+E:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
+E:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe.config
+E:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
+E:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb

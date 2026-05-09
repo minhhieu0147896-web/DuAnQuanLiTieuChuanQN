@@ -35,7 +35,7 @@ namespace DuAn.GUI.frmfornhvhc
             this.WindowState = FormWindowState.Maximized;
 
             CloseAllChildForms();
-            frmtrangchu f = new frmtrangchu();
+            DuAn.GUI.frmquannhan.frmtrangchu f = new DuAn.GUI.frmquannhan.frmtrangchu();
             f.MdiParent = this;
             f.qnDangNhap = qnDangNhap;
 
