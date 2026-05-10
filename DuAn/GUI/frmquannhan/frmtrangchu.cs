@@ -23,10 +23,11 @@ namespace DuAn.GUI.frmquannhan
 {
     public partial class frmtrangchu : Form
     {
-        public qnlogin qnDangNhap;
-        public frmtrangchu()
+        private qnlogin qnDangNhap;
+        public frmtrangchu(qnlogin qn)
         {
             InitializeComponent();
+            qnDangNhap = qn;
         }
 
         private void pnlbtn_Paint(object sender, PaintEventArgs e)

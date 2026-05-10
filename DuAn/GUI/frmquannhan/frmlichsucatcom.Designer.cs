@@ -38,8 +38,6 @@
             this.lbllscc = new System.Windows.Forms.Label();
             this.pnlluachon = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtqn_id = new System.Windows.Forms.TextBox();
-            this.lblma = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dtpdenngay = new System.Windows.Forms.DateTimePicker();
             this.btntracuu = new System.Windows.Forms.Button();
@@ -107,8 +105,6 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.txtqn_id);
-            this.panel1.Controls.Add(this.lblma);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.dtpdenngay);
             this.panel1.Controls.Add(this.btntracuu);
@@ -119,23 +115,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(752, 86);
             this.panel1.TabIndex = 6;
-            // 
-            // txtqn_id
-            // 
-            this.txtqn_id.Location = new System.Drawing.Point(136, 7);
-            this.txtqn_id.Name = "txtqn_id";
-            this.txtqn_id.Size = new System.Drawing.Size(267, 26);
-            this.txtqn_id.TabIndex = 11;
-            // 
-            // lblma
-            // 
-            this.lblma.AutoSize = true;
-            this.lblma.ForeColor = System.Drawing.Color.Black;
-            this.lblma.Location = new System.Drawing.Point(14, 10);
-            this.lblma.Name = "lblma";
-            this.lblma.Size = new System.Drawing.Size(116, 20);
-            this.lblma.TabIndex = 10;
-            this.lblma.Text = "Mã Quân Nhân";
             // 
             // pictureBox2
             // 
@@ -411,8 +390,6 @@
         private System.Windows.Forms.Label lblsum;
         private System.Windows.Forms.Panel pnllscc;
         private System.Windows.Forms.DataGridView dgvlscc;
-        private System.Windows.Forms.TextBox txtqn_id;
-        private System.Windows.Forms.Label lblma;
         private System.Windows.Forms.DataGridViewTextBoxColumn colhoten;
         private System.Windows.Forms.DataGridViewTextBoxColumn colngay;
         private System.Windows.Forms.DataGridViewTextBoxColumn colbuoi;

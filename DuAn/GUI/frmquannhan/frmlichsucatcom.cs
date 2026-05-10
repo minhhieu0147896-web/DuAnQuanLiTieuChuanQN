@@ -17,9 +17,11 @@ namespace DuAn.GUI.frmquannhan
 {
     public partial class frmlichsucatcom : Form
     {
-        public frmlichsucatcom()
+        private qnlogin qnDangNhap;
+        public frmlichsucatcom(qnlogin qn)
         {
             InitializeComponent();
+            qnDangNhap = qn;
         }
 
         private void lbltieude_Click(object sender, EventArgs e)
@@ -43,21 +45,26 @@ namespace DuAn.GUI.frmquannhan
 
             lblsum.Text = tong.ToString("N0") + " VND";
         }
-        private void btntracuu_Click(object sender, EventArgs e)
+        void LoadLSCC()
         {
-            if (txtqn_id.Text.Trim() == "")
-            {
-                MessageBox.Show("Vui lòng nhập mã quân nhân để tra cứu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            LSCC ls= new LSCC();
-            ls.quannhan_id= int.Parse(txtqn_id.Text);
+            LSCC ls = new LSCC();
+
+            ls.quannhan_id = qnDangNhap.quannhan_id;
+
             ls.tungay = dtptungay.Value.Date;
             ls.denngay = dtpdenngay.Value.Date;
-            DataTable dt= B_LSCC.TraCuu(ls);
+
+            DataTable dt = B_LSCC.TraCuu(ls);
+
             dgvlscc.AutoGenerateColumns = false;
             dgvlscc.DataSource = dt;
+
             TinhTongTien(dt);
+        }
+        private void btntracuu_Click(object sender, EventArgs e)
+        {
+          
+           LoadLSCC();
 
 
         }

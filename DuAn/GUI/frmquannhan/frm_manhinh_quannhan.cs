@@ -17,7 +17,7 @@ namespace DuAn.GUI.frmquannhan
     public partial class frm_manhinh_quannhan : Form
     {
         frmlichsucatcom flscc;
-        public qnlogin qnDangNhap;
+        public qnlogin qnDangNhap { get; set; }
         public frm_manhinh_quannhan()
         {
             InitializeComponent();
@@ -35,9 +35,9 @@ namespace DuAn.GUI.frmquannhan
             this.WindowState = FormWindowState.Maximized;
 
             CloseAllChildForms();
-            DuAn.GUI.frmquannhan.frmtrangchu f = new DuAn.GUI.frmquannhan.frmtrangchu();
+            DuAn.GUI.frmquannhan.frmtrangchu f = new DuAn.GUI.frmquannhan.frmtrangchu(qnDangNhap);
             f.MdiParent = this;
-            f.qnDangNhap = qnDangNhap;
+           
 
             f.Dock = DockStyle.Fill;
             f.Show();
@@ -46,7 +46,7 @@ namespace DuAn.GUI.frmquannhan
         private void btnquanso_Click(object sender, EventArgs e)
         {
             CloseAllChildForms();
-            flscc = new frmlichsucatcom();
+            flscc = new frmlichsucatcom(qnDangNhap);
             flscc.MdiParent = this;
             flscc.Dock = DockStyle.Fill;
             flscc.FormClosed += (s, args) => flscc = null;
