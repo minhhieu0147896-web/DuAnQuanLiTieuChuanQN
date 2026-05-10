@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace frmnhanvien
+namespace DuAn.GUI.frmnhanvien
 {
     public partial class frmbaocaothucpham : Form
     {
@@ -18,6 +18,11 @@ namespace frmnhanvien
         }
 
         private void frmbaocaothucpham_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlfilter_Paint(object sender, PaintEventArgs e)
         {
 
         }

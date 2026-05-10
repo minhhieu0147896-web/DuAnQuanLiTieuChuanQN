@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using frmnhanvien;
-using frmfornhvhc;
-using frmquannhan;
-using frmlogin;
+using DuAn.GUI.frmnhanvien;
+using DuAn.GUI.frmfornhvhc;
+using DuAn.GUI.frmquannhan;
+using DuAn.GUI.frmlogin;
 using DuAn.GUI.frmfornhvhc;
 namespace DuAn
 {

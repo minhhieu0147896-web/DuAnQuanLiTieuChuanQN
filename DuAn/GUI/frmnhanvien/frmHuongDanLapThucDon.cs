@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace frmnhanvien
+namespace DuAn.GUI.frmnhanvien
 {
     public class frmHuongDanLapThucDon : Form
     {
@@ -61,6 +61,24 @@ GHI CHÚ
 - Để lập thực đơn cho cả tuần, bạn cần chọn lần lượt từng ngày và buổi để thêm món.
 - Các thao tác thêm/xóa đều có kiểm tra trùng lặp và báo lỗi nếu có vấn đề.
 ";
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // frmHuongDanLapThucDon
+            // 
+            this.ClientSize = new System.Drawing.Size(278, 244);
+            this.Name = "frmHuongDanLapThucDon";
+            this.Load += new System.EventHandler(this.frmHuongDanLapThucDon_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void frmHuongDanLapThucDon_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

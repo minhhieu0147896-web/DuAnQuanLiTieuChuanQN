@@ -1,4 +1,4 @@
-﻿namespace frmquannhan
+﻿namespace DuAn.GUI.frmquannhan
 {
     partial class frmlichsucatcom
     {

@@ -1,4 +1,4 @@
-﻿namespace frmfornhvhc
+﻿namespace DuAn.GUI.frmfornhvhc
 {
     partial class frm_manhinh_canbodonvi
     {

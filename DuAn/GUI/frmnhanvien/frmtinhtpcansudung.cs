@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DuAn.GUI.frmlogin;
+using DuAn.GUI.frmquannhan;
 
-namespace frmnhanvien
+namespace DuAn.GUI.frmnhanvien
 {
     public partial class frmtinhtpcansudung : Form
     {
@@ -46,6 +48,11 @@ namespace frmnhanvien
             {
                 Close();
             }
+        }
+
+        private void pnlfilter_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

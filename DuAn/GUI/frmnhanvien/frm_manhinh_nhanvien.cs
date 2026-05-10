@@ -1,5 +1,5 @@
-﻿using frmlogin;
-using frmquannhan;
+﻿using DuAn.GUI.frmlogin;
+using DuAn.GUI.frmquannhan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace frmnhanvien
+namespace DuAn.GUI.frmnhanvien
 {
     public partial class frm_manhinh_nhanvien : Form
     {

@@ -11,7 +11,7 @@ using DuAn.BUL;
 using DuAn.DTO;
 using DuAn.DAO;
 
-namespace frmnhanvien
+namespace DuAn.GUI.frmnhanvien
 {
     public partial class frmdsthucpham : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace frmnhanvien
+﻿namespace DuAn.GUI.frmnhanvien
 {
     partial class frmbaocaothucpham
     {
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmbaocaothucpham));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmbaocaothucpham));
             this.lblbcqs = new System.Windows.Forms.Label();
             this.pntieude = new System.Windows.Forms.Panel();
             this.lblbctp = new System.Windows.Forms.Label();
@@ -49,6 +49,14 @@
             this.cbobuoi = new System.Windows.Forms.ComboBox();
             this.lblbuoi = new System.Windows.Forms.Label();
             this.pnbang = new System.Windows.Forms.Panel();
+            this.dgvlscc = new System.Windows.Forms.DataGridView();
+            this.colstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colbuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colchedo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coldonvi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coltp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colsoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -58,24 +66,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbltqs = new System.Windows.Forms.Label();
             this.lblso = new System.Windows.Forms.Label();
-            this.dgvlscc = new System.Windows.Forms.DataGridView();
-            this.colstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colbuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colchedo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coldonvi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coltp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colsoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pntieude.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
             this.pnbang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).BeginInit();
             this.SuspendLayout();
             // 
             // lblbcqs
@@ -121,6 +121,7 @@
             this.pnlfilter.Name = "pnlfilter";
             this.pnlfilter.Size = new System.Drawing.Size(999, 139);
             this.pnlfilter.TabIndex = 4;
+            this.pnlfilter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlfilter_Paint);
             // 
             // pnlchilfilter
             // 
@@ -248,6 +249,95 @@
             this.pnbang.Size = new System.Drawing.Size(999, 379);
             this.pnbang.TabIndex = 5;
             // 
+            // dgvlscc
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvlscc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvlscc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvlscc.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvlscc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvlscc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvlscc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colstt,
+            this.colngay,
+            this.colbuoi,
+            this.colchedo,
+            this.coldonvi,
+            this.coltp,
+            this.colsoluong});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvlscc.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvlscc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvlscc.EnableHeadersVisualStyles = false;
+            this.dgvlscc.Location = new System.Drawing.Point(10, 0);
+            this.dgvlscc.Name = "dgvlscc";
+            this.dgvlscc.RowHeadersWidth = 62;
+            this.dgvlscc.RowTemplate.Height = 28;
+            this.dgvlscc.Size = new System.Drawing.Size(989, 379);
+            this.dgvlscc.TabIndex = 3;
+            // 
+            // colstt
+            // 
+            this.colstt.FillWeight = 59.65909F;
+            this.colstt.HeaderText = "STT";
+            this.colstt.MinimumWidth = 8;
+            this.colstt.Name = "colstt";
+            // 
+            // colngay
+            // 
+            this.colngay.FillWeight = 106.7235F;
+            this.colngay.HeaderText = "Ngày";
+            this.colngay.MinimumWidth = 8;
+            this.colngay.Name = "colngay";
+            // 
+            // colbuoi
+            // 
+            this.colbuoi.FillWeight = 106.7235F;
+            this.colbuoi.HeaderText = "Buổi";
+            this.colbuoi.MinimumWidth = 8;
+            this.colbuoi.Name = "colbuoi";
+            // 
+            // colchedo
+            // 
+            this.colchedo.FillWeight = 106.7235F;
+            this.colchedo.HeaderText = "Chế độ";
+            this.colchedo.MinimumWidth = 8;
+            this.colchedo.Name = "colchedo";
+            // 
+            // coldonvi
+            // 
+            this.coldonvi.FillWeight = 106.7235F;
+            this.coldonvi.HeaderText = "Đơn vị";
+            this.coldonvi.MinimumWidth = 8;
+            this.coldonvi.Name = "coldonvi";
+            // 
+            // coltp
+            // 
+            this.coltp.FillWeight = 106.7235F;
+            this.coltp.HeaderText = "Thực phẩm";
+            this.coltp.MinimumWidth = 8;
+            this.coltp.Name = "coltp";
+            // 
+            // colsoluong
+            // 
+            this.colsoluong.FillWeight = 106.7235F;
+            this.colsoluong.HeaderText = "Số lượng";
+            this.colsoluong.MinimumWidth = 8;
+            this.colsoluong.Name = "colsoluong";
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel6);
@@ -342,95 +432,6 @@
             this.lblso.TabIndex = 1;
             this.lblso.Text = "0";
             // 
-            // dgvlscc
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvlscc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvlscc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvlscc.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvlscc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvlscc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvlscc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colstt,
-            this.colngay,
-            this.colbuoi,
-            this.colchedo,
-            this.coldonvi,
-            this.coltp,
-            this.colsoluong});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvlscc.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvlscc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvlscc.EnableHeadersVisualStyles = false;
-            this.dgvlscc.Location = new System.Drawing.Point(10, 0);
-            this.dgvlscc.Name = "dgvlscc";
-            this.dgvlscc.RowHeadersWidth = 62;
-            this.dgvlscc.RowTemplate.Height = 28;
-            this.dgvlscc.Size = new System.Drawing.Size(989, 379);
-            this.dgvlscc.TabIndex = 3;
-            // 
-            // colstt
-            // 
-            this.colstt.FillWeight = 59.65909F;
-            this.colstt.HeaderText = "STT";
-            this.colstt.MinimumWidth = 8;
-            this.colstt.Name = "colstt";
-            // 
-            // colngay
-            // 
-            this.colngay.FillWeight = 106.7235F;
-            this.colngay.HeaderText = "Ngày";
-            this.colngay.MinimumWidth = 8;
-            this.colngay.Name = "colngay";
-            // 
-            // colbuoi
-            // 
-            this.colbuoi.FillWeight = 106.7235F;
-            this.colbuoi.HeaderText = "Buổi";
-            this.colbuoi.MinimumWidth = 8;
-            this.colbuoi.Name = "colbuoi";
-            // 
-            // colchedo
-            // 
-            this.colchedo.FillWeight = 106.7235F;
-            this.colchedo.HeaderText = "Chế độ";
-            this.colchedo.MinimumWidth = 8;
-            this.colchedo.Name = "colchedo";
-            // 
-            // coldonvi
-            // 
-            this.coldonvi.FillWeight = 106.7235F;
-            this.coldonvi.HeaderText = "Đơn vị";
-            this.coldonvi.MinimumWidth = 8;
-            this.coldonvi.Name = "coldonvi";
-            // 
-            // coltp
-            // 
-            this.coltp.FillWeight = 106.7235F;
-            this.coltp.HeaderText = "Thực phẩm";
-            this.coltp.MinimumWidth = 8;
-            this.coltp.Name = "coltp";
-            // 
-            // colsoluong
-            // 
-            this.colsoluong.FillWeight = 106.7235F;
-            this.colsoluong.HeaderText = "Số lượng";
-            this.colsoluong.MinimumWidth = 8;
-            this.colsoluong.Name = "colsoluong";
-            // 
             // frmbaocaothucpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -453,6 +454,7 @@
             this.pnlchilfilter.ResumeLayout(false);
             this.pnlchilfilter.PerformLayout();
             this.pnbang.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -460,7 +462,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvlscc)).EndInit();
             this.ResumeLayout(false);
 
         }

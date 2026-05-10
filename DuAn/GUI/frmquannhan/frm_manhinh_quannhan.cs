@@ -1,7 +1,7 @@
 ﻿using DuAn.DTO;
-using frmfornhvhc;
-using frmlogin;
-using frmquannhan;
+using DuAn.GUI.frmfornhvhc;
+using DuAn.GUI.frmlogin;
+using DuAn.GUI.frmquannhan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DuAn.GUI.frmfornhvhc
+namespace DuAn.GUI.frmquannhan
 {
     public partial class frm_manhinh_quannhan : Form
     {

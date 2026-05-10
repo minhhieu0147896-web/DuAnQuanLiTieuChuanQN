@@ -98,6 +98,7 @@
             this.Name = "frmtracuuquannhan";
             this.Text = "frmtracuuquannhan";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Load += new System.EventHandler(this.frmtracuuquannhan_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

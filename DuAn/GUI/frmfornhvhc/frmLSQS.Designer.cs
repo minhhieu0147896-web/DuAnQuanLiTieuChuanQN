@@ -1,4 +1,4 @@
-﻿namespace frmfornhvhc
+﻿namespace DuAn.GUI.frmfornhvhc
 {
     partial class frmLSQS
     {

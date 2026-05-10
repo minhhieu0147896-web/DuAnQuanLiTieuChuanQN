@@ -1,6 +1,6 @@
 ﻿using DuAn.DAO;
 using DuAn.DTO;
-using frmnhanvien;
+using DuAn.GUI.frmnhanvien;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace frmnhanvien
+namespace DuAn.GUI.frmnhanvien
 {
     public partial class frmlapthucdon : Form
     {

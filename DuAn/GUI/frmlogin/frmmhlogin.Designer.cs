@@ -1,4 +1,4 @@
-﻿namespace frmlogin
+﻿namespace DuAn.GUI.frmlogin
 {
     partial class frmmhlogin
     {

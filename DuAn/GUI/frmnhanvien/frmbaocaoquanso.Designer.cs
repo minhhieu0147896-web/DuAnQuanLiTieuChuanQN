@@ -1,4 +1,4 @@
-﻿namespace frmnhanvien
+﻿namespace DuAn.GUI.frmnhanvien
 {
     partial class frmbaocaoquanso
     {
@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pntitle = new System.Windows.Forms.Panel();
+            this.btnthoat = new System.Windows.Forms.Button();
             this.lblbcqs = new System.Windows.Forms.Label();
             this.pnlluachon = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -70,7 +71,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbltqs = new System.Windows.Forms.Label();
             this.lblso = new System.Windows.Forms.Label();
-            this.btnthoat = new System.Windows.Forms.Button();
             this.pntitle.SuspendLayout();
             this.pnlluachon.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -97,6 +97,17 @@
             this.pntitle.Size = new System.Drawing.Size(1222, 80);
             this.pntitle.TabIndex = 0;
             // 
+            // btnthoat
+            // 
+            this.btnthoat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnthoat.Location = new System.Drawing.Point(1166, 0);
+            this.btnthoat.Name = "btnthoat";
+            this.btnthoat.Size = new System.Drawing.Size(56, 41);
+            this.btnthoat.TabIndex = 3;
+            this.btnthoat.Text = " X";
+            this.btnthoat.UseVisualStyleBackColor = true;
+            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
+            // 
             // lblbcqs
             // 
             this.lblbcqs.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -118,6 +129,7 @@
             this.pnlluachon.Name = "pnlluachon";
             this.pnlluachon.Size = new System.Drawing.Size(1222, 180);
             this.pnlluachon.TabIndex = 2;
+            this.pnlluachon.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlluachon_Paint);
             // 
             // panel1
             // 
@@ -490,17 +502,6 @@
             this.lblso.TabIndex = 1;
             this.lblso.Text = "0";
             this.lblso.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // btnthoat
-            // 
-            this.btnthoat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnthoat.Location = new System.Drawing.Point(1166, 0);
-            this.btnthoat.Name = "btnthoat";
-            this.btnthoat.Size = new System.Drawing.Size(56, 41);
-            this.btnthoat.TabIndex = 3;
-            this.btnthoat.Text = " X";
-            this.btnthoat.UseVisualStyleBackColor = true;
-            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
             // 
             // frmbaocaoquanso
             // 

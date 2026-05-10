@@ -1,8 +1,8 @@
 ﻿using DuAn.GUI.frmlogin;
 using DuAn.GUI.frmquannhan;
-using frmfornhvhc;
-using frmnhanvien;
-using frmquannhan;
+using DuAn.GUI.frmfornhvhc;
+using DuAn.GUI.frmnhanvien;
+using DuAn.GUI.frmquannhan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 using DuAn.GUI.frmfornhvhc;
 
-namespace frmlogin
+namespace DuAn.GUI.frmlogin
 {
     public partial class frmmhlogin : Form
     {

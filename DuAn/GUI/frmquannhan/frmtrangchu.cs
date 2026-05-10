@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using DuAn.BUL;
 using System.Data.SqlClient;
 using DuAn.DAO;
+using DuAn.GUI.frmquannhan;
 
 namespace DuAn.GUI.frmquannhan
 {

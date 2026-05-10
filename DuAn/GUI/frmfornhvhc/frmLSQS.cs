@@ -12,7 +12,7 @@ using DuAn.DAO;
 using DuAn.DTO;
 using DuAn.BUL;
 
-namespace frmfornhvhc
+namespace DuAn.GUI.frmfornhvhc
 {
     public partial class frmLSQS : Form
     {

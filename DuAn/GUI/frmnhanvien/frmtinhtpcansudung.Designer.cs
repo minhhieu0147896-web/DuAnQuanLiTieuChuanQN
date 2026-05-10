@@ -1,4 +1,4 @@
-﻿namespace frmnhanvien
+﻿namespace DuAn.GUI.frmnhanvien
 {
     partial class frmtinhtpcansudung
     {
@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pntitle = new System.Windows.Forms.Panel();
+            this.btnthoat = new System.Windows.Forms.Button();
             this.lbltieude = new System.Windows.Forms.Label();
             this.pnlfilter = new System.Windows.Forms.Panel();
             this.pnlchilfilter = new System.Windows.Forms.Panel();
@@ -60,7 +61,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbltqs = new System.Windows.Forms.Label();
             this.lblso = new System.Windows.Forms.Label();
-            this.btnthoat = new System.Windows.Forms.Button();
             this.pntitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
@@ -86,6 +86,18 @@
             this.pntitle.Size = new System.Drawing.Size(1200, 80);
             this.pntitle.TabIndex = 0;
             // 
+            // btnthoat
+            // 
+            this.btnthoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnthoat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnthoat.Location = new System.Drawing.Point(1144, 0);
+            this.btnthoat.Name = "btnthoat";
+            this.btnthoat.Size = new System.Drawing.Size(56, 41);
+            this.btnthoat.TabIndex = 5;
+            this.btnthoat.Text = " X";
+            this.btnthoat.UseVisualStyleBackColor = true;
+            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
+            // 
             // lbltieude
             // 
             this.lbltieude.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -107,6 +119,7 @@
             this.pnlfilter.Name = "pnlfilter";
             this.pnlfilter.Size = new System.Drawing.Size(1200, 139);
             this.pnlfilter.TabIndex = 3;
+            this.pnlfilter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlfilter_Paint);
             // 
             // pnlchilfilter
             // 
@@ -381,18 +394,6 @@
             this.lblso.Size = new System.Drawing.Size(28, 32);
             this.lblso.TabIndex = 1;
             this.lblso.Text = "0";
-            // 
-            // btnthoat
-            // 
-            this.btnthoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnthoat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnthoat.Location = new System.Drawing.Point(1144, 0);
-            this.btnthoat.Name = "btnthoat";
-            this.btnthoat.Size = new System.Drawing.Size(56, 41);
-            this.btnthoat.TabIndex = 5;
-            this.btnthoat.Text = " X";
-            this.btnthoat.UseVisualStyleBackColor = true;
-            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
             // 
             // frmtinhtpcansudung
             // 

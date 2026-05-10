@@ -1,4 +1,4 @@
-﻿using frmfornhvhc;
+﻿using DuAn.GUI.frmfornhvhc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

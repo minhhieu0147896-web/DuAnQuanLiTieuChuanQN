@@ -13,7 +13,7 @@ using System.Data.SqlClient;
 using DuAn.DAO;
 
 
-namespace frmquannhan
+namespace DuAn.GUI.frmquannhan
 {
     public partial class frmlichsucatcom : Form
     {

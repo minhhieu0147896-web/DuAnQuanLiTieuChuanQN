@@ -50,5 +50,10 @@ namespace DuAn.GUI.frmlogin
 
             this.Hide();
         }
+
+        private void frmtracuuquannhan_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

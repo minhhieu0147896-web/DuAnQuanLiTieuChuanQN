@@ -1,5 +1,6 @@
 ﻿using DuAn.GUI.frmfornhvhc;
-using frmlogin;
+using DuAn.GUI.frmlogin;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace frmfornhvhc
+namespace DuAn.GUI.frmfornhvhc
 {
     public partial class frm_manhinh_canbodonvi : Form
     {

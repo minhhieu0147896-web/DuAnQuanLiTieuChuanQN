@@ -1,4 +1,4 @@
-﻿namespace frmnhanvien
+﻿namespace DuAn.GUI.frmnhanvien
 {
     partial class frmdsthucpham
     {

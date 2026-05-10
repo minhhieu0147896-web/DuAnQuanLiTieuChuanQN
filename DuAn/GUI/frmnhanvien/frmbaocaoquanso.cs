@@ -7,8 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DuAn.GUI.frmlogin;
+using DuAn.GUI.frmquannhan;
+using DuAn.GUI.frmfornhvhc;
 
-namespace frmnhanvien
+
+namespace DuAn.GUI.frmnhanvien
 {
     public partial class frmbaocaoquanso : Form
     {
@@ -51,6 +55,11 @@ namespace frmnhanvien
             {
                 Close();
             }
+        }
+
+        private void pnlluachon_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
