@@ -76,6 +76,7 @@
     <Compile Include="DTO\quansoan.cs" />
     <Compile Include="DTO\ThucDonModel.cs" />
     <Compile Include="DTO\thucpham.cs" />
+    <Compile Include="DTO\TrangThaiCatCom.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

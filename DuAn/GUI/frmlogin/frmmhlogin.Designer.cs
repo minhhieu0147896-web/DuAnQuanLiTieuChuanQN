@@ -61,7 +61,7 @@
             // lnkquannhan
             // 
             this.lnkquannhan.AutoSize = true;
-            this.lnkquannhan.LinkColor = System.Drawing.Color.Maroon;
+            this.lnkquannhan.LinkColor = System.Drawing.Color.LightCoral;
             this.lnkquannhan.Location = new System.Drawing.Point(225, 224);
             this.lnkquannhan.Name = "lnkquannhan";
             this.lnkquannhan.Size = new System.Drawing.Size(247, 20);

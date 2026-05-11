@@ -102,7 +102,89 @@ namespace DuAn.DAO
 
             return kq;
         }
+        public static int CountBQS(int donvi)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+            SqlCommand cmd = new SqlCommand("sp_count_qs_donvi", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@donvi_id", donvi);
 
+            conn.Open();
+            int total = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+
+            return total;
+        }
+        public static DataTable loadbqs(int donvi, int page, int pagesize)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+            SqlCommand cmd = new SqlCommand("sp_getbqs", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@donvi_id", donvi);
+            cmd.Parameters.AddWithValue("@Page", page);
+            cmd.Parameters.AddWithValue("@PageSize", pagesize);
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                conn.Open();
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        public static DataTable loadbqs(int donvi, string tukhoa, int page, int pagesize)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+            SqlCommand cmd = new SqlCommand("sp_getbqs", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@donvi_id", donvi);
+            cmd.Parameters.AddWithValue("@tukhoa", tukhoa);
+            cmd.Parameters.AddWithValue("@page", page);
+            cmd.Parameters.AddWithValue("@pagesize", pagesize);
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                conn.Open();
+                da.Fill(dt);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        public static int CountBQS(int donvi, string tukhoa)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+            SqlCommand cmd = new SqlCommand("sp_count_bqs", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@donvi_id", donvi);
+            cmd.Parameters.AddWithValue("@tukhoa", tukhoa);
+
+            conn.Open();
+            int total = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+
+            return total;
+        }
 
 
     }

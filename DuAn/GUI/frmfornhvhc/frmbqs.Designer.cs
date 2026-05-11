@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmbqs));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pntitle = new System.Windows.Forms.Panel();
             this.lblbqs = new System.Windows.Forms.Label();
             this.pnlfilter = new System.Windows.Forms.Panel();
@@ -45,18 +47,44 @@
             this.cbobuoi = new System.Windows.Forms.ComboBox();
             this.lblbuoi = new System.Windows.Forms.Label();
             this.pnbang = new System.Windows.Forms.Panel();
+            this.pnlpaging = new System.Windows.Forms.Panel();
+            this.pnltrang = new System.Windows.Forms.Panel();
+            this.btnsau = new System.Windows.Forms.Button();
+            this.btnnext = new System.Windows.Forms.Button();
+            this.lbltrang = new System.Windows.Forms.Label();
             this.dgvbqs = new System.Windows.Forms.DataGridView();
             this.colmaqn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedoid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colKan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tlptrangthai = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.lblCheDo2 = new System.Windows.Forms.Label();
+            this.pnlbqs = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.lblTongQuanSo = new System.Windows.Forms.Label();
+            this.pnllsbqs = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.lblCheDo1 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txttimkiem = new System.Windows.Forms.TextBox();
             this.pntitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnbang.SuspendLayout();
+            this.pnlpaging.SuspendLayout();
+            this.pnltrang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvbqs)).BeginInit();
+            this.tlptrangthai.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.pnlbqs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.pnllsbqs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // pntitle
@@ -97,6 +125,7 @@
             this.pnlchilfilter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlchilfilter.AutoSize = true;
             this.pnlchilfilter.BackColor = System.Drawing.Color.White;
+            this.pnlchilfilter.Controls.Add(this.txttimkiem);
             this.pnlchilfilter.Controls.Add(this.pictureBox1);
             this.pnlchilfilter.Controls.Add(this.btnluu);
             this.pnlchilfilter.Controls.Add(this.btnhienthi);
@@ -106,7 +135,7 @@
             this.pnlchilfilter.Controls.Add(this.dtpngay);
             this.pnlchilfilter.Controls.Add(this.cbobuoi);
             this.pnlchilfilter.Controls.Add(this.lblbuoi);
-            this.pnlchilfilter.Location = new System.Drawing.Point(128, 25);
+            this.pnlchilfilter.Location = new System.Drawing.Point(130, 18);
             this.pnlchilfilter.Name = "pnlchilfilter";
             this.pnlchilfilter.Size = new System.Drawing.Size(956, 100);
             this.pnlchilfilter.TabIndex = 0;
@@ -203,27 +232,79 @@
             // 
             // pnbang
             // 
+            this.pnbang.Controls.Add(this.pnlpaging);
             this.pnbang.Controls.Add(this.dgvbqs);
-            this.pnbang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnbang.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnbang.Location = new System.Drawing.Point(0, 234);
             this.pnbang.Name = "pnbang";
             this.pnbang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.pnbang.Size = new System.Drawing.Size(1200, 466);
+            this.pnbang.Size = new System.Drawing.Size(1200, 432);
             this.pnbang.TabIndex = 2;
             this.pnbang.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // pnlpaging
+            // 
+            this.pnlpaging.BackColor = System.Drawing.Color.White;
+            this.pnlpaging.Controls.Add(this.pnltrang);
+            this.pnlpaging.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlpaging.Location = new System.Drawing.Point(10, 390);
+            this.pnlpaging.Name = "pnlpaging";
+            this.pnlpaging.Size = new System.Drawing.Size(1190, 42);
+            this.pnlpaging.TabIndex = 4;
+            // 
+            // pnltrang
+            // 
+            this.pnltrang.Controls.Add(this.btnsau);
+            this.pnltrang.Controls.Add(this.btnnext);
+            this.pnltrang.Controls.Add(this.lbltrang);
+            this.pnltrang.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnltrang.Location = new System.Drawing.Point(951, 0);
+            this.pnltrang.Name = "pnltrang";
+            this.pnltrang.Size = new System.Drawing.Size(239, 42);
+            this.pnltrang.TabIndex = 3;
+            // 
+            // btnsau
+            // 
+            this.btnsau.Location = new System.Drawing.Point(3, 3);
+            this.btnsau.Name = "btnsau";
+            this.btnsau.Size = new System.Drawing.Size(48, 31);
+            this.btnsau.TabIndex = 0;
+            this.btnsau.Text = "<<";
+            this.btnsau.UseVisualStyleBackColor = true;
+            this.btnsau.Click += new System.EventHandler(this.btnsau_Click);
+            // 
+            // btnnext
+            // 
+            this.btnnext.Location = new System.Drawing.Point(191, 3);
+            this.btnnext.Name = "btnnext";
+            this.btnnext.Size = new System.Drawing.Size(45, 31);
+            this.btnnext.TabIndex = 1;
+            this.btnnext.Text = ">>";
+            this.btnnext.UseVisualStyleBackColor = true;
+            this.btnnext.Click += new System.EventHandler(this.btnnext_Click);
+            // 
+            // lbltrang
+            // 
+            this.lbltrang.AutoSize = true;
+            this.lbltrang.Location = new System.Drawing.Point(79, 5);
+            this.lbltrang.Name = "lbltrang";
+            this.lbltrang.Size = new System.Drawing.Size(46, 20);
+            this.lbltrang.TabIndex = 2;
+            this.lbltrang.Text = "trang";
+            this.lbltrang.Click += new System.EventHandler(this.lbltrang_Click);
             // 
             // dgvbqs
             // 
             this.dgvbqs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvbqs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvbqs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvbqs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvbqs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvbqs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colmaqn,
@@ -231,23 +312,33 @@
             this.colchedo,
             this.colchedoid,
             this.colKan});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvbqs.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvbqs.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvbqs.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvbqs.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvbqs.EnableHeadersVisualStyles = false;
             this.dgvbqs.Location = new System.Drawing.Point(10, 0);
             this.dgvbqs.Name = "dgvbqs";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvbqs.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvbqs.RowHeadersWidth = 62;
             this.dgvbqs.RowTemplate.Height = 30;
-            this.dgvbqs.Size = new System.Drawing.Size(1190, 466);
+            this.dgvbqs.Size = new System.Drawing.Size(1190, 390);
             this.dgvbqs.TabIndex = 0;
+            this.dgvbqs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvbqs_CellClick);
             this.dgvbqs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvbqs.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvbqs_CellValueChanged);
             // 
             // colmaqn
             // 
@@ -288,13 +379,154 @@
             this.colKan.MinimumWidth = 8;
             this.colKan.Name = "colKan";
             // 
+            // tlptrangthai
+            // 
+            this.tlptrangthai.ColumnCount = 3;
+            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tlptrangthai.Controls.Add(this.panel2, 2, 0);
+            this.tlptrangthai.Controls.Add(this.pnlbqs, 0, 0);
+            this.tlptrangthai.Controls.Add(this.pnllsbqs, 1, 0);
+            this.tlptrangthai.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlptrangthai.Location = new System.Drawing.Point(0, 666);
+            this.tlptrangthai.Name = "tlptrangthai";
+            this.tlptrangthai.Padding = new System.Windows.Forms.Padding(20);
+            this.tlptrangthai.RowCount = 1;
+            this.tlptrangthai.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlptrangthai.Size = new System.Drawing.Size(1200, 230);
+            this.tlptrangthai.TabIndex = 4;
+            this.tlptrangthai.Paint += new System.Windows.Forms.PaintEventHandler(this.tlptrangthai_Paint);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(243)))), ((int)(((byte)(199)))));
+            this.panel2.Controls.Add(this.pictureBox8);
+            this.panel2.Controls.Add(this.lblCheDo2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
+            this.panel2.Location = new System.Drawing.Point(784, 30);
+            this.panel2.Margin = new System.Windows.Forms.Padding(10);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel2.Size = new System.Drawing.Size(386, 170);
+            this.panel2.TabIndex = 4;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(129, 5);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(56, 48);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 4;
+            this.pictureBox8.TabStop = false;
+            // 
+            // lblCheDo2
+            // 
+            this.lblCheDo2.AutoSize = true;
+            this.lblCheDo2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCheDo2.ForeColor = System.Drawing.Color.Black;
+            this.lblCheDo2.Location = new System.Drawing.Point(24, 56);
+            this.lblCheDo2.Name = "lblCheDo2";
+            this.lblCheDo2.Size = new System.Drawing.Size(150, 32);
+            this.lblCheDo2.TabIndex = 3;
+            this.lblCheDo2.Text = "Quân số ăn ";
+            this.lblCheDo2.Click += new System.EventHandler(this.lblCheDo2_Click);
+            // 
+            // pnlbqs
+            // 
+            this.pnlbqs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
+            this.pnlbqs.Controls.Add(this.pictureBox6);
+            this.pnlbqs.Controls.Add(this.lblTongQuanSo);
+            this.pnlbqs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlbqs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
+            this.pnlbqs.Location = new System.Drawing.Point(30, 30);
+            this.pnlbqs.Margin = new System.Windows.Forms.Padding(10);
+            this.pnlbqs.Name = "pnlbqs";
+            this.pnlbqs.Padding = new System.Windows.Forms.Padding(5);
+            this.pnlbqs.Size = new System.Drawing.Size(328, 170);
+            this.pnlbqs.TabIndex = 0;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(122, 8);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(43, 38);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 2;
+            this.pictureBox6.TabStop = false;
+            // 
+            // lblTongQuanSo
+            // 
+            this.lblTongQuanSo.AutoSize = true;
+            this.lblTongQuanSo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongQuanSo.ForeColor = System.Drawing.Color.Black;
+            this.lblTongQuanSo.Location = new System.Drawing.Point(21, 49);
+            this.lblTongQuanSo.Name = "lblTongQuanSo";
+            this.lblTongQuanSo.Size = new System.Drawing.Size(171, 32);
+            this.lblTongQuanSo.TabIndex = 1;
+            this.lblTongQuanSo.Text = "Tổng quân số";
+            // 
+            // pnllsbqs
+            // 
+            this.pnllsbqs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(252)))), ((int)(((byte)(231)))));
+            this.pnllsbqs.Controls.Add(this.pictureBox7);
+            this.pnllsbqs.Controls.Add(this.lblCheDo1);
+            this.pnllsbqs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnllsbqs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
+            this.pnllsbqs.Location = new System.Drawing.Point(378, 30);
+            this.pnllsbqs.Margin = new System.Windows.Forms.Padding(10);
+            this.pnllsbqs.Name = "pnllsbqs";
+            this.pnllsbqs.Padding = new System.Windows.Forms.Padding(5);
+            this.pnllsbqs.Size = new System.Drawing.Size(386, 170);
+            this.pnllsbqs.TabIndex = 4;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(124, 8);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(52, 45);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 3;
+            this.pictureBox7.TabStop = false;
+            // 
+            // lblCheDo1
+            // 
+            this.lblCheDo1.AutoSize = true;
+            this.lblCheDo1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCheDo1.ForeColor = System.Drawing.Color.Black;
+            this.lblCheDo1.Location = new System.Drawing.Point(26, 56);
+            this.lblCheDo1.Name = "lblCheDo1";
+            this.lblCheDo1.Size = new System.Drawing.Size(150, 32);
+            this.lblCheDo1.TabIndex = 2;
+            this.lblCheDo1.Text = "Quân số ăn ";
+            this.lblCheDo1.Click += new System.EventHandler(this.lblCheDo1_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // txttimkiem
+            // 
+            this.txttimkiem.Location = new System.Drawing.Point(346, 63);
+            this.txttimkiem.Name = "txttimkiem";
+            this.txttimkiem.Size = new System.Drawing.Size(208, 26);
+            this.txttimkiem.TabIndex = 9;
+            this.txttimkiem.TextChanged += new System.EventHandler(this.txttimkiem_TextChanged);
+            // 
             // frmbqs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.ClientSize = new System.Drawing.Size(1200, 896);
+            this.Controls.Add(this.tlptrangthai);
             this.Controls.Add(this.pnbang);
             this.Controls.Add(this.pnlfilter);
             this.Controls.Add(this.pntitle);
@@ -311,7 +543,20 @@
             this.pnlchilfilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnbang.ResumeLayout(false);
+            this.pnlpaging.ResumeLayout(false);
+            this.pnltrang.ResumeLayout(false);
+            this.pnltrang.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvbqs)).EndInit();
+            this.tlptrangthai.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.pnlbqs.ResumeLayout(false);
+            this.pnlbqs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.pnllsbqs.ResumeLayout(false);
+            this.pnllsbqs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,12 +576,29 @@
         private System.Windows.Forms.Button btnhienthi;
         private System.Windows.Forms.Label lblngay;
         private System.Windows.Forms.Panel pnbang;
-        private System.Windows.Forms.DataGridView dgvbqs;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel pnlpaging;
+        private System.Windows.Forms.Panel pnltrang;
+        private System.Windows.Forms.Button btnsau;
+        private System.Windows.Forms.Button btnnext;
+        private System.Windows.Forms.Label lbltrang;
+        private System.Windows.Forms.TableLayoutPanel tlptrangthai;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label lblCheDo2;
+        private System.Windows.Forms.Panel pnlbqs;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label lblTongQuanSo;
+        private System.Windows.Forms.Panel pnllsbqs;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label lblCheDo1;
+        private System.Windows.Forms.DataGridView dgvbqs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colmaqn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colten;
         private System.Windows.Forms.DataGridViewTextBoxColumn colchedo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colchedoid;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colKan;
+        private System.Windows.Forms.TextBox txttimkiem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

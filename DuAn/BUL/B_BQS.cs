@@ -30,6 +30,17 @@ namespace DuAn.BUL
         {
             return DAO.D_BQS.KiemTraDaBao(ngay, mabuoi, madv);
         }
+        public static DataTable loadbqs(int donvi, string tukhoa, int page, int pagesize)
+        {
+            return D_BQS.loadbqs(donvi, tukhoa, page, pagesize);
+        }
+
+        public static int CountBQS(int donvi, string tukhoa)
+        {
+            return D_BQS.CountBQS(donvi, tukhoa);
+        }
+    }
+
 
     }
-}
+
