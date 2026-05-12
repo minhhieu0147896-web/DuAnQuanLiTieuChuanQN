@@ -263,5 +263,21 @@ namespace DuAn.DAO
 
             return total;
         }
+        public static DataTable TimKiemNhanh(string tukhoa)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+            SqlCommand cmd = new SqlCommand("sp_timkiemnhanh_qn", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@tukhoa", tukhoa);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+
+            return dt;
+        }
     }
 }

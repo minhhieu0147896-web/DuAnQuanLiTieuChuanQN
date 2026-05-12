@@ -81,6 +81,16 @@ namespace DuAn.GUI.frmfornhvhc
             // Focus lại ô đầu tiên cho đẹp UX
             txtmaqn.Focus();
         }
+        void LoadLaiDanhSach()
+        {
+            dangTimKiem = false;
+
+            page = 1;
+
+            LoadPage();
+
+            LoadThongKe();
+        }
         public frmdsqn()
         {
             InitializeComponent();
@@ -307,7 +317,7 @@ namespace DuAn.GUI.frmfornhvhc
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -369,6 +379,41 @@ namespace DuAn.GUI.frmfornhvhc
         private void lblchedo1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtten_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txttimkiemnhanh_TextChanged(object sender, EventArgs e)
+        {
+            string tukhoa = txttimkiemnhanh.Text.Trim();
+
+            // nếu textbox rỗng -> load lại danh sách phân trang
+            if (string.IsNullOrWhiteSpace(tukhoa))
+            {
+                LoadLaiDanhSach();
+
+                return;
+            }
+
+            // realtime search
+            dgvdsqn.DataSource =
+                B_QN.TimKiemNhanh(tukhoa);
+
+            // cập nhật trạng thái
+            lbltrang.Text = "Đang tìm kiếm...";
+
+            // khóa phân trang
+            btnnext.Enabled = false;
+
+            btnsau.Enabled = false;
+
+            // hiển thị số kết quả
+            lbltongqs.Text =
+                "Kết quả tìm kiếm\n" +
+                dgvdsqn.Rows.Count;
         }
     }
 }

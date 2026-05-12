@@ -71,5 +71,9 @@ namespace DuAn.BUL
         {
             return D_QN.CountQSCheDo(donvi, chedo);
         }
+        public static DataTable TimKiemNhanh(string tukhoa)
+        {
+            return D_QN.TimKiemNhanh(tukhoa);
+        }
     }
 }
