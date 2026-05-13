@@ -11,6 +11,7 @@ namespace DuAn.DAO
         public int MaTK { get; set; }
         public string TenDangNhap { get; set; }
         public int VaiTro { get; set; } // 1 = QuanNhan, 2 = NhanVien
- 
+        public int? DonViId { get; set; } // Thêm thông tin đơn vị nếu cần thiết
+
     }
 }

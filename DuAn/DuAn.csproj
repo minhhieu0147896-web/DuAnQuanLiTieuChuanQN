@@ -74,6 +74,7 @@
     <Compile Include="DTO\qnlogin.cs" />
     <Compile Include="DTO\quannhan.cs" />
     <Compile Include="DTO\quansoan.cs" />
+    <Compile Include="DTO\Session.cs" />
     <Compile Include="DTO\ThucDonModel.cs" />
     <Compile Include="DTO\thucpham.cs" />
     <Compile Include="DTO\TrangThaiCatCom.cs" />

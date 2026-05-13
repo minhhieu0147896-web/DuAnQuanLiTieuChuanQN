@@ -11,11 +11,15 @@ using System.Windows.Forms;
 using DuAn.DAO;
 using DuAn.DTO;
 using DuAn.BUL;
+using DuAn;
 
 namespace DuAn.GUI.frmfornhvhc
 {
     public partial class frmLSQS : Form
     {
+        int page = 1;
+        int pagesize = 10;
+        int totalpage = 0;
         public frmLSQS()
         {
             InitializeComponent();
@@ -42,17 +46,76 @@ namespace DuAn.GUI.frmfornhvhc
         void LoadDonvi()
         {
             DataTable dt = B_QN.GetAllDonVi();
-            DataRow row = dt.NewRow();
-            row["donvi_id"] = 0;
-            row["donvi_ten"] = "-- Chọn đơn vị --";
-
-            dt.Rows.InsertAt(row, 0);
 
             cbodonvi.DataSource = dt;
+
             cbodonvi.DisplayMember = "donvi_ten";
+
             cbodonvi.ValueMember = "donvi_id";
-            cbodonvi.SelectedIndex = 0;
+
+            // tự động theo session
+            if (Session.DonViID.HasValue)
+            {
+                cbodonvi.SelectedValue =
+                    Session.DonViID.Value;
+
+                // khóa combobox
+                cbodonvi.Enabled = false;
+            }
         }
+        void LoadPage()
+        {
+            try
+            {
+                LSBQS ls = new LSBQS();
+
+                ls.tungay = dtptungay.Value;
+
+                ls.denngay = dtpdenngay.Value;
+
+                ls.donvi_id =
+                    Convert.ToInt32(cbodonvi.SelectedValue);
+
+                ls.buoian_id =
+                    Convert.ToInt32(cbobuoi.SelectedValue);
+
+                // lấy dữ liệu paging
+                DataTable dt =
+                    B_LSBQS.TraCuu(ls, page, pagesize);
+
+                dgvlsbqs.AutoGenerateColumns = false;
+
+                dgvlsbqs.DataSource = dt;
+
+                // ================= TÍNH TỔNG TRANG =================
+                int tongdong = B_LSBQS.CountLSBQS(ls);
+
+               
+
+                totalpage =
+                    (int)Math.Ceiling((double)tongdong / pagesize);
+
+                // tránh bị 0 trang
+                if (totalpage == 0)
+                {
+                    totalpage = 1;
+                }
+
+                // ================= HIỂN THỊ =================
+                lbltrang.Text =
+                    "Trang " + page + "/" + totalpage;
+
+                btnsau.Enabled = page > 1;
+
+                btnnext.Enabled = page < totalpage;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Lỗi load dữ liệu: " + ex.Message);
+            }
+        }
+      
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -81,17 +144,9 @@ namespace DuAn.GUI.frmfornhvhc
 
         private void btntracuu_Click(object sender, EventArgs e)
         {
-            LSBQS ls = new LSBQS();
+            page = 1;
+            LoadPage();
 
-            ls.tungay = dtptungay.Value;
-            ls.denngay = dtpdenngay.Value;
-            ls.donvi_id = Convert.ToInt32(cbodonvi.SelectedValue);
-            ls.buoian_id = Convert.ToInt32(cbobuoi.SelectedValue);
-
-            DataTable dt = B_LSBQS.TraCuu(ls);
-
-            dgvlsbqs.AutoGenerateColumns = false;
-            dgvlsbqs.DataSource = dt;
         }
 
         private void pnlluachon_Paint(object sender, PaintEventArgs e)
@@ -102,7 +157,18 @@ namespace DuAn.GUI.frmfornhvhc
         private void frmLSQS_Load(object sender, EventArgs e)
         {
             LoadBuoi();
+
             LoadDonvi();
+
+            dgvlsbqs.AutoGenerateColumns = false;
+
+            // tự tra cứu theo đơn vị
+            if (Session.DonViID.HasValue)
+            {
+                page = 1;
+
+                LoadPage();
+            }
         }
 
         private void cbobuoi_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,6 +179,42 @@ namespace DuAn.GUI.frmfornhvhc
         private void cbodonvi_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnnext_Click(object sender, EventArgs e)
+        {
+            if (page >= totalpage)
+            {
+                MessageBox.Show(
+                    "Đây là trang cuối cùng",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                return;
+            }
+
+            page++;
+
+            LoadPage();
+        }
+
+        private void btnsau_Click(object sender, EventArgs e)
+        {
+            if (page <= 1)
+            {
+                MessageBox.Show(
+                    "Đây là trang đầu tiên",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                return;
+            }
+
+            page--;
+
+            LoadPage();
         }
     }
 }

@@ -28,7 +28,7 @@ namespace DuAn.DAO
         // Đổi return type từ bool → AccountModel để lấy được VaiTro
         public AccountModel Login(string username, string password)
         {
-            string query = @"SELECT user_id, user_taikhoan, user_vai_tro, user_mat_khau
+            string query = @"SELECT user_id, user_taikhoan, user_vai_tro, user_mat_khau, donvi_id
                              FROM   [dbo].[User]
                              WHERE  user_taikhoan = @username
                                AND  user_mat_khau = @password";
@@ -51,18 +51,27 @@ namespace DuAn.DAO
                                 MaTK = (int)reader["user_id"],
                                 TenDangNhap = reader["user_taikhoan"].ToString(),
                                 VaiTro = (int)reader["user_vai_tro"],
-                                
+
+                                DonViId = reader["donvi_id"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["donvi_id"])
+
+
                             };
                         }
                     }
                 }
+                return null;
+
             }
-            return null;
 
         }
-
     }
-}
+
+
+
+
+
+
+};
 
 
 

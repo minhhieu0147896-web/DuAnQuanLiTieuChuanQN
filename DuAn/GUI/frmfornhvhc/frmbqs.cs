@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DuAn.DAO;
 using DuAn.DTO;
 using DuAn.BUL;
+using DuAn;
 
 namespace DuAn.GUI.frmfornhvhc
 {
@@ -27,32 +28,128 @@ namespace DuAn.GUI.frmfornhvhc
         }
         void LoadData()
         {
-            int madv = Convert.ToInt32(cbodonvi.SelectedValue);
-            string tukhoa = (txttimkiem != null) ? txttimkiem.Text.Trim() : "";
+            // =========================
+            // LẤY MÃ ĐƠN VỊ
+            // =========================
+
+            int madv;
+
+            // ADMIN
+            if (Session.VaiTro == 3)
+            {
+                // chưa chọn đơn vị
+                if (cbodonvi.SelectedValue == null)
+                    return;
+
+                if (Convert.ToInt32(cbodonvi.SelectedValue) == 0)
+                    return;
+
+                madv = Convert.ToInt32(cbodonvi.SelectedValue);
+            }
+
+            // USER THƯỜNG
+            else
+            {
+                // chưa có đơn vị
+                if (!Session.DonViID.HasValue)
+                {
+                    MessageBox.Show("Tài khoản chưa được gán đơn vị");
+
+                    return;
+                }
+
+                madv = Session.DonViID.Value;
+            }
+
+            // =========================
+            // TỪ KHÓA TÌM KIẾM
+            // =========================
+
+            string tukhoa = "";
+
+            if (txttimkiem != null)
+            {
+                tukhoa = txttimkiem.Text.Trim();
+            }
+
+            // =========================
+            // LOAD GRID
+            // =========================
 
             dgvbqs.AutoGenerateColumns = false;
-            dgvbqs.DataSource = B_BQS.loadbqs(madv, tukhoa, currentPage, pageSize);
 
-            int totalRow = B_BQS.CountBQS(madv, tukhoa);
-            totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
+            dgvbqs.DataSource =
+                B_BQS.loadbqs(madv, tukhoa, currentPage, pageSize);
 
-            lbltrang.Text = currentPage + "/" + totalPage;
-            btnnext.Enabled = currentPage < totalPage;
-            btnsau.Enabled = currentPage > 1;
+            // =========================
+            // PHÂN TRANG
+            // =========================
+
+            int totalRow =
+                B_BQS.CountBQS(madv, tukhoa);
+
+            totalPage =
+                (int)Math.Ceiling((double)totalRow / pageSize);
+
+            // tránh chia 0
+            if (totalPage <= 0)
+                totalPage = 1;
+
+            lbltrang.Text =
+                currentPage + "/" + totalPage;
+
+            btnnext.Enabled =
+                currentPage < totalPage;
+
+            btnsau.Enabled =
+                currentPage > 1;
+
+            // =========================
+            // LOAD TRẠNG THÁI CẮT CƠM
+            // =========================
 
             foreach (DataGridViewRow row in dgvbqs.Rows)
             {
-                if (row.IsNewRow) continue;
+                // bỏ dòng mới
+                if (row.IsNewRow)
+                    continue;
 
-                int maquan = Convert.ToInt32(row.Cells["colMaQN"].Value);
-                int chedo = Convert.ToInt32(row.Cells["colchedoid"].Value);
+                // null mã quân nhân
+                if (row.Cells["colMaQN"].Value == null ||
+                    row.Cells["colMaQN"].Value == DBNull.Value)
+                {
+                    continue;
+                }
 
+                // null chế độ
+                if (row.Cells["colchedoid"].Value == null ||
+                    row.Cells["colchedoid"].Value == DBNull.Value)
+                {
+                    continue;
+                }
+
+                int maquan =
+                    Convert.ToInt32(
+                        row.Cells["colMaQN"].Value);
+
+                int chedo =
+                    Convert.ToInt32(
+                        row.Cells["colchedoid"].Value);
+
+                // chưa tồn tại mới add
                 if (!dsBaoCom.ContainsKey(maquan))
                 {
-                    dsBaoCom.Add(maquan, new TrangThaiCatCom() { QuannhanID = maquan, CheDoID = chedo, KhongAn = false });
+                    dsBaoCom.Add(maquan,
+                        new TrangThaiCatCom()
+                        {
+                            QuannhanID = maquan,
+                            CheDoID = chedo,
+                            KhongAn = false
+                        });
                 }
             }
 
+           
             RestoreCheckBox();
             UpdateTrangThaiPanel();
         }
@@ -94,7 +191,17 @@ namespace DuAn.GUI.frmfornhvhc
 
             btnluu.Enabled = true;
 
-            cbodonvi.SelectedIndex = 0;
+            if (Session.VaiTro == 3)
+            {
+                cbodonvi.SelectedIndex = 0;
+            }
+            else
+            {
+                if (Session.VaiTro == 1)
+                {
+                    cbodonvi.SelectedValue = Session.DonViID;
+                }
+            }
 
             cbobuoi.SelectedIndex = 0;
             dtpngay.Value = DateTime.Now;
@@ -123,19 +230,37 @@ namespace DuAn.GUI.frmfornhvhc
         {
             DataTable dt = B_QN.GetAllDonVi();
 
-            // thêm dòng chọn đơn vị
-            DataRow row = dt.NewRow();
-            row["donvi_id"] = 0;
-            row["donvi_ten"] = "-- Chọn đơn vị --";
+            // CHỈ ADMIN mới có dòng chọn đơn vị
+            if (Session.VaiTro == 3)
+            {
+                DataRow row = dt.NewRow();
 
-            dt.Rows.InsertAt(row, 0);
+                row["donvi_id"] = 0;
+
+                row["donvi_ten"] = "-- Chọn đơn vị --";
+
+                dt.Rows.InsertAt(row, 0);
+            }
 
             cbodonvi.DataSource = dt;
+
             cbodonvi.DisplayMember = "donvi_ten";
+
             cbodonvi.ValueMember = "donvi_id";
 
-            // mặc định chọn dòng đầu
-            cbodonvi.SelectedIndex = 0;
+            // USER THƯỜNG
+            if (Session.VaiTro == 1)
+            {
+                cbodonvi.SelectedValue = Session.DonViID;
+
+                cbodonvi.Enabled = false;
+            }
+            else
+            {
+                cbodonvi.SelectedIndex = 0;
+
+                cbodonvi.Enabled = true;
+            }
         }
         void UpdateTrangThaiPanel()
         {
@@ -288,6 +413,7 @@ namespace DuAn.GUI.frmfornhvhc
             dgvbqs.DataSource = null;
             dgvbqs.CurrentCellDirtyStateChanged += dgvbqs_CurrentCellDirtyStateChanged;
             dgvbqs.CellValueChanged += dgvbqs_CellValueChanged;
+            dgvbqs.AllowUserToAddRows = false;
         }
 
         private void btnhienthi_Click(object sender, EventArgs e)

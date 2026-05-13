@@ -1,7 +1,9 @@
-﻿using DuAn.GUI.frmlogin;
-using DuAn.GUI.frmquannhan;
+﻿using DuAn.DTO;
 using DuAn.GUI.frmfornhvhc;
+using DuAn.GUI.frmfornhvhc;
+using DuAn.GUI.frmlogin;
 using DuAn.GUI.frmnhanvien;
+using DuAn.GUI.frmquannhan;
 using DuAn.GUI.frmquannhan;
 using System;
 using System.Collections.Generic;
@@ -12,9 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using DuAn.GUI.frmfornhvhc;
-
+using DuAn;
 namespace DuAn.GUI.frmlogin
 {
     public partial class frmmhlogin : Form
@@ -132,7 +132,14 @@ namespace DuAn.GUI.frmlogin
 
             // Phân quyền theo vai_tro
             // Thay số 1/2 cho đúng với giá trị thực tế trong DB của bạn
-            if (acc.VaiTro == 1) // QuanNhan
+            Session.UserID = acc.MaTK;
+
+            Session.TenDangNhap = acc.TenDangNhap;
+
+            Session.VaiTro = acc.VaiTro;
+
+            Session.DonViID = acc.DonViId;
+            if (acc.VaiTro == 1) // canbodonvi
             {
                 frmfornhvhc.frm_manhinh_canbodonvi frm = new frmfornhvhc.frm_manhinh_canbodonvi();
                 frm.Show();
@@ -148,6 +155,9 @@ namespace DuAn.GUI.frmlogin
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
+            MessageBox.Show($"Đăng nhập thành công! Xin chào {acc.TenDangNhap}",
+                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Hide();
 

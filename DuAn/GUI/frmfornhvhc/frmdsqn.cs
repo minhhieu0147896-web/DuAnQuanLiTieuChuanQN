@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DuAn.BUL;
 using DuAn.DTO;
+using DuAn;
 
 
 
@@ -51,19 +52,21 @@ namespace DuAn.GUI.frmfornhvhc
         {
             DataTable dt = B_QN.GetAllDonVi();
 
-            // thêm dòng chọn đơn vị
-            DataRow row = dt.NewRow();
-            row["donvi_id"] = 0;
-            row["donvi_ten"] = "-- Chọn đơn vị --";
-
-            dt.Rows.InsertAt(row, 0);
-
             cbodonvi.DataSource = dt;
+
             cbodonvi.DisplayMember = "donvi_ten";
+
             cbodonvi.ValueMember = "donvi_id";
 
-            // mặc định chọn dòng đầu
-            cbodonvi.SelectedIndex = 0;
+            // tự động chọn đơn vị theo session
+            if (Session.DonViID.HasValue)
+            {
+                cbodonvi.SelectedValue =
+                    Session.DonViID.Value;
+
+                // khóa combobox
+                cbodonvi.Enabled = false;
+            }
         }
         private void ResetForm()
         {
@@ -72,7 +75,11 @@ namespace DuAn.GUI.frmfornhvhc
             txtten.Clear();
 
             // ComboBox (về trạng thái chưa chọn)
-            cbodonvi.SelectedIndex = 0;
+            if (Session.DonViID.HasValue)
+            {
+                cbodonvi.SelectedValue =
+                    Session.DonViID.Value;
+            }
             cbochedo.SelectedIndex = 0;
 
             // Nếu có checkbox/radio thì reset luôn (nếu có)
@@ -129,11 +136,23 @@ namespace DuAn.GUI.frmfornhvhc
         private void frmquannhan_Load(object sender, EventArgs e)
         {
             dgvdsqn.AutoGenerateColumns = false;
-      
+
             LoadCheDo();
+
             LoadDonvi();
+
             dgvdsqn.DataSource = null;
+
+            if (Session.DonViID.HasValue)
+            {
+                donvi_timkiem =
+                    Session.DonViID.Value;
+
+                dangTimKiem = true;
+            }
+
             LoadThongKe();
+
             LoadPage();
         }
 
@@ -217,13 +236,48 @@ namespace DuAn.GUI.frmfornhvhc
         {
             if (e.RowIndex < 0) return;
 
-            DataGridViewRow row = dgvdsqn.Rows[e.RowIndex];
-           maqn_cu = Convert.ToInt32(row.Cells["colid"].Value);
-            txtmaqn.Text = maqn_cu.ToString();
-            txtten.Text = row.Cells["colten"].Value.ToString();
-            cbodonvi.Text = row.Cells["coldonvi"].Value.ToString();
-            cbochedo.Text = row.Cells["colchedo"].Value.ToString();
+            try
+            {
+                DataGridViewRow row =
+                    dgvdsqn.Rows[e.RowIndex];
 
+                // mã quân nhân
+                maqn_cu =
+                    Convert.ToInt32(
+                        row.Cells["colid"].Value);
+
+                txtmaqn.Text =
+                    row.Cells["colid"].Value.ToString();
+
+                // tên
+                txtten.Text =
+                    row.Cells["colten"].Value.ToString();
+
+                // đơn vị
+                if (Session.DonViID.HasValue)
+                {
+                    cbodonvi.SelectedValue =
+                        Session.DonViID.Value;
+                }
+
+                // chế độ
+                object value =
+                    row.Cells["colchedoid"].Value;
+
+                if (value != null &&
+                    value != DBNull.Value)
+                {
+                    int chedoid =
+                        Convert.ToInt32(value);
+
+                    cbochedo.SelectedValue =
+                        chedoid;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnupdate_Click(object sender, EventArgs e)
@@ -414,6 +468,59 @@ namespace DuAn.GUI.frmfornhvhc
             lbltongqs.Text =
                 "Kết quả tìm kiếm\n" +
                 dgvdsqn.Rows.Count;
+        }
+
+        private void dgvdsqn_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            try
+            {
+                DataGridViewRow row =
+                    dgvdsqn.Rows[e.RowIndex];
+
+                // mã quân nhân
+                maqn_cu =
+                    Convert.ToInt32(
+                        row.Cells["colid"].Value);
+
+                txtmaqn.Text =
+                    row.Cells["colid"].Value.ToString();
+
+                // tên
+                txtten.Text =
+                    row.Cells["colten"].Value.ToString();
+
+                // đơn vị
+                if (Session.DonViID.HasValue)
+                {
+                    cbodonvi.SelectedValue =
+                        Session.DonViID.Value;
+                }
+
+                // chế độ
+                object value =
+                    row.Cells["colchedoid"].Value;
+
+                if (value != null &&
+                    value != DBNull.Value)
+                {
+                    int chedoid =
+                        Convert.ToInt32(value);
+
+                    cbochedo.SelectedValue =
+                        chedoid;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tlpdgv_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
