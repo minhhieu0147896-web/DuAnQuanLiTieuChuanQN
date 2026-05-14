@@ -1,4 +1,5 @@
-﻿using DuAn.GUI.frmfornhvhc;
+﻿using DuAn.DTO;
+using DuAn.GUI.frmfornhvhc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,6 +42,17 @@ namespace DuAn.GUI.frmfornhvhc
         }
 
         private void frmtrangchu_Load(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(Session.TenDangNhap))
+{
+                lbltieude.Text =
+                    "XIN CHÀO, CÁN BỘ ĐƠN VỊ "
+                    + Session.TenDangNhap.ToUpper()
+                    + "!";
+            }
+        }
+
+        private void pnltieude_Paint(object sender, PaintEventArgs e)
         {
 
         }

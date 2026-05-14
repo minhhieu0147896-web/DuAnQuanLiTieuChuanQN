@@ -70,6 +70,7 @@
             this.pnltieude.Name = "pnltieude";
             this.pnltieude.Size = new System.Drawing.Size(1000, 184);
             this.pnltieude.TabIndex = 2;
+            this.pnltieude.Paint += new System.Windows.Forms.PaintEventHandler(this.pnltieude_Paint);
             // 
             // pictureBox3
             // 

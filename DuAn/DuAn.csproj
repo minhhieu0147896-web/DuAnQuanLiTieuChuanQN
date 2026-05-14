@@ -74,6 +74,7 @@
     <Compile Include="DTO\qnlogin.cs" />
     <Compile Include="DTO\quannhan.cs" />
     <Compile Include="DTO\quansoan.cs" />
+    <Compile Include="DTO\Session.cs" />
     <Compile Include="DTO\ThucDonModel.cs" />
     <Compile Include="DTO\thucpham.cs" />
     <Compile Include="DTO\TrangThaiCatCom.cs" />
@@ -167,6 +168,12 @@
     <Compile Include="GUI\frmnhanvien\frmtinhtpcansudung.Designer.cs">
       <DependentUpon>frmtinhtpcansudung.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmnhanvien\frmtrangchu_nv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\frmtrangchu_nv.Designer.cs">
+      <DependentUpon>frmtrangchu_nv.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmnhanvien\frm_manhinh_nhanvien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmtinhtpcansudung.resx">
       <DependentUpon>frmtinhtpcansudung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmnhanvien\frmtrangchu_nv.resx">
+      <DependentUpon>frmtrangchu_nv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frm_manhinh_nhanvien.resx">
       <DependentUpon>frm_manhinh_nhanvien.cs</DependentUpon>
