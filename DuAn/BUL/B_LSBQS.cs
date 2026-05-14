@@ -19,5 +19,10 @@ namespace DuAn.BUL
         {
             return D_LSBQS.CountLSBQS(ls);
         }
+
+        internal static DataTable TraCuu(LSBQS ls)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

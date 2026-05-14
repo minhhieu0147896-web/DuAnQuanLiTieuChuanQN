@@ -80,3 +80,4 @@ E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmtrangchu_nv.resources
