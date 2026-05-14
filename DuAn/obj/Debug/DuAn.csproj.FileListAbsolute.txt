@@ -25,3 +25,4 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frm_manhinh_nhanvie
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmbqs.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmLSQS.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frm_manhinh_canbodonvi.resources
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmtrangchu_nv.resources
