@@ -13,7 +13,12 @@ namespace DuAn.DAO
         private static ChiTietThucDonDAO instance;
         public static ChiTietThucDonDAO Instance
         {
-            get { instance = new ChiTietThucDonDAO(); return instance; }
+            get
+            {
+                if (instance == null)
+                    instance = new ChiTietThucDonDAO();
+                return instance;
+            }
             private set => instance = value;
         }
         private ChiTietThucDonDAO() { }
@@ -58,6 +63,48 @@ namespace DuAn.DAO
             return list;
         }
 
+        public List<ChiTietThucDonModel> GetByThucDonNgay(int thucdonId, DateTime ngay)
+        {
+            List<ChiTietThucDonModel> list = new List<ChiTietThucDonModel>();
+            string query = @"SELECT ctd.thucdon_id, ctd.ngay_thang_nam, ctd.buoian_id, ctd.monan_id,
+                                    m.monan_ten, m.monan_loaimon, b.buoian_ten
+                             FROM Chi_tiet_thuc_don ctd
+                             INNER JOIN Mon_an m ON ctd.monan_id = m.monan_id
+                             INNER JOIN Buoi_an b ON ctd.buoian_id = b.buoian_id
+                             WHERE ctd.thucdon_id = @thucdonId
+                               AND ctd.ngay_thang_nam = @ngay
+                             ORDER BY ctd.buoian_id, m.monan_loaimon, m.monan_ten";
+
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@thucdonId", thucdonId);
+                    cmd.Parameters.AddWithValue("@ngay", ngay.Date);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new ChiTietThucDonModel
+                            {
+                                ThucDonId = reader.GetInt32(0),
+                                Ngay = reader.GetDateTime(1),
+                                BuoiAnId = reader.GetInt32(2),
+                                MonAnId = reader.GetInt32(3),
+                                TenMon = reader.GetString(4),
+                                LoaiMon = reader.GetString(5),
+                                TenBuoi = reader.GetString(6)
+                            });
+                        }
+                    }
+                }
+            }
+
+            return list;
+        }
+
         // Thêm mới một chi tiết
         public bool Insert(int thucdonId, DateTime ngay, int buoianId, int monanId)
         {
@@ -99,6 +146,19 @@ namespace DuAn.DAO
                 new SqlParameter("@buoianId", buoianId),
                 new SqlParameter("@monanId", monanId));
             return rows > 0;
+        }
+
+        public int DeleteByThucDonNgayBuoi(int thucdonId, DateTime ngay, int buoianId)
+        {
+            string delete = @"DELETE FROM Chi_tiet_thuc_don
+                              WHERE thucdon_id = @thucdonId
+                                AND ngay_thang_nam = @ngay
+                                AND buoian_id = @buoianId";
+
+            return DataProvider.Instance.ExecuteNonQuery(delete,
+                new SqlParameter("@thucdonId", thucdonId),
+                new SqlParameter("@ngay", ngay.Date),
+                new SqlParameter("@buoianId", buoianId));
         }
 
 

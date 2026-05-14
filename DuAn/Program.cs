@@ -21,7 +21,7 @@ namespace DuAn
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmmhlogin());
-            // Application.Run(new frmlapthucdon());
+             Application.Run(new frmlapthucdon());
             // Application.Run(new frmbqs());
             //  Application.Run(new frmlichsucatcom());
             //Application.Run(new frmLSQS());
@@ -33,7 +33,7 @@ namespace DuAn
             //  Application.Run(new frmdsthucpham());
 
             //Application.Run(new frmdsthucpham());
-            Application.Run(new frmbaocaoquanso());
+            //Application.Run(new frmbaocaoquanso());
 
         }
     }
