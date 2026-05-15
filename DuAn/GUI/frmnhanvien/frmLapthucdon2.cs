@@ -245,7 +245,9 @@ namespace DuAn.GUI.frmnhanvien
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            button.FlatAppearance.BorderColor = Color.FromArgb(212, 218, 226);
+            button.FlatAppearance.BorderColor = category == DishCategory.SuaHop
+                ? Color.FromArgb(145, 155, 166)
+                : Color.FromArgb(212, 218, 226);
             button.Click += Slot_Click;
             return button;
         }
@@ -373,7 +375,7 @@ namespace DuAn.GUI.frmnhanvien
             int total = _slots.Count;
             int selected = _selectedMeals.Count;
             lblStatus.Text = string.Format(
-                "Đã chọn {0}/{1} ô.\n\nRàng buộc:\nSáng: 1 món mặn, 1 canh.\nTrưa/tối: 4 món mặn, 1 canh, 1 rau.",
+                "Đã chọn {0}/{1} ô.\n\nRàng buộc:\nSáng: 1 món mặn, 1 canh, 1 sữa hộp.\nTrưa/tối: 4 món mặn, 1 canh, 1 rau, 1 tráng miệng.",
                 selected, total);
         }
 
@@ -400,6 +402,7 @@ namespace DuAn.GUI.frmnhanvien
             {
                 yield return DishCategory.Man;
                 yield return DishCategory.Canh;
+                yield return DishCategory.SuaHop;
                 yield break;
             }
 
@@ -408,6 +411,7 @@ namespace DuAn.GUI.frmnhanvien
 
             yield return DishCategory.Canh;
             yield return DishCategory.Rau;
+            yield return DishCategory.TrangMieng;
         }
 
         private int CountCategoryBefore(FlowLayoutPanel cell, DishCategory category)
@@ -486,6 +490,10 @@ namespace DuAn.GUI.frmnhanvien
                 return "Canh";
             if (category == DishCategory.Rau)
                 return "Rau";
+            if (category == DishCategory.TrangMieng)
+                return "Tráng miệng";
+            if (category == DishCategory.SuaHop)
+                return "Sữa hộp";
             return "Mặn";
         }
 
@@ -497,6 +505,15 @@ namespace DuAn.GUI.frmnhanvien
         private static DishCategory ClassifyDishType(string value)
         {
             string normalized = NormalizeText(value);
+            string compact = normalized.Replace(" ", string.Empty);
+
+            if (compact.Contains("suahop") || normalized.Contains("sua") || normalized.Contains("milk"))
+                return DishCategory.SuaHop;
+            if (compact.Contains("trangmieng") || normalized.Contains("trang mieng")
+                || compact.Contains("traicay") || normalized.Contains("trai cay")
+                || compact.Contains("hoaqua") || normalized.Contains("hoa qua")
+                || normalized.Contains("dua hau") || normalized.Contains("chuoi") || normalized.Contains("cam"))
+                return DishCategory.TrangMieng;
             if (normalized.Contains("canh") || normalized.Contains("sup") || normalized.Contains("soup"))
                 return DishCategory.Canh;
             if (normalized.Contains("rau") || normalized.Contains("xao") || normalized.Contains("luoc"))
@@ -529,6 +546,10 @@ namespace DuAn.GUI.frmnhanvien
                 return Color.FromArgb(220, 239, 255);
             if (category == DishCategory.Rau)
                 return Color.FromArgb(224, 245, 229);
+            if (category == DishCategory.TrangMieng)
+                return Color.FromArgb(255, 231, 238);
+            if (category == DishCategory.SuaHop)
+                return Color.White;
             return Color.FromArgb(255, 239, 214);
         }
 
@@ -616,7 +637,9 @@ namespace DuAn.GUI.frmnhanvien
         {
             Man,
             Canh,
-            Rau
+            Rau,
+            TrangMieng,
+            SuaHop
         }
 
         private enum MealKind

@@ -102,8 +102,10 @@ namespace DuAn.DAO
         {
             string db = NormalizeText(dbLoaiMon);
             string requested = NormalizeText(nhomLoaiMon);
+            string dbCompact = db.Replace(" ", string.Empty);
+            string requestedCompact = requested.Replace(" ", string.Empty);
 
-            if (db == requested || db.Contains(requested) || requested.Contains(db))
+            if (db == requested || dbCompact == requestedCompact || db.Contains(requested) || requested.Contains(db))
                 return true;
 
             if (requested == "man")
@@ -114,6 +116,20 @@ namespace DuAn.DAO
 
             if (requested == "rau")
                 return db.Contains("rau") || db.Contains("xao") || db.Contains("luoc");
+
+            if (requestedCompact == "trangmieng")
+                return dbCompact.Contains("trangmieng")
+                    || db.Contains("trang mieng")
+                    || dbCompact.Contains("traicay")
+                    || db.Contains("trai cay")
+                    || dbCompact.Contains("hoaqua")
+                    || db.Contains("hoa qua")
+                    || db.Contains("dua hau")
+                    || db.Contains("chuoi")
+                    || db.Contains("cam");
+
+            if (requestedCompact == "suahop")
+                return dbCompact.Contains("suahop") || db.Contains("sua") || db.Contains("milk");
 
             return false;
         }

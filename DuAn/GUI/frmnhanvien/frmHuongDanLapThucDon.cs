@@ -16,8 +16,8 @@ namespace DuAn.GUI.frmnhanvien
         private void BuildLayout()
         {
             Text = "Hướng dẫn lập thực đơn tuần";
-            Size = new Size(900, 620);
-            MinimumSize = new Size(820, 560);
+            Size = new Size(920, 640);
+            MinimumSize = new Size(840, 580);
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -46,7 +46,7 @@ namespace DuAn.GUI.frmnhanvien
             SplitContainer body = new SplitContainer
             {
                 Dock = DockStyle.Fill,
-                SplitterDistance = 540,
+                SplitterDistance = 560,
                 FixedPanel = FixedPanel.Panel2,
                 BackColor = Color.White
             };
@@ -107,8 +107,8 @@ namespace DuAn.GUI.frmnhanvien
 @"1. Chọn tuần và chế độ ăn
    - Chọn một ngày bất kỳ trong ô Ngày trong tuần.
    - Hệ thống tự xác định tuần từ Thứ 2 đến Chủ nhật.
-   - Chọn Chế độ ăn ở combobox bên cạnh.
-   - Bảng thực đơn sẽ tự tải lại theo tuần và chế độ đã chọn.
+   - Chọn Chế độ ăn trong combobox.
+   - Bảng thực đơn sẽ tải lại theo tuần và chế độ đã chọn.
 
 2. Hiểu cấu trúc bảng thực đơn
    - Cột đầu tiên là Buổi: Sáng, Trưa, Tối.
@@ -116,14 +116,14 @@ namespace DuAn.GUI.frmnhanvien
    - Mỗi ô trong bảng là một bữa ăn của một ngày.
 
 3. Quy tắc số lượng món
-   - Buổi sáng: 1 món mặn và 1 món canh.
-   - Buổi trưa: 4 món mặn, 1 món canh và 1 món rau.
-   - Buổi tối: 4 món mặn, 1 món canh và 1 món rau.
-   - Các ô + Mặn, + Canh, + Rau là vị trí bắt buộc phải chọn món.
+   - Buổi sáng: 1 món mặn, 1 món canh, 1 sữa hộp.
+   - Buổi trưa: 4 món mặn, 1 món canh, 1 món rau, 1 món tráng miệng.
+   - Buổi tối: 4 món mặn, 1 món canh, 1 món rau, 1 món tráng miệng.
+   - Tất cả các ô + Mặn, + Canh, + Rau, + Tráng miệng, + Sữa hộp đều phải được chọn trước khi lưu.
 
 4. Chọn món cho một ô
-   - Bấm vào ô + Mặn, + Canh hoặc + Rau trong bảng.
-   - Form Chọn món sẽ mở ra và chỉ hiển thị các món đúng loại.
+   - Bấm vào ô món cần chọn trong bảng.
+   - Form Chọn món sẽ mở ra và chỉ hiển thị các món đúng loại với ô đang chọn.
    - Double click vào món hoặc chọn món rồi bấm Chọn món.
    - Form chọn món đóng lại và tên món sẽ hiện ngay trên ô vừa chọn.
 
@@ -138,8 +138,8 @@ namespace DuAn.GUI.frmnhanvien
 
 Lưu ý
    - Món ăn được lấy từ bảng Mon_an trong cơ sở dữ liệu.
-   - Loại món được phân nhóm theo Mặn, Canh, Rau.
-   - Nếu form Chọn món không có dữ liệu, hãy kiểm tra dữ liệu cột monan_loaimon trong bảng Mon_an.";
+   - Loại món được phân nhóm theo Mặn, Canh, Rau, Tráng miệng, Sữa hộp.
+   - Nếu form Chọn món không có dữ liệu, hãy kiểm tra cột monan_loaimon trong bảng Mon_an.";
         }
 
         private void picGuide_Paint(object sender, PaintEventArgs e)
@@ -149,26 +149,28 @@ Lưu ý
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
             using (Font titleFont = new Font("Segoe UI", 12F, FontStyle.Bold))
-            using (Font textFont = new Font("Segoe UI", 9F, FontStyle.Bold))
+            using (Font textFont = new Font("Segoe UI", 8.5F, FontStyle.Bold))
             using (Pen borderPen = new Pen(Color.FromArgb(180, 190, 200)))
             using (SolidBrush darkBrush = new SolidBrush(Color.FromArgb(52, 73, 94)))
             using (SolidBrush headerBrush = new SolidBrush(Color.FromArgb(236, 241, 247)))
             using (SolidBrush manBrush = new SolidBrush(Color.FromArgb(255, 239, 214)))
             using (SolidBrush canhBrush = new SolidBrush(Color.FromArgb(220, 239, 255)))
             using (SolidBrush rauBrush = new SolidBrush(Color.FromArgb(224, 245, 229)))
+            using (SolidBrush trangMiengBrush = new SolidBrush(Color.FromArgb(255, 231, 238)))
+            using (SolidBrush suaHopBrush = new SolidBrush(Color.White))
             using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(33, 48, 64)))
             using (SolidBrush whiteBrush = new SolidBrush(Color.White))
             {
                 g.DrawString("Minh họa thao tác", titleFont, textBrush, 12, 12);
 
-                Rectangle table = new Rectangle(12, 52, picGuide.Width - 24, 250);
+                Rectangle table = new Rectangle(12, 52, picGuide.Width - 24, 360);
                 g.FillRectangle(whiteBrush, table);
                 g.DrawRectangle(borderPen, table);
 
                 int leftWidth = 70;
                 int headerHeight = 40;
                 int colWidth = (table.Width - leftWidth) / 2;
-                int rowHeight = 100;
+                int rowHeight = 160;
 
                 g.FillRectangle(headerBrush, table.X, table.Y, table.Width, headerHeight);
                 g.DrawRectangle(borderPen, table.X, table.Y, leftWidth, headerHeight);
@@ -180,18 +182,20 @@ Lưu ý
                     new Rectangle(table.X + leftWidth + colWidth, table.Y, colWidth, headerHeight));
 
                 DrawMealRow(g, table.X, table.Y + headerHeight, leftWidth, colWidth, rowHeight,
-                    "Sáng", new[] { "+ Mặn 1", "+ Canh 1" }, manBrush, canhBrush, darkBrush, textBrush, borderPen, textFont);
+                    "Sáng", new[] { "+ Mặn 1", "+ Canh 1", "+ Sữa hộp 1" },
+                    manBrush, canhBrush, rauBrush, trangMiengBrush, suaHopBrush, darkBrush, textBrush, borderPen, textFont);
 
                 DrawMealRow(g, table.X, table.Y + headerHeight + rowHeight, leftWidth, colWidth, rowHeight,
-                    "Trưa", new[] { "+ Mặn 1", "+ Mặn 2", "+ Canh 1", "+ Rau 1" }, manBrush, canhBrush, darkBrush, textBrush, borderPen, textFont);
+                    "Trưa/Tối", new[] { "+ Mặn 1", "+ Mặn 2", "+ Mặn 3", "+ Mặn 4", "+ Canh 1", "+ Rau 1", "+ Tráng miệng 1" },
+                    manBrush, canhBrush, rauBrush, trangMiengBrush, suaHopBrush, darkBrush, textBrush, borderPen, textFont);
 
-                Rectangle choose = new Rectangle(26, 330, picGuide.Width - 52, 128);
+                Rectangle choose = new Rectangle(26, 430, picGuide.Width - 52, 120);
                 g.FillRectangle(whiteBrush, choose);
                 g.DrawRectangle(borderPen, choose);
                 g.DrawString("Khi bấm vào một ô:", textFont, textBrush, choose.X + 12, choose.Y + 12);
-                g.DrawString("1. Form Chọn món mở ra", textFont, textBrush, choose.X + 24, choose.Y + 42);
-                g.DrawString("2. Chỉ hiển thị món đúng loại", textFont, textBrush, choose.X + 24, choose.Y + 68);
-                g.DrawString("3. Chọn món để đưa tên món về ô", textFont, textBrush, choose.X + 24, choose.Y + 94);
+                g.DrawString("1. Form Chọn món mở ra", textFont, textBrush, choose.X + 24, choose.Y + 40);
+                g.DrawString("2. Chỉ hiển thị món đúng loại", textFont, textBrush, choose.X + 24, choose.Y + 66);
+                g.DrawString("3. Chọn món để đưa tên món về ô", textFont, textBrush, choose.X + 24, choose.Y + 92);
             }
         }
 
@@ -206,6 +210,9 @@ Lưu ý
             string[] slots,
             Brush manBrush,
             Brush canhBrush,
+            Brush rauBrush,
+            Brush trangMiengBrush,
+            Brush suaHopBrush,
             Brush darkBrush,
             Brush textBrush,
             Pen borderPen,
@@ -221,13 +228,26 @@ Lưu ý
 
                 for (int i = 0; i < slots.Length; i++)
                 {
-                    Brush brush = slots[i].Contains("Canh") ? canhBrush : slots[i].Contains("Rau") ? Brushes.Honeydew : manBrush;
-                    Rectangle slot = new Rectangle(cell.X + 16, cell.Y + 10 + i * 22, Math.Min(110, cell.Width - 32), 18);
+                    Brush brush = GetSlotBrush(slots[i], manBrush, canhBrush, rauBrush, trangMiengBrush, suaHopBrush);
+                    Rectangle slot = new Rectangle(cell.X + 14, cell.Y + 10 + i * 21, Math.Min(128, cell.Width - 28), 18);
                     g.FillRectangle(brush, slot);
                     g.DrawRectangle(borderPen, slot);
                     DrawCentered(g, slots[i], textFont, textBrush, slot);
                 }
             }
+        }
+
+        private static Brush GetSlotBrush(string text, Brush manBrush, Brush canhBrush, Brush rauBrush, Brush trangMiengBrush, Brush suaHopBrush)
+        {
+            if (text.Contains("Canh"))
+                return canhBrush;
+            if (text.Contains("Rau"))
+                return rauBrush;
+            if (text.Contains("Tráng"))
+                return trangMiengBrush;
+            if (text.Contains("Sữa"))
+                return suaHopBrush;
+            return manBrush;
         }
 
         private static void DrawCentered(Graphics g, string text, Font font, Brush brush, Rectangle bounds)
