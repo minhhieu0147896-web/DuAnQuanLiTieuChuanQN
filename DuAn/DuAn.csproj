@@ -162,6 +162,12 @@
     <Compile Include="GUI\frmnhanvien\frmlapthucdon.Designer.cs">
       <DependentUpon>frmlapthucdon.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmnhanvien\frmLapthucdon2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\frmLapthucdon2.Designer.cs">
+      <DependentUpon>frmLapthucdon2.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmnhanvien\frmtinhtpcansudung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmlapthucdon.resx">
       <DependentUpon>frmlapthucdon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmnhanvien\frmLapthucdon2.resx">
+      <DependentUpon>frmLapthucdon2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmtinhtpcansudung.resx">
       <DependentUpon>frmtinhtpcansudung.cs</DependentUpon>

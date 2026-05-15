@@ -27,7 +27,7 @@ namespace DuAn.GUI.frmnhanvien
 
         private void BuildLayout()
         {
-            Text = "Chon mon";
+            Text = "Chọn món";
             StartPosition = FormStartPosition.CenterParent;
             Size = new Size(620, 520);
             MinimumSize = new Size(560, 440);
@@ -68,19 +68,19 @@ namespace DuAn.GUI.frmnhanvien
             dgvMonAn.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "MonAnId",
-                HeaderText = "Ma",
+                HeaderText = "Mã",
                 Width = 70
             });
             dgvMonAn.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "TenMon",
-                HeaderText = "Ten mon",
+                HeaderText = "Tên món",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
             dgvMonAn.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "LoaiMon",
-                HeaderText = "Loai mon",
+                HeaderText = "Loại món",
                 Width = 130
             });
             dgvMonAn.CellDoubleClick += (s, e) => ChooseSelected();
@@ -103,11 +103,11 @@ namespace DuAn.GUI.frmnhanvien
                 Padding = new Padding(18, 10, 18, 10)
             };
 
-            btnChon = CreateButton("Chon mon", Color.FromArgb(38, 132, 255), Color.White);
+            btnChon = CreateButton("Chọn món", Color.FromArgb(38, 132, 255), Color.White);
             btnChon.Dock = DockStyle.Right;
             btnChon.Click += (s, e) => ChooseSelected();
 
-            btnHuy = CreateButton("Huy", Color.FromArgb(236, 241, 247), Color.FromArgb(33, 48, 64));
+            btnHuy = CreateButton("Hủy", Color.FromArgb(236, 241, 247), Color.FromArgb(33, 48, 64));
             btnHuy.Dock = DockStyle.Right;
             btnHuy.Margin = new Padding(0, 0, 10, 0);
             btnHuy.Click += (s, e) =>
@@ -127,14 +127,14 @@ namespace DuAn.GUI.frmnhanvien
 
         private void frmchonmon_Load(object sender, EventArgs e)
         {
-            lblTitle.Text = "Chon mon " + _loaiMon;
+            lblTitle.Text = "Chọn món " + _loaiMon;
 
             List<MonAnModel> dishes = MonAnDAO.Instance.GetByNhomLoaiMon(_loaiMon);
             dgvMonAn.DataSource = dishes;
 
             bool hasData = dishes.Count > 0;
             lblEmpty.Visible = !hasData;
-            lblEmpty.Text = "Khong tim thay mon co loai mon phu hop: " + _loaiMon;
+            lblEmpty.Text = "Không tìm thấy món có loại món phù hợp: " + _loaiMon;
             btnChon.Enabled = hasData;
 
             if (hasData)
@@ -145,7 +145,7 @@ namespace DuAn.GUI.frmnhanvien
         {
             if (dgvMonAn.CurrentRow == null || dgvMonAn.CurrentRow.DataBoundItem == null)
             {
-                MessageBox.Show("Vui long chon mot mon.", "Thong bao",
+                MessageBox.Show("Vui lòng chọn một món.", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }

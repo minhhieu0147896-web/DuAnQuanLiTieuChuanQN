@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Data.SqlClient;
 
 namespace DuAn.DAO
@@ -24,15 +20,20 @@ namespace DuAn.DAO
                 instance = value;
             }
         }
+
         private AccountDAO() { }
-        // Đổi return type từ bool → AccountModel để lấy được VaiTro
+
         public AccountModel Login(string username, string password)
         {
-            string query = @"SELECT user_id, user_taikhoan, user_vai_tro, user_mat_khau, donvi_id
-                             FROM   [dbo].[User]
-                             WHERE  user_taikhoan = @username
-                               AND  user_mat_khau = @password";
-                             
+            string query = @"SELECT u.user_id,
+                                    u.user_taikhoan,
+                                    u.user_vai_tro,
+                                    q.donvi_id
+                             FROM [dbo].[User] u
+                             LEFT JOIN [dbo].[Quan_nhan] q
+                                    ON q.quannhan_id = u.quannhan_id
+                             WHERE u.user_taikhoan = @username
+                               AND u.user_mat_khau = @password";
 
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
@@ -44,35 +45,21 @@ namespace DuAn.DAO
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.Read())
+                        if (!reader.Read())
+                            return null;
+
+                        return new AccountModel
                         {
-                            return new AccountModel
-                            {
-                                MaTK = (int)reader["user_id"],
-                                TenDangNhap = reader["user_taikhoan"].ToString(),
-                                VaiTro = (int)reader["user_vai_tro"],
-
-                                DonViId = reader["donvi_id"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["donvi_id"])
-
-
-                            };
-                        }
+                            MaTK = Convert.ToInt32(reader["user_id"]),
+                            TenDangNhap = reader["user_taikhoan"].ToString(),
+                            VaiTro = Convert.ToInt32(reader["user_vai_tro"]),
+                            DonViId = reader["donvi_id"] == DBNull.Value
+                                ? (int?)null
+                                : Convert.ToInt32(reader["donvi_id"])
+                        };
                     }
                 }
-                return null;
-
             }
-
         }
     }
-
-
-
-
-
-
-};
-
-
-
-
+}

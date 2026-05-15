@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,79 +6,238 @@ namespace DuAn.GUI.frmnhanvien
 {
     public class frmHuongDanLapThucDon : Form
     {
+        private PictureBox picGuide;
+
         public frmHuongDanLapThucDon()
         {
-            this.Text = "Hướng dẫn sử dụng Lập thực đơn";
-            this.Size = new Size(620, 520);
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            BuildLayout();
+        }
 
-            RichTextBox rtb = new RichTextBox();
-            rtb.Dock = DockStyle.Fill;
-            rtb.ReadOnly = true;
-            rtb.Font = new Font("Segoe UI", 11, FontStyle.Regular);
-            rtb.BackColor = Color.White;
-            rtb.Text = GetHuongDanText();
-            this.Controls.Add(rtb);
+        private void BuildLayout()
+        {
+            Text = "Hướng dẫn lập thực đơn tuần";
+            Size = new Size(900, 620);
+            MinimumSize = new Size(820, 560);
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            BackColor = Color.White;
+            Font = new Font("Segoe UI", 9F);
+
+            Panel header = new Panel
+            {
+                Dock = DockStyle.Top,
+                Height = 64,
+                BackColor = Color.FromArgb(33, 48, 64),
+                Padding = new Padding(20, 0, 20, 0)
+            };
+
+            Label title = new Label
+            {
+                Dock = DockStyle.Fill,
+                Text = "HƯỚNG DẪN LẬP THỰC ĐƠN TUẦN",
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 16F, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+            header.Controls.Add(title);
+
+            SplitContainer body = new SplitContainer
+            {
+                Dock = DockStyle.Fill,
+                SplitterDistance = 540,
+                FixedPanel = FixedPanel.Panel2,
+                BackColor = Color.White
+            };
+
+            RichTextBox rtb = new RichTextBox
+            {
+                Dock = DockStyle.Fill,
+                ReadOnly = true,
+                BorderStyle = BorderStyle.None,
+                BackColor = Color.White,
+                Font = new Font("Segoe UI", 10.5F),
+                Text = GetHuongDanText(),
+                Padding = new Padding(18)
+            };
+
+            picGuide = new PictureBox
+            {
+                Dock = DockStyle.Fill,
+                BackColor = Color.FromArgb(245, 247, 250)
+            };
+            picGuide.Paint += picGuide_Paint;
+
+            Panel footer = new Panel
+            {
+                Dock = DockStyle.Bottom,
+                Height = 56,
+                BackColor = Color.FromArgb(245, 247, 250),
+                Padding = new Padding(18, 8, 18, 8)
+            };
+
+            Button btnClose = new Button
+            {
+                Text = "Đóng",
+                Dock = DockStyle.Right,
+                Width = 110,
+                BackColor = Color.FromArgb(38, 132, 255),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold)
+            };
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.Click += (s, e) => Close();
+            footer.Controls.Add(btnClose);
+
+            body.Panel1.Padding = new Padding(18);
+            body.Panel2.Padding = new Padding(18);
+            body.Panel1.Controls.Add(rtb);
+            body.Panel2.Controls.Add(picGuide);
+
+            Controls.Add(body);
+            Controls.Add(footer);
+            Controls.Add(header);
         }
 
         private string GetHuongDanText()
         {
-            return @"HƯỚNG DẪN SỬ DỤNG FORM LẬP THỰC ĐƠN
+            return
+@"1. Chọn tuần và chế độ ăn
+   - Chọn một ngày bất kỳ trong ô Ngày trong tuần.
+   - Hệ thống tự xác định tuần từ Thứ 2 đến Chủ nhật.
+   - Chọn Chế độ ăn ở combobox bên cạnh.
+   - Bảng thực đơn sẽ tự tải lại theo tuần và chế độ đã chọn.
 
-1. CHỌN NGÀY VÀ BUỔI
-   - Chọn ngày từ ô chọn ngày (DateTimePicker).
-   - Chọn buổi ăn (Sáng / Trưa / Chiều) từ combobox Buổi.
-   - Sau khi chọn, bảng bên phải sẽ hiển thị danh sách món ăn đã có trong thực đơn của buổi đó.
-   - Nếu chưa có thực đơn cho tuần, hệ thống sẽ tự động tạo thực đơn trạng thái ""Nhập liệu"".
+2. Hiểu cấu trúc bảng thực đơn
+   - Cột đầu tiên là Buổi: Sáng, Trưa, Tối.
+   - Các cột còn lại là Thứ 2 đến Chủ nhật.
+   - Mỗi ô trong bảng là một bữa ăn của một ngày.
 
-2. XEM / LÀM MỚI DANH SÁCH
-   - Nhấn nút ""Hiển thị"" để nạp lại dữ liệu từ cơ sở dữ liệu (nếu nghi ngờ dữ liệu chưa được cập nhật).
+3. Quy tắc số lượng món
+   - Buổi sáng: 1 món mặn và 1 món canh.
+   - Buổi trưa: 4 món mặn, 1 món canh và 1 món rau.
+   - Buổi tối: 4 món mặn, 1 món canh và 1 món rau.
+   - Các ô + Mặn, + Canh, + Rau là vị trí bắt buộc phải chọn món.
 
-3. THÊM MÓN ĂN
-   a) Chọn loại món từ combobox ""Loại món"" (ví dụ: Mặn chính, Canh, Tráng miệng...).
-   b) Combobox ""Danh sách món ăn"" sẽ hiện ra các món thuộc loại vừa chọn.
-   c) Chọn một món cụ thể trong combobox đó.
-   d) Nhấn nút ""Thêm vào thực đơn"".
-   - Món sẽ được lưu ngay vào cơ sở dữ liệu và hiện lên bảng danh sách.
-   - Mỗi món chỉ được thêm một lần trong cùng buổi/ngày.
+4. Chọn món cho một ô
+   - Bấm vào ô + Mặn, + Canh hoặc + Rau trong bảng.
+   - Form Chọn món sẽ mở ra và chỉ hiển thị các món đúng loại.
+   - Double click vào món hoặc chọn món rồi bấm Chọn món.
+   - Form chọn món đóng lại và tên món sẽ hiện ngay trên ô vừa chọn.
 
-4. XÓA MÓN ĂN
-   a) Trong bảng danh sách món (DataGridView), click chọn dòng chứa món cần xóa.
-   b) Nhấn nút ""Bỏ"" (hoặc ""Xóa món"").
-   c) Xác nhận xóa → Món sẽ được xóa khỏi cơ sở dữ liệu và bảng danh sách được cập nhật lại.
+5. Xóa hoặc tải lại dữ liệu
+   - Bấm một ô đã chọn món, sau đó bấm Xóa món khỏi ô để bỏ món đó.
+   - Bấm Tải lại từ cơ sở dữ liệu để lấy lại thực đơn đã lưu trong tuần hiện tại.
 
-5. LƯU THỰC ĐƠN TUẦN
-   - Sau khi đã lập xong các bữa trong tuần, nhấn nút ""Lưu"" (Lưu thực đơn tuần).
-   - Hệ thống sẽ hỏi xác nhận chuyển trạng thái thực đơn từ ""Nhập liệu"" sang ""Chờ duyệt"".
-   - Lưu ý: Nút này không lưu lại các món riêng lẻ (vì chúng đã được lưu khi thêm/bỏ). Nó chỉ đánh dấu thực đơn đã hoàn thành.
+6. Lưu thực đơn tuần
+   - Chỉ bấm Lưu thực đơn tuần khi tất cả ô bắt buộc đã có món.
+   - Hệ thống sẽ xóa chi tiết cũ của từng ngày/buổi trong tuần và lưu lại danh sách món mới.
+   - Sau khi lưu thành công, trạng thái thực đơn chuyển thành Chờ duyệt.
 
-GHI CHÚ
-- Mỗi tuần (theo số tuần ISO) chỉ có một bản thực đơn cho mỗi chế độ ăn.
-- Chế độ ăn hiện tại mặc định là chế độ 1 (có thể thay đổi sau này).
-- Để lập thực đơn cho cả tuần, bạn cần chọn lần lượt từng ngày và buổi để thêm món.
-- Các thao tác thêm/xóa đều có kiểm tra trùng lặp và báo lỗi nếu có vấn đề.
-";
+Lưu ý
+   - Món ăn được lấy từ bảng Mon_an trong cơ sở dữ liệu.
+   - Loại món được phân nhóm theo Mặn, Canh, Rau.
+   - Nếu form Chọn món không có dữ liệu, hãy kiểm tra dữ liệu cột monan_loaimon trong bảng Mon_an.";
         }
 
-        private void InitializeComponent()
+        private void picGuide_Paint(object sender, PaintEventArgs e)
         {
-            this.SuspendLayout();
-            // 
-            // frmHuongDanLapThucDon
-            // 
-            this.ClientSize = new System.Drawing.Size(278, 244);
-            this.Name = "frmHuongDanLapThucDon";
-            this.Load += new System.EventHandler(this.frmHuongDanLapThucDon_Load);
-            this.ResumeLayout(false);
+            Graphics g = e.Graphics;
+            g.Clear(Color.FromArgb(245, 247, 250));
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
+            using (Font titleFont = new Font("Segoe UI", 12F, FontStyle.Bold))
+            using (Font textFont = new Font("Segoe UI", 9F, FontStyle.Bold))
+            using (Pen borderPen = new Pen(Color.FromArgb(180, 190, 200)))
+            using (SolidBrush darkBrush = new SolidBrush(Color.FromArgb(52, 73, 94)))
+            using (SolidBrush headerBrush = new SolidBrush(Color.FromArgb(236, 241, 247)))
+            using (SolidBrush manBrush = new SolidBrush(Color.FromArgb(255, 239, 214)))
+            using (SolidBrush canhBrush = new SolidBrush(Color.FromArgb(220, 239, 255)))
+            using (SolidBrush rauBrush = new SolidBrush(Color.FromArgb(224, 245, 229)))
+            using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(33, 48, 64)))
+            using (SolidBrush whiteBrush = new SolidBrush(Color.White))
+            {
+                g.DrawString("Minh họa thao tác", titleFont, textBrush, 12, 12);
+
+                Rectangle table = new Rectangle(12, 52, picGuide.Width - 24, 250);
+                g.FillRectangle(whiteBrush, table);
+                g.DrawRectangle(borderPen, table);
+
+                int leftWidth = 70;
+                int headerHeight = 40;
+                int colWidth = (table.Width - leftWidth) / 2;
+                int rowHeight = 100;
+
+                g.FillRectangle(headerBrush, table.X, table.Y, table.Width, headerHeight);
+                g.DrawRectangle(borderPen, table.X, table.Y, leftWidth, headerHeight);
+                g.DrawString("Buổi", textFont, textBrush, table.X + 16, table.Y + 11);
+
+                DrawCentered(g, "Thứ 2\n11/05", textFont, textBrush,
+                    new Rectangle(table.X + leftWidth, table.Y, colWidth, headerHeight));
+                DrawCentered(g, "Thứ 3\n12/05", textFont, textBrush,
+                    new Rectangle(table.X + leftWidth + colWidth, table.Y, colWidth, headerHeight));
+
+                DrawMealRow(g, table.X, table.Y + headerHeight, leftWidth, colWidth, rowHeight,
+                    "Sáng", new[] { "+ Mặn 1", "+ Canh 1" }, manBrush, canhBrush, darkBrush, textBrush, borderPen, textFont);
+
+                DrawMealRow(g, table.X, table.Y + headerHeight + rowHeight, leftWidth, colWidth, rowHeight,
+                    "Trưa", new[] { "+ Mặn 1", "+ Mặn 2", "+ Canh 1", "+ Rau 1" }, manBrush, canhBrush, darkBrush, textBrush, borderPen, textFont);
+
+                Rectangle choose = new Rectangle(26, 330, picGuide.Width - 52, 128);
+                g.FillRectangle(whiteBrush, choose);
+                g.DrawRectangle(borderPen, choose);
+                g.DrawString("Khi bấm vào một ô:", textFont, textBrush, choose.X + 12, choose.Y + 12);
+                g.DrawString("1. Form Chọn món mở ra", textFont, textBrush, choose.X + 24, choose.Y + 42);
+                g.DrawString("2. Chỉ hiển thị món đúng loại", textFont, textBrush, choose.X + 24, choose.Y + 68);
+                g.DrawString("3. Chọn món để đưa tên món về ô", textFont, textBrush, choose.X + 24, choose.Y + 94);
+            }
         }
 
-        private void frmHuongDanLapThucDon_Load(object sender, EventArgs e)
+        private static void DrawMealRow(
+            Graphics g,
+            int x,
+            int y,
+            int leftWidth,
+            int colWidth,
+            int rowHeight,
+            string mealName,
+            string[] slots,
+            Brush manBrush,
+            Brush canhBrush,
+            Brush darkBrush,
+            Brush textBrush,
+            Pen borderPen,
+            Font textFont)
         {
+            g.FillRectangle(darkBrush, x, y, leftWidth, rowHeight);
+            DrawCentered(g, mealName, textFont, Brushes.White, new Rectangle(x, y, leftWidth, rowHeight));
 
+            for (int col = 0; col < 2; col++)
+            {
+                Rectangle cell = new Rectangle(x + leftWidth + col * colWidth, y, colWidth, rowHeight);
+                g.DrawRectangle(borderPen, cell);
+
+                for (int i = 0; i < slots.Length; i++)
+                {
+                    Brush brush = slots[i].Contains("Canh") ? canhBrush : slots[i].Contains("Rau") ? Brushes.Honeydew : manBrush;
+                    Rectangle slot = new Rectangle(cell.X + 16, cell.Y + 10 + i * 22, Math.Min(110, cell.Width - 32), 18);
+                    g.FillRectangle(brush, slot);
+                    g.DrawRectangle(borderPen, slot);
+                    DrawCentered(g, slots[i], textFont, textBrush, slot);
+                }
+            }
+        }
+
+        private static void DrawCentered(Graphics g, string text, Font font, Brush brush, Rectangle bounds)
+        {
+            using (StringFormat format = new StringFormat())
+            {
+                format.Alignment = StringAlignment.Center;
+                format.LineAlignment = StringAlignment.Center;
+                g.DrawString(text, font, brush, bounds, format);
+            }
         }
     }
 }
