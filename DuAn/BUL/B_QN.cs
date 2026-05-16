@@ -75,5 +75,10 @@ namespace DuAn.BUL
         {
             return D_QN.TimKiemNhanh(tukhoa);
         }
+        public static string laydonvitheoid(int id)
+        {
+            return D_QN.laydonvitheoid(id);
+        }
+      
     }
 }

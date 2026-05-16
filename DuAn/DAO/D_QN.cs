@@ -279,5 +279,23 @@ namespace DuAn.DAO
 
             return dt;
         }
+        public static string  laydonvitheoid(int donvi)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd = new SqlCommand("sp_laydonvitheoid", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@donvi_id", donvi);
+
+            conn.Open();
+
+            string ten = Convert.ToString(cmd.ExecuteScalar());
+
+            conn.Close();
+
+            return ten;
+        }
     }
 }

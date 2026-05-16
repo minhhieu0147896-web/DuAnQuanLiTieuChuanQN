@@ -33,6 +33,7 @@ namespace DuAn.DAO
                 qn.chedo_id = Convert.ToInt32(reader["chedo_id"]);
                 qn.donvi_ten = reader["donvi_ten"].ToString();
                 qn.chedo_ten = reader["chedo_ten"].ToString();
+                qn.chedo_tienan = Convert.ToInt32(reader["chedo_tienan"]);
             }
 
             conn.Close();

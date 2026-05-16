@@ -216,5 +216,10 @@ namespace DuAn.GUI.frmfornhvhc
 
             LoadPage();
         }
+
+        private void dgvlsbqs_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

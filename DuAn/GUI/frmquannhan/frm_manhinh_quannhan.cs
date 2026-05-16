@@ -17,6 +17,7 @@ namespace DuAn.GUI.frmquannhan
     public partial class frm_manhinh_quannhan : Form
     {
         frmlichsucatcom flscc;
+        frmthongke_qn fthongke;
         public qnlogin qnDangNhap { get; set; }
         public frm_manhinh_quannhan()
         {
@@ -153,6 +154,22 @@ namespace DuAn.GUI.frmquannhan
         }
 
         private void slidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnthongke_Click(object sender, EventArgs e)
+        {
+            CloseAllChildForms();
+            fthongke = new frmthongke_qn(qnDangNhap);
+            fthongke.MdiParent = this;
+            fthongke.Dock = DockStyle.Fill;
+            fthongke.Show();
+            fthongke.FormClosed += (s, args) => fthongke = null;
+            fthongke.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
         {
 
         }

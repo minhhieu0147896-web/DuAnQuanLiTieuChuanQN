@@ -419,18 +419,18 @@
             // tlptrangthai
             // 
             this.tlptrangthai.ColumnCount = 3;
-            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.83735F));
-            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.16265F));
-            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 302F));
+            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlptrangthai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlptrangthai.Controls.Add(this.panel2, 2, 0);
             this.tlptrangthai.Controls.Add(this.pnlbqs, 0, 0);
             this.tlptrangthai.Controls.Add(this.pnllsbqs, 1, 0);
             this.tlptrangthai.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tlptrangthai.Location = new System.Drawing.Point(0, 643);
+            this.tlptrangthai.Location = new System.Drawing.Point(0, 670);
             this.tlptrangthai.Name = "tlptrangthai";
             this.tlptrangthai.RowCount = 1;
-            this.tlptrangthai.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlptrangthai.Size = new System.Drawing.Size(1049, 144);
+            this.tlptrangthai.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlptrangthai.Size = new System.Drawing.Size(1049, 195);
             this.tlptrangthai.TabIndex = 4;
             // 
             // panel2
@@ -440,17 +440,17 @@
             this.panel2.Controls.Add(this.lblchedo2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
-            this.panel2.Location = new System.Drawing.Point(756, 10);
+            this.panel2.Location = new System.Drawing.Point(708, 10);
             this.panel2.Margin = new System.Windows.Forms.Padding(10);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(283, 124);
+            this.panel2.Size = new System.Drawing.Size(331, 175);
             this.panel2.TabIndex = 4;
             // 
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(100, 8);
+            this.pictureBox8.Location = new System.Drawing.Point(151, 8);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(56, 48);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -462,7 +462,7 @@
             this.lblchedo2.AutoSize = true;
             this.lblchedo2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblchedo2.ForeColor = System.Drawing.Color.Black;
-            this.lblchedo2.Location = new System.Drawing.Point(43, 56);
+            this.lblchedo2.Location = new System.Drawing.Point(84, 56);
             this.lblchedo2.Name = "lblchedo2";
             this.lblchedo2.Size = new System.Drawing.Size(169, 32);
             this.lblchedo2.TabIndex = 3;
@@ -479,15 +479,15 @@
             this.pnlbqs.Margin = new System.Windows.Forms.Padding(10);
             this.pnlbqs.Name = "pnlbqs";
             this.pnlbqs.Padding = new System.Windows.Forms.Padding(5);
-            this.pnlbqs.Size = new System.Drawing.Size(329, 124);
+            this.pnlbqs.Size = new System.Drawing.Size(329, 175);
             this.pnlbqs.TabIndex = 0;
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(126, 18);
+            this.pictureBox6.Location = new System.Drawing.Point(126, 8);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(43, 38);
+            this.pictureBox6.Size = new System.Drawing.Size(50, 48);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 2;
             this.pictureBox6.TabStop = false;
@@ -514,13 +514,13 @@
             this.pnllsbqs.Margin = new System.Windows.Forms.Padding(10);
             this.pnllsbqs.Name = "pnllsbqs";
             this.pnllsbqs.Padding = new System.Windows.Forms.Padding(5);
-            this.pnllsbqs.Size = new System.Drawing.Size(377, 124);
+            this.pnllsbqs.Size = new System.Drawing.Size(329, 175);
             this.pnllsbqs.TabIndex = 4;
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(134, 8);
+            this.pictureBox7.Location = new System.Drawing.Point(144, 8);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(52, 45);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -532,7 +532,7 @@
             this.lblchedo1.AutoSize = true;
             this.lblchedo1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblchedo1.ForeColor = System.Drawing.Color.Black;
-            this.lblchedo1.Location = new System.Drawing.Point(46, 56);
+            this.lblchedo1.Location = new System.Drawing.Point(62, 56);
             this.lblchedo1.Name = "lblchedo1";
             this.lblchedo1.Size = new System.Drawing.Size(200, 32);
             this.lblchedo1.TabIndex = 2;
@@ -551,7 +551,7 @@
             this.tlpdgv.RowCount = 2;
             this.tlpdgv.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.39726F));
             this.tlpdgv.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.60274F));
-            this.tlpdgv.Size = new System.Drawing.Size(1049, 368);
+            this.tlpdgv.Size = new System.Drawing.Size(1049, 395);
             this.tlpdgv.TabIndex = 5;
             this.tlpdgv.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpdgv_Paint);
             // 
@@ -599,7 +599,7 @@
             this.dgvdsqn.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvdsqn.RowHeadersWidth = 62;
             this.dgvdsqn.RowTemplate.Height = 28;
-            this.dgvdsqn.Size = new System.Drawing.Size(1043, 315);
+            this.dgvdsqn.Size = new System.Drawing.Size(1043, 339);
             this.dgvdsqn.TabIndex = 3;
             this.dgvdsqn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdsqn_CellClick_1);
             // 
@@ -653,16 +653,16 @@
             this.panel1.Controls.Add(this.btnnext);
             this.panel1.Controls.Add(this.btnsau);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(842, 324);
+            this.panel1.Location = new System.Drawing.Point(842, 348);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(204, 41);
+            this.panel1.Size = new System.Drawing.Size(204, 44);
             this.panel1.TabIndex = 4;
             // 
             // frmdsqn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 787);
+            this.ClientSize = new System.Drawing.Size(1049, 865);
             this.Controls.Add(this.tlpdgv);
             this.Controls.Add(this.tlptrangthai);
             this.Controls.Add(this.pnlfilter);

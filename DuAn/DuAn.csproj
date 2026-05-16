@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +53,8 @@
     <Compile Include="BUL\B_LSCC.cs" />
     <Compile Include="BUL\B_QN.cs" />
     <Compile Include="BUL\B_QNlogin.cs" />
+    <Compile Include="BUL\B_thongkeqn.cs" />
+    <Compile Include="BUL\B_thongke_cb.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\AccountModel.cs" />
     <Compile Include="DAO\BuoiAnDAO.cs" />
@@ -62,6 +65,8 @@
     <Compile Include="DAO\D_LSCC.cs" />
     <Compile Include="DAO\D_QN.cs" />
     <Compile Include="DAO\D_qnlogin.cs" />
+    <Compile Include="DAO\D_thongkecb.cs" />
+    <Compile Include="DAO\D_thongkeqn.cs" />
     <Compile Include="DAO\MonAnDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ThucDonDAO.cs" />
@@ -75,6 +80,8 @@
     <Compile Include="DTO\quannhan.cs" />
     <Compile Include="DTO\quansoan.cs" />
     <Compile Include="DTO\Session.cs" />
+    <Compile Include="DTO\thongkecatcom.cs" />
+    <Compile Include="DTO\thongke_tongquan.cs" />
     <Compile Include="DTO\ThucDonModel.cs" />
     <Compile Include="DTO\thucpham.cs" />
     <Compile Include="DTO\TrangThaiCatCom.cs" />
@@ -101,6 +108,12 @@
     </Compile>
     <Compile Include="GUI\frmfornhvhc\frmLSQS.Designer.cs">
       <DependentUpon>frmLSQS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmthongke_cb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmthongke_cb.Designer.cs">
+      <DependentUpon>frmthongke_cb.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmfornhvhc\frmtrangchu.cs">
       <SubType>Form</SubType>
@@ -177,6 +190,12 @@
     <Compile Include="GUI\frmquannhan\frmlichsucatcom.Designer.cs">
       <DependentUpon>frmlichsucatcom.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmquannhan\frmthongke_qn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmquannhan\frmthongke_qn.Designer.cs">
+      <DependentUpon>frmthongke_qn.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmquannhan\frmtrangchu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmfornhvhc\frmLSQS.resx">
       <DependentUpon>frmLSQS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmfornhvhc\frmthongke_cb.resx">
+      <DependentUpon>frmthongke_cb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmfornhvhc\frmtrangchu.resx">
       <DependentUpon>frmtrangchu.cs</DependentUpon>
@@ -238,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmquannhan\frmlichsucatcom.resx">
       <DependentUpon>frmlichsucatcom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmquannhan\frmthongke_qn.resx">
+      <DependentUpon>frmthongke_qn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmquannhan\frmtrangchu.resx">
       <DependentUpon>frmtrangchu.cs</DependentUpon>
