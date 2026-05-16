@@ -74,6 +74,8 @@
             this.colbuoian = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.pnltitle.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -92,6 +94,8 @@
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnltitle
@@ -153,7 +157,7 @@
             this.lblqscd2.AutoSize = true;
             this.lblqscd2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblqscd2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblqscd2.Location = new System.Drawing.Point(127, 82);
+            this.lblqscd2.Location = new System.Drawing.Point(127, 70);
             this.lblqscd2.Name = "lblqscd2";
             this.lblqscd2.Size = new System.Drawing.Size(81, 32);
             this.lblqscd2.TabIndex = 5;
@@ -282,7 +286,7 @@
             this.lbldonvi.AutoSize = true;
             this.lbldonvi.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldonvi.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lbldonvi.Location = new System.Drawing.Point(111, 82);
+            this.lbldonvi.Location = new System.Drawing.Point(111, 67);
             this.lbldonvi.Name = "lbldonvi";
             this.lbldonvi.Size = new System.Drawing.Size(81, 32);
             this.lbldonvi.TabIndex = 4;
@@ -312,9 +316,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btntracuu);
-            this.panel1.Controls.Add(this.lblngay);
-            this.panel1.Controls.Add(this.dtpngay);
+            this.panel1.Controls.Add(this.panel11);
+            this.panel1.Controls.Add(this.panel10);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 253);
             this.panel1.Name = "panel1";
@@ -323,18 +326,19 @@
             // 
             // btntracuu
             // 
-            this.btntracuu.Location = new System.Drawing.Point(1037, 4);
+            this.btntracuu.BackColor = System.Drawing.Color.SkyBlue;
+            this.btntracuu.Location = new System.Drawing.Point(92, 0);
             this.btntracuu.Name = "btntracuu";
-            this.btntracuu.Size = new System.Drawing.Size(76, 28);
+            this.btntracuu.Size = new System.Drawing.Size(88, 36);
             this.btntracuu.TabIndex = 7;
             this.btntracuu.Text = "Tra cứu";
-            this.btntracuu.UseVisualStyleBackColor = true;
+            this.btntracuu.UseVisualStyleBackColor = false;
             this.btntracuu.Click += new System.EventHandler(this.btntracuu_Click);
             // 
             // lblngay
             // 
             this.lblngay.AutoSize = true;
-            this.lblngay.Location = new System.Drawing.Point(9, 12);
+            this.lblngay.Location = new System.Drawing.Point(9, 8);
             this.lblngay.Name = "lblngay";
             this.lblngay.Size = new System.Drawing.Size(157, 20);
             this.lblngay.TabIndex = 3;
@@ -342,7 +346,7 @@
             // 
             // dtpngay
             // 
-            this.dtpngay.Location = new System.Drawing.Point(222, 9);
+            this.dtpngay.Location = new System.Drawing.Point(172, 6);
             this.dtpngay.Name = "dtpngay";
             this.dtpngay.Size = new System.Drawing.Size(303, 26);
             this.dtpngay.TabIndex = 0;
@@ -350,8 +354,8 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.91667F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.08333F));
             this.tableLayoutPanel2.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel8, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -370,7 +374,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(8, 8);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(594, 338);
+            this.panel2.Size = new System.Drawing.Size(653, 338);
             this.panel2.TabIndex = 0;
             // 
             // dgvdanhsach
@@ -413,7 +417,7 @@
             this.dgvdanhsach.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdanhsach.RowHeadersWidth = 62;
             this.dgvdanhsach.RowTemplate.Height = 28;
-            this.dgvdanhsach.Size = new System.Drawing.Size(594, 300);
+            this.dgvdanhsach.Size = new System.Drawing.Size(653, 300);
             this.dgvdanhsach.TabIndex = 12;
             // 
             // panel7
@@ -423,7 +427,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(594, 38);
+            this.panel7.Size = new System.Drawing.Size(653, 38);
             this.panel7.TabIndex = 11;
             // 
             // label11
@@ -431,9 +435,9 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(180, 0);
+            this.label11.Location = new System.Drawing.Point(178, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(239, 38);
+            this.label11.Size = new System.Drawing.Size(369, 38);
             this.label11.TabIndex = 0;
             this.label11.Text = "Danh sách quân nhân cắt cơm ";
             // 
@@ -442,9 +446,9 @@
             this.panel8.Controls.Add(this.chart1);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(608, 8);
+            this.panel8.Location = new System.Drawing.Point(667, 8);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(594, 338);
+            this.panel8.Size = new System.Drawing.Size(535, 338);
             this.panel8.TabIndex = 1;
             // 
             // panel9
@@ -454,7 +458,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(594, 38);
+            this.panel9.Size = new System.Drawing.Size(535, 38);
             this.panel9.TabIndex = 12;
             // 
             // label4
@@ -462,7 +466,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(116, 0);
+            this.label4.Location = new System.Drawing.Point(86, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(346, 38);
             this.label4.TabIndex = 0;
@@ -481,7 +485,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(594, 300);
+            this.chart1.Size = new System.Drawing.Size(535, 300);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "chart1";
             // 
@@ -544,6 +548,25 @@
             this.colchedo.Name = "colchedo";
             this.colchedo.Width = 150;
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.lblngay);
+            this.panel10.Controls.Add(this.dtpngay);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(555, 41);
+            this.panel10.TabIndex = 8;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.btntracuu);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel11.Location = new System.Drawing.Point(992, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(218, 41);
+            this.panel11.TabIndex = 9;
+            // 
             // frmthongke_cb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -572,7 +595,6 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdanhsach)).EndInit();
@@ -580,6 +602,9 @@
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel11.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -625,5 +650,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colbuoian;
         private System.Windows.Forms.DataGridViewTextBoxColumn colchedo_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colchedo;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel10;
     }
 }
