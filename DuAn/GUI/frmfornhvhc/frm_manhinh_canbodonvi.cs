@@ -18,6 +18,7 @@ namespace DuAn.GUI.frmfornhvhc
         frmbqs fbqs;
         frmLSQS flsqs;
         frmdsqn fdsqn;
+        frmthongke_cb fthongke;
 
         public frm_manhinh_canbodonvi()
         {
@@ -224,6 +225,16 @@ namespace DuAn.GUI.frmfornhvhc
                 fdsqn.FormClosed += (s, args) => fdsqn = null;
                 fdsqn.Show();
             
+        }
+
+        private void btnthongke_Click(object sender, EventArgs e)
+        {
+                        CloseAllChildForms();
+            fthongke = new frmthongke_cb();
+                fthongke.MdiParent = this;
+                fthongke.Dock = DockStyle.Fill;
+                fthongke.FormClosed += (s, args) => fthongke = null;
+                fthongke.Show();
         }
     }
 }

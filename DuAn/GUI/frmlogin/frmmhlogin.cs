@@ -155,10 +155,6 @@ namespace DuAn.GUI.frmlogin
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
-            MessageBox.Show($"Đăng nhập thành công! Xin chào {acc.TenDangNhap}",
-                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             this.Hide();
 
         }

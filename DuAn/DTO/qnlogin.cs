@@ -19,6 +19,7 @@ namespace DuAn.DTO
         public string donvi_ten { get; set; }
 
         public string chedo_ten { get; set; }
+        public int chedo_tienan { get; set; }
     }
 }
 

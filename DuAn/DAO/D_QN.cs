@@ -279,5 +279,41 @@ namespace DuAn.DAO
 
             return dt;
         }
+        public static string  laydonvitheoid(int donvi)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd = new SqlCommand("sp_laydonvitheoid", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@donvi_id", donvi);
+
+            conn.Open();
+
+            string ten = Convert.ToString(cmd.ExecuteScalar());
+
+            conn.Close();
+
+            return ten;
+        }
+        public static int GetCheDoByMaQN(int maqn)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd = new SqlCommand("sp_get_chedo_by_maqn", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@maqn", maqn);
+
+            conn.Open();
+
+            int chedo = Convert.ToInt32(cmd.ExecuteScalar());
+
+            conn.Close();
+
+            return chedo;
+        }
     }
 }

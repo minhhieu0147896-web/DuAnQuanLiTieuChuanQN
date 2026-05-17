@@ -21,6 +21,7 @@ namespace DuAn.GUI.frmfornhvhc
         int pageSize = 20;
 
         int totalPage = 1;
+        HashSet<int> dsKhongAn = new HashSet<int>();
         Dictionary<int, TrangThaiCatCom> dsBaoCom = new Dictionary<int, TrangThaiCatCom>();
         public frmbqs()
         {
@@ -95,59 +96,17 @@ namespace DuAn.GUI.frmfornhvhc
             if (totalPage <= 0)
                 totalPage = 1;
 
-            lbltrang.Text =
-                currentPage + "/" + totalPage;
+            lbltrang.Text = currentPage + "/" + totalPage;
 
-            btnnext.Enabled =
-                currentPage < totalPage;
+            btnnext.Enabled = currentPage < totalPage;
 
-            btnsau.Enabled =
-                currentPage > 1;
+            btnsau.Enabled = currentPage > 1;
 
             // =========================
             // LOAD TRẠNG THÁI CẮT CƠM
             // =========================
 
-            foreach (DataGridViewRow row in dgvbqs.Rows)
-            {
-                // bỏ dòng mới
-                if (row.IsNewRow)
-                    continue;
-
-                // null mã quân nhân
-                if (row.Cells["colMaQN"].Value == null ||
-                    row.Cells["colMaQN"].Value == DBNull.Value)
-                {
-                    continue;
-                }
-
-                // null chế độ
-                if (row.Cells["colchedoid"].Value == null ||
-                    row.Cells["colchedoid"].Value == DBNull.Value)
-                {
-                    continue;
-                }
-
-                int maquan =
-                    Convert.ToInt32(
-                        row.Cells["colMaQN"].Value);
-
-                int chedo =
-                    Convert.ToInt32(
-                        row.Cells["colchedoid"].Value);
-
-                // chưa tồn tại mới add
-                if (!dsBaoCom.ContainsKey(maquan))
-                {
-                    dsBaoCom.Add(maquan,
-                        new TrangThaiCatCom()
-                        {
-                            QuannhanID = maquan,
-                            CheDoID = chedo,
-                            KhongAn = false
-                        });
-                }
-            }
+         
 
            
             RestoreCheckBox();
@@ -157,12 +116,10 @@ namespace DuAn.GUI.frmfornhvhc
         {
             foreach (DataGridViewRow row in dgvbqs.Rows)
             {
+                if (row.IsNewRow) continue;
                 int maquan = Convert.ToInt32(row.Cells["colMaQN"].Value);
 
-                if (dsBaoCom.ContainsKey(maquan))
-                {
-                    row.Cells["colKan"].Value = dsBaoCom[maquan].KhongAn;
-                }
+                row.Cells["colKan"].Value = dsKhongAn.Contains(maquan);
             }
         }
         void KiemTraNutLuu()
@@ -207,7 +164,7 @@ namespace DuAn.GUI.frmfornhvhc
             dtpngay.Value = DateTime.Now;
 
             cbodonvi.Focus();
-            dsBaoCom.Clear();
+            dsKhongAn.Clear();
 
             UpdateTrangThaiPanel();
         }
@@ -264,52 +221,62 @@ namespace DuAn.GUI.frmfornhvhc
         }
         void UpdateTrangThaiPanel()
         {
-            int tongQuanSo = 0;
+            int madv;
 
-            int chedo1_total = 0;
-            int chedo1_an = 0;
-            int chedo1_khongan = 0;
-
-            int chedo2_total = 0;
-            int chedo2_an = 0;
-            int chedo2_khongan = 0;
-
-            foreach (var item in dsBaoCom.Values)
+            if (Session.VaiTro == 3)
             {
-                tongQuanSo++;
+                if (cbodonvi.SelectedValue == null)
+                    return;
 
-                // CHẾ ĐỘ 1
-                if (item.CheDoID == 1)
-                {
-                    chedo1_total++;
+                if (Convert.ToInt32(cbodonvi.SelectedValue) == 0)
+                    return;
 
-                    if (item.KhongAn)
-                        chedo1_khongan++;
-                    else
-                        chedo1_an++;
-                }
-
-                // CHẾ ĐỘ 2
-                else if (item.CheDoID == 2)
-                {
-                    chedo2_total++;
-
-                    if (item.KhongAn)
-                        chedo2_khongan++;
-                    else
-                        chedo2_an++;
-                }
+                madv = Convert.ToInt32(cbodonvi.SelectedValue);
+            }
+            else
+            {
+                madv = Session.DonViID.Value;
             }
 
-            // PANEL 1
+            // tổng quân số
+            int tongQuanSo = B_QN.CountQSDonVi(madv);
+
+            // tổng từng chế độ
+            int chedo1_total = B_QN.CountQSCheDo(madv, 1);
+
+            int chedo2_total = B_QN.CountQSCheDo(madv, 2);
+
+            // đếm không ăn
+            int chedo1_khongan = 0;
+
+            int chedo2_khongan = 0;
+
+            // duyệt HASHSET
+            foreach (int maquan in dsKhongAn)
+            {
+                int chedo = B_QN.GetCheDoByMaQN(maquan);
+
+                if (chedo == 1)
+                    chedo1_khongan++;
+
+                else if (chedo == 2)
+                    chedo2_khongan++;
+            }
+
+            // quân số ăn
+            int chedo1_an =
+                chedo1_total - chedo1_khongan;
+
+            int chedo2_an =
+                chedo2_total - chedo2_khongan;
+
+            // label
             lblTongQuanSo.Text =
                 $"👥 Tổng quân số: {tongQuanSo}";
 
-            // PANEL 2
             lblCheDo1.Text =
                 $"🍱 Chế độ 1: {chedo1_an}/{chedo1_total} | Không ăn: {chedo1_khongan}";
 
-            // PANEL 3
             lblCheDo2.Text =
                 $"🍱 Chế độ 2: {chedo2_an}/{chedo2_total} | Không ăn: {chedo2_khongan}";
         }
@@ -331,53 +298,66 @@ namespace DuAn.GUI.frmfornhvhc
 
         private void btnluu_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                DateTime ngay = dtpngay.Value;
-                int mabuoi = Convert.ToInt32(cbobuoi.SelectedValue);
-                int madv = Convert.ToInt32(cbodonvi.SelectedValue);
+           try
+    {
+        DateTime ngay = dtpngay.Value;
+        int mabuoi = Convert.ToInt32(cbobuoi.SelectedValue);
+        int madv = Convert.ToInt32(cbodonvi.SelectedValue);
 
-                int kq = B_BQS.KiemTraDaBao(ngay, mabuoi, madv);
-                if (kq == 1)
-                {
-                    MessageBox.Show("Đơn vị này đã báo quân số rồi!");
-                    btnluu.Enabled = false;
-                    return;
-                }
+        // Kiểm tra đã báo chưa
+        int kq = B_BQS.KiemTraDaBao(ngay, mabuoi, madv);
+        if (kq == 1)
+        {
+            MessageBox.Show("Đơn vị này đã báo quân số rồi!");
+            btnluu.Enabled = false;
+            return;
+        }
 
-                // Đếm quân số ăn theo chế độ
-                Dictionary<int, int> demchedo = new Dictionary<int, int>();
+        // ==========================================
+        // INSERT CẮT CƠM
+        // ==========================================
+        foreach (int maquan in dsKhongAn)
+        {
+            catcom cc = new catcom() { ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv, quannhan_id = maquan };
+            B_BQS.insertcatcom(cc);
+        }
 
-                // Duyệt dữ liệu thật
-                foreach (var item in dsBaoCom.Values)
-                {
-                    if (item.KhongAn == true) // KHÔNG ĂN
-                    {
-                        catcom cc = new catcom { ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv, quannhan_id = item.QuannhanID };
-                        B_BQS.insertcatcom(cc);
-                    }
-                    else // CÓ ĂN
-                    {
-                        if (demchedo.ContainsKey(item.CheDoID)) demchedo[item.CheDoID]++;
-                        else demchedo.Add(item.CheDoID, 1);
-                    }
-                }
+        // ==========================================
+        // TÍNH QUÂN SỐ ĂN
+        // ==========================================
+        int chedo1_total = B_QN.CountQSCheDo(madv, 1);
+        int chedo2_total = B_QN.CountQSCheDo(madv, 2);
 
-                // Insert quân số ăn
-                foreach (var item in demchedo)
-                {
-                    quansoan qsa = new quansoan { chedo_id = item.Key, soluong = item.Value, ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv };
-                    B_BQS.insertqsa(qsa);
-                }
+        int chedo1_khongan = 0;
+        int chedo2_khongan = 0;
 
-                btnluu.Enabled = false;
-                MessageBox.Show("Lưu cắt cơm thành công!");
-                ResetForm();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
+        foreach (int maquan in dsKhongAn)
+        {
+            int chedo = B_QN.GetCheDoByMaQN(maquan);
+            if (chedo == 1) chedo1_khongan++;
+            else if (chedo == 2) chedo2_khongan++;
+        }
+
+        int chedo1_an = chedo1_total - chedo1_khongan;
+        int chedo2_an = chedo2_total - chedo2_khongan;
+
+        // ==========================================
+        // INSERT QUÂN SỐ ĂN
+        // ==========================================
+        quansoan qsa1 = new quansoan() { chedo_id = 1, soluong = chedo1_an, ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv };
+        B_BQS.insertqsa(qsa1);
+
+        quansoan qsa2 = new quansoan() { chedo_id = 2, soluong = chedo2_an, ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv };
+        B_BQS.insertqsa(qsa2);
+
+        btnluu.Enabled = false;
+        MessageBox.Show("Lưu báo quân số thành công!");
+        ResetForm();
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Lỗi: " + ex.Message);
+    }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -497,31 +477,13 @@ namespace DuAn.GUI.frmfornhvhc
 
                 if (dgvbqs.Columns[e.ColumnIndex].Name == "colKan")
                 {
-                    int maquan = Convert.ToInt32(
-                        dgvbqs.Rows[e.RowIndex].Cells["colMaQN"].Value);
+                    int maquan = Convert.ToInt32(dgvbqs.Rows[e.RowIndex].Cells["colMaQN"].Value);
+                    bool khongan = Convert.ToBoolean(dgvbqs.Rows[e.RowIndex].Cells["colKan"].Value);
 
-                    int chedo = Convert.ToInt32(
-                        dgvbqs.Rows[e.RowIndex].Cells["colchedoid"].Value);
+                    // Thao tác với danh sách KHÔNG ĂN theo trạng thái checkbox
+                    if (khongan) dsKhongAn.Add(maquan);
+                    else dsKhongAn.Remove(maquan);
 
-                    bool khongan = Convert.ToBoolean(
-                        dgvbqs.Rows[e.RowIndex].Cells["colKan"].Value);
-
-                    if (dsBaoCom.ContainsKey(maquan))
-                    {
-                        dsBaoCom[maquan].KhongAn = khongan;
-                    }
-                    else
-                    {
-                        dsBaoCom.Add(maquan,
-                            new TrangThaiCatCom()
-                            {
-                                QuannhanID = maquan,
-                                CheDoID = chedo,
-                                KhongAn = khongan
-                            });
-                    }
-
-                    // realtime panel
                     UpdateTrangThaiPanel();
                 }
             }
