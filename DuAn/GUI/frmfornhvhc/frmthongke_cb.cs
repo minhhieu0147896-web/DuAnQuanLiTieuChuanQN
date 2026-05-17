@@ -48,8 +48,11 @@ namespace DuAn.GUI.frmfornhvhc
             chart1.Titles.Clear();
             chart1.Titles.Add("Thống kê quân số ngày " + dtpngay.Value.ToString("dd/MM/yyyy"));
 
-            Series an = new Series("QS Ăn") { ChartType = SeriesChartType.Column };
-            Series khongan = new Series("QS Không Ăn") { ChartType = SeriesChartType.Column };
+            Series an = new Series("QS Ăn") { ChartType = SeriesChartType.Column,
+                IsValueShownAsLabel = true };
+            Series khongan = new Series("QS Không Ăn")
+            { ChartType = SeriesChartType.Column,IsValueShownAsLabel = true
+            }; 
 
             // Sáng
             an.Points.AddXY("Sáng", tk.AnSang);
@@ -86,6 +89,11 @@ namespace DuAn.GUI.frmfornhvhc
         private void frmthongke_cb_Load(object sender, EventArgs e)
         {
             load_thongke();
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

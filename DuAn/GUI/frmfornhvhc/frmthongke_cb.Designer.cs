@@ -55,18 +55,14 @@
             this.lbltiendu_td = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.btntracuu = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.lblngay = new System.Windows.Forms.Label();
             this.dtpngay = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvdanhsach = new System.Windows.Forms.DataGridView();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.colstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coltenqn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colmaqn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,8 +70,12 @@
             this.colbuoian = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnltitle.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -87,15 +87,15 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdanhsach)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnltitle
@@ -321,19 +321,41 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 253);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1210, 41);
+            this.panel1.Size = new System.Drawing.Size(1210, 51);
             this.panel1.TabIndex = 6;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.btntracuu);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel11.Location = new System.Drawing.Point(992, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(218, 51);
+            this.panel11.TabIndex = 9;
             // 
             // btntracuu
             // 
+            this.btntracuu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btntracuu.BackColor = System.Drawing.Color.SkyBlue;
-            this.btntracuu.Location = new System.Drawing.Point(92, 0);
+            this.btntracuu.Location = new System.Drawing.Point(85, 0);
             this.btntracuu.Name = "btntracuu";
-            this.btntracuu.Size = new System.Drawing.Size(88, 36);
+            this.btntracuu.Size = new System.Drawing.Size(95, 51);
             this.btntracuu.TabIndex = 7;
             this.btntracuu.Text = "Tra cứu";
             this.btntracuu.UseVisualStyleBackColor = false;
             this.btntracuu.Click += new System.EventHandler(this.btntracuu_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.lblngay);
+            this.panel10.Controls.Add(this.dtpngay);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(555, 51);
+            this.panel10.TabIndex = 8;
             // 
             // lblngay
             // 
@@ -359,13 +381,14 @@
             this.tableLayoutPanel2.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel8, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 294);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 304);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1210, 354);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1210, 344);
             this.tableLayoutPanel2.TabIndex = 7;
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // panel2
             // 
@@ -374,7 +397,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(8, 8);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(653, 338);
+            this.panel2.Size = new System.Drawing.Size(653, 328);
             this.panel2.TabIndex = 0;
             // 
             // dgvdanhsach
@@ -417,77 +440,8 @@
             this.dgvdanhsach.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdanhsach.RowHeadersWidth = 62;
             this.dgvdanhsach.RowTemplate.Height = 28;
-            this.dgvdanhsach.Size = new System.Drawing.Size(653, 300);
+            this.dgvdanhsach.Size = new System.Drawing.Size(653, 290);
             this.dgvdanhsach.TabIndex = 12;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel7.Controls.Add(this.label11);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(653, 38);
-            this.panel7.TabIndex = 11;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(178, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(369, 38);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Danh sách quân nhân cắt cơm ";
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.chart1);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(667, 8);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(535, 338);
-            this.panel8.TabIndex = 1;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel9.Controls.Add(this.label4);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(535, 38);
-            this.panel9.TabIndex = 12;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(86, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(346, 38);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Biểu đồ thống kê quân số ăn";
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(0, 38);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(535, 300);
-            this.chart1.TabIndex = 13;
-            this.chart1.Text = "chart1";
             // 
             // colstt
             // 
@@ -548,24 +502,74 @@
             this.colchedo.Name = "colchedo";
             this.colchedo.Width = 150;
             // 
-            // panel10
+            // panel7
             // 
-            this.panel10.Controls.Add(this.lblngay);
-            this.panel10.Controls.Add(this.dtpngay);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(555, 41);
-            this.panel10.TabIndex = 8;
+            this.panel7.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(653, 38);
+            this.panel7.TabIndex = 11;
             // 
-            // panel11
+            // label11
             // 
-            this.panel11.Controls.Add(this.btntracuu);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(992, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(218, 41);
-            this.panel11.TabIndex = 9;
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(178, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(369, 38);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Danh sách quân nhân cắt cơm ";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.chart1);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(667, 8);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(535, 328);
+            this.panel8.TabIndex = 1;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(0, 38);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(535, 290);
+            this.chart1.TabIndex = 13;
+            this.chart1.Text = "chart1";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel9.Controls.Add(this.label4);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(535, 38);
+            this.panel9.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(86, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(346, 38);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Biểu đồ thống kê quân số ăn";
             // 
             // frmthongke_cb
             // 
@@ -595,16 +599,16 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdanhsach)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel11.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

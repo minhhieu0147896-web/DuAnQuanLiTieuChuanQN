@@ -79,6 +79,10 @@ namespace DuAn.BUL
         {
             return D_QN.laydonvitheoid(id);
         }
-      
+        public static int GetCheDoByMaQN(int maqn)
+        {
+            return D_QN.GetCheDoByMaQN(maqn);
+        }
+
     }
 }
