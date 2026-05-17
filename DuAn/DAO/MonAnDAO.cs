@@ -98,6 +98,47 @@ namespace DuAn.DAO
             return list;
         }
 
+        public MonAnModel GetOrCreateSua()
+        {
+            const string findQuery = @"SELECT TOP 1 monan_id, monan_loaimon, monan_ten
+                                       FROM Mon_an
+                                       WHERE monan_loaimon = N'Sua'
+                                          OR monan_ten = N'Sữa'
+                                          OR monan_ten = N'Sua'
+                                       ORDER BY monan_id";
+
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(findQuery, conn))
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new MonAnModel
+                        {
+                            MonAnId = reader.GetInt32(0),
+                            LoaiMon = reader.GetString(1),
+                            TenMon = reader.GetString(2)
+                        };
+                    }
+                }
+            }
+
+            int newId = Convert.ToInt32(DataProvider.Instance.ExecuteScalar("SELECT ISNULL(MAX(monan_id), 0) + 1 FROM Mon_an"));
+            const string insertQuery = @"INSERT INTO Mon_an (monan_id, monan_ten, monan_loaimon, ghi_chu)
+                                         VALUES (@id, N'Sữa', N'Sua', N'Tự động cho chế độ Học viên')";
+
+            DataProvider.Instance.ExecuteNonQuery(insertQuery, new SqlParameter("@id", newId));
+
+            return new MonAnModel
+            {
+                MonAnId = newId,
+                LoaiMon = "Sua",
+                TenMon = "Sữa"
+            };
+        }
+
         private static bool IsSameDishGroup(string dbLoaiMon, string nhomLoaiMon)
         {
             string db = NormalizeText(dbLoaiMon);

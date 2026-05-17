@@ -24,6 +24,8 @@ namespace DuAn.GUI.frmnhanvien
         }
         private void frmbaocaoquanso_Load(object sender, EventArgs e)
         {
+            ConfigureGrid();
+
             // Gán sự kiện ValueChanged cho dtpTuNgay (chưa có trong Designer, ta gán bằng code)
             dtpTuNgay.ValueChanged += dtpTuNgay_ValueChanged;
 
@@ -64,6 +66,17 @@ namespace DuAn.GUI.frmnhanvien
             cboBuoi.DisplayMember = "buoian_ten";
             cboBuoi.ValueMember = "buoian_id";
             cboBuoi.SelectedIndex = 0;                 // Mặc định chọn Tất cả
+        }
+
+        private void ConfigureGrid()
+        {
+            dgvBaoCao.AutoGenerateColumns = true;
+            dgvBaoCao.Columns.Clear();
+            dgvBaoCao.ReadOnly = true;
+            dgvBaoCao.AllowUserToAddRows = false;
+            dgvBaoCao.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvBaoCao.DefaultCellStyle.ForeColor = Color.FromArgb(30, 35, 40);
+            dgvBaoCao.DefaultCellStyle.SelectionForeColor = Color.White;
         }
 
         // ========== LOAD CHẾ ĐỘ (có thêm "Tất cả") ==========
@@ -137,7 +150,7 @@ namespace DuAn.GUI.frmnhanvien
         private void btnTraCuu_Click(object sender, EventArgs e)
         {
             // Kiểm tra xem người dùng đã chọn đơn vị chưa
-            if (cboDonVi.SelectedValue == null || (int)cboDonVi.SelectedValue <= 0)
+            if (cboDonVi.SelectedValue == null || Convert.ToInt32(cboDonVi.SelectedValue) <= 0)
             {
                 MessageBox.Show("Vui lòng chọn đơn vị.", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -147,9 +160,9 @@ namespace DuAn.GUI.frmnhanvien
             // Lấy giá trị từ các điều khiển trên form
             DateTime tuNgay = dtpTuNgay.Value.Date;               // Ngày bắt đầu (bỏ phần giờ)
             DateTime denNgay = dtpDenNgay.Value.Date;             // Ngày kết thúc
-            int donViId = (int)cboDonVi.SelectedValue;            // Mã đơn vị
-            int buoiAnId = (int)cboBuoi.SelectedValue;            // Mã buổi (0 nếu chọn Tất cả)
-            int cheDoId = (int)cboCheDo.SelectedValue;            // Mã chế độ (0 nếu chọn Tất cả)
+            int donViId = Convert.ToInt32(cboDonVi.SelectedValue);            // Mã đơn vị
+            int buoiAnId = Convert.ToInt32(cboBuoi.SelectedValue);            // Mã buổi (0 nếu chọn Tất cả)
+            int cheDoId = Convert.ToInt32(cboCheDo.SelectedValue);            // Mã chế độ (0 nếu chọn Tất cả)
 
             // Tạo đối tượng tham số cho tầng BUL
             LSBQS ls = new LSBQS
@@ -179,11 +192,29 @@ namespace DuAn.GUI.frmnhanvien
             // Đổi tên cột cho dễ nhìn (chỉ để hiển thị, làm sau khi đã tính tổng)
             if (dt.Columns.Count > 0)
             {
-                dt.Columns["ngay_thang_nam"].ColumnName = "Ngày";
-                dt.Columns["buoian_ten"].ColumnName = "Buổi";
-                dt.Columns["chedo_ten"].ColumnName = "Chế độ";
-                dt.Columns["An"].ColumnName = "Quân số ăn";
-                dt.Columns["CatCom"].ColumnName = "Quân số không ăn";
+                if (dt.Columns.Contains("ngay_thang_nam"))
+                    dt.Columns["ngay_thang_nam"].ColumnName = "Ngày";
+                if (dt.Columns.Contains("buoian_ten"))
+                    dt.Columns["buoian_ten"].ColumnName = "Buổi";
+                if (dt.Columns.Contains("chedo_ten"))
+                    dt.Columns["chedo_ten"].ColumnName = "Chế độ";
+                if (dt.Columns.Contains("donvi_ten"))
+                    dt.Columns["donvi_ten"].ColumnName = "Đơn vị";
+                if (dt.Columns.Contains("An"))
+                    dt.Columns["An"].ColumnName = "Quân số ăn";
+                if (dt.Columns.Contains("CatCom"))
+                    dt.Columns["CatCom"].ColumnName = "Quân số không ăn";
+                HideTechnicalColumns();
+            }
+        }
+
+        private void HideTechnicalColumns()
+        {
+            string[] hiddenColumns = { "buoian_id", "chedo_id" };
+            foreach (string columnName in hiddenColumns)
+            {
+                if (dgvBaoCao.Columns.Contains(columnName))
+                    dgvBaoCao.Columns[columnName].Visible = false;
             }
         }
 

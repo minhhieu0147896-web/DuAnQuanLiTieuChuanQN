@@ -15,7 +15,7 @@ namespace DuAn.GUI.frmnhanvien
     public partial class frm_manhinh_nhanvien : Form
     {
         frmdsthucpham fdstp;
-        frmlapthucdon fltd;
+        frmLapthucdon2 fltd;
         frmbaocaothucpham fbctp;
         frmbaocaoquanso fbcqs;
         frmtinhtpcansudung ftpcsd;
@@ -147,7 +147,7 @@ namespace DuAn.GUI.frmnhanvien
         {
 
             CloseAllChildForms();
-            fltd = new frmlapthucdon();
+            fltd = new frmLapthucdon2();
                 fltd.MdiParent = this;
 
                 fltd.Dock = DockStyle.Fill;

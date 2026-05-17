@@ -148,6 +148,7 @@ namespace DuAn.GUI.frmnhanvien
 
             BuildWeekGrid(start);
             LoadExistingMeals(start);
+            ApplyAutomaticMilkSlots();
             RefreshSlots();
             UpdateStatus();
         }
@@ -268,6 +269,9 @@ namespace DuAn.GUI.frmnhanvien
                 GetCategoryTitle(_activeSlot.Category),
                 _activeSlot.CategoryIndex + 1);
 
+            if (_activeSlot.Category == DishCategory.SuaHop && IsHocVienSelected())
+                return;
+
             OpenChooseDishForm(_activeSlot);
         }
 
@@ -374,9 +378,13 @@ namespace DuAn.GUI.frmnhanvien
         {
             int total = _slots.Count;
             int selected = _selectedMeals.Count;
+            string breakfastRule = IsHocVienSelected()
+                ? "Sáng: 1 món mặn, 1 canh, tự động có Sữa."
+                : "Sáng: 1 món mặn, 1 canh.";
+
             lblStatus.Text = string.Format(
-                "Đã chọn {0}/{1} ô.\n\nRàng buộc:\nSáng: 1 món mặn, 1 canh, 1 sữa hộp.\nTrưa/tối: 4 món mặn, 1 canh, 1 rau, 1 tráng miệng.",
-                selected, total);
+                "Đã chọn {0}/{1} ô.\n\nRàng buộc:\n{2}\nTrưa/tối: 4 món mặn, 1 canh, 1 rau, 1 tráng miệng.",
+                selected, total, breakfastRule);
         }
 
         private string ValidateWeek()
@@ -402,7 +410,8 @@ namespace DuAn.GUI.frmnhanvien
             {
                 yield return DishCategory.Man;
                 yield return DishCategory.Canh;
-                yield return DishCategory.SuaHop;
+                if (IsHocVienSelected())
+                    yield return DishCategory.SuaHop;
                 yield break;
             }
 
@@ -446,6 +455,28 @@ namespace DuAn.GUI.frmnhanvien
                 return 1;
 
             return Convert.ToInt32(cboCheDo.SelectedValue);
+        }
+
+        private bool IsHocVienSelected()
+        {
+            if (GetSelectedCheDoId() == 1)
+                return true;
+
+            DataRowView row = cboCheDo.SelectedItem as DataRowView;
+            if (row != null && row.Row.Table.Columns.Contains("chedo_ten"))
+                return NormalizeText(row["chedo_ten"].ToString()).Contains("hoc vien");
+
+            return NormalizeText(cboCheDo.Text).Contains("hoc vien");
+        }
+
+        private void ApplyAutomaticMilkSlots()
+        {
+            if (!IsHocVienSelected())
+                return;
+
+            MonAnModel milk = MonAnDAO.Instance.GetOrCreateSua();
+            foreach (SlotButton slot in _slots.Values.Where(s => s.Category == DishCategory.SuaHop))
+                _selectedMeals[slot.Key] = milk;
         }
 
         private static DateTime GetWeekStart(DateTime value)
@@ -493,7 +524,7 @@ namespace DuAn.GUI.frmnhanvien
             if (category == DishCategory.TrangMieng)
                 return "Tráng miệng";
             if (category == DishCategory.SuaHop)
-                return "Sữa hộp";
+                return "Sữa";
             return "Mặn";
         }
 

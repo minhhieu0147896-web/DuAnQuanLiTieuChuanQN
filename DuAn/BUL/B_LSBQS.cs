@@ -22,7 +22,12 @@ namespace DuAn.BUL
 
         internal static DataTable TraCuu(LSBQS ls)
         {
-            throw new NotImplementedException();
+            return D_LSBQS.TraCuu(ls);
+        }
+
+        internal static DataTable TraCuuThucPham(DateTime tuNgay, DateTime denNgay, int donViId, int buoiAnId, int cheDoId)
+        {
+            return D_LSBQS.TraCuuThucPham(tuNgay, denNgay, donViId, buoiAnId, cheDoId);
         }
     }
 }
