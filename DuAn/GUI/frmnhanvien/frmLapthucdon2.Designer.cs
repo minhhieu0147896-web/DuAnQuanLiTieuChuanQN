@@ -40,6 +40,14 @@
             this.splBody = new System.Windows.Forms.SplitContainer();
             this.weekGrid = new System.Windows.Forms.TableLayoutPanel();
             this.pnlChooser = new System.Windows.Forms.Panel();
+            this.pnlTienDo = new System.Windows.Forms.Panel();
+            this.lblChatBeo = new System.Windows.Forms.Label();
+            this.prgChatBeo = new System.Windows.Forms.ProgressBar();
+            this.lblChatXo = new System.Windows.Forms.Label();
+            this.prgChatXo = new System.Windows.Forms.ProgressBar();
+            this.lblDam = new System.Windows.Forms.Label();
+            this.prgDam = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
@@ -54,6 +62,7 @@
             this.splBody.Panel2.SuspendLayout();
             this.splBody.SuspendLayout();
             this.pnlChooser.SuspendLayout();
+            this.pnlTienDo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -207,6 +216,7 @@
             // pnlChooser
             // 
             this.pnlChooser.BackColor = System.Drawing.Color.White;
+            this.pnlChooser.Controls.Add(this.pnlTienDo);
             this.pnlChooser.Controls.Add(this.lblStatus);
             this.pnlChooser.Controls.Add(this.btnHelp);
             this.pnlChooser.Controls.Add(this.btnReload);
@@ -219,6 +229,83 @@
             this.pnlChooser.Padding = new System.Windows.Forms.Padding(18);
             this.pnlChooser.Size = new System.Drawing.Size(184, 454);
             this.pnlChooser.TabIndex = 0;
+            // 
+            // pnlTienDo
+            // 
+            this.pnlTienDo.Controls.Add(this.lblChatBeo);
+            this.pnlTienDo.Controls.Add(this.prgChatBeo);
+            this.pnlTienDo.Controls.Add(this.lblChatXo);
+            this.pnlTienDo.Controls.Add(this.prgChatXo);
+            this.pnlTienDo.Controls.Add(this.lblDam);
+            this.pnlTienDo.Controls.Add(this.prgDam);
+            this.pnlTienDo.Controls.Add(this.label1);
+            this.pnlTienDo.Location = new System.Drawing.Point(18, 257);
+            this.pnlTienDo.Name = "pnlTienDo";
+            this.pnlTienDo.Size = new System.Drawing.Size(158, 194);
+            this.pnlTienDo.TabIndex = 6;
+            // 
+            // lblChatBeo
+            // 
+            this.lblChatBeo.AutoSize = true;
+            this.lblChatBeo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChatBeo.Location = new System.Drawing.Point(5, 127);
+            this.lblChatBeo.Name = "lblChatBeo";
+            this.lblChatBeo.Size = new System.Drawing.Size(92, 17);
+            this.lblChatBeo.TabIndex = 6;
+            this.lblChatBeo.Text = "CHẤT BÉO: 0%";
+            // 
+            // prgChatBeo
+            // 
+            this.prgChatBeo.Location = new System.Drawing.Point(0, 147);
+            this.prgChatBeo.Name = "prgChatBeo";
+            this.prgChatBeo.Size = new System.Drawing.Size(158, 19);
+            this.prgChatBeo.TabIndex = 5;
+            this.prgChatBeo.Click += new System.EventHandler(this.prgChatBeo_Click);
+            // 
+            // lblChatXo
+            // 
+            this.lblChatXo.AutoSize = true;
+            this.lblChatXo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChatXo.Location = new System.Drawing.Point(5, 78);
+            this.lblChatXo.Name = "lblChatXo";
+            this.lblChatXo.Size = new System.Drawing.Size(87, 17);
+            this.lblChatXo.TabIndex = 4;
+            this.lblChatXo.Text = "CHẤT XƠ: 0%";
+            // 
+            // prgChatXo
+            // 
+            this.prgChatXo.Location = new System.Drawing.Point(0, 98);
+            this.prgChatXo.Name = "prgChatXo";
+            this.prgChatXo.Size = new System.Drawing.Size(158, 17);
+            this.prgChatXo.TabIndex = 3;
+            // 
+            // lblDam
+            // 
+            this.lblDam.AutoSize = true;
+            this.lblDam.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDam.Location = new System.Drawing.Point(5, 31);
+            this.lblDam.Name = "lblDam";
+            this.lblDam.Size = new System.Drawing.Size(61, 17);
+            this.lblDam.TabIndex = 2;
+            this.lblDam.Text = "ĐẠM: 0%";
+            // 
+            // prgDam
+            // 
+            this.prgDam.Location = new System.Drawing.Point(3, 51);
+            this.prgDam.Name = "prgDam";
+            this.prgDam.Size = new System.Drawing.Size(155, 14);
+            this.prgDam.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "TIÊU CHUẨN TUẦN";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblStatus
             // 
@@ -307,6 +394,8 @@
             this.splBody.ResumeLayout(false);
             this.pnlChooser.ResumeLayout(false);
             this.pnlChooser.PerformLayout();
+            this.pnlTienDo.ResumeLayout(false);
+            this.pnlTienDo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -331,5 +420,13 @@
         private System.Windows.Forms.Button btnXoaMon;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Panel pnlTienDo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ProgressBar prgDam;
+        private System.Windows.Forms.Label lblDam;
+        private System.Windows.Forms.Label lblChatXo;
+        private System.Windows.Forms.ProgressBar prgChatXo;
+        private System.Windows.Forms.ProgressBar prgChatBeo;
+        private System.Windows.Forms.Label lblChatBeo;
     }
 }

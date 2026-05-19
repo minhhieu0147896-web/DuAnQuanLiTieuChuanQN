@@ -10,6 +10,7 @@ namespace DuAn.GUI.frmnhanvien
     public class frmchonmon : Form
     {
         private readonly string _loaiMon;
+        private readonly string _ghiChu;
         private DataGridView dgvMonAn;
         private Label lblTitle;
         private Label lblEmpty;
@@ -19,8 +20,14 @@ namespace DuAn.GUI.frmnhanvien
         public MonAnModel MonDaChon { get; private set; }
 
         public frmchonmon(string loaiMon)
+            : this(loaiMon, null)
+        {
+        }
+
+        public frmchonmon(string loaiMon, string ghiChu)
         {
             _loaiMon = loaiMon;
+            _ghiChu = ghiChu;
             BuildLayout();
             Load += frmchonmon_Load;
         }
@@ -127,14 +134,18 @@ namespace DuAn.GUI.frmnhanvien
 
         private void frmchonmon_Load(object sender, EventArgs e)
         {
-            lblTitle.Text = "Chọn món " + _loaiMon;
+            lblTitle.Text = string.IsNullOrWhiteSpace(_ghiChu)
+                ? "Chọn món " + _loaiMon
+                : "Chọn món " + _loaiMon + " - " + _ghiChu;
 
-            List<MonAnModel> dishes = MonAnDAO.Instance.GetByNhomLoaiMon(_loaiMon);
+            List<MonAnModel> dishes = MonAnDAO.Instance.GetByNhomLoaiMon(_loaiMon, _ghiChu);
             dgvMonAn.DataSource = dishes;
 
             bool hasData = dishes.Count > 0;
             lblEmpty.Visible = !hasData;
-            lblEmpty.Text = "Không tìm thấy món có loại món phù hợp: " + _loaiMon;
+            lblEmpty.Text = string.IsNullOrWhiteSpace(_ghiChu)
+                ? "Không tìm thấy món có loại món phù hợp: " + _loaiMon
+                : "Không tìm thấy món có loại món phù hợp: " + _loaiMon + ", ghi chú: " + _ghiChu;
             btnChon.Enabled = hasData;
 
             if (hasData)

@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -20,9 +21,17 @@ namespace DuAn.GUI.frmnhanvien
         private readonly Dictionary<string, MonAnModel> _selectedMeals = new Dictionary<string, MonAnModel>();
 
         private List<BuoiAnModel> _buoiAns = new List<BuoiAnModel>();
+        private NutritionTargetModel _weeklyNutritionTarget = new NutritionTargetModel();
         private SlotButton _activeSlot;
         private bool _isLoadingReferenceData;
         private bool _isInitialized;
+
+        private const int PBM_SETSTATE = 0x0410;
+        private const int PBST_NORMAL = 1;
+        private const int PBST_ERROR = 2;
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
 
         public frmLapthucdon2()
         {
@@ -110,6 +119,10 @@ namespace DuAn.GUI.frmnhanvien
 
             lblStatus.AutoSize = false;
             lblStatus.Dock = DockStyle.Fill;
+
+            ConfigureProgressBar(prgDam);
+            ConfigureProgressBar(prgChatXo);
+            ConfigureProgressBar(prgChatBeo);
         }
 
         private void LoadReferenceData()
@@ -145,6 +158,7 @@ namespace DuAn.GUI.frmnhanvien
             DateTime start = GetWeekStart(dtpWeek.Value);
             DateTime end = start.AddDays(6);
             lblWeekRange.Text = string.Format("Tuần {0:dd/MM/yyyy} - {1:dd/MM/yyyy}", start, end);
+            _weeklyNutritionTarget = MonAnDAO.Instance.GetWeeklyNutritionTarget(GetSelectedCheDoId());
 
             BuildWeekGrid(start);
             LoadExistingMeals(start);
@@ -216,7 +230,10 @@ namespace DuAn.GUI.frmnhanvien
                                 {
                                     MonAnId = item.MonAnId,
                                     TenMon = item.TenMon,
-                                    LoaiMon = item.LoaiMon
+                                    LoaiMon = item.LoaiMon,
+                                    Dam = item.Dam,
+                                    ChatXo = item.ChatXo,
+                                    ChatBeo = item.ChatBeo
                                 };
                             }
                             index++;
@@ -278,7 +295,8 @@ namespace DuAn.GUI.frmnhanvien
         private void OpenChooseDishForm(SlotButton slot)
         {
             string loaiMon = GetCategoryTitle(slot.Category);
-            using (frmchonmon frm = new frmchonmon(loaiMon))
+            string ghiChu = slot.Meal == MealKind.Sang && slot.Category == DishCategory.Man ? "SANG" : null;
+            using (frmchonmon frm = new frmchonmon(loaiMon, ghiChu))
             {
                 DialogResult result = frm.ShowDialog(this);
                 if (result != DialogResult.OK || frm.MonDaChon == null)
@@ -378,13 +396,79 @@ namespace DuAn.GUI.frmnhanvien
         {
             int total = _slots.Count;
             int selected = _selectedMeals.Count;
+            NutritionTargetModel current = SumSelectedNutrition();
+            double damPercent = GetPercent(current.Dam, _weeklyNutritionTarget.Dam);
+            double chatXoPercent = GetPercent(current.ChatXo, _weeklyNutritionTarget.ChatXo);
+            double chatBeoPercent = GetPercent(current.ChatBeo, _weeklyNutritionTarget.ChatBeo);
+
+            UpdateNutritionProgress(prgDam, lblDam, "ĐẠM", current.Dam, _weeklyNutritionTarget.Dam, damPercent);
+            UpdateNutritionProgress(prgChatXo, lblChatXo, "CHẤT XƠ", current.ChatXo, _weeklyNutritionTarget.ChatXo, chatXoPercent);
+            UpdateNutritionProgress(prgChatBeo, lblChatBeo, "CHẤT BÉO", current.ChatBeo, _weeklyNutritionTarget.ChatBeo, chatBeoPercent);
+
             string breakfastRule = IsHocVienSelected()
                 ? "Sáng: 1 món mặn, 1 canh, tự động có Sữa."
                 : "Sáng: 1 món mặn, 1 canh.";
+            string nutritionWarning = BuildNutritionWarning(damPercent, chatXoPercent, chatBeoPercent);
 
             lblStatus.Text = string.Format(
-                "Đã chọn {0}/{1} ô.\n\nRàng buộc:\n{2}\nTrưa/tối: 4 món mặn, 1 canh, 1 rau, 1 tráng miệng.",
-                selected, total, breakfastRule);
+                "Đã chọn {0}/{1} ô.\n\nRàng buộc:\n{2}\nTrưa/tối: 4 món mặn, 1 canh, 1 rau, 1 tráng miệng.\n\n{3}",
+                selected, total, breakfastRule, nutritionWarning);
+        }
+
+        private NutritionTargetModel SumSelectedNutrition()
+        {
+            return new NutritionTargetModel
+            {
+                Dam = _selectedMeals.Values.Sum(x => x.Dam),
+                ChatXo = _selectedMeals.Values.Sum(x => x.ChatXo),
+                ChatBeo = _selectedMeals.Values.Sum(x => x.ChatBeo)
+            };
+        }
+
+        private static double GetPercent(double current, double target)
+        {
+            if (target <= 0)
+                return 0;
+
+            return current * 100.0 / target;
+        }
+
+        private static void ConfigureProgressBar(ProgressBar progressBar)
+        {
+            progressBar.Minimum = 0;
+            progressBar.Maximum = 100;
+            progressBar.Value = 0;
+            progressBar.Style = ProgressBarStyle.Continuous;
+        }
+
+        private static void UpdateNutritionProgress(ProgressBar progressBar, Label label, string title, double current, double target, double percent)
+        {
+            int value = Math.Max(0, Math.Min(100, (int)Math.Round(percent)));
+            progressBar.Value = value;
+
+            bool overLimit = percent > 100.0;
+            label.Text = string.Format(CultureInfo.CurrentCulture, "{0}: {1:0.#}% ({2:0.#}/{3:0.#}g)", title, percent, current, target);
+            label.ForeColor = overLimit ? Color.FromArgb(190, 45, 45) : Color.FromArgb(40, 48, 56);
+
+            if (progressBar.IsHandleCreated)
+                SendMessage(progressBar.Handle, PBM_SETSTATE, new IntPtr(overLimit ? PBST_ERROR : PBST_NORMAL), IntPtr.Zero);
+        }
+
+        private static string BuildNutritionWarning(double damPercent, double chatXoPercent, double chatBeoPercent)
+        {
+            List<string> warnings = new List<string>();
+
+            if (damPercent > 100.0)
+                warnings.Add("thừa đạm");
+            if (chatXoPercent > 100.0)
+                warnings.Add("thừa chất xơ");
+            if (chatBeoPercent > 100.0)
+                warnings.Add("thừa chất béo");
+
+            if (warnings.Count == 0)
+                return "Dinh dưỡng: chưa vượt chuẩn tuần.";
+
+            return "Cảnh báo: " + string.Join(", ", warnings) + ".";
         }
 
         private string ValidateWeek()
@@ -688,6 +772,16 @@ namespace DuAn.GUI.frmnhanvien
             public MealKind Meal { get; set; }
             public DishCategory Category { get; set; }
             public int CategoryIndex { get; set; }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prgChatBeo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

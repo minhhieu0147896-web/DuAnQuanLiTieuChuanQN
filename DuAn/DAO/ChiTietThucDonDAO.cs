@@ -28,7 +28,10 @@ namespace DuAn.DAO
         {
             List<ChiTietThucDonModel> list = new List<ChiTietThucDonModel>();
             string query = @"SELECT ctd.thucdon_id, ctd.ngay_thang_nam, ctd.buoian_id, ctd.monan_id,
-                            m.monan_ten, m.monan_loaimon, b.buoian_ten
+                            m.monan_ten, m.monan_loaimon, b.buoian_ten,
+                            ISNULL(m.dam, 0) AS dam,
+                            ISNULL(m.chat_xo, 0) AS chat_xo,
+                            ISNULL(m.chat_beo, 0) AS chat_beo
                      FROM Chi_tiet_thuc_don ctd
                      INNER JOIN Mon_an m ON ctd.monan_id = m.monan_id
                      INNER JOIN Buoi_an b ON ctd.buoian_id = b.buoian_id
@@ -55,7 +58,10 @@ namespace DuAn.DAO
                             MonAnId = reader.GetInt32(3),
                             TenMon = reader.GetString(4),
                             LoaiMon = reader.GetString(5),
-                            TenBuoi = reader.GetString(6)
+                            TenBuoi = reader.GetString(6),
+                            Dam = Convert.ToDouble(reader["dam"]),
+                            ChatXo = Convert.ToDouble(reader["chat_xo"]),
+                            ChatBeo = Convert.ToDouble(reader["chat_beo"])
                         });
                     }
                 }
@@ -67,7 +73,10 @@ namespace DuAn.DAO
         {
             List<ChiTietThucDonModel> list = new List<ChiTietThucDonModel>();
             string query = @"SELECT ctd.thucdon_id, ctd.ngay_thang_nam, ctd.buoian_id, ctd.monan_id,
-                                    m.monan_ten, m.monan_loaimon, b.buoian_ten
+                                    m.monan_ten, m.monan_loaimon, b.buoian_ten,
+                                    ISNULL(m.dam, 0) AS dam,
+                                    ISNULL(m.chat_xo, 0) AS chat_xo,
+                                    ISNULL(m.chat_beo, 0) AS chat_beo
                              FROM Chi_tiet_thuc_don ctd
                              INNER JOIN Mon_an m ON ctd.monan_id = m.monan_id
                              INNER JOIN Buoi_an b ON ctd.buoian_id = b.buoian_id
@@ -95,7 +104,10 @@ namespace DuAn.DAO
                                 MonAnId = reader.GetInt32(3),
                                 TenMon = reader.GetString(4),
                                 LoaiMon = reader.GetString(5),
-                                TenBuoi = reader.GetString(6)
+                                TenBuoi = reader.GetString(6),
+                                Dam = Convert.ToDouble(reader["dam"]),
+                                ChatXo = Convert.ToDouble(reader["chat_xo"]),
+                                ChatBeo = Convert.ToDouble(reader["chat_beo"])
                             });
                         }
                     }

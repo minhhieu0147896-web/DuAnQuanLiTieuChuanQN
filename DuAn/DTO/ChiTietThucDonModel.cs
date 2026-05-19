@@ -17,5 +17,8 @@ namespace DuAn.DTO
         public string TenMon { get; set; }
         public string TenBuoi { get; set; }
         public string LoaiMon { get; set; }
+        public double Dam { get; set; }
+        public double ChatXo { get; set; }
+        public double ChatBeo { get; set; }
     }
 }

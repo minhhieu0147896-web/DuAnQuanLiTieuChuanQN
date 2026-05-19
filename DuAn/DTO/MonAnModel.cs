@@ -14,6 +14,16 @@ namespace DuAn.DTO
     public string LoaiMon { get; set; }
     public string TenMon { get; set; } // Nếu cột trong DB là "monan_roim" thì tên property giữ vậy nhưng ánh xạ đúng tên cột
                                                // Có thể thêm đơn giá, kcal nếu có trong bảng (hiện chưa thấy)
+    public double Dam { get; set; }
+    public double ChatXo { get; set; }
+    public double ChatBeo { get; set; }
      
+    }
+
+    public class NutritionTargetModel
+    {
+        public double Dam { get; set; }
+        public double ChatXo { get; set; }
+        public double ChatBeo { get; set; }
     }
 }
