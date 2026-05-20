@@ -55,6 +55,7 @@
     <Compile Include="BUL\B_QNlogin.cs" />
     <Compile Include="BUL\B_thongkeqn.cs" />
     <Compile Include="BUL\B_thongke_cb.cs" />
+    <Compile Include="BUL\DuplicateChecker.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\AccountModel.cs" />
     <Compile Include="DAO\BuoiAnDAO.cs" />
