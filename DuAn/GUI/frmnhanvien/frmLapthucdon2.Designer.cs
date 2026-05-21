@@ -37,6 +37,7 @@
             this.cboCheDo = new System.Windows.Forms.ComboBox();
             this.lblWeekRange = new System.Windows.Forms.Label();
             this.btnLuu = new System.Windows.Forms.Button();
+            this.btnDienTuMau = new System.Windows.Forms.Button();
             this.splBody = new System.Windows.Forms.SplitContainer();
             this.weekGrid = new System.Windows.Forms.TableLayoutPanel();
             this.pnlChooser = new System.Windows.Forms.Panel();
@@ -118,6 +119,7 @@
             this.flpToolbar.Controls.Add(this.dtpWeek);
             this.flpToolbar.Controls.Add(this.cboCheDo);
             this.flpToolbar.Controls.Add(this.lblWeekRange);
+            this.flpToolbar.Controls.Add(this.btnDienTuMau);
             this.flpToolbar.Controls.Add(this.btnLuu);
             this.flpToolbar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpToolbar.Location = new System.Drawing.Point(24, 14);
@@ -154,13 +156,26 @@
             this.lblWeekRange.Text = "Tuần ...";
             this.lblWeekRange.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnDienTuMau
+            // 
+            this.btnDienTuMau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(90)))));
+            this.btnDienTuMau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDienTuMau.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDienTuMau.ForeColor = System.Drawing.Color.White;
+            this.btnDienTuMau.Location = new System.Drawing.Point(681, 3);
+            this.btnDienTuMau.Name = "btnDienTuMau";
+            this.btnDienTuMau.Size = new System.Drawing.Size(170, 42);
+            this.btnDienTuMau.TabIndex = 4;
+            this.btnDienTuMau.Text = "Điền từ mẫu";
+            this.btnDienTuMau.UseVisualStyleBackColor = false;
+            // 
             // btnLuu
             // 
             this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(681, 3);
+            this.btnLuu.Location = new System.Drawing.Point(857, 3);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(170, 42);
             this.btnLuu.TabIndex = 3;
@@ -411,6 +426,7 @@
         private System.Windows.Forms.ComboBox cboCheDo;
         private System.Windows.Forms.Label lblWeekRange;
         private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.Button btnDienTuMau;
         private System.Windows.Forms.SplitContainer splBody;
         private System.Windows.Forms.TableLayoutPanel weekGrid;
         private System.Windows.Forms.Panel pnlChooser;

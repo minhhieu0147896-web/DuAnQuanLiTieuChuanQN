@@ -62,6 +62,7 @@ namespace DuAn.GUI.frmnhanvien
             };
 
             btnLuu.Click += btnluu_Click;
+            btnDienTuMau.Click += btnDienTuMau_Click;
             btnXoaMon.Click += btnBo_Click;
             btnReload.Click += btnhienthi_Click;
             btnHelp.Click += btnHD_Click;
@@ -109,6 +110,7 @@ namespace DuAn.GUI.frmnhanvien
 
             btnBack.Text = "Quay lại";
             btnLuu.Text = "Lưu thực đơn tuần";
+            btnDienTuMau.Text = "Điền từ mẫu";
             btnXoaMon.Text = "Xóa món khỏi ô";
             btnReload.Text = "Tải lại từ cơ sở dữ liệu";
             btnHelp.Text = "Hướng dẫn";
@@ -335,6 +337,63 @@ namespace DuAn.GUI.frmnhanvien
         private void btnhienthi_Click(object sender, EventArgs e)
         {
             LoadWeek();
+        }
+
+        private void btnDienTuMau_Click(object sender, EventArgs e)
+        {
+            if (_slots.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn tuần và chế độ trước khi điền từ mẫu.", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using (frmChonThucDonMau frm = new frmChonThucDonMau())
+            {
+                if (frm.ShowDialog(this) != DialogResult.OK || frm.MauDaChon == null)
+                    return;
+
+                if (_selectedMeals.Count > 0)
+                {
+                    DialogResult overwrite = MessageBox.Show(
+                        "Tuần hiện tại đã có món được chọn.\nÁp dụng mẫu sẽ thay thế toàn bộ thực đơn trên lưới.\nBạn có muốn tiếp tục?",
+                        "Xác nhận",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+                    if (overwrite != DialogResult.Yes)
+                        return;
+                }
+
+                DateTime weekStart = GetWeekStart(dtpWeek.Value);
+                TemplateFillResult fillResult = WeeklyMenuFromTemplateFiller.FillFromTemplate(
+                    frm.MauDaChon.MauId,
+                    weekStart,
+                    _slots.Keys);
+
+                _selectedMeals.Clear();
+                foreach (KeyValuePair<string, MonAnModel> entry in fillResult.Meals)
+                    _selectedMeals[entry.Key] = entry.Value;
+
+                ApplyAutomaticMilkSlots();
+                RefreshSlots();
+                UpdateStatus();
+
+                string tenMau = string.IsNullOrWhiteSpace(fillResult.MauTen)
+                    ? frm.MauDaChon.MauTen
+                    : fillResult.MauTen;
+
+                MessageBox.Show(
+                    string.Format(
+                        "Đã áp dụng mẫu «{0}».\nĐiền: {1} ô.\nBỏ qua (không khớp ô lưới): {2}.\nVị trí mẫu không hợp lệ: {3}.\nThứ trong tuần không hợp lệ: {4}.\n\nBạn có thể chỉnh sửa từng ô trước khi lưu.",
+                        tenMau,
+                        fillResult.FilledCount,
+                        fillResult.SkippedNoSlot,
+                        fillResult.SkippedInvalidViTri,
+                        fillResult.SkippedInvalidThu),
+                    "Điền từ thực đơn mẫu",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
 
         private void btnluu_Click(object sender, EventArgs e)
