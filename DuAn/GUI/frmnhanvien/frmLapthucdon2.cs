@@ -296,7 +296,13 @@ namespace DuAn.GUI.frmnhanvien
         {
             string loaiMon = GetCategoryTitle(slot.Category);
             string ghiChu = slot.Meal == MealKind.Sang && slot.Category == DishCategory.Man ? "SANG" : null;
-            using (frmchonmon frm = new frmchonmon(loaiMon, ghiChu))
+            using (frmchonmon frm = new frmchonmon(
+                loaiMon,
+                ghiChu,
+                _selectedMeals,
+                slot.Date,
+                slot.BuoiAn.BuoiAnId,
+                slot.Key))
             {
                 DialogResult result = frm.ShowDialog(this);
                 if (result != DialogResult.OK || frm.MonDaChon == null)
