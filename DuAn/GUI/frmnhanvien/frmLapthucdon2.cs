@@ -17,6 +17,9 @@ namespace DuAn.GUI.frmnhanvien
     {
         private const int CurrentUserId = 1;
 
+        // Bộ đệm thực đơn theo tuần (key: yyyyMMdd của thứ 2 đầu tuần)
+        private readonly Dictionary<int, Dictionary<string, MonAnModel>> _weeklyBuffers = new Dictionary<int, Dictionary<string, MonAnModel>>();
+        
         private readonly Dictionary<string, SlotButton> _slots = new Dictionary<string, SlotButton>();
         private readonly Dictionary<string, MonAnModel> _selectedMeals = new Dictionary<string, MonAnModel>();
 
@@ -25,6 +28,7 @@ namespace DuAn.GUI.frmnhanvien
         private SlotButton _activeSlot;
         private bool _isLoadingReferenceData;
         private bool _isInitialized;
+        private string _currentWeekStatus = "NhapLieu"; // Trạng thái hiện tại của tuần
 
         private const int PBM_SETSTATE = 0x0410;
         private const int PBST_NORMAL = 1;
@@ -156,14 +160,33 @@ namespace DuAn.GUI.frmnhanvien
             if (!_isInitialized || cboCheDo.SelectedValue == null || _buoiAns.Count == 0)
                 return;
 
-            _selectedMeals.Clear();
             DateTime start = GetWeekStart(dtpWeek.Value);
+            int weekKey = GetWeekKey(start);
+            
+            // Kiểm tra xem tuần này có trong bộ đệm không
+            if (_weeklyBuffers.ContainsKey(weekKey))
+            {
+                // Sử dụng dữ liệu từ bộ đệm
+                _selectedMeals.Clear();
+                foreach (var kvp in _weeklyBuffers[weekKey])
+                    _selectedMeals[kvp.Key] = kvp.Value;
+            }
+            else
+            {
+                // Tải từ database nếu chưa có trong bộ đệm
+                _selectedMeals.Clear();
+                LoadExistingMealsFromDatabase(start, out string status);
+                _currentWeekStatus = status;
+                
+                // Lưu vào bộ đệm
+                _weeklyBuffers[weekKey] = new Dictionary<string, MonAnModel>(_selectedMeals);
+            }
+            
             DateTime end = start.AddDays(6);
             lblWeekRange.Text = string.Format("Tuần {0:dd/MM/yyyy} - {1:dd/MM/yyyy}", start, end);
             _weeklyNutritionTarget = MonAnDAO.Instance.GetWeeklyNutritionTarget(GetSelectedCheDoId());
 
             BuildWeekGrid(start);
-            LoadExistingMeals(start);
             ApplyAutomaticMilkSlots();
             RefreshSlots();
             UpdateStatus();
@@ -245,6 +268,55 @@ namespace DuAn.GUI.frmnhanvien
             }
         }
 
+        private void LoadExistingMealsFromDatabase(DateTime weekStart, out string status)
+        {
+            status = "NhapLieu";
+            int cheDoId = GetSelectedCheDoId();
+            _selectedMeals.Clear();
+
+            for (int day = 0; day < 7; day++)
+            {
+                DateTime date = weekStart.AddDays(day);
+                ThucDonModel thucDon = ThucDonDAO.Instance.GetOrCreate(CurrentUserId, cheDoId, date);
+                
+                // Lấy trạng thái từ bản ghi đầu tiên
+                if (day == 0 && !string.IsNullOrEmpty(thucDon.TrangThai))
+                    status = thucDon.TrangThai;
+                
+                List<ChiTietThucDonModel> details = ChiTietThucDonDAO.Instance.GetByThucDonNgay(thucDon.ThucDonId, date);
+
+                foreach (IGrouping<int, ChiTietThucDonModel> mealGroup in details.GroupBy(x => x.BuoiAnId))
+                {
+                    foreach (IGrouping<DishCategory, ChiTietThucDonModel> categoryGroup in mealGroup.GroupBy(x => ClassifyDishType(x.LoaiMon)))
+                    {
+                        int index = 0;
+                        foreach (ChiTietThucDonModel item in categoryGroup)
+                        {
+                            string key = BuildKey(date, mealGroup.Key, categoryGroup.Key, index);
+                            if (_slots.ContainsKey(key))
+                            {
+                                _selectedMeals[key] = new MonAnModel
+                                {
+                                    MonAnId = item.MonAnId,
+                                    TenMon = item.TenMon,
+                                    LoaiMon = item.LoaiMon,
+                                    Dam = item.Dam,
+                                    ChatXo = item.ChatXo,
+                                    ChatBeo = item.ChatBeo
+                                };
+                            }
+                            index++;
+                        }
+                    }
+                }
+            }
+        }
+
+        private static int GetWeekKey(DateTime weekStart)
+        {
+            return weekStart.Year * 10000 + weekStart.Month * 100 + weekStart.Day;
+        }
+
         private SlotButton CreateSlot(DateTime date, BuoiAnModel buoi, MealKind meal, DishCategory category, int index)
         {
             SlotButton button = new SlotButton
@@ -319,6 +391,14 @@ namespace DuAn.GUI.frmnhanvien
                 }
 
                 _selectedMeals[slot.Key] = frm.MonDaChon;
+                
+                // Cập nhật bộ đệm cho tuần hiện tại
+                DateTime weekStart = GetWeekStart(slot.Date);
+                int weekKey = GetWeekKey(weekStart);
+                if (!_weeklyBuffers.ContainsKey(weekKey))
+                    _weeklyBuffers[weekKey] = new Dictionary<string, MonAnModel>();
+                _weeklyBuffers[weekKey][slot.Key] = frm.MonDaChon;
+                
                 RefreshSlots();
                 UpdateStatus();
             }
@@ -330,12 +410,26 @@ namespace DuAn.GUI.frmnhanvien
                 return;
 
             _selectedMeals.Remove(_activeSlot.Key);
+            
+            // Cập nhật bộ đệm cho tuần hiện tại
+            DateTime weekStart = GetWeekStart(_activeSlot.Date);
+            int weekKey = GetWeekKey(weekStart);
+            if (_weeklyBuffers.ContainsKey(weekKey))
+                _weeklyBuffers[weekKey].Remove(_activeSlot.Key);
+            
             RefreshSlots();
             UpdateStatus();
         }
 
         private void btnhienthi_Click(object sender, EventArgs e)
         {
+            // Xóa bộ đệm của tuần đang hiển thị
+            DateTime start = GetWeekStart(dtpWeek.Value);
+            int weekKey = GetWeekKey(start);
+            if (_weeklyBuffers.ContainsKey(weekKey))
+                _weeklyBuffers.Remove(weekKey);
+            
+            // Tải lại từ database
             LoadWeek();
         }
 
@@ -373,6 +467,13 @@ namespace DuAn.GUI.frmnhanvien
                 _selectedMeals.Clear();
                 foreach (KeyValuePair<string, MonAnModel> entry in fillResult.Meals)
                     _selectedMeals[entry.Key] = entry.Value;
+
+                // Cập nhật bộ đệm cho tuần này
+                int weekKey = GetWeekKey(weekStart);
+                if (_weeklyBuffers.ContainsKey(weekKey))
+                    _weeklyBuffers[weekKey] = new Dictionary<string, MonAnModel>(_selectedMeals);
+                else
+                    _weeklyBuffers[weekKey] = new Dictionary<string, MonAnModel>(_selectedMeals);
 
                 ApplyAutomaticMilkSlots();
                 RefreshSlots();
@@ -417,6 +518,7 @@ namespace DuAn.GUI.frmnhanvien
 
             int cheDoId = GetSelectedCheDoId();
             DateTime start = GetWeekStart(dtpWeek.Value);
+            int weekKey = GetWeekKey(start);
 
             for (int day = 0; day < 7; day++)
             {
@@ -434,6 +536,10 @@ namespace DuAn.GUI.frmnhanvien
 
                 ThucDonDAO.Instance.UpdateTrangThai(thucDon.ThucDonId, "ChoDuyet");
             }
+
+            // Xóa bộ đệm của tuần này sau khi lưu thành công
+            if (_weeklyBuffers.ContainsKey(weekKey))
+                _weeklyBuffers.Remove(weekKey);
 
             MessageBox.Show("Đã lưu thực đơn tuần. Trạng thái: Chờ duyệt.", "Thành công",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -474,10 +580,16 @@ namespace DuAn.GUI.frmnhanvien
                 ? "Sáng: 1 món mặn, 1 canh, tự động có Sữa."
                 : "Sáng: 1 món mặn, 1 canh.";
             string nutritionWarning = BuildNutritionWarning(damPercent, chatXoPercent, chatBeoPercent);
+            
+            // Thêm thông tin trạng thái
+            string statusText = _currentWeekStatus == "NhapLieu" ? "Nhập liệu" 
+                : _currentWeekStatus == "ChoDuyet" ? "Chờ duyệt" 
+                : _currentWeekStatus == "DaDuyet" ? "Đã duyệt" 
+                : _currentWeekStatus;
 
             lblStatus.Text = string.Format(
-                "Đã chọn {0}/{1} ô.\n\nRàng buộc:\n{2}\nTrưa/tối: 4 món mặn, 1 canh, 1 rau, 1 tráng miệng.\n\n{3}",
-                selected, total, breakfastRule, nutritionWarning);
+                "Đã chọn {0}/{1} ô.\nTrạng thái: {2}\n\nRàng buộc:\n{3}\nTrưa/tối: 4 món mặn, 1 canh, 1 rau, 1 tráng miệng.\n\n{4}",
+                selected, total, statusText, breakfastRule, nutritionWarning);
         }
 
         private NutritionTargetModel SumSelectedNutrition()
