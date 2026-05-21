@@ -131,7 +131,7 @@ namespace DuAn.GUI.frmlogin
                             "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Phân quyền theo vai_tro
-            // Thay số 1/2 cho đúng với giá trị thực tế trong DB của bạn
+           
             Session.UserID = acc.MaTK;
 
             Session.TenDangNhap = acc.TenDangNhap;
