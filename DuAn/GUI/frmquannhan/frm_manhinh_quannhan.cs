@@ -18,6 +18,7 @@ namespace DuAn.GUI.frmquannhan
     {
         frmlichsucatcom flscc;
         frmthongke_qn fthongke;
+        frmtracuudlvathucdon frmtracuudlvathucdon;
         public qnlogin qnDangNhap { get; set; }
         public frm_manhinh_quannhan()
         {
@@ -171,6 +172,17 @@ namespace DuAn.GUI.frmquannhan
 
         private void button6_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btntracuu_Click(object sender, EventArgs e)
+        {
+            CloseAllChildForms();
+            frmtracuudlvathucdon = new frmtracuudlvathucdon();
+            frmtracuudlvathucdon.MdiParent = this;
+            frmtracuudlvathucdon.Dock = DockStyle.Fill;
+            frmtracuudlvathucdon.FormClosed += (s, args) => frmtracuudlvathucdon = null;
+            frmtracuudlvathucdon.Show();
 
         }
     }

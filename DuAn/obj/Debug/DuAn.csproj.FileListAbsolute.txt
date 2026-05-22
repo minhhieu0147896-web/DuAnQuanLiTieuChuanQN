@@ -82,3 +82,26 @@ E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmLapthu
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmthongke_cb.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmthongke_qn.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmthongke_cb.resources
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmChonMonAn.resources
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmLapthucdon2.resources
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmtrangchu_nv.resources
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmthongke_qn.resources
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\EPPlus.dll
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\EPPlus.Interfaces.dll
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Buffers.dll
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.ComponentModel.Annotations.dll
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Memory.dll
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Numerics.Vectors.dll
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Security.Cryptography.Xml.dll
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\EPPlus.xml
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Buffers.xml
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Memory.xml
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Numerics.Vectors.xml
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Security.Cryptography.Xml.xml
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.Up2Date
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmtracuudlvathucdon.resources

@@ -44,8 +44,7 @@ namespace DuAn.GUI.frmfornhvhc
             cbochedo.DisplayMember = "chedo_ten";
             cbochedo.ValueMember = "chedo_id";
 
-            // mặc định chọn dòng đầu
-            cbochedo.SelectedIndex = 0;
+            
 
         }
         void LoadDonvi()
@@ -138,7 +137,8 @@ namespace DuAn.GUI.frmfornhvhc
             dgvdsqn.AutoGenerateColumns = false;
 
             LoadCheDo();
-
+            // mặc định chọn dòng đầu
+            cbochedo.SelectedIndex = 0;
             LoadDonvi();
 
             dgvdsqn.DataSource = null;
@@ -156,10 +156,7 @@ namespace DuAn.GUI.frmfornhvhc
             LoadPage();
         }
 
-        private void dgvdsqn_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
+        
         void LoadPage()
         {
             if (dangTimKiem == false)
@@ -231,54 +228,8 @@ namespace DuAn.GUI.frmfornhvhc
 
         }
         int maqn_cu = 0;
-      
-        private void dgvdsqn_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
 
-            try
-            {
-                DataGridViewRow row =
-                    dgvdsqn.Rows[e.RowIndex];
-
-                // mã quân nhân
-                maqn_cu =
-                    Convert.ToInt32(
-                        row.Cells["colid"].Value);
-
-                txtmaqn.Text =
-                    row.Cells["colid"].Value.ToString();
-
-                // tên
-                txtten.Text =
-                    row.Cells["colten"].Value.ToString();
-
-                // đơn vị
-                if (Session.DonViID.HasValue)
-                {
-                    cbodonvi.SelectedValue =
-                        Session.DonViID.Value;
-                }
-
-                // chế độ
-                object value =
-                    row.Cells["colchedoid"].Value;
-
-                if (value != null &&
-                    value != DBNull.Value)
-                {
-                    int chedoid =
-                        Convert.ToInt32(value);
-
-                    cbochedo.SelectedValue =
-                        chedoid;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
@@ -476,41 +427,25 @@ namespace DuAn.GUI.frmfornhvhc
 
             try
             {
-                DataGridViewRow row =
-                    dgvdsqn.Rows[e.RowIndex];
+                DataGridViewRow row = dgvdsqn.Rows[e.RowIndex];
 
-                // mã quân nhân
-                maqn_cu =
-                    Convert.ToInt32(
-                        row.Cells["colid"].Value);
+                maqn_cu = Convert.ToInt32(row.Cells["colid"].Value);
 
-                txtmaqn.Text =
-                    row.Cells["colid"].Value.ToString();
+                txtmaqn.Text = row.Cells["colid"].Value.ToString();
 
-                // tên
-                txtten.Text =
-                    row.Cells["colten"].Value.ToString();
+                txtten.Text = row.Cells["colten"].Value.ToString();
 
-                // đơn vị
                 if (Session.DonViID.HasValue)
                 {
-                    cbodonvi.SelectedValue =
-                        Session.DonViID.Value;
+                    cbodonvi.SelectedValue = Session.DonViID.Value;
                 }
 
-                // chế độ
-                object value =
-                    row.Cells["colchedoid"].Value;
+                int chedoid = Convert.ToInt32(row.Cells["colchedoid"].Value);
 
-                if (value != null &&
-                    value != DBNull.Value)
-                {
-                    int chedoid =
-                        Convert.ToInt32(value);
+                cbochedo.SelectedIndex = cbochedo.FindStringExact(
+                    row.Cells["colchedo"].Value.ToString()
+                );
 
-                    cbochedo.SelectedValue =
-                        chedoid;
-                }
             }
             catch (Exception ex)
             {
