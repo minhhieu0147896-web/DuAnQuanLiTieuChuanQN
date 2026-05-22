@@ -58,6 +58,7 @@
     <Compile Include="BUL\DuplicateChecker.cs" />
     <Compile Include="BUL\ViTriSlotMapper.cs" />
     <Compile Include="BUL\WeeklyMenuFromTemplateFiller.cs" />
+    <Compile Include="BUL\WeeklyMenuStateManager.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\AccountModel.cs" />
     <Compile Include="DAO\BuoiAnDAO.cs" />

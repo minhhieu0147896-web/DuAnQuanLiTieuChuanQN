@@ -36,8 +36,8 @@
             this.dtpWeek = new System.Windows.Forms.DateTimePicker();
             this.cboCheDo = new System.Windows.Forms.ComboBox();
             this.lblWeekRange = new System.Windows.Forms.Label();
-            this.btnLuu = new System.Windows.Forms.Button();
             this.btnDienTuMau = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.splBody = new System.Windows.Forms.SplitContainer();
             this.weekGrid = new System.Windows.Forms.TableLayoutPanel();
             this.pnlChooser = new System.Windows.Forms.Panel();
@@ -74,7 +74,7 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1100, 68);
+            this.pnlHeader.Size = new System.Drawing.Size(1144, 68);
             this.pnlHeader.TabIndex = 0;
             // 
             // lblTitle
@@ -95,7 +95,7 @@
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(241)))), ((int)(((byte)(247)))));
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Location = new System.Drawing.Point(980, 0);
+            this.btnBack.Location = new System.Drawing.Point(1024, 0);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(120, 68);
             this.btnBack.TabIndex = 0;
@@ -110,7 +110,7 @@
             this.pnlToolbar.Location = new System.Drawing.Point(0, 68);
             this.pnlToolbar.Name = "pnlToolbar";
             this.pnlToolbar.Padding = new System.Windows.Forms.Padding(24, 14, 24, 14);
-            this.pnlToolbar.Size = new System.Drawing.Size(1100, 96);
+            this.pnlToolbar.Size = new System.Drawing.Size(1144, 96);
             this.pnlToolbar.TabIndex = 1;
             // 
             // flpToolbar
@@ -124,7 +124,7 @@
             this.flpToolbar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpToolbar.Location = new System.Drawing.Point(24, 14);
             this.flpToolbar.Name = "flpToolbar";
-            this.flpToolbar.Size = new System.Drawing.Size(1052, 68);
+            this.flpToolbar.Size = new System.Drawing.Size(1096, 68);
             this.flpToolbar.TabIndex = 0;
             this.flpToolbar.WrapContents = false;
             // 
@@ -199,8 +199,8 @@
             // 
             this.splBody.Panel2.Controls.Add(this.pnlChooser);
             this.splBody.Panel2.Padding = new System.Windows.Forms.Padding(16);
-            this.splBody.Size = new System.Drawing.Size(1100, 486);
-            this.splBody.SplitterDistance = 880;
+            this.splBody.Size = new System.Drawing.Size(1144, 580);
+            this.splBody.SplitterDistance = 924;
             this.splBody.TabIndex = 2;
             // 
             // weekGrid
@@ -225,7 +225,7 @@
             this.weekGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.weekGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.weekGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.weekGrid.Size = new System.Drawing.Size(848, 454);
+            this.weekGrid.Size = new System.Drawing.Size(892, 548);
             this.weekGrid.TabIndex = 0;
             // 
             // pnlChooser
@@ -242,7 +242,7 @@
             this.pnlChooser.Location = new System.Drawing.Point(16, 16);
             this.pnlChooser.Name = "pnlChooser";
             this.pnlChooser.Padding = new System.Windows.Forms.Padding(18);
-            this.pnlChooser.Size = new System.Drawing.Size(184, 454);
+            this.pnlChooser.Size = new System.Drawing.Size(184, 548);
             this.pnlChooser.TabIndex = 0;
             // 
             // pnlTienDo
@@ -256,14 +256,14 @@
             this.pnlTienDo.Controls.Add(this.label1);
             this.pnlTienDo.Location = new System.Drawing.Point(18, 257);
             this.pnlTienDo.Name = "pnlTienDo";
-            this.pnlTienDo.Size = new System.Drawing.Size(158, 194);
+            this.pnlTienDo.Size = new System.Drawing.Size(158, 252);
             this.pnlTienDo.TabIndex = 6;
             // 
             // lblChatBeo
             // 
             this.lblChatBeo.AutoSize = true;
             this.lblChatBeo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChatBeo.Location = new System.Drawing.Point(5, 127);
+            this.lblChatBeo.Location = new System.Drawing.Point(0, 176);
             this.lblChatBeo.Name = "lblChatBeo";
             this.lblChatBeo.Size = new System.Drawing.Size(92, 17);
             this.lblChatBeo.TabIndex = 6;
@@ -271,7 +271,7 @@
             // 
             // prgChatBeo
             // 
-            this.prgChatBeo.Location = new System.Drawing.Point(0, 147);
+            this.prgChatBeo.Location = new System.Drawing.Point(0, 196);
             this.prgChatBeo.Name = "prgChatBeo";
             this.prgChatBeo.Size = new System.Drawing.Size(158, 19);
             this.prgChatBeo.TabIndex = 5;
@@ -281,7 +281,7 @@
             // 
             this.lblChatXo.AutoSize = true;
             this.lblChatXo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChatXo.Location = new System.Drawing.Point(5, 78);
+            this.lblChatXo.Location = new System.Drawing.Point(0, 107);
             this.lblChatXo.Name = "lblChatXo";
             this.lblChatXo.Size = new System.Drawing.Size(87, 17);
             this.lblChatXo.TabIndex = 4;
@@ -289,7 +289,7 @@
             // 
             // prgChatXo
             // 
-            this.prgChatXo.Location = new System.Drawing.Point(0, 98);
+            this.prgChatXo.Location = new System.Drawing.Point(0, 127);
             this.prgChatXo.Name = "prgChatXo";
             this.prgChatXo.Size = new System.Drawing.Size(158, 17);
             this.prgChatXo.TabIndex = 3;
@@ -298,7 +298,7 @@
             // 
             this.lblDam.AutoSize = true;
             this.lblDam.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDam.Location = new System.Drawing.Point(5, 31);
+            this.lblDam.Location = new System.Drawing.Point(0, 52);
             this.lblDam.Name = "lblDam";
             this.lblDam.Size = new System.Drawing.Size(61, 17);
             this.lblDam.TabIndex = 2;
@@ -306,7 +306,7 @@
             // 
             // prgDam
             // 
-            this.prgDam.Location = new System.Drawing.Point(3, 51);
+            this.prgDam.Location = new System.Drawing.Point(0, 72);
             this.prgDam.Name = "prgDam";
             this.prgDam.Size = new System.Drawing.Size(155, 14);
             this.prgDam.TabIndex = 1;
@@ -315,7 +315,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(3, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 17);
             this.label1.TabIndex = 0;
@@ -390,7 +390,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1100, 650);
+            this.ClientSize = new System.Drawing.Size(1144, 744);
             this.Controls.Add(this.splBody);
             this.Controls.Add(this.pnlToolbar);
             this.Controls.Add(this.pnlHeader);
