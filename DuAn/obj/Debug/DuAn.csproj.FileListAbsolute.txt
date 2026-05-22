@@ -82,6 +82,7 @@ E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmLapthu
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmthongke_cb.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmthongke_qn.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
+<<<<<<< Updated upstream
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmthongke_cb.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmChonMonAn.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmLapthucdon2.resources
@@ -105,3 +106,6 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Runtime.CompilerServices.Unsafe.x
 D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Security.Cryptography.Xml.xml
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.Up2Date
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmtracuudlvathucdon.resources
+=======
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmThemMonAn.resources
+>>>>>>> Stashed changes
