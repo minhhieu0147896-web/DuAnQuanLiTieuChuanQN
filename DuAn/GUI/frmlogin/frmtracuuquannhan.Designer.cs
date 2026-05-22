@@ -97,6 +97,7 @@
             this.Controls.Add(this.lblma);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmtracuuquannhan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmtracuuquannhan";
             this.Load += new System.EventHandler(this.frmtracuuquannhan_Load);
             this.ResumeLayout(false);
