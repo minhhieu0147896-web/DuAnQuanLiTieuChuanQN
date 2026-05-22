@@ -157,12 +157,6 @@
     <Compile Include="GUI\frmnhanvien\frmbaocaothucpham.Designer.cs">
       <DependentUpon>frmbaocaothucpham.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmnhanvien\frmChonMonAn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmnhanvien\frmChonMonAn.Designer.cs">
-      <DependentUpon>frmChonMonAn.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\frmnhanvien\frmdsthucpham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,12 +171,6 @@
     </Compile>
     <Compile Include="GUI\frmnhanvien\frmChonThucDonMau.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmnhanvien\frmlapthucdon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmnhanvien\frmlapthucdon.Designer.cs">
-      <DependentUpon>frmlapthucdon.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmnhanvien\frmLapthucdon2.cs">
       <SubType>Form</SubType>
@@ -264,17 +252,11 @@
     <EmbeddedResource Include="GUI\frmnhanvien\frmbaocaothucpham.resx">
       <DependentUpon>frmbaocaothucpham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmnhanvien\frmChonMonAn.resx">
-      <DependentUpon>frmChonMonAn.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmdsthucpham.resx">
       <DependentUpon>frmdsthucpham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmHuongDanLapThucDon.resx">
       <DependentUpon>frmHuongDanLapThucDon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmnhanvien\frmlapthucdon.resx">
-      <DependentUpon>frmlapthucdon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmLapthucdon2.resx">
       <DependentUpon>frmLapthucdon2.cs</DependentUpon>

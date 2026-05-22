@@ -151,7 +151,7 @@ namespace DuAn.DAO
         {
             const string query = @"
 SELECT
-    ISNULL(SUM(so_luong * 8.0 *
+    ISNULL(SUM(so_luong * 7.0 *
         CASE UPPER(LTRIM(RTRIM(nhom_thucpham)))
             WHEN 'TINH BOT' THEN 7.0
             WHEN 'THIT' THEN 20.0
@@ -163,7 +163,7 @@ SELECT
             WHEN 'SUA' THEN 3.2
             ELSE 0.0
         END / 100.0), 0) AS dam,
-    ISNULL(SUM(so_luong * 8.0 *
+    ISNULL(SUM(so_luong * 7.0 *
         CASE UPPER(LTRIM(RTRIM(nhom_thucpham)))
             WHEN 'TINH BOT' THEN 1.3
             WHEN 'DAU' THEN 1.0
@@ -171,7 +171,7 @@ SELECT
             WHEN 'TRAI CAY' THEN 1.8
             ELSE 0.0
         END / 100.0), 0) AS chat_xo,
-    ISNULL(SUM(so_luong * 8.0 *
+    ISNULL(SUM(so_luong * 7.0 *
         CASE UPPER(LTRIM(RTRIM(nhom_thucpham)))
             WHEN 'TINH BOT' THEN 0.6
             WHEN 'THIT' THEN 12.0
