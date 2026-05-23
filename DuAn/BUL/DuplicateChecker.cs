@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using DuAn.DTO;
 
 namespace DuAn.BUL
@@ -11,22 +10,31 @@ namespace DuAn.BUL
         None,
         WarningDaySpan,
         WarningFreq,
+        BlockedSameMeal,
         BlockedSameDay
     }
 
     public static class DuplicateChecker
     {
+        public static bool IsBlocked(DuplicateStatus status)
+        {
+            return status == DuplicateStatus.BlockedSameMeal
+                || status == DuplicateStatus.BlockedSameDay;
+        }
+
         public static DuplicateStatus GetStatus(
             int monAnId,
             string loaiMon,
             DateTime targetDate,
             int targetBuoiId,
-            Dictionary<string, MonAnModel> selectedMeals)
+            Dictionary<string, MonAnModel> selectedMeals,
+            string excludeSlotKey = null)
         {
             if (selectedMeals == null || selectedMeals.Count == 0)
                 return DuplicateStatus.None;
 
-            bool isSameDay = false;
+            bool isSameMeal = false;
+            bool isSameDayOtherMeal = false;
             bool isConsecutive = false;
             int currentFreq = 0;
 
@@ -35,7 +43,10 @@ namespace DuAn.BUL
                 if (entry.Value == null || entry.Value.MonAnId != monAnId)
                     continue;
 
-                // Tách Key dạng: yyyyMMdd-buoiAnId-category-index
+                if (!string.IsNullOrEmpty(excludeSlotKey)
+                    && string.Equals(entry.Key, excludeSlotKey, StringComparison.Ordinal))
+                    continue;
+
                 string[] parts = entry.Key.Split('-');
                 if (parts.Length < 2)
                     continue;
@@ -46,41 +57,35 @@ namespace DuAn.BUL
                 if (!int.TryParse(parts[1], out int mealBuoiId))
                     continue;
 
-                // 1. Kiểm tra TRÙNG CÙNG NGÀY (Khác buổi ăn, cùng ngày)
                 if (mealDate.Date == targetDate.Date)
                 {
-                    if (mealBuoiId != targetBuoiId)
-                    {
-                        isSameDay = true;
-                    }
+                    if (mealBuoiId == targetBuoiId)
+                        isSameMeal = true;
+                    else
+                        isSameDayOtherMeal = true;
                 }
 
-                // 2. Kiểm tra TRÙNG NGÀY LIÊN TIẾP (Giãn cách chính xác 1 ngày)
                 int daysDiff = Math.Abs((mealDate.Date - targetDate.Date).Days);
                 if (daysDiff == 1)
-                {
                     isConsecutive = true;
-                }
 
-                // 3. Đếm tần suất xuất hiện trong tuần
                 currentFreq++;
             }
 
-            // Đánh giá theo thứ tự ưu tiên: Trùng cùng ngày (Chặn cứng) > Trùng ngày liên tiếp (Cảnh báo) > Quá tần suất tuần (Cảnh báo)
-            if (isSameDay)
+            if (isSameMeal)
+                return DuplicateStatus.BlockedSameMeal;
+
+            if (isSameDayOtherMeal)
                 return DuplicateStatus.BlockedSameDay;
 
             if (isConsecutive)
                 return DuplicateStatus.WarningDaySpan;
 
-            // Xác định tần suất tối đa dựa trên nhóm loại món
             string normLoai = loaiMon?.ToLowerInvariant().Trim() ?? string.Empty;
-            int maxFreq = 3; // Mặc định cho Canh, Rau, TrangMieng, Sua...
+            int maxFreq = 3;
 
             if (normLoai.Contains("manchinh") || normLoai == "man" || normLoai == "mặn" || normLoai == "mặn chính")
-            {
-                maxFreq = 2; // Món mặn chính tối đa 2 lần/tuần
-            }
+                maxFreq = 2;
 
             if (currentFreq >= maxFreq)
                 return DuplicateStatus.WarningFreq;
@@ -92,14 +97,16 @@ namespace DuAn.BUL
         {
             switch (status)
             {
+                case DuplicateStatus.BlockedSameMeal:
+                    return "Chặn: Đã có trong buổi này";
                 case DuplicateStatus.BlockedSameDay:
                     return "Chặn: Đã dùng hôm nay";
                 case DuplicateStatus.WarningDaySpan:
-                    return "Lưu ý: Vừa ăn hôm qua/ngày mai";
+                    return "Cảnh báo: Vừa ăn hôm qua/ngày mai";
                 case DuplicateStatus.WarningFreq:
                     string normLoai = loaiMon?.ToLowerInvariant().Trim() ?? string.Empty;
                     int maxFreq = (normLoai.Contains("manchinh") || normLoai == "man" || normLoai == "mặn" || normLoai == "mặn chính") ? 2 : 3;
-                    return $"Lưu ý: Đã đạt giới hạn {maxFreq} lần/tuần";
+                    return "Lưu ý: Đã đạt giới hạn " + maxFreq + " lần/tuần";
                 default:
                     return "Khuyên dùng";
             }

@@ -89,6 +89,9 @@
     <Compile Include="BUL\B_thongkeqn.cs" />
     <Compile Include="BUL\B_thongke_cb.cs" />
     <Compile Include="BUL\DuplicateChecker.cs" />
+    <Compile Include="BUL\ViTriSlotMapper.cs" />
+    <Compile Include="BUL\WeeklyMenuFromTemplateFiller.cs" />
+    <Compile Include="BUL\WeeklyMenuStateManager.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\AccountModel.cs" />
     <Compile Include="DAO\BuoiAnDAO.cs" />
@@ -105,6 +108,7 @@
     <Compile Include="DAO\MonAnDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ThucDonDAO.cs" />
+    <Compile Include="DAO\ThucDonMauDAO.cs" />
     <Compile Include="DTO\BuoiAnModel.cs" />
     <Compile Include="DTO\catcom.cs" />
     <Compile Include="DTO\ChiTietThucDonModel.cs" />
@@ -118,6 +122,8 @@
     <Compile Include="DTO\thongkecatcom.cs" />
     <Compile Include="DTO\thongke_tongquan.cs" />
     <Compile Include="DTO\ThucDonModel.cs" />
+    <Compile Include="DTO\ThucDonMauModel.cs" />
+    <Compile Include="DTO\ChiTietTdMauModel.cs" />
     <Compile Include="DTO\thucpham.cs" />
     <Compile Include="DTO\TrangThaiCatCom.cs" />
     <Compile Include="Form1.cs">
@@ -186,12 +192,6 @@
     <Compile Include="GUI\frmnhanvien\frmbaocaothucpham.Designer.cs">
       <DependentUpon>frmbaocaothucpham.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmnhanvien\frmChonMonAn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmnhanvien\frmChonMonAn.Designer.cs">
-      <DependentUpon>frmChonMonAn.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\frmnhanvien\frmdsthucpham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,11 +204,8 @@
     <Compile Include="GUI\frmnhanvien\frmchonmon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmnhanvien\frmlapthucdon.cs">
+    <Compile Include="GUI\frmnhanvien\frmChonThucDonMau.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmnhanvien\frmlapthucdon.Designer.cs">
-      <DependentUpon>frmlapthucdon.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmnhanvien\frmLapthucdon2.cs">
       <SubType>Form</SubType>
@@ -296,17 +293,11 @@
     <EmbeddedResource Include="GUI\frmnhanvien\frmbaocaothucpham.resx">
       <DependentUpon>frmbaocaothucpham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmnhanvien\frmChonMonAn.resx">
-      <DependentUpon>frmChonMonAn.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmdsthucpham.resx">
       <DependentUpon>frmdsthucpham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmHuongDanLapThucDon.resx">
       <DependentUpon>frmHuongDanLapThucDon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmnhanvien\frmlapthucdon.resx">
-      <DependentUpon>frmlapthucdon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmLapthucdon2.resx">
       <DependentUpon>frmLapthucdon2.cs</DependentUpon>
