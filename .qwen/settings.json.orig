@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(\"c:\\program files\\microsoft visual studio\\2022\\community\\msbuild\\current\\bin\\msbuild.exe\" *)"
+      "Bash(\"c:\\program files\\microsoft visual studio\\2022\\community\\msbuild\\current\\bin\\msbuild.exe\" *)",
+      "Bash(\"\"c:\\program)",
+      "Bash(dotnet *)"
     ]
-  }
+  },
+  "$version": 4
 }
