@@ -20,15 +20,15 @@ namespace DuAn
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< Updated upstream
+
             Application.Run(new frmmhlogin());
              //Application.Run(new frmLapthucdon2());
             // Application.Run(new frmlapthucdon());
-=======
-            Application.Run(new frmThemMonAn());
+
+          
              //Application.Run(new frmLapthucdon2());
             // Application.Run(new frmlapthucdon());
->>>>>>> Stashed changes
+
             // Application.Run(new frmbqs());
             //  Application.Run(new frmlichsucatcom());
             //Application.Run(new frmLSQS());
