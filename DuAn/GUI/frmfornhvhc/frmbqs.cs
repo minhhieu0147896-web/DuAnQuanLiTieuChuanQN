@@ -298,66 +298,101 @@ namespace DuAn.GUI.frmfornhvhc
 
         private void btnluu_Click_1(object sender, EventArgs e)
         {
-           try
-    {
-        DateTime ngay = dtpngay.Value;
-        int mabuoi = Convert.ToInt32(cbobuoi.SelectedValue);
-        int madv = Convert.ToInt32(cbodonvi.SelectedValue);
+            try
+            {
+                DateTime ngay = dtpngay.Value.Date;
+                int mabuoi = Convert.ToInt32(cbobuoi.SelectedValue);
+                int madv = Convert.ToInt32(cbodonvi.SelectedValue);
 
-        // Kiểm tra đã báo chưa
-        int kq = B_BQS.KiemTraDaBao(ngay, mabuoi, madv);
-        if (kq == 1)
-        {
-            MessageBox.Show("Đơn vị này đã báo quân số rồi!");
-            btnluu.Enabled = false;
-            return;
-        }
+                // ==========================================
+                // KIỂM TRA ĐÃ BÁO CHƯA
+                // ==========================================
+                int kq = B_BQS.KiemTraDaBao(ngay, mabuoi, madv);
+                if (kq == 1)
+                {
+                    MessageBox.Show("Đơn vị này đã báo quân số rồi!");
+                    btnluu.Enabled = false;
+                    return;
+                }
 
-        // ==========================================
-        // INSERT CẮT CƠM
-        // ==========================================
-        foreach (int maquan in dsKhongAn)
-        {
-            catcom cc = new catcom() { ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv, quannhan_id = maquan };
-            B_BQS.insertcatcom(cc);
-        }
+                // ==========================================
+                // INSERT CẮT CƠM
+                // ==========================================
+                foreach (int maquan in dsKhongAn)
+                {
+                    catcom cc = new catcom() { ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv, quannhan_id = maquan };
+                    B_BQS.insertcatcom(cc);
+                }
 
-        // ==========================================
-        // TÍNH QUÂN SỐ ĂN
-        // ==========================================
-        int chedo1_total = B_QN.CountQSCheDo(madv, 1);
-        int chedo2_total = B_QN.CountQSCheDo(madv, 2);
+                // ==========================================
+                // TÍNH QUÂN SỐ ĂN
+                // ==========================================
+                int chedo1_total = B_QN.CountQSCheDo(madv, 1);
+                int chedo2_total = B_QN.CountQSCheDo(madv, 2);
+                int chedo1_khongan = 0, chedo2_khongan = 0;
 
-        int chedo1_khongan = 0;
-        int chedo2_khongan = 0;
+                foreach (int maquan in dsKhongAn)
+                {
+                    int chedo = B_QN.GetCheDoByMaQN(maquan);
+                    if (chedo == 1) chedo1_khongan++;
+                    else if (chedo == 2) chedo2_khongan++;
+                }
 
-        foreach (int maquan in dsKhongAn)
-        {
-            int chedo = B_QN.GetCheDoByMaQN(maquan);
-            if (chedo == 1) chedo1_khongan++;
-            else if (chedo == 2) chedo2_khongan++;
-        }
+                int chedo1_an = chedo1_total - chedo1_khongan;
+                int chedo2_an = chedo2_total - chedo2_khongan;
 
-        int chedo1_an = chedo1_total - chedo1_khongan;
-        int chedo2_an = chedo2_total - chedo2_khongan;
+                // ==========================================
+                // INSERT QUÂN SỐ ĂN
+                // ==========================================
+                quansoan qsa1 = new quansoan() { chedo_id = 1, soluong = chedo1_an, ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv };
+                B_BQS.insertqsa(qsa1);
 
-        // ==========================================
-        // INSERT QUÂN SỐ ĂN
-        // ==========================================
-        quansoan qsa1 = new quansoan() { chedo_id = 1, soluong = chedo1_an, ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv };
-        B_BQS.insertqsa(qsa1);
+                quansoan qsa2 = new quansoan() { chedo_id = 2, soluong = chedo2_an, ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv };
+                B_BQS.insertqsa(qsa2);
 
-        quansoan qsa2 = new quansoan() { chedo_id = 2, soluong = chedo2_an, ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv };
-        B_BQS.insertqsa(qsa2);
+                // ==========================================
+                // THÔNG BÁO & CLEAR
+                // ==========================================
+                MessageBox.Show("Lưu báo quân số thành công!");
+                dsKhongAn.Clear();
+                foreach (DataGridViewRow row in dgvbqs.Rows)
+                {
+                    if (row.IsNewRow) continue;
 
-        btnluu.Enabled = false;
-        MessageBox.Show("Lưu báo quân số thành công!");
-        ResetForm();
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show("Lỗi: " + ex.Message);
-    }
+                    row.Cells["colKan"].Value = false;
+                }
+                // ==========================================
+                // TỰ ĐỘNG CHUYỂN BUỔI
+                // ==========================================
+                if (mabuoi == 1) // sáng -> trưa
+                {
+                    cbobuoi.SelectedValue = 2;
+                    MessageBox.Show("Tiếp tục báo quân số BUỔI TRƯA");
+                }
+                else if (mabuoi == 2) // trưa -> chiều
+                {
+                    cbobuoi.SelectedValue = 3;
+                    MessageBox.Show("Tiếp tục báo quân số BUỔI CHIỀU");
+                }
+                else if (mabuoi == 3) // chiều -> khóa
+                {
+                    btnluu.Enabled = false;
+                    dgvbqs.Enabled = false;
+                    MessageBox.Show("Đã hoàn thành báo quân số ngày " + ngay.ToString("dd/MM/yyyy"));
+                }
+
+                // ==========================================
+                // TẢI LẠI DỮ LIỆU & KIỂM TRA KHÓA
+                // ==========================================
+                LoadData();
+                RestoreCheckBox();
+                UpdateTrangThaiPanel();
+                KiemTraKhoaBaoQuanSo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -377,7 +412,35 @@ namespace DuAn.GUI.frmfornhvhc
 
         private void cbobuoi_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbobuoi.SelectedValue == null)
+                return;
 
+            if (cbodonvi.SelectedValue == null)
+                return;
+
+            if (cbobuoi.SelectedValue.ToString() == "System.Data.DataRowView")
+                return;
+
+            int madv = Convert.ToInt32(cbodonvi.SelectedValue);
+
+            int mabuoi = Convert.ToInt32(cbobuoi.SelectedValue);
+
+            DateTime ngay = dtpngay.Value.Date;
+
+            int kq = B_BQS.KiemTraDaBao(ngay, mabuoi, madv);
+
+            if (kq == 1)
+            {
+                btnluu.Enabled = false;
+
+                MessageBox.Show(
+                    "Buổi này đã báo quân số rồi!"
+                );
+            }
+            else
+            {
+                btnluu.Enabled = true;
+            }
         }
         private void dgvbqs_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
@@ -386,14 +449,88 @@ namespace DuAn.GUI.frmfornhvhc
                 dgvbqs.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
+        void KiemTraKhoaBaoQuanSo()
+        {
+            try
+            {
+                int madv;
+
+                if (Session.VaiTro == 3)
+                {
+                    if (cbodonvi.SelectedValue == null)
+                        return;
+
+                    madv = Convert.ToInt32(cbodonvi.SelectedValue);
+                }
+                else
+                {
+                    madv = Session.DonViID.Value;
+                }
+
+                DateTime ngay = dtpngay.Value.Date;
+
+                // kiểm tra đủ 3 buổi chưa
+                bool sang =B_BQS.KiemTraDaBao(ngay, 1, madv) == 1;
+
+                bool trua = B_BQS.KiemTraDaBao(ngay, 2, madv) == 1;
+
+                bool chieu =B_BQS.KiemTraDaBao(ngay, 3, madv) == 1;
+
+                // nếu đủ 3 buổi
+                if (sang && trua && chieu)
+                {
+                    btnluu.Enabled = false;
+
+                    dgvbqs.Enabled = false;
+
+                    MessageBox.Show(
+                        "Đã báo quân số đầy đủ cho ngày " +
+                        ngay.ToString("dd/MM/yyyy"),
+                        "Thông báo"
+                    );
+                }
+                else
+                {
+                    btnluu.Enabled = true;
+
+                    dgvbqs.Enabled = true;
+                }
+            }
+            catch
+            {
+
+            }
+        }
         private void frmbqs_Load(object sender, EventArgs e)
         {
             LoadBuoi();
+
             LoadDonvi();
+
             dgvbqs.DataSource = null;
+
             dgvbqs.CurrentCellDirtyStateChanged += dgvbqs_CurrentCellDirtyStateChanged;
+
             dgvbqs.CellValueChanged += dgvbqs_CellValueChanged;
+
             dgvbqs.AllowUserToAddRows = false;
+
+            // =========================
+            // MẶC ĐỊNH NGÀY MAI
+            // =========================
+
+            dtpngay.Value = DateTime.Today.AddDays(1);
+
+            // =========================
+            // MẶC ĐỊNH BUỔI SÁNG
+            // =========================
+
+            cbobuoi.SelectedValue = 1;
+
+            // load luôn
+            LoadData();
+
+            KiemTraKhoaBaoQuanSo();
         }
 
         private void btnhienthi_Click(object sender, EventArgs e)

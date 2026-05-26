@@ -107,3 +107,4 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmtracuudlvathucdo
 =======
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmThemMonAn.resources
 >>>>>>> Stashed changes
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmThemMonAn.resources

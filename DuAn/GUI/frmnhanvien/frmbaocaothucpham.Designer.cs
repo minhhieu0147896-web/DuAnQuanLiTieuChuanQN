@@ -354,9 +354,9 @@
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(717, 0);
+            this.panel6.Location = new System.Drawing.Point(660, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(282, 60);
+            this.panel6.Size = new System.Drawing.Size(339, 60);
             this.panel6.TabIndex = 6;
             // 
             // pictureBox4
@@ -398,7 +398,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(265, 60);
+            this.panel4.Size = new System.Drawing.Size(436, 60);
             this.panel4.TabIndex = 4;
             // 
             // pictureBox1
