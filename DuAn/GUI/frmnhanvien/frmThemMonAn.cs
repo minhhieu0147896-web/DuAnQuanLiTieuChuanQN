@@ -2,16 +2,23 @@
 using System.Data;
 using System.Windows.Forms;
 using DuAn.BUL;
+using System.Globalization;
+using System.Text;
 
 namespace DuAn.GUI.frmnhanvien
 {
     public partial class frmThemMonAn : Form
     {
         private DataTable dtChiTiet;  // Bảng dữ liệu tạm chứa nguyên liệu đã thêm
+        private DataTable dtThucPhamNguon;
+        private bool dangLocThucPham;
 
         public frmThemMonAn()
         {
             InitializeComponent();
+            cboThucPham.TextUpdate += cboThucPham_TextUpdate;
+            cboThucPham.Leave += cboThucPham_Leave;
+            cboThucPham.KeyDown += cboThucPham_KeyDown;
         }
 
         private void frmThemMonAn_Load(object sender, EventArgs e)
@@ -102,11 +109,11 @@ namespace DuAn.GUI.frmnhanvien
             try
             {
                 // ComboBox Thực phẩm
-                DataTable dtTP = B_MonAn.LayDanhSachThucPham();
-                cboThucPham.DataSource = dtTP;
-                cboThucPham.DisplayMember = "thucpham_ten";
-                cboThucPham.ValueMember = "thucpham_id";
-                cboThucPham.SelectedIndex = dtTP.Rows.Count > 0 ? 0 : -1;
+                dtThucPhamNguon = B_MonAn.LayDanhSachThucPham();
+                cboThucPham.DropDownStyle = ComboBoxStyle.DropDown;
+                cboThucPham.AutoCompleteMode = AutoCompleteMode.None;
+                BindThucPham(dtThucPhamNguon);
+                cboThucPham.SelectedIndex = dtThucPhamNguon.Rows.Count > 0 ? 0 : -1;
 
                 // ComboBox Chế độ
                 DataTable dtCD = B_MonAn.LayDanhSachCheDo();
@@ -122,6 +129,159 @@ namespace DuAn.GUI.frmnhanvien
             }
         }
 
+        private void cboThucPham_TextUpdate(object sender, EventArgs e)
+        {
+            if (dangLocThucPham || dtThucPhamNguon == null)
+                return;
+
+            string tuKhoa = cboThucPham.Text;
+            int viTriConTro = cboThucPham.SelectionStart;
+            DataTable ketQua = LocThucPham(tuKhoa);
+
+            dangLocThucPham = true;
+            try
+            {
+                BindThucPham(ketQua);
+                cboThucPham.Text = tuKhoa;
+                cboThucPham.SelectionStart = Math.Min(viTriConTro, cboThucPham.Text.Length);
+                cboThucPham.SelectionLength = 0;
+                cboThucPham.DroppedDown = ketQua.Rows.Count > 0;
+                Cursor.Current = Cursors.Default;
+            }
+            finally
+            {
+                dangLocThucPham = false;
+            }
+        }
+
+        private void cboThucPham_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ChonThucPhamTheoTenDangNhap(true);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void cboThucPham_Leave(object sender, EventArgs e)
+        {
+            ChonThucPhamTheoTenDangNhap(false);
+        }
+
+        private void BindThucPham(DataTable data)
+        {
+            cboThucPham.DataSource = null;
+            cboThucPham.DisplayMember = "thucpham_ten";
+            cboThucPham.ValueMember = "thucpham_id";
+            cboThucPham.DataSource = data;
+        }
+
+        private DataTable LocThucPham(string tuKhoa)
+        {
+            if (dtThucPhamNguon == null)
+                return new DataTable();
+
+            if (string.IsNullOrWhiteSpace(tuKhoa))
+                return dtThucPhamNguon.Copy();
+
+            string tuKhoaChuanHoa = ChuanHoaChuoi(tuKhoa);
+            DataTable ketQua = dtThucPhamNguon.Clone();
+
+            foreach (DataRow row in dtThucPhamNguon.Rows)
+            {
+                string tenThucPham = Convert.ToString(row["thucpham_ten"]);
+                if (ChuanHoaChuoi(tenThucPham).Contains(tuKhoaChuanHoa))
+                    ketQua.ImportRow(row);
+            }
+
+            return ketQua;
+        }
+
+        private bool ChonThucPhamTheoTenDangNhap(bool hienThongBaoLoi)
+        {
+            if (dtThucPhamNguon == null || string.IsNullOrWhiteSpace(cboThucPham.Text))
+                return false;
+
+            string tenDangNhap = ChuanHoaChuoi(cboThucPham.Text);
+            DataRow dongKhop = null;
+
+            foreach (DataRow row in dtThucPhamNguon.Rows)
+            {
+                string tenThucPham = ChuanHoaChuoi(Convert.ToString(row["thucpham_ten"]));
+                if (tenThucPham == tenDangNhap)
+                {
+                    dongKhop = row;
+                    break;
+                }
+            }
+
+            if (dongKhop == null)
+            {
+                if (hienThongBaoLoi)
+                {
+                    MessageBox.Show("Thực phẩm này chưa có trong cơ sở dữ liệu. Vui lòng chọn thực phẩm có sẵn trong danh sách.",
+                        "Không tìm thấy thực phẩm",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    LamTrongCboThucPham();
+                }
+
+                return false;
+            }
+
+            dangLocThucPham = true;
+            try
+            {
+                BindThucPham(dtThucPhamNguon);
+                cboThucPham.SelectedValue = Convert.ToInt32(dongKhop["thucpham_id"]);
+                cboThucPham.SelectionStart = cboThucPham.Text.Length;
+                cboThucPham.SelectionLength = 0;
+            }
+            finally
+            {
+                dangLocThucPham = false;
+            }
+
+            return true;
+        }
+
+        private void LamTrongCboThucPham()
+        {
+            dangLocThucPham = true;
+            try
+            {
+                BindThucPham(dtThucPhamNguon);
+                cboThucPham.SelectedIndex = -1;
+                cboThucPham.Text = string.Empty;
+                cboThucPham.DroppedDown = false;
+            }
+            finally
+            {
+                dangLocThucPham = false;
+            }
+        }
+
+        private static string ChuanHoaChuoi(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return string.Empty;
+
+            string formD = value.Trim().ToLowerInvariant().Normalize(NormalizationForm.FormD);
+            StringBuilder builder = new StringBuilder();
+
+            foreach (char c in formD)
+            {
+                UnicodeCategory category = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (category != UnicodeCategory.NonSpacingMark)
+                    builder.Append(c);
+            }
+
+            return builder.ToString()
+                .Replace("đ", "d")
+                .Normalize(NormalizationForm.FormC);
+        }
+
         // =====================================================
         //  XỬ LÝ NGUYÊN LIỆU
         // =====================================================
@@ -131,6 +291,18 @@ namespace DuAn.GUI.frmnhanvien
         /// </summary>
         private void btnThemNL_Click(object sender, EventArgs e)
         {
+            if (!ChonThucPhamTheoTenDangNhap(false)
+                && !string.IsNullOrWhiteSpace(cboThucPham.Text))
+            {
+                MessageBox.Show("Thực phẩm này chưa có trong cơ sở dữ liệu. Vui lòng chọn thực phẩm có sẵn trong danh sách.",
+                    "Không tìm thấy thực phẩm",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                LamTrongCboThucPham();
+                cboThucPham.Focus();
+                return;
+            }
+
             // Validate chọn thực phẩm
             if (cboThucPham.SelectedValue == null)
             {
@@ -154,26 +326,32 @@ namespace DuAn.GUI.frmnhanvien
             int cheDoId = Convert.ToInt32(cboCheDo.SelectedValue);
             string cheDoTen = cboCheDo.Text;
 
-            // Parse tỷ lệ (có thể để trống → lưu NULL vào DB)
-            object tyLeValue = DBNull.Value;
-            if (!string.IsNullOrWhiteSpace(txtTyLe.Text))
+            // Parse tỷ lệ
+            if (string.IsNullOrWhiteSpace(txtTyLe.Text))
             {
-                if (!decimal.TryParse(txtTyLe.Text, out decimal tyLe))
-                {
-                    MessageBox.Show("Tỷ lệ phải là số thập phân hợp lệ.", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtTyLe.Focus();
-                    return;
-                }
-                // Validate: ty_le phải > 0 và <= 1 (theo CHECK constraint CHK_CTMA_TyLe)
-                if (tyLe <= 0 || tyLe > 1)
-                {
-                    MessageBox.Show("Tỷ lệ phải lớn hơn 0 và không vượt quá 1.\nVí dụ: 0.5 nghĩa là 50%.",
-                        "Tỷ lệ không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtTyLe.Focus();
-                    return;
-                }
-                tyLeValue = tyLe;
+                MessageBox.Show("Vui lòng nhập tỷ lệ nguyên liệu.\nVí dụ: 0.5 nghĩa là 50%.",
+                    "Thiếu tỷ lệ",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                txtTyLe.Focus();
+                return;
+            }
+
+            if (!decimal.TryParse(txtTyLe.Text, out decimal tyLe))
+            {
+                MessageBox.Show("Tỷ lệ phải là số thập phân hợp lệ.", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTyLe.Focus();
+                return;
+            }
+
+            // Validate: ty_le phải > 0 và <= 1 (theo CHECK constraint CHK_CTMA_TyLe)
+            if (tyLe <= 0 || tyLe > 1)
+            {
+                MessageBox.Show("Tỷ lệ phải lớn hơn 0 và không vượt quá 1.\nVí dụ: 0.5 nghĩa là 50%.",
+                    "Tỷ lệ không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTyLe.Focus();
+                return;
             }
 
             // Kiểm tra trùng: cùng thực phẩm + chế độ đã có trong lưới chưa
@@ -195,11 +373,14 @@ namespace DuAn.GUI.frmnhanvien
             newRow["ThucPhamTen"] = thucPhamTen;
             newRow["CheDoId"] = cheDoId;
             newRow["CheDoTen"] = cheDoTen;
-            newRow["TyLe"] = tyLeValue;
+            newRow["TyLe"] = tyLe;
             dtChiTiet.Rows.Add(newRow);
 
             // Reset input để nhập tiếp
             txtTyLe.Clear();
+            BindThucPham(dtThucPhamNguon);
+            if (dtThucPhamNguon != null && dtThucPhamNguon.Rows.Count > 0)
+                cboThucPham.SelectedIndex = 0;
             cboThucPham.Focus();
         }
 
@@ -245,9 +426,9 @@ namespace DuAn.GUI.frmnhanvien
                 string ghiChu = string.IsNullOrWhiteSpace(txtGhiChu.Text)
                     ? null : txtGhiChu.Text.Trim();
 
-                double? dam = ParseNullableDouble(txtDam.Text);
-                double? chatBeo = ParseNullableDouble(txtChatBeo.Text);
-                double? chatXo = ParseNullableDouble(txtChatXo.Text);
+                double dam = ParseRequiredDouble(txtDam.Text);
+                double chatBeo = ParseRequiredDouble(txtChatBeo.Text);
+                double chatXo = ParseRequiredDouble(txtChatXo.Text);
 
                 // ----- 1. INSERT vào Mon_an -----
                 B_MonAn.ThemMonAn(monanId, tenMon, loaiMon, ghiChu, dam, chatBeo, chatXo);
@@ -258,8 +439,7 @@ namespace DuAn.GUI.frmnhanvien
                 {
                     int thucPhamId = Convert.ToInt32(row["ThucPhamId"]);
                     int cheDoId = Convert.ToInt32(row["CheDoId"]);
-                    decimal? tyLe = row["TyLe"] == DBNull.Value ? (decimal?)null
-                        : Convert.ToDecimal(row["TyLe"]);
+                    decimal tyLe = Convert.ToDecimal(row["TyLe"]);
 
                     B_MonAn.ThemChiTietMonAn(monanId, thucPhamId, cheDoId, tyLe);
                     ctSuccess++;
@@ -315,13 +495,35 @@ namespace DuAn.GUI.frmnhanvien
                 return false;
             }
 
-            // Cảnh báo nếu chưa thêm nguyên liệu nào
+            if (!ValidateRequiredDouble(txtDam.Text, "Đạm", txtDam)) return false;
+            if (!ValidateRequiredDouble(txtChatBeo.Text, "Chất béo", txtChatBeo)) return false;
+            if (!ValidateRequiredDouble(txtChatXo.Text, "Chất xơ", txtChatXo)) return false;
+
+            // Phải có ít nhất một nguyên liệu
             if (dtChiTiet.Rows.Count == 0)
             {
-                DialogResult dr = MessageBox.Show(
-                    "Bạn chưa thêm nguyên liệu nào. Bạn có muốn tiếp tục lưu không?",
-                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dr == DialogResult.No) return false;
+                MessageBox.Show("Món ăn phải có ít nhất một nguyên liệu.",
+                    "Thiếu nguyên liệu",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                cboThucPham.Focus();
+                return false;
+            }
+
+            foreach (DataRow row in dtChiTiet.Rows)
+            {
+                if (row["ThucPhamId"] == DBNull.Value
+                    || row["CheDoId"] == DBNull.Value
+                    || row["TyLe"] == DBNull.Value
+                    || Convert.ToDecimal(row["TyLe"]) <= 0
+                    || Convert.ToDecimal(row["TyLe"]) > 1)
+                {
+                    MessageBox.Show("Danh sách nguyên liệu có dữ liệu chưa hợp lệ. Mỗi nguyên liệu phải có thực phẩm, chế độ và tỷ lệ trong khoảng 0 đến 1.",
+                        "Nguyên liệu không hợp lệ",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return false;
+                }
             }
 
             return true;
@@ -347,11 +549,35 @@ namespace DuAn.GUI.frmnhanvien
         /// <summary>
         /// Parse string sang double? (nullable)
         /// </summary>
-        private double? ParseNullableDouble(string text)
+        private double ParseRequiredDouble(string text)
         {
-            if (string.IsNullOrWhiteSpace(text)) return null;
-            if (double.TryParse(text.Trim(), out double val)) return val;
-            return null;
+            double.TryParse(text.Trim(), out double val);
+            return val;
+        }
+
+        private bool ValidateRequiredDouble(string text, string fieldName, Control control)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                MessageBox.Show("Vui lòng nhập " + fieldName + ".",
+                    "Thiếu thông tin",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                control.Focus();
+                return false;
+            }
+
+            if (!double.TryParse(text.Trim(), out double value) || value < 0)
+            {
+                MessageBox.Show(fieldName + " phải là số không âm.",
+                    "Dữ liệu không hợp lệ",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                control.Focus();
+                return false;
+            }
+
+            return true;
         }
     }
 }
