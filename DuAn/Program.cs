@@ -23,7 +23,13 @@ namespace DuAn
 
             Application.Run(new frmmhlogin());
              //Application.Run(new frmLapthucdon2());
+<<<<<<< HEAD
 
+=======
+            // Application.Run(new frmlapthucdon());
+
+          
+>>>>>>> 770cd75a3650feffa7c302b0b251d554e02d025b
              //Application.Run(new frmLapthucdon2());
             // Application.Run(new frmlapthucdon());
 

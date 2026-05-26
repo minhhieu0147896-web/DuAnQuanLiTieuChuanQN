@@ -26,13 +26,16 @@ namespace DuAn.DAO
         public AccountModel Login(string username, string password)
         {
 
-            string query = @"SELECT user_id, user_taikhoan, user_vai_tro, user_mat_khau, donvi_id
 
-                             FROM   [dbo].[User]
-                             WHERE  user_taikhoan = @username
-                               AND  user_mat_khau = @password";
+            string query = @"SELECT user_id,
+                                    user_taikhoan,
+                                    user_vai_tro,
+                                    user_mat_khau,
+                                    donvi_id
+                             FROM [dbo].[User]
+                             WHERE user_taikhoan = @username
+                               AND user_mat_khau = @password";
 
-   
 
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
