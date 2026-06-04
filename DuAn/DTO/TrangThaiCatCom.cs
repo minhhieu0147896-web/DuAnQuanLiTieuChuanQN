@@ -16,4 +16,10 @@ namespace DuAn.DTO
             public bool KhongAn { get; set; }
         
     }
+    public enum TrangThaiCatComEnum 
+    {
+        BiBoDe = 0,   // phiên cũ, đã bị báo đè
+        HieuLuc = 1,   // phiên hiện tại, đang hiệu lực
+        DaKhoa = 2    // đã khóa sổ chính thức
+    }
 }

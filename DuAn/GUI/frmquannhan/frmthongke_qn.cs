@@ -167,5 +167,10 @@ namespace DuAn.GUI.frmquannhan
         {
 
         }
+
+        private void chartcot_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

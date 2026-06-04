@@ -42,6 +42,7 @@ namespace DuAn.GUI.frmfornhvhc
         }
         void load_danhsach()
         {
+            dgvdanhsach.AutoGenerateColumns = false;
             dgvdanhsach.DataSource = B_thongke_cb.ds_catcom_theongay(Session.DonViID.Value, dtpngay.Value);
         }
         void load_bieudo()
@@ -518,6 +519,11 @@ namespace DuAn.GUI.frmfornhvhc
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void pnltitle_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

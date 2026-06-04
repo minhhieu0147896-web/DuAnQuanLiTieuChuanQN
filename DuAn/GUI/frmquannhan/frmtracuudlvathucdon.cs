@@ -273,5 +273,10 @@ namespace DuAn.GUI.frmquannhan
         {
 
         }
+
+        private void dgvThucDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

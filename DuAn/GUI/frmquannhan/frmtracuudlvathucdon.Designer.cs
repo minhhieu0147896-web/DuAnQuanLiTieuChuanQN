@@ -383,6 +383,7 @@
             this.dgvThucDon.RowTemplate.Height = 28;
             this.dgvThucDon.Size = new System.Drawing.Size(729, 638);
             this.dgvThucDon.TabIndex = 14;
+            this.dgvThucDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThucDon_CellContentClick);
             // 
             // colthoigian
             // 

@@ -22,17 +22,7 @@ namespace DuAn
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new frmmhlogin());
-             //Application.Run(new frmLapthucdon2());
-<<<<<<< HEAD
-
-=======
-            // Application.Run(new frmlapthucdon());
-
-          
->>>>>>> 770cd75a3650feffa7c302b0b251d554e02d025b
-             //Application.Run(new frmLapthucdon2());
-            // Application.Run(new frmlapthucdon());
-
+            
             // Application.Run(new frmbqs());
             //  Application.Run(new frmlichsucatcom());
             //Application.Run(new frmLSQS());

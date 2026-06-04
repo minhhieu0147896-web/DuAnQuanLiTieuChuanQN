@@ -47,23 +47,23 @@ namespace DuAn.DAO
 
            
         }
-        public static void InsertCatCom(catcom cc)
-        {
-            SqlConnection conn = DataProvider.Instance.GetConnection();
+        //public static void InsertCatCom(catcom cc)
+        //{
+        //    SqlConnection conn = DataProvider.Instance.GetConnection();
 
-            SqlCommand cmd = new SqlCommand("sp_insertcc", conn);
+        //    SqlCommand cmd = new SqlCommand("sp_insertcc", conn);
 
-            cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@ngaythangnam", cc.ngay_thang_nam);
-            cmd.Parameters.AddWithValue("@buoian_id", cc.buoian_id);
-            cmd.Parameters.AddWithValue("@donvi_id", cc.donvi_id);
-            cmd.Parameters.AddWithValue("@quannhan_id", cc.quannhan_id);
+        //    cmd.Parameters.AddWithValue("@ngaythangnam", cc.ngay_thang_nam);
+        //    cmd.Parameters.AddWithValue("@buoian_id", cc.buoian_id);
+        //    cmd.Parameters.AddWithValue("@donvi_id", cc.donvi_id);
+        //    cmd.Parameters.AddWithValue("@quannhan_id", cc.quannhan_id);
 
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-        }
+        //    conn.Open();
+        //    cmd.ExecuteNonQuery();
+        //    conn.Close();
+        //}
         public static void InsertQuanSoAn(quansoan qs)
         {
             SqlConnection conn = DataProvider.Instance.GetConnection();
@@ -82,26 +82,52 @@ namespace DuAn.DAO
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public static int KiemTraDaBao(DateTime ngay, int mabuoi, int madv)
+        public static bool KiemTraDaBao(DateTime ngay, int mabuoi, int madv)
         {
             SqlConnection conn = DataProvider.Instance.GetConnection();
 
             SqlCommand cmd = new SqlCommand("sp_KiemTraDaBao", conn);
-
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@ngay", ngay);
-            cmd.Parameters.AddWithValue("@buoian_id", mabuoi);
-            cmd.Parameters.AddWithValue("@donvi_id", madv);
+            cmd.Parameters.AddWithValue("@buoian", mabuoi);
+            cmd.Parameters.AddWithValue("@donvi", madv);
+
+            SqlParameter p = new SqlParameter("@ketqua", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(p);
 
             conn.Open();
-
-            int kq = Convert.ToInt32(cmd.ExecuteScalar());
-
+            cmd.ExecuteNonQuery();
             conn.Close();
 
-            return kq;
+            return Convert.ToInt32(p.Value) == 1;
         }
+
+        //==================================================
+        // KIEM TRA DA KHOA SO
+        //==================================================
+        public static bool KiemTraDaKhoaSo(DateTime ngay, int madv)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd = new SqlCommand("sp_KiemTraKhoaSo", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@ngay", ngay);
+            cmd.Parameters.AddWithValue("@donvi", madv);
+
+            SqlParameter p = new SqlParameter("@ketqua", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(p);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            return Convert.ToInt32(p.Value) == 1;
+        }
+
         public static int CountBQS(int donvi)
         {
             SqlConnection conn = DataProvider.Instance.GetConnection();
@@ -186,6 +212,196 @@ namespace DuAn.DAO
             return total;
         }
 
+       
+       
+        //==================================================
+        // LAY DS CAT COM HIEN TAI
+        //==================================================
+        public static List<int> LayDSCatComHienTai(
+            DateTime ngay,
+            int mabuoi,
+            int madv)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
 
+            SqlCommand cmd =
+                new SqlCommand("sp_LayDSCatComHienTai", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@ngay", ngay);
+            cmd.Parameters.AddWithValue("@buoian", mabuoi);
+            cmd.Parameters.AddWithValue("@donvi", madv);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+
+            List<int> ds = new List<int>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                ds.Add(Convert.ToInt32(row["quannhan_id"]));
+            }
+
+            return ds;
+        }
+
+        //==================================================
+        // VO HIEU HOA PHIEN CU
+        //==================================================
+        public static void VoHieuHoaCatCom(
+            DateTime ngay,
+            int mabuoi,
+            int madv)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd =
+                new SqlCommand("sp_VoHieuHoaCatCom", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@ngay", ngay);
+            cmd.Parameters.AddWithValue("@buoian", mabuoi);
+            cmd.Parameters.AddWithValue("@donvi", madv);
+
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        //==================================================
+        // INSERT CAT COM
+        //==================================================
+        public static void InsertCatCom(catcom cc)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd =
+                new SqlCommand("sp_InsertCatCom", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@ngay",
+                cc.ngay_thang_nam);
+
+            cmd.Parameters.AddWithValue("@buoian",
+                cc.buoian_id);
+
+            cmd.Parameters.AddWithValue("@donvi",
+                cc.donvi_id);
+
+            cmd.Parameters.AddWithValue("@quannhan",
+                cc.quannhan_id);
+
+            cmd.Parameters.AddWithValue("@lydo",
+                (object)cc.catcom_ly_do ?? DBNull.Value);
+
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        //==================================================
+        // UPSERT QUAN SO AN
+        //==================================================
+        public static void UpsertQuanSoAn(quansoan qs)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            SqlCommand cmd =
+                new SqlCommand("sp_UpsertQuanSoAn", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@ngay",
+                qs.ngay_thang_nam);
+
+            cmd.Parameters.AddWithValue("@buoian",
+                qs.buoian_id);
+
+            cmd.Parameters.AddWithValue("@donvi",
+                qs.donvi_id);
+
+            cmd.Parameters.AddWithValue("@chedo",
+                qs.chedo_id);
+
+            cmd.Parameters.AddWithValue("@soluong",
+                qs.soluong);
+
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        
+
+        //==================================================
+        // GHI KHOA SO
+        //==================================================
+        public static void KhoaSo(
+            DateTime ngay,
+            int madv,
+            int nguoiKhoa,
+            string lyDo)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+
+            conn.Open();
+
+            SqlTransaction tran = conn.BeginTransaction();
+
+            try
+            {
+                SqlCommand cmd1 =
+                    new SqlCommand("sp_KhoaSoCatCom",
+                        conn, tran);
+
+                cmd1.CommandType =
+                    CommandType.StoredProcedure;
+
+                cmd1.Parameters.AddWithValue("@ngay", ngay);
+                cmd1.Parameters.AddWithValue("@donvi", madv);
+
+                cmd1.ExecuteNonQuery();
+
+                SqlCommand cmd2 =
+                    new SqlCommand("sp_GhiKhoaSo",
+                        conn, tran);
+
+                cmd2.CommandType =
+                    CommandType.StoredProcedure;
+
+                cmd2.Parameters.AddWithValue("@ngay", ngay);
+                cmd2.Parameters.AddWithValue("@donvi", madv);
+                cmd2.Parameters.AddWithValue("@nguoi_khoa",
+                    nguoiKhoa);
+                cmd2.Parameters.AddWithValue("@ly_do",
+                    lyDo);
+
+                cmd2.ExecuteNonQuery();
+
+                tran.Commit();
+            }
+            catch
+            {
+                tran.Rollback();
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }
+  

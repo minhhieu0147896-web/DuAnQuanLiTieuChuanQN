@@ -19,6 +19,7 @@ namespace DuAn.GUI.frmnhanvien
         frmbaocaothucpham fbctp;
         frmbaocaoquanso fbcqs;
         frmtinhtpcansudung ftpcsd;
+        frmquansoan fqsa;
         void CloseAllChildForms()
         {
             foreach (Form child in this.MdiChildren)
@@ -256,6 +257,18 @@ namespace DuAn.GUI.frmnhanvien
         private void slidebar_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btntonghop_Click(object sender, EventArgs e)
+        {
+
+            CloseAllChildForms();
+            fqsa = new frmquansoan();
+            fqsa.MdiParent = this;
+
+            fqsa.Dock = DockStyle.Fill;
+            fqsa.FormClosed += (s, args) => fqsa = null;
+            fqsa.Show();
         }
     }
 }

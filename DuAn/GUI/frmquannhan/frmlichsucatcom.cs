@@ -84,5 +84,10 @@ namespace DuAn.GUI.frmquannhan
         {
 
         }
+
+        private void lbllscc_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

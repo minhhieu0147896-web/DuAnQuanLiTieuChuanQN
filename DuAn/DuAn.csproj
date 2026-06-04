@@ -86,6 +86,7 @@
     <Compile Include="BUL\B_MonAn.cs" />
     <Compile Include="BUL\B_QN.cs" />
     <Compile Include="BUL\B_QNlogin.cs" />
+    <Compile Include="BUL\B_QuanSoAn.cs" />
     <Compile Include="BUL\B_TCTD.cs" />
     <Compile Include="BUL\B_thongkeqn.cs" />
     <Compile Include="BUL\B_thongke_cb.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="DAO\D_MonAn.cs" />
     <Compile Include="DAO\D_QN.cs" />
     <Compile Include="DAO\D_qnlogin.cs" />
+    <Compile Include="DAO\D_QuanSoAn.cs" />
     <Compile Include="DAO\D_TCTD.cs" />
     <Compile Include="DAO\D_thongkecb.cs" />
     <Compile Include="DAO\D_thongkeqn.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="DTO\BuoiAnModel.cs" />
     <Compile Include="DTO\catcom.cs" />
     <Compile Include="DTO\ChiTietThucDonModel.cs" />
+    <Compile Include="DTO\KhoaSo.cs" />
     <Compile Include="DTO\LSBQS.cs" />
     <Compile Include="DTO\LSCC.cs" />
     <Compile Include="DTO\MonAnModel.cs" />
@@ -127,6 +130,7 @@
     <Compile Include="DTO\ThucDonMauModel.cs" />
     <Compile Include="DTO\ChiTietTdMauModel.cs" />
     <Compile Include="DTO\thucpham.cs" />
+    <Compile Include="DTO\tkqs.cs" />
     <Compile Include="DTO\TrangThaiCatCom.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -214,6 +218,12 @@
     </Compile>
     <Compile Include="GUI\frmnhanvien\frmLapthucdon2.Designer.cs">
       <DependentUpon>frmLapthucdon2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\frmquansoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\frmquansoan.Designer.cs">
+      <DependentUpon>frmquansoan.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmnhanvien\frmThemMonAn.cs">
       <SubType>Form</SubType>
@@ -309,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmLapthucdon2.resx">
       <DependentUpon>frmLapthucdon2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmnhanvien\frmquansoan.resx">
+      <DependentUpon>frmquansoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmThemMonAn.resx">
       <DependentUpon>frmThemMonAn.cs</DependentUpon>

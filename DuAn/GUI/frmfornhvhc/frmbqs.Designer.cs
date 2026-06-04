@@ -71,6 +71,7 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lblCheDo1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lblTrangThaiKhoa = new System.Windows.Forms.Label();
             this.pntitle.SuspendLayout();
             this.pnlfilter.SuspendLayout();
             this.pnlchilfilter.SuspendLayout();
@@ -126,6 +127,7 @@
             this.pnlchilfilter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlchilfilter.AutoSize = true;
             this.pnlchilfilter.BackColor = System.Drawing.Color.White;
+            this.pnlchilfilter.Controls.Add(this.lblTrangThaiKhoa);
             this.pnlchilfilter.Controls.Add(this.lbltim);
             this.pnlchilfilter.Controls.Add(this.txttimkiem);
             this.pnlchilfilter.Controls.Add(this.pictureBox1);
@@ -139,7 +141,7 @@
             this.pnlchilfilter.Controls.Add(this.lblbuoi);
             this.pnlchilfilter.Location = new System.Drawing.Point(130, 18);
             this.pnlchilfilter.Name = "pnlchilfilter";
-            this.pnlchilfilter.Size = new System.Drawing.Size(956, 100);
+            this.pnlchilfilter.Size = new System.Drawing.Size(956, 118);
             this.pnlchilfilter.TabIndex = 0;
             // 
             // lbltim
@@ -541,6 +543,15 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // lblTrangThaiKhoa
+            // 
+            this.lblTrangThaiKhoa.AutoSize = true;
+            this.lblTrangThaiKhoa.Location = new System.Drawing.Point(652, 84);
+            this.lblTrangThaiKhoa.Name = "lblTrangThaiKhoa";
+            this.lblTrangThaiKhoa.Size = new System.Drawing.Size(51, 20);
+            this.lblTrangThaiKhoa.TabIndex = 11;
+            this.lblTrangThaiKhoa.Text = "label1";
+            // 
             // frmbqs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -623,5 +634,6 @@
         private System.Windows.Forms.TextBox txttimkiem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label lbltim;
+        private System.Windows.Forms.Label lblTrangThaiKhoa;
     }
 }

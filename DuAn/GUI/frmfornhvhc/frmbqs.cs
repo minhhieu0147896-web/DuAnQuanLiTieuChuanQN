@@ -22,17 +22,15 @@ namespace DuAn.GUI.frmfornhvhc
 
         int totalPage = 1;
         HashSet<int> dsKhongAn = new HashSet<int>();
-        Dictionary<int, TrangThaiCatCom> dsBaoCom = new Dictionary<int, TrangThaiCatCom>();
+        System.Windows.Forms.Timer timerKhoa;
+       
         public frmbqs()
         {
             InitializeComponent();
         }
         void LoadData()
         {
-            // =========================
-            // LẤY MÃ ĐƠN VỊ
-            // =========================
-
+            
             int madv;
 
             // ADMIN
@@ -122,6 +120,25 @@ namespace DuAn.GUI.frmfornhvhc
                 row.Cells["colKan"].Value = dsKhongAn.Contains(maquan);
             }
         }
+        void KiemTraVaKhoaUI(DateTime ngay, int madv)
+        {
+            bool daKhoa = B_BQS.KiemTraDaKhoa(ngay, madv);
+
+            btnluu.Enabled = !daKhoa;
+            dgvbqs.Enabled = !daKhoa;
+
+            // Hiển thị trạng thái khóa lên label
+            if (daKhoa)
+            {
+                lblTrangThaiKhoa.Text = "🔒 Sổ đã khóa — Không thể sửa";
+                lblTrangThaiKhoa.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblTrangThaiKhoa.Text = "🟢 Đang mở";
+                lblTrangThaiKhoa.ForeColor = Color.Green;
+            }
+        }
         void KiemTraNutLuu()
         {
             DateTime ngay = dtpngay.Value;
@@ -130,9 +147,9 @@ namespace DuAn.GUI.frmfornhvhc
 
             int madv = Convert.ToInt32(cbodonvi.SelectedValue);
 
-            int kq = B_BQS.KiemTraDaBao(ngay, mabuoi, madv);
+            bool kq = B_BQS.KiemTraDaBao(ngay, mabuoi, madv);
 
-            if (kq == 1)
+            if (kq)
             {
                 btnluu.Enabled = false;
                 MessageBox.Show("Đơn vị này đã báo quân số rồi");
@@ -298,102 +315,116 @@ namespace DuAn.GUI.frmfornhvhc
 
         private void btnluu_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                DateTime ngay = dtpngay.Value.Date;
-                int mabuoi = Convert.ToInt32(cbobuoi.SelectedValue);
-                int madv = Convert.ToInt32(cbodonvi.SelectedValue);
-
-                // ==========================================
-                // KIỂM TRA ĐÃ BÁO CHƯA
-                // ==========================================
-                int kq = B_BQS.KiemTraDaBao(ngay, mabuoi, madv);
-                if (kq == 1)
+           try
+    {
+                if (cbobuoi.SelectedValue == null
+                  || Convert.ToInt32(cbobuoi.SelectedValue) == 0)
                 {
-                    MessageBox.Show("Đơn vị này đã báo quân số rồi!");
-                    btnluu.Enabled = false;
+                    MessageBox.Show("Vui lòng chọn buổi ăn!",
+                        "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                DateTime ngay = dtpngay.Value;
+        int mabuoi = Convert.ToInt32(cbobuoi.SelectedValue);
+        int madv = Convert.ToInt32(cbodonvi.SelectedValue);
+         string tenbuoi = cbobuoi.Text;
+           if (B_BQS.KiemTraDaKhoa(ngay, madv))
+                {
+                    MessageBox.Show("Sổ đã bị khóa, không thể sửa!",
+                        "Đã khóa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // ==========================================
-                // INSERT CẮT CƠM
-                // ==========================================
-                foreach (int maquan in dsKhongAn)
+                // Kiểm tra đã báo chưa
+
+                if (B_BQS.KiemTraDaBao(ngay, mabuoi, madv))
                 {
-                    catcom cc = new catcom() { ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv, quannhan_id = maquan };
-                    B_BQS.insertcatcom(cc);
+                    var confirm = MessageBox.Show(
+                                $"Buổi [{tenbuoi}] đã có báo quân số!\n\n" +
+                                "Bạn có muốn SỬA LẠI không?\n" +
+                                "(Phiên cũ sẽ bị vô hiệu hóa, lưu lại để tra cứu)",
+                                "Xác nhận sửa lại",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Warning);
+
+                    if (confirm != DialogResult.Yes) return;
                 }
+                    var (ok, msg) = B_BQS.LuuBaoQuanSo(
+                  ngay,
+                  mabuoi,
+                  madv,
+                  dsKhongAn,
+                  B_QN.GetCheDoByMaQN,   // Func<int,int>
+                  B_QN.CountQSCheDo);    // Func<int,int,int>
 
-                // ==========================================
-                // TÍNH QUÂN SỐ ĂN
-                // ==========================================
-                int chedo1_total = B_QN.CountQSCheDo(madv, 1);
-                int chedo2_total = B_QN.CountQSCheDo(madv, 2);
-                int chedo1_khongan = 0, chedo2_khongan = 0;
+                    MessageBox.Show(msg, "Thông báo",
+                        MessageBoxButtons.OK,
+                        ok ? MessageBoxIcon.Information : MessageBoxIcon.Error);
 
-                foreach (int maquan in dsKhongAn)
-                {
-                    int chedo = B_QN.GetCheDoByMaQN(maquan);
-                    if (chedo == 1) chedo1_khongan++;
-                    else if (chedo == 2) chedo2_khongan++;
-                }
+                    if (!ok) return;
 
-                int chedo1_an = chedo1_total - chedo1_khongan;
-                int chedo2_an = chedo2_total - chedo2_khongan;
+                    // ── Sau khi lưu thành công ─────────────────
+                    KiemTraVaKhoaUI(ngay, madv);
+                    UpdateTrangThaiPanel();
 
-                // ==========================================
-                // INSERT QUÂN SỐ ĂN
-                // ==========================================
-                quansoan qsa1 = new quansoan() { chedo_id = 1, soluong = chedo1_an, ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv };
-                B_BQS.insertqsa(qsa1);
-
-                quansoan qsa2 = new quansoan() { chedo_id = 2, soluong = chedo2_an, ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv };
-                B_BQS.insertqsa(qsa2);
-
-                // ==========================================
-                // THÔNG BÁO & CLEAR
-                // ==========================================
-                MessageBox.Show("Lưu báo quân số thành công!");
-                dsKhongAn.Clear();
-                foreach (DataGridViewRow row in dgvbqs.Rows)
-                {
-                    if (row.IsNewRow) continue;
-
-                    row.Cells["colKan"].Value = false;
-                }
-                // ==========================================
-                // TỰ ĐỘNG CHUYỂN BUỔI
-                // ==========================================
-                if (mabuoi == 1) // sáng -> trưa
-                {
-                    cbobuoi.SelectedValue = 2;
-                    MessageBox.Show("Tiếp tục báo quân số BUỔI TRƯA");
-                }
-                else if (mabuoi == 2) // trưa -> chiều
-                {
-                    cbobuoi.SelectedValue = 3;
-                    MessageBox.Show("Tiếp tục báo quân số BUỔI CHIỀU");
-                }
-                else if (mabuoi == 3) // chiều -> khóa
-                {
-                    btnluu.Enabled = false;
-                    dgvbqs.Enabled = false;
-                    MessageBox.Show("Đã hoàn thành báo quân số ngày " + ngay.ToString("dd/MM/yyyy"));
-                }
-
-                // ==========================================
-                // TẢI LẠI DỮ LIỆU & KIỂM TRA KHÓA
-                // ==========================================
-                LoadData();
-                RestoreCheckBox();
-                UpdateTrangThaiPanel();
-                KiemTraKhoaBaoQuanSo();
+                    // Kiểm tra đủ 3 buổi
+                    if (B_BQS.KiemTraDu3Buoi(ngay, madv))
+                    {
+                        MessageBox.Show(
+                            $"✅ Đã báo đầy đủ 3 buổi ngày {ngay:dd/MM/yyyy}!",
+                            "Hoàn thành ngày",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
+               
+        //        // ==========================================
+        //        // INSERT CẮT CƠM
+        //        // ==========================================
+        //        foreach (int maquan in dsKhongAn)
+        //{
+        //    catcom cc = new catcom() { ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv, quannhan_id = maquan };
+        //    B_BQS.insertcatcom(cc);
+        //}
+
+        //// ==========================================
+        //// TÍNH QUÂN SỐ ĂN
+        //// ==========================================
+        //int chedo1_total = B_QN.CountQSCheDo(madv, 1);
+        //int chedo2_total = B_QN.CountQSCheDo(madv, 2);
+
+        //int chedo1_khongan = 0;
+        //int chedo2_khongan = 0;
+
+        //foreach (int maquan in dsKhongAn)
+        //{
+        //    int chedo = B_QN.GetCheDoByMaQN(maquan);
+        //    if (chedo == 1) chedo1_khongan++;
+        //    else if (chedo == 2) chedo2_khongan++;
+        //}
+
+        //int chedo1_an = chedo1_total - chedo1_khongan;
+        //int chedo2_an = chedo2_total - chedo2_khongan;
+
+        //// ==========================================
+        //// INSERT QUÂN SỐ ĂN
+        //// ==========================================
+        //quansoan qsa1 = new quansoan() { chedo_id = 1, soluong = chedo1_an, ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv };
+        //B_BQS.insertqsa(qsa1);
+
+        //quansoan qsa2 = new quansoan() { chedo_id = 2, soluong = chedo2_an, ngay_thang_nam = ngay, buoian_id = mabuoi, donvi_id = madv };
+        //B_BQS.insertqsa(qsa2);
+
+        //btnluu.Enabled = false;
+        //MessageBox.Show("Lưu báo quân số thành công!");
+        //ResetForm();
+    
+              catch (Exception ex)
+        {
+        MessageBox.Show("Lỗi: " + ex.Message);
         }
+     }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -412,35 +443,37 @@ namespace DuAn.GUI.frmfornhvhc
 
         private void cbobuoi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbobuoi.SelectedValue == null)
+            if (cbobuoi.SelectedValue == null) return;
+            if (cbobuoi.SelectedValue.ToString() == "System.Data.DataRowView") return;
+            if (Convert.ToInt32(cbobuoi.SelectedValue) == 0)
+            {
+                dgvbqs.DataSource = null;
+                dsKhongAn.Clear();
+                UpdateTrangThaiPanel();
                 return;
+            }
 
-            if (cbodonvi.SelectedValue == null)
-                return;
-
-            if (cbobuoi.SelectedValue.ToString() == "System.Data.DataRowView")
-                return;
-
-            int madv = Convert.ToInt32(cbodonvi.SelectedValue);
-
+            int madv = Session.DonViID.Value;
             int mabuoi = Convert.ToInt32(cbobuoi.SelectedValue);
-
             DateTime ngay = dtpngay.Value.Date;
 
-            int kq = B_BQS.KiemTraDaBao(ngay, mabuoi, madv);
+            if (madv <= 0) return;
 
-            if (kq == 1)
-            {
-                btnluu.Enabled = false;
+            // ── QUAN TRỌNG: reset dsKhongAn về đúng trạng thái DB ──
+            dsKhongAn.Clear();
 
-                MessageBox.Show(
-                    "Buổi này đã báo quân số rồi!"
-                );
-            }
-            else
+            if (B_BQS.KiemTraDaBao(ngay, mabuoi, madv))
             {
-                btnluu.Enabled = true;
+                // Buổi đã báo → load lại danh sách cắt cơm trang_thai=1
+                List<int> dsCatCom = B_BQS.LayDSCatComHienTai(ngay, mabuoi, madv);
+                foreach (int maquan in dsCatCom)
+                    dsKhongAn.Add(maquan);
             }
+            // Chưa báo → dsKhongAn trống, không ai cắt cơm
+
+            // Kiểm tra khóa rồi load grid
+            KiemTraVaKhoaUI(ngay, madv);
+            LoadData();
         }
         private void dgvbqs_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
@@ -449,88 +482,44 @@ namespace DuAn.GUI.frmfornhvhc
                 dgvbqs.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
-        void KiemTraKhoaBaoQuanSo()
+        // ═══════════════════════════════════════════════
+        // TIMER — tự động khóa sau 19:00
+        // ═══════════════════════════════════════════════
+        private void TimerKhoa_Tick(object sender, EventArgs e)
         {
-            try
-            {
-                int madv;
+            if (DateTime.Now.Hour < 19) return;
 
-                if (Session.VaiTro == 3)
-                {
-                    if (cbodonvi.SelectedValue == null)
-                        return;
+            int madv = Session.DonViID.Value;
+            if (madv <= 0) return;
 
-                    madv = Convert.ToInt32(cbodonvi.SelectedValue);
-                }
-                else
-                {
-                    madv = Session.DonViID.Value;
-                }
+            DateTime ngay = dtpngay.Value.Date;
 
-                DateTime ngay = dtpngay.Value.Date;
+            // Ghi vào DB nếu chưa khóa
+            B_BQS.KhoaSoTuDong(ngay, madv);
 
-                // kiểm tra đủ 3 buổi chưa
-                bool sang =B_BQS.KiemTraDaBao(ngay, 1, madv) == 1;
-
-                bool trua = B_BQS.KiemTraDaBao(ngay, 2, madv) == 1;
-
-                bool chieu =B_BQS.KiemTraDaBao(ngay, 3, madv) == 1;
-
-                // nếu đủ 3 buổi
-                if (sang && trua && chieu)
-                {
-                    btnluu.Enabled = false;
-
-                    dgvbqs.Enabled = false;
-
-                    MessageBox.Show(
-                        "Đã báo quân số đầy đủ cho ngày " +
-                        ngay.ToString("dd/MM/yyyy"),
-                        "Thông báo"
-                    );
-                }
-                else
-                {
-                    btnluu.Enabled = true;
-
-                    dgvbqs.Enabled = true;
-                }
-            }
-            catch
-            {
-
-            }
+            // Lock UI
+            KiemTraVaKhoaUI(ngay, madv);
         }
         private void frmbqs_Load(object sender, EventArgs e)
         {
             LoadBuoi();
-
             LoadDonvi();
-
             dgvbqs.DataSource = null;
-
             dgvbqs.CurrentCellDirtyStateChanged += dgvbqs_CurrentCellDirtyStateChanged;
-
             dgvbqs.CellValueChanged += dgvbqs_CellValueChanged;
-
             dgvbqs.AllowUserToAddRows = false;
-
-            // =========================
-            // MẶC ĐỊNH NGÀY MAI
-            // =========================
-
+            // Mặc định ngày mai, chưa chọn buổi
             dtpngay.Value = DateTime.Today.AddDays(1);
+            cbobuoi.SelectedIndex = 0; // "-- Chọn buổi ăn --"
+                                       // Phân quyền nút khóa sổ
+                                       // Chỉ admin (3) hoặc hậu cần mới thấy nút khóa
+         
 
-            // =========================
-            // MẶC ĐỊNH BUỔI SÁNG
-            // =========================
-
-            cbobuoi.SelectedValue = 1;
-
-            // load luôn
-            LoadData();
-
-            KiemTraKhoaBaoQuanSo();
+            // Khởi động timer kiểm tra tự động khóa mỗi 1 phút
+            timerKhoa = new System.Windows.Forms.Timer();
+            timerKhoa.Interval = 60_000;
+            timerKhoa.Tick += TimerKhoa_Tick;
+            timerKhoa.Start();
         }
 
         private void btnhienthi_Click(object sender, EventArgs e)
@@ -541,6 +530,7 @@ namespace DuAn.GUI.frmfornhvhc
             LoadData();
 
             KiemTraNutLuu();
+            KiemTraVaKhoaUI(dtpngay.Value.Date, Session.DonViID.Value);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -555,6 +545,8 @@ namespace DuAn.GUI.frmfornhvhc
               MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                timerKhoa?.Stop();
+                timerKhoa?.Dispose();
                 Close();
             }
         }

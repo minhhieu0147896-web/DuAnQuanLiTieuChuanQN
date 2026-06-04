@@ -18,7 +18,7 @@ namespace DuAn.GUI.frmfornhvhc
     public partial class frmLSQS : Form
     {
         int page = 1;
-        int pagesize = 20;
+        int pagesize = 10;
         int totalpage = 0;
         public frmLSQS()
         {

@@ -34,25 +34,10 @@
             this.lblgioithieu = new System.Windows.Forms.Label();
             this.btnHam = new System.Windows.Forms.PictureBox();
             this.slidebar = new System.Windows.Forms.FlowLayoutPanel();
-            this.hethongcontainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnhethong = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btndangxuat = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.btnthoat = new System.Windows.Forms.Button();
+            this.pndanhsachthucpham = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.btndstp = new System.Windows.Forms.Button();
             this.thucdoncontainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
@@ -91,30 +76,39 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.btnbcquanso = new System.Windows.Forms.Button();
-            this.pndanhsachthucpham = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.btndstp = new System.Windows.Forms.Button();
+            this.hethongcontainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnhethong = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btndangxuat = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.btnthoat = new System.Windows.Forms.Button();
             this.hethongtrasition = new System.Windows.Forms.Timer(this.components);
             this.slidebartransition = new System.Windows.Forms.Timer(this.components);
             this.thucdontransition = new System.Windows.Forms.Timer(this.components);
             this.baocaotransition = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btntonghop = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHam)).BeginInit();
             this.slidebar.SuspendLayout();
-            this.hethongcontainer.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.pndanhsachthucpham.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.thucdoncontainer.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -141,9 +135,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             this.panel25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
-            this.pndanhsachthucpham.SuspendLayout();
-            this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.hethongcontainer.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -184,6 +191,7 @@
             this.slidebar.Controls.Add(this.pndanhsachthucpham);
             this.slidebar.Controls.Add(this.thucdoncontainer);
             this.slidebar.Controls.Add(this.baocaocontainer);
+            this.slidebar.Controls.Add(this.flowLayoutPanel1);
             this.slidebar.Controls.Add(this.hethongcontainer);
             this.slidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.slidebar.Location = new System.Drawing.Point(0, 54);
@@ -192,228 +200,49 @@
             this.slidebar.TabIndex = 4;
             this.slidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.slidebar_Paint);
             // 
-            // hethongcontainer
+            // pndanhsachthucpham
             // 
-            this.hethongcontainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.hethongcontainer.Controls.Add(this.panel2);
-            this.hethongcontainer.Controls.Add(this.panel3);
-            this.hethongcontainer.Controls.Add(this.panel7);
-            this.hethongcontainer.Location = new System.Drawing.Point(3, 238);
-            this.hethongcontainer.Name = "hethongcontainer";
-            this.hethongcontainer.Size = new System.Drawing.Size(259, 68);
-            this.hethongcontainer.TabIndex = 9;
+            this.pndanhsachthucpham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.pndanhsachthucpham.Controls.Add(this.panel12);
+            this.pndanhsachthucpham.Location = new System.Drawing.Point(3, 3);
+            this.pndanhsachthucpham.Name = "pndanhsachthucpham";
+            this.pndanhsachthucpham.Size = new System.Drawing.Size(247, 73);
+            this.pndanhsachthucpham.TabIndex = 11;
             // 
-            // panel2
+            // panel12
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.btnhethong);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(344, 67);
-            this.panel2.TabIndex = 4;
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.panel12.Controls.Add(this.pictureBox11);
+            this.panel12.Controls.Add(this.btndstp);
+            this.panel12.Location = new System.Drawing.Point(3, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel12.Size = new System.Drawing.Size(344, 67);
+            this.panel12.TabIndex = 4;
             // 
-            // pictureBox2
+            // pictureBox11
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(17, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pictureBox2.Size = new System.Drawing.Size(38, 48);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(13, 6);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox11.Size = new System.Drawing.Size(34, 48);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 1;
+            this.pictureBox11.TabStop = false;
             // 
-            // btnhethong
+            // btndstp
             // 
-            this.btnhethong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
-            this.btnhethong.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnhethong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnhethong.Location = new System.Drawing.Point(-45, -28);
-            this.btnhethong.Name = "btnhethong";
-            this.btnhethong.Size = new System.Drawing.Size(342, 124);
-            this.btnhethong.TabIndex = 0;
-            this.btnhethong.Text = "Hệ thống";
-            this.btnhethong.UseVisualStyleBackColor = false;
-            this.btnhethong.Click += new System.EventHandler(this.btnhethong_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.panel6);
-            this.panel3.Controls.Add(this.pictureBox6);
-            this.panel3.Controls.Add(this.button5);
-            this.panel3.Location = new System.Drawing.Point(3, 76);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(344, 67);
-            this.panel3.TabIndex = 7;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.panel4.Controls.Add(this.pictureBox3);
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Location = new System.Drawing.Point(1, 65);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(344, 67);
-            this.panel4.TabIndex = 8;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(21, 6);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pictureBox3.Size = new System.Drawing.Size(28, 38);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(-45, -28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(418, 124);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Lịch sử ăn";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Controls.Add(this.btndangxuat);
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(344, 67);
-            this.panel5.TabIndex = 7;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(21, 1);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pictureBox4.Size = new System.Drawing.Size(28, 38);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            // 
-            // btndangxuat
-            // 
-            this.btndangxuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.btndangxuat.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btndangxuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btndangxuat.Location = new System.Drawing.Point(-44, -28);
-            this.btndangxuat.Name = "btndangxuat";
-            this.btndangxuat.Size = new System.Drawing.Size(342, 124);
-            this.btndangxuat.TabIndex = 0;
-            this.btndangxuat.Text = "Đăng xuất";
-            this.btndangxuat.UseVisualStyleBackColor = false;
-            this.btndangxuat.Click += new System.EventHandler(this.btndangxuat_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.panel6.Controls.Add(this.pictureBox5);
-            this.panel6.Controls.Add(this.button4);
-            this.panel6.Location = new System.Drawing.Point(1, -65);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel6.Size = new System.Drawing.Size(344, 67);
-            this.panel6.TabIndex = 6;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(17, 0);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pictureBox5.Size = new System.Drawing.Size(38, 48);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(-45, -28);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(401, 124);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Quân số";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(21, 6);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pictureBox6.Size = new System.Drawing.Size(28, 38);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 1;
-            this.pictureBox6.TabStop = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(-45, -28);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(418, 124);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Lịch sử ăn";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.panel7.Controls.Add(this.pictureBox7);
-            this.panel7.Controls.Add(this.btnthoat);
-            this.panel7.Location = new System.Drawing.Point(3, 149);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel7.Size = new System.Drawing.Size(342, 59);
-            this.panel7.TabIndex = 6;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(21, 1);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pictureBox7.Size = new System.Drawing.Size(28, 38);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 1;
-            this.pictureBox7.TabStop = false;
-            // 
-            // btnthoat
-            // 
-            this.btnthoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.btnthoat.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnthoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnthoat.Location = new System.Drawing.Point(-45, -23);
-            this.btnthoat.Name = "btnthoat";
-            this.btnthoat.Size = new System.Drawing.Size(343, 107);
-            this.btnthoat.TabIndex = 0;
-            this.btnthoat.Text = "Thoát";
-            this.btnthoat.UseVisualStyleBackColor = false;
-            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
+            this.btndstp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
+            this.btndstp.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btndstp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btndstp.Location = new System.Drawing.Point(-16, -18);
+            this.btndstp.Name = "btndstp";
+            this.btndstp.Size = new System.Drawing.Size(342, 99);
+            this.btndstp.TabIndex = 0;
+            this.btndstp.Text = "Danh sách thực phẩm";
+            this.btndstp.UseVisualStyleBackColor = false;
+            this.btndstp.Click += new System.EventHandler(this.btndstp_Click);
             // 
             // thucdoncontainer
             // 
@@ -861,49 +690,228 @@
             this.btnbcquanso.UseVisualStyleBackColor = false;
             this.btnbcquanso.Click += new System.EventHandler(this.btnbcquanso_Click);
             // 
-            // pndanhsachthucpham
+            // hethongcontainer
             // 
-            this.pndanhsachthucpham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.pndanhsachthucpham.Controls.Add(this.panel12);
-            this.pndanhsachthucpham.Location = new System.Drawing.Point(3, 3);
-            this.pndanhsachthucpham.Name = "pndanhsachthucpham";
-            this.pndanhsachthucpham.Size = new System.Drawing.Size(247, 73);
-            this.pndanhsachthucpham.TabIndex = 11;
+            this.hethongcontainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.hethongcontainer.Controls.Add(this.panel2);
+            this.hethongcontainer.Controls.Add(this.panel3);
+            this.hethongcontainer.Controls.Add(this.panel7);
+            this.hethongcontainer.Location = new System.Drawing.Point(3, 317);
+            this.hethongcontainer.Name = "hethongcontainer";
+            this.hethongcontainer.Size = new System.Drawing.Size(259, 68);
+            this.hethongcontainer.TabIndex = 9;
             // 
-            // panel12
+            // panel2
             // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.panel12.Controls.Add(this.pictureBox11);
-            this.panel12.Controls.Add(this.btndstp);
-            this.panel12.Location = new System.Drawing.Point(3, 3);
-            this.panel12.Name = "panel12";
-            this.panel12.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel12.Size = new System.Drawing.Size(344, 67);
-            this.panel12.TabIndex = 4;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Controls.Add(this.btnhethong);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(344, 67);
+            this.panel2.TabIndex = 4;
             // 
-            // pictureBox11
+            // pictureBox2
             // 
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(13, 6);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pictureBox11.Size = new System.Drawing.Size(34, 48);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 1;
-            this.pictureBox11.TabStop = false;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(17, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox2.Size = new System.Drawing.Size(38, 48);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
-            // btndstp
+            // btnhethong
             // 
-            this.btndstp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
-            this.btndstp.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btndstp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btndstp.Location = new System.Drawing.Point(-16, -18);
-            this.btndstp.Name = "btndstp";
-            this.btndstp.Size = new System.Drawing.Size(342, 99);
-            this.btndstp.TabIndex = 0;
-            this.btndstp.Text = "Danh sách thực phẩm";
-            this.btndstp.UseVisualStyleBackColor = false;
-            this.btndstp.Click += new System.EventHandler(this.btndstp_Click);
+            this.btnhethong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
+            this.btnhethong.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnhethong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnhethong.Location = new System.Drawing.Point(-45, -28);
+            this.btnhethong.Name = "btnhethong";
+            this.btnhethong.Size = new System.Drawing.Size(342, 124);
+            this.btnhethong.TabIndex = 0;
+            this.btnhethong.Text = "Hệ thống";
+            this.btnhethong.UseVisualStyleBackColor = false;
+            this.btnhethong.Click += new System.EventHandler(this.btnhethong_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.panel6);
+            this.panel3.Controls.Add(this.pictureBox6);
+            this.panel3.Controls.Add(this.button5);
+            this.panel3.Location = new System.Drawing.Point(3, 76);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel3.Size = new System.Drawing.Size(344, 67);
+            this.panel3.TabIndex = 7;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.panel4.Controls.Add(this.pictureBox3);
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Location = new System.Drawing.Point(1, 65);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel4.Size = new System.Drawing.Size(344, 67);
+            this.panel4.TabIndex = 8;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(21, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox3.Size = new System.Drawing.Size(28, 38);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(-45, -28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(418, 124);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Lịch sử ăn";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.panel5.Controls.Add(this.pictureBox4);
+            this.panel5.Controls.Add(this.btndangxuat);
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel5.Size = new System.Drawing.Size(344, 67);
+            this.panel5.TabIndex = 7;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(21, 1);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox4.Size = new System.Drawing.Size(28, 38);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 1;
+            this.pictureBox4.TabStop = false;
+            // 
+            // btndangxuat
+            // 
+            this.btndangxuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.btndangxuat.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btndangxuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btndangxuat.Location = new System.Drawing.Point(-44, -28);
+            this.btndangxuat.Name = "btndangxuat";
+            this.btndangxuat.Size = new System.Drawing.Size(342, 124);
+            this.btndangxuat.TabIndex = 0;
+            this.btndangxuat.Text = "Đăng xuất";
+            this.btndangxuat.UseVisualStyleBackColor = false;
+            this.btndangxuat.Click += new System.EventHandler(this.btndangxuat_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.panel6.Controls.Add(this.pictureBox5);
+            this.panel6.Controls.Add(this.button4);
+            this.panel6.Location = new System.Drawing.Point(1, -65);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel6.Size = new System.Drawing.Size(344, 67);
+            this.panel6.TabIndex = 6;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(17, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox5.Size = new System.Drawing.Size(38, 48);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 1;
+            this.pictureBox5.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(-45, -28);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(401, 124);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Quân số";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(21, 6);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox6.Size = new System.Drawing.Size(28, 38);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 1;
+            this.pictureBox6.TabStop = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(-45, -28);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(418, 124);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "Lịch sử ăn";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.panel7.Controls.Add(this.pictureBox7);
+            this.panel7.Controls.Add(this.btnthoat);
+            this.panel7.Location = new System.Drawing.Point(3, 149);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel7.Size = new System.Drawing.Size(342, 59);
+            this.panel7.TabIndex = 6;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(21, 1);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox7.Size = new System.Drawing.Size(28, 38);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 1;
+            this.pictureBox7.TabStop = false;
+            // 
+            // btnthoat
+            // 
+            this.btnthoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.btnthoat.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnthoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnthoat.Location = new System.Drawing.Point(-45, -23);
+            this.btnthoat.Name = "btnthoat";
+            this.btnthoat.Size = new System.Drawing.Size(343, 107);
+            this.btnthoat.TabIndex = 0;
+            this.btnthoat.Text = "Thoát";
+            this.btnthoat.UseVisualStyleBackColor = false;
+            this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
             // 
             // hethongtrasition
             // 
@@ -925,6 +933,50 @@
             this.baocaotransition.Interval = 5;
             this.baocaotransition.Tick += new System.EventHandler(this.baocaotransition_Tick);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.flowLayoutPanel1.Controls.Add(this.panel8);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 238);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(247, 73);
+            this.flowLayoutPanel1.TabIndex = 12;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.panel8.Controls.Add(this.pictureBox1);
+            this.panel8.Controls.Add(this.btntonghop);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel8.Size = new System.Drawing.Size(344, 67);
+            this.panel8.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(13, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(34, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btntonghop
+            // 
+            this.btntonghop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
+            this.btntonghop.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btntonghop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btntonghop.Location = new System.Drawing.Point(-16, -18);
+            this.btntonghop.Name = "btntonghop";
+            this.btntonghop.Size = new System.Drawing.Size(342, 99);
+            this.btntonghop.TabIndex = 0;
+            this.btntonghop.Text = "Tổng hợp quân số";
+            this.btntonghop.UseVisualStyleBackColor = false;
+            this.btntonghop.Click += new System.EventHandler(this.btntonghop_Click);
+            // 
             // frm_manhinh_nhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -943,19 +995,9 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHam)).EndInit();
             this.slidebar.ResumeLayout(false);
-            this.hethongcontainer.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.pndanhsachthucpham.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.thucdoncontainer.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
@@ -982,9 +1024,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             this.panel25.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
-            this.pndanhsachthucpham.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.hethongcontainer.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1060,6 +1115,10 @@
         private System.Windows.Forms.Timer slidebartransition;
         private System.Windows.Forms.Timer thucdontransition;
         private System.Windows.Forms.Timer baocaotransition;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btntonghop;
     }
 }
 

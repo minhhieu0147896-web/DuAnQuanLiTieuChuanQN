@@ -41,7 +41,8 @@ namespace DuAn.DAO
         public static DataTable ds_catcom_theongay(int donvi_id, DateTime ngay)
         {
             SqlConnection conn = DataProvider.Instance.GetConnection();
-            SqlDataAdapter da = new SqlDataAdapter("sp_ds_catcom_theongay", conn);
+            //    SqlDataAdapter da = new SqlDataAdapter("sp_ds_catcom_theongay", conn);
+            SqlDataAdapter da = new SqlDataAdapter("sp_chitiet_catcom", conn);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             da.SelectCommand.Parameters.AddWithValue("@donvi_id", donvi_id);

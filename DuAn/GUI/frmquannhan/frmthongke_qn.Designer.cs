@@ -646,6 +646,7 @@
             this.chartcot.Size = new System.Drawing.Size(565, 319);
             this.chartcot.TabIndex = 13;
             this.chartcot.Text = "chart1";
+            this.chartcot.Click += new System.EventHandler(this.chartcot_Click);
             // 
             // panel12
             // 
