@@ -4,7 +4,12 @@
       "Bash(\"c:\\program files\\microsoft visual studio\\2022\\community\\msbuild\\current\\bin\\msbuild.exe\" *)",
       "Bash(\"\"c:\\program)",
       "Bash(dotnet *)",
-      "Bash(sqlcmd *)"
+      "Bash(sqlcmd *)",
+      "Bash(del *)",
+      "Bash(msbuild *)",
+      "Bash(where *)",
+      "Bash(dir *)",
+      "Bash(\"c:\\program files (x86)\\microsoft visual studio\\installer\\vswhere.exe\" *)"
     ]
   },
   "$version": 4

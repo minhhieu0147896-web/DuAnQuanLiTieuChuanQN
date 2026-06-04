@@ -219,6 +219,20 @@
     <Compile Include="GUI\frmnhanvien\frmLapthucdon2.Designer.cs">
       <DependentUpon>frmLapthucdon2.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmnhanvien\MealEnums.cs" />
+    <Compile Include="GUI\frmnhanvien\SlotMetadata.cs" />
+    <Compile Include="GUI\frmnhanvien\UcMealCellSang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\UcMealCellSang.Designer.cs">
+      <DependentUpon>UcMealCellSang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\UcMealCellTruaToi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\UcMealCellTruaToi.Designer.cs">
+      <DependentUpon>UcMealCellTruaToi.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmnhanvien\frmquansoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +333,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmLapthucdon2.resx">
       <DependentUpon>frmLapthucdon2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmnhanvien\UcMealCellSang.resx">
+      <DependentUpon>UcMealCellSang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmnhanvien\UcMealCellTruaToi.resx">
+      <DependentUpon>UcMealCellTruaToi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmquansoan.resx">
       <DependentUpon>frmquansoan.cs</DependentUpon>

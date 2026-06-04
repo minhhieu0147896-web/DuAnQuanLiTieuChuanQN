@@ -103,3 +103,6 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe.config
 D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
 D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmquansoan.resources
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmquansoan.resources
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.UcMealCellSang.resources
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.UcMealCellTruaToi.resources

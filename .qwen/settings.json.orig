@@ -3,7 +3,12 @@
     "allow": [
       "Bash(\"c:\\program files\\microsoft visual studio\\2022\\community\\msbuild\\current\\bin\\msbuild.exe\" *)",
       "Bash(\"\"c:\\program)",
-      "Bash(dotnet *)"
+      "Bash(dotnet *)",
+      "Bash(sqlcmd *)",
+      "Bash(del *)",
+      "Bash(msbuild *)",
+      "Bash(where *)",
+      "Bash(dir *)"
     ]
   },
   "$version": 4
