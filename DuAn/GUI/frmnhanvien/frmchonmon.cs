@@ -3,6 +3,7 @@ using DuAn.DAO;
 using DuAn.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -17,8 +18,10 @@ namespace DuAn.GUI.frmnhanvien
         private readonly int _targetBuoiId;
         private readonly string _targetSlotKey;
         private readonly bool _hasDuplicateContext;
+        private readonly int _cheDoId;
 
         private DataGridView dgvMonAn;
+        private DataGridView dgvNguyenLieu;
         private DataGridViewTextBoxColumn colKhuyenNghi;
         private Label lblTitle;
         private Label lblEmpty;
@@ -56,6 +59,18 @@ namespace DuAn.GUI.frmnhanvien
             DateTime targetDate,
             int targetBuoiId,
             string targetSlotKey)
+            : this(loaiMon, ghiChu, currentWeekMeals, targetDate, targetBuoiId, targetSlotKey, 1)
+        {
+        }
+
+        public frmchonmon(
+            string loaiMon,
+            string ghiChu,
+            Dictionary<string, MonAnModel> currentWeekMeals,
+            DateTime targetDate,
+            int targetBuoiId,
+            string targetSlotKey,
+            int cheDoId)
         {
             _loaiMon = loaiMon;
             _ghiChu = ghiChu;
@@ -64,6 +79,7 @@ namespace DuAn.GUI.frmnhanvien
             _targetBuoiId = targetBuoiId;
             _targetSlotKey = targetSlotKey;
             _hasDuplicateContext = currentWeekMeals != null;
+            _cheDoId = cheDoId;
 
             BuildLayout();
             Load += frmchonmon_Load;
@@ -73,8 +89,8 @@ namespace DuAn.GUI.frmnhanvien
         {
             Text = "Chọn món";
             StartPosition = FormStartPosition.CenterParent;
-            Size = new Size(720, 520);
-            MinimumSize = new Size(620, 440);
+            Size = new Size(1000, 560);
+            MinimumSize = new Size(800, 480);
             BackColor = Color.White;
             Font = new Font("Segoe UI", 9F);
 
@@ -138,6 +154,69 @@ namespace DuAn.GUI.frmnhanvien
 
             dgvMonAn.CellFormatting += dgvMonAn_CellFormatting;
             dgvMonAn.CellDoubleClick += (s, e) => ChooseSelected();
+            dgvMonAn.SelectionChanged += dgvMonAn_SelectionChanged;
+
+            // SplitContainer to hold dgvMonAn on the left and dgvNguyenLieu on the right
+            SplitContainer splMain = new SplitContainer
+            {
+                Dock = DockStyle.Fill,
+                SplitterDistance = 580,
+                BorderStyle = BorderStyle.None
+            };
+
+            dgvMonAn.Dock = DockStyle.Fill;
+            splMain.Panel1.Controls.Add(dgvMonAn);
+
+            Panel pnlNguyenLieu = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(12, 0, 18, 0)
+            };
+            GroupBox grpNguyenLieu = new GroupBox
+            {
+                Text = "Nguyên liệu chế biến",
+                Dock = DockStyle.Fill,
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                Padding = new Padding(8, 12, 8, 8)
+            };
+            dgvNguyenLieu = new DataGridView
+            {
+                Dock = DockStyle.Fill,
+                AutoGenerateColumns = false,
+                AllowUserToAddRows = false,
+                AllowUserToDeleteRows = false,
+                AllowUserToResizeRows = false,
+                MultiSelect = false,
+                ReadOnly = true,
+                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
+                RowHeadersVisible = false,
+                BackgroundColor = Color.White,
+                BorderStyle = BorderStyle.None,
+                Font = new Font("Segoe UI", 9F, FontStyle.Regular)
+            };
+            dgvNguyenLieu.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "TenThucPham",
+                HeaderText = "Thực phẩm",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+            dgvNguyenLieu.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "TyLe",
+                HeaderText = "Định lượng (kg)",
+                Width = 110,
+                DefaultCellStyle = new DataGridViewCellStyle { Format = "N4" }
+            });
+            dgvNguyenLieu.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "DonViTinh",
+                HeaderText = "ĐVT",
+                Width = 55
+            });
+
+            grpNguyenLieu.Controls.Add(dgvNguyenLieu);
+            pnlNguyenLieu.Controls.Add(grpNguyenLieu);
+            splMain.Panel2.Controls.Add(pnlNguyenLieu);
 
             lblEmpty = new Label
             {
@@ -173,10 +252,30 @@ namespace DuAn.GUI.frmnhanvien
             footer.Controls.Add(btnChon);
             footer.Controls.Add(btnHuy);
 
-            Controls.Add(dgvMonAn);
+            Controls.Add(splMain);
             Controls.Add(lblEmpty);
             Controls.Add(footer);
             Controls.Add(header);
+        }
+
+        private void dgvMonAn_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvMonAn.CurrentRow != null && dgvMonAn.CurrentRow.DataBoundItem is MonAnModel mon)
+            {
+                try
+                {
+                    DataTable dt = B_MonAn.LayDanhSachNguyenLieu(mon.MonAnId, _cheDoId);
+                    dgvNguyenLieu.DataSource = dt;
+                }
+                catch (Exception)
+                {
+                    dgvNguyenLieu.DataSource = null;
+                }
+            }
+            else
+            {
+                dgvNguyenLieu.DataSource = null;
+            }
         }
 
         private void frmchonmon_Load(object sender, EventArgs e)

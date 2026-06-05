@@ -31,6 +31,9 @@ E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmbaocao
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmdsthucpham.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmHuongDanLapThucDon.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmLapthucdon2.resources
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.UcMealCellSang.resources
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.UcMealCellTruaToi.resources
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmquansoan.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmThemMonAn.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmtinhtpcansudung.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmtrangchu_nv.resources
@@ -46,63 +49,3 @@ E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.Up2Date
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
-E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmthongke_cb.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmLapthucdon2.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmtrangchu_nv.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmthongke_qn.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\EPPlus.dll
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\EPPlus.Interfaces.dll
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Buffers.dll
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.ComponentModel.Annotations.dll
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Memory.dll
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Numerics.Vectors.dll
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Security.Cryptography.Xml.dll
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\EPPlus.xml
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Buffers.xml
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Memory.xml
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Numerics.Vectors.xml
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Security.Cryptography.Xml.xml
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.Up2Date
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmtracuudlvathucdon.resources
-=======
->>>>>>> Stashed changes
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmThemMonAn.resources
->>>>>>> 770cd75a3650feffa7c302b0b251d554e02d025b
->>>>>>> parent of 76197a2 (bqs)
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.AssemblyReference.cache
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmbqs.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmdsqn.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmLSQS.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmtrangchu.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frm_manhinh_canbodonvi.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmlogin.frmmhlogin.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmlogin.frmtracuuquannhan.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmbaocaoquanso.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmbaocaothucpham.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmdsthucpham.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmHuongDanLapThucDon.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmtinhtpcansudung.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frm_manhinh_nhanvien.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmlichsucatcom.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frmtrangchu.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmquannhan.frm_manhinh_quannhan.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.Properties.Resources.resources
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.GenerateResource.cache
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.cache
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe.config
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
-D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
-D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmquansoan.resources
-E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmquansoan.resources
-E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.UcMealCellSang.resources
-E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.UcMealCellTruaToi.resources
