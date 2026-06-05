@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -64,11 +65,28 @@ namespace DuAn.GUI.frmnhanvien
         {
             InitializeComponent();
 
+            // === CHỐNG FLICKER: DoubleBuffered cho form + container nặng ===
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.DoubleBuffer |
+                          ControlStyles.OptimizedDoubleBuffer |
+                          ControlStyles.AllPaintingInWmPaint, true);
+
             // Khởi tạo mảng tham chiếu nhanh đến các control trong lưới
             InitGridReferenceArrays();
 
             Load += frmLapthucdon2_Load;
             FormClosing += frmLapthucdon2_FormClosing;
+        }
+
+        /// <summary>
+        /// Bật DoubleBuffered cho control qua reflection
+        /// (dùng cho TableLayoutPanel, Panel, SplitContainer... không có sẵn property này)
+        /// </summary>
+        private static void SetDoubleBuffered(Control control)
+        {
+            PropertyInfo prop = typeof(Control).GetProperty("DoubleBuffered",
+                BindingFlags.Instance | BindingFlags.NonPublic);
+            prop?.SetValue(control, true, null);
         }
 
         /// <summary>
@@ -94,19 +112,35 @@ namespace DuAn.GUI.frmnhanvien
             };
         }
 
+        /// <summary>
+        /// Sự kiện Load — chạy MỘT LẦN khi form được mở lần đầu.
+        /// Trình tự: chống flicker → gán sự kiện → chỉnh giao diện → load DB → hiển thị.
+        /// </summary>
         private void frmLapthucdon2_Load(object sender, EventArgs e)
         {
             if (_isInitialized) return;
             _isInitialized = true;
 
+            // === CHỐNG FLICKER: tạm dừng vẽ, làm xong mới vẽ 1 lần ===
+            this.SuspendLayout();
+
+            // Bật DoubleBuffered cho các container nặng
+            SetDoubleBuffered(weekGrid);
+            SetDoubleBuffered(splBody);
+            SetDoubleBuffered(pnlChooser);
+            SetDoubleBuffered(flpToolbar);
+
             WireEvents();
             SetupFormAppearance();
             LoadReferenceData();
             LoadWeek();
+
+            this.ResumeLayout(true);
         }
 
         /// <summary>
-        /// Gán sự kiện cho các control tương tác.
+        /// Gán tất cả sự kiện Click / ValueChanged cho các nút và control.
+        /// Tách riêng ra để code Load không bị rối.
         /// </summary>
         private void WireEvents()
         {
@@ -177,8 +211,14 @@ namespace DuAn.GUI.frmnhanvien
 
         // ============================================================
         // LOAD DỮ LIỆU THAM CHIẾU (CHẾ ĐỘ, BUỔI ĂN)
+        // Chạy 1 lần khi form load. Dữ liệu này không thay đổi trong phiên làm việc.
         // ============================================================
 
+        /// <summary>
+        /// Load danh sách buổi ăn (Sáng/Trưa/Tối) và danh sách chế độ (Học viên/Sĩ quan/...)
+        /// từ database. Đổ vào _buoiAns và cboCheDo.
+        /// Cờ _isLoadingReferenceData ngăn LoadWeek chạy khi đang đổ dữ liệu vào ComboBox.
+        /// </summary>
         private void LoadReferenceData()
         {
             _isLoadingReferenceData = true;
@@ -205,8 +245,15 @@ namespace DuAn.GUI.frmnhanvien
 
         // ============================================================
         // LOAD TUẦN — TRÁI TIM CỦA FORM
+        // Hàm này được gọi mỗi khi người dùng đổi tuần hoặc đổi chế độ.
+        // Luồng: kiểm tra bộ đệm → nếu có thì dùng, không thì query DB →
+        //        gán metadata cho Button → tự động điền sữa → vẽ lại → cập nhật trạng thái.
         // ============================================================
 
+        /// <summary>
+        /// Load toàn bộ dữ liệu của 1 tuần (7 ngày × 3 buổi).
+        /// Ưu tiên lấy từ bộ đệm _weeklyBuffers để tránh query lại DB.
+        /// </summary>
         private void LoadWeek()
         {
             if (!_isInitialized || cboCheDo.SelectedValue == null || _buoiAns.Count == 0)
@@ -377,6 +424,10 @@ namespace DuAn.GUI.frmnhanvien
             return 1; // Canh, Rau, Tráng miệng: mỗi loại 1 slot
         }
 
+        /// <summary>
+        /// Tìm đối tượng BuoiAnModel tương ứng với MealKind (Sáng/Trưa/Tối).
+        /// Dò theo từ khóa trong tên buổi, nếu không thấy thì lấy theo index.
+        /// </summary>
         private BuoiAnModel FindBuoiAn(MealKind meal)
         {
             string keyword = GetMealKeyword(meal);
@@ -387,6 +438,9 @@ namespace DuAn.GUI.frmnhanvien
             return _buoiAns[Math.Min(index, _buoiAns.Count - 1)];
         }
 
+        /// <summary>
+        /// Lấy ID của chế độ đang chọn trong ComboBox. Mặc định = 1 (học viên).
+        /// </summary>
         private int GetSelectedCheDoId()
         {
             if (cboCheDo.SelectedValue is int value) return value;
@@ -394,6 +448,11 @@ namespace DuAn.GUI.frmnhanvien
             return Convert.ToInt32(cboCheDo.SelectedValue);
         }
 
+        /// <summary>
+        /// Kiểm tra chế độ hiện tại có phải "Học viên" không.
+        /// Học viên có thêm slot Sữa hộp vào buổi sáng.
+        /// Kiểm tra theo ID = 1 hoặc theo tên chứa "hoc vien".
+        /// </summary>
         private bool IsHocVienSelected()
         {
             if (GetSelectedCheDoId() == 1) return true;
@@ -407,8 +466,14 @@ namespace DuAn.GUI.frmnhanvien
 
         // ============================================================
         // LOAD DỮ LIỆU MÓN ĂN TỪ DATABASE
+        // Duyệt 7 ngày × từng buổi × từng loại món, query DB và đổ vào _selectedMeals.
         // ============================================================
 
+        /// <summary>
+        /// Query database lấy tất cả món ăn đã lưu cho 1 tuần.
+        /// Tham số out status: trả về trạng thái của tuần (NhapLieu/ChoDuyet/DaDuyet).
+        /// Kết quả lưu vào _selectedMeals (Dictionary key → MonAnModel).
+        /// </summary>
         private void LoadExistingMealsFromDatabase(DateTime weekStart, out string status)
         {
             status = "NhapLieu";
@@ -454,9 +519,14 @@ namespace DuAn.GUI.frmnhanvien
         }
 
         // ============================================================
-        // SỰ KIỆN CLICK VÀO SLOT
+        // SỰ KIỆN CLICK VÀO SLOT — MỞ FORM CHỌN MÓN
         // ============================================================
 
+        /// <summary>
+        /// Khi người dùng click vào 1 ô món (Button slot) trong lưới.
+        /// Lấy metadata từ Tag → kiểm tra quyền sửa → tô viền slot được chọn →
+        /// mở form frmchonmon để chọn món.
+        /// </summary>
         private void Slot_Click(object sender, EventArgs e)
         {
             Button clickedBtn = sender as Button;
@@ -490,6 +560,11 @@ namespace DuAn.GUI.frmnhanvien
             OpenChooseDishForm(meta);
         }
 
+        /// <summary>
+        /// Mở form frmchonmon để người dùng chọn món cho 1 slot.
+        /// Truyền loại món + ghi chú (SANG nếu là món mặn buổi sáng) để form lọc.
+        /// Nếu chọn OK: kiểm tra đúng loại → lưu vào _selectedMeals + bộ đệm → vẽ lại.
+        /// </summary>
         private void OpenChooseDishForm(SlotMetadata meta)
         {
             string loaiMon = GetCategoryTitle(meta.Category);
@@ -524,6 +599,11 @@ namespace DuAn.GUI.frmnhanvien
             }
         }
 
+        /// <summary>
+        /// Nếu tuần đang ở trạng thái "Chờ duyệt" hoặc "Đã duyệt",
+        /// tự động chuyển về "Nhập liệu" khi người dùng bắt đầu sửa.
+        /// Đảm bảo dữ liệu đã duyệt không bị sửa âm thầm.
+        /// </summary>
         private void RevertToNhapLieuIfNeeded()
         {
             if (WeeklyMenuStateManager.ShouldAutoRevert(_currentWeekStatus))
@@ -539,9 +619,14 @@ namespace DuAn.GUI.frmnhanvien
         }
 
         // ============================================================
-        // KHÓA / MỞ KHÓA CHỈNH SỬA
+        // KHÓA / MỞ KHÓA CHỈNH SỬA THEO TRẠNG THÁI
         // ============================================================
 
+        /// <summary>
+        /// Dựa vào _currentWeekStatus để khóa hoặc mở khóa toàn bộ control.
+        /// "Đã duyệt" → khóa hết (chỉ xem). Còn lại → mở khóa (cho sửa).
+        /// Gọi WeeklyMenuStateManager để xử lý tập trung.
+        /// </summary>
         private void ApplyEditPermissions()
         {
             if (WeeklyMenuStateManager.IsEditable(_currentWeekStatus))
@@ -557,9 +642,13 @@ namespace DuAn.GUI.frmnhanvien
         }
 
         // ============================================================
-        // NÚT: XÓA MÓN KHỎI Ô
+        // NÚT: XÓA MÓN KHỎI Ô ĐANG CHỌN
         // ============================================================
 
+        /// <summary>
+        /// Xóa món khỏi _activeSlot (slot đang được chọn).
+        /// Nếu đang "Chờ duyệt" → tự động revert về "Nhập liệu" trước khi xóa.
+        /// </summary>
         private void btnBo_Click(object sender, EventArgs e)
         {
             if (_activeSlot == null) return;
@@ -581,9 +670,13 @@ namespace DuAn.GUI.frmnhanvien
         }
 
         // ============================================================
-        // NÚT: TẢI LẠI TỪ DATABASE
+        // NÚT: TẢI LẠI TỪ DATABASE (Reload)
         // ============================================================
 
+        /// <summary>
+        /// Xóa bộ đệm của tuần hiện tại, load lại từ database.
+        /// Dùng khi người dùng muốn hủy thay đổi chưa lưu.
+        /// </summary>
         private void btnhienthi_Click(object sender, EventArgs e)
         {
             DateTime start = GetWeekStart(dtpWeek.Value);
@@ -595,9 +688,13 @@ namespace DuAn.GUI.frmnhanvien
         }
 
         // ============================================================
-        // NÚT: ĐIỀN TỪ MẪU
+        // NÚT: ĐIỀN TỪ MẪU — áp dụng thực đơn mẫu có sẵn vào tuần hiện tại
         // ============================================================
 
+        /// <summary>
+        /// Mở form chọn thực đơn mẫu → nếu chọn OK thì thay thế toàn bộ _selectedMeals
+        /// bằng dữ liệu từ mẫu. Có xác nhận ghi đè nếu tuần đã có món.
+        /// </summary>
         private void btnDienTuMau_Click(object sender, EventArgs e)
         {
             if (_slots.Count == 0)
@@ -651,9 +748,14 @@ namespace DuAn.GUI.frmnhanvien
         }
 
         // ============================================================
-        // NÚT: LƯU THỰC ĐƠN TUẦN
+        // NÚT: LƯU THỰC ĐƠN TUẦN — ghi toàn bộ xuống database
         // ============================================================
 
+        /// <summary>
+        /// Kiểm tra thiếu món → xác nhận → xóa dữ liệu cũ của tuần trong DB →
+        /// INSERT từng món đã chọn → cập nhật trạng thái "ChoDuyet" →
+        /// xóa bộ đệm → load lại.
+        /// </summary>
         private void btnluu_Click(object sender, EventArgs e)
         {
             string validationError = ValidateWeek();
@@ -756,6 +858,11 @@ namespace DuAn.GUI.frmnhanvien
                 selected, total, statusText, breakfastRule, nutritionWarning);
         }
 
+        /// <summary>
+        /// Kiểm tra tất cả slot trong _slots: nếu slot nào chưa có món trong _selectedMeals
+        /// thì báo lỗi "Còn thiếu món: [ngày] - [buổi] - [loại] [số]".
+        /// Trả về null nếu đầy đủ.
+        /// </summary>
         private string ValidateWeek()
         {
             foreach (Button slot in _slots.Values.OrderBy(s =>
@@ -782,9 +889,13 @@ namespace DuAn.GUI.frmnhanvien
         }
 
         // ============================================================
-        // TỰ ĐỘNG ĐIỀN SỮA (CHẾ ĐỘ HỌC VIÊN)
+        // TỰ ĐỘNG ĐIỀN SỮA HỘP CHO CHẾ ĐỘ HỌC VIÊN
         // ============================================================
 
+        /// <summary>
+        /// Nếu chế độ là Học viên, tự động gán món "Sữa hộp" vào tất cả slot Sữa.
+        /// Sữa là món mặc định, không cần người dùng chọn.
+        /// </summary>
         private void ApplyAutomaticMilkSlots()
         {
             if (!IsHocVienSelected()) return;
@@ -799,9 +910,12 @@ namespace DuAn.GUI.frmnhanvien
         }
 
         // ============================================================
-        // TÍNH TOÁN DINH DƯỠNG
+        // TÍNH TOÁN DINH DƯỠNG & PROGRESS BAR
         // ============================================================
 
+        /// <summary>
+        /// Tính tổng Đạm, Chất xơ, Chất béo từ tất cả món đã chọn trong _selectedMeals.
+        /// </summary>
         private NutritionTargetModel SumSelectedNutrition()
         {
             return new NutritionTargetModel
@@ -812,12 +926,18 @@ namespace DuAn.GUI.frmnhanvien
             };
         }
 
+        /// <summary>
+        /// Tính phần trăm current/target. Trả về 0 nếu target <= 0 (tránh chia 0).
+        /// </summary>
         private static double GetPercent(double current, double target)
         {
             if (target <= 0) return 0;
             return current * 100.0 / target;
         }
 
+        /// <summary>
+        /// Đặt ProgressBar về chế độ Continuous, min=0, max=100, value=0.
+        /// </summary>
         private static void ConfigureProgressBar(ProgressBar pb)
         {
             pb.Minimum = 0;
@@ -826,6 +946,10 @@ namespace DuAn.GUI.frmnhanvien
             pb.Style = ProgressBarStyle.Continuous;
         }
 
+        /// <summary>
+        /// Cập nhật 1 thanh ProgressBar + Label: set giá trị %, đổi màu đỏ nếu vượt 100%.
+        /// Dùng Win32 API PBM_SETSTATE để chuyển màu thanh (xanh → đỏ).
+        /// </summary>
         private static void UpdateNutritionProgress(ProgressBar pb, Label lbl, string title,
             double current, double target, double percent)
         {
@@ -842,6 +966,11 @@ namespace DuAn.GUI.frmnhanvien
                     new IntPtr(overLimit ? PBST_ERROR : PBST_NORMAL), IntPtr.Zero);
         }
 
+        /// <summary>
+        /// Tạo chuỗi cảnh báo nếu chất nào vượt 100% tiêu chuẩn tuần.
+        /// VD: "Cảnh báo: thừa đạm, thừa chất béo."
+        /// Nếu không vượt → "Dinh dưỡng: chưa vượt chuẩn tuần."
+        /// </summary>
         private static string BuildNutritionWarning(double dam, double xo, double beo)
         {
             List<string> warnings = new List<string>();
@@ -855,24 +984,41 @@ namespace DuAn.GUI.frmnhanvien
 
         // ============================================================
         // HÀM TIỆN ÍCH: NGÀY THÁNG, KEY, HIỂN THỊ
+        // Tất cả đều là static vì không dùng biến instance.
         // ============================================================
 
+        /// <summary>
+        /// Tính ngày thứ 2 của tuần chứa 'value'.
+        /// VD: 04/06/2026 (thứ 5) → 01/06/2026 (thứ 2).
+        /// </summary>
         private static DateTime GetWeekStart(DateTime value)
         {
             int diff = ((int)value.DayOfWeek + 6) % 7;
             return value.Date.AddDays(-diff);
         }
 
+        /// <summary>
+        /// Sinh mã số duy nhất cho 1 tuần: yyyyMMdd từ ngày thứ 2.
+        /// VD: 01/06/2026 → 20260601.
+        /// </summary>
         private static int GetWeekKey(DateTime weekStart)
         {
             return weekStart.Year * 10000 + weekStart.Month * 100 + weekStart.Day;
         }
 
+        /// <summary>
+        /// Tạo key cho 1 slot: "yyyyMMdd-buoiAnId-category-index".
+        /// Key này là khóa chính trong Dictionary _slots và _selectedMeals.
+        /// </summary>
         private static string BuildKey(DateTime date, int buoiAnId, DishCategory category, int index)
         {
             return string.Format("{0:yyyyMMdd}-{1}-{2}-{3}", date, buoiAnId, category, index);
         }
 
+        /// <summary>
+        /// Tạo text cho tiêu đề cột ngày: "Thứ 2\n02/06".
+        /// Dòng 1: tên thứ, dòng 2: ngày/tháng.
+        /// </summary>
         private static string GetDayTitle(DateTime date)
         {
             string[] names = { "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "CN" };
@@ -880,6 +1026,10 @@ namespace DuAn.GUI.frmnhanvien
             return string.Format("{0}\n{1:dd/MM}", names[index], date);
         }
 
+        /// <summary>
+        /// Từ khóa tìm buổi trong DB: Sáng→"sang", Trưa→"trua", Tối→"chieu".
+        /// Dùng để dò tên buổi trong FindBuoiAn.
+        /// </summary>
         private static string GetMealKeyword(MealKind meal)
         {
             if (meal == MealKind.Sang) return "sang";
@@ -887,6 +1037,9 @@ namespace DuAn.GUI.frmnhanvien
             return "chieu";
         }
 
+        /// <summary>
+        /// Tên hiển thị tiếng Việt của loại món.
+        /// </summary>
         private static string GetCategoryTitle(DishCategory category)
         {
             if (category == DishCategory.Canh) return "Canh";
@@ -896,11 +1049,18 @@ namespace DuAn.GUI.frmnhanvien
             return "Mặn";
         }
 
+        /// <summary>
+        /// Text placeholder khi slot chưa có món: "+ Mặn 1", "+ Canh 1"...
+        /// </summary>
         private static string GetSlotPlaceholder(DishCategory category, int index)
         {
             return string.Format("+ {0} {1}", GetCategoryTitle(category), index + 1);
         }
 
+        /// <summary>
+        /// Màu nền mặc định cho từng loại món (khi slot chưa có món được chọn).
+        /// Mặn=vàng nhạt, Canh=xanh nhạt, Rau=xanh lá, Tráng miệng=hồng, Sữa=trắng.
+        /// </summary>
         private static Color GetCategoryColor(DishCategory category)
         {
             if (category == DishCategory.Canh) return Color.FromArgb(220, 239, 255);
@@ -914,6 +1074,11 @@ namespace DuAn.GUI.frmnhanvien
         // HÀM TIỆN ÍCH: PHÂN LOẠI MÓN, CHUẨN HÓA VĂN BẢN
         // ============================================================
 
+        /// <summary>
+        /// Phân loại món dựa vào tên loại (text từ DB).
+        /// Dò từ khóa: "sữa"/"milk"→SuaHop, "tráng miệng"/"trái cây"→TrangMieng,
+        /// "canh"/"súp"→Canh, "rau"/"xào"/"luộc"→Rau, còn lại→Mặn.
+        /// </summary>
         private static DishCategory ClassifyDishType(string value)
         {
             string normalized = NormalizeText(value);
@@ -933,6 +1098,11 @@ namespace DuAn.GUI.frmnhanvien
             return DishCategory.Man;
         }
 
+        /// <summary>
+        /// Chuẩn hóa văn bản tiếng Việt: bỏ dấu, lowercase, bỏ khoảng trắng thừa.
+        /// Dùng NormalizationForm.FormD để tách dấu khỏi ký tự gốc, rồi lọc bỏ dấu.
+        /// VD: "Canh Chua" → "canh chua"
+        /// </summary>
         private static string NormalizeText(string value)
         {
             if (string.IsNullOrWhiteSpace(value)) return string.Empty;
@@ -954,6 +1124,9 @@ namespace DuAn.GUI.frmnhanvien
         // NÚT ĐIỀU HƯỚNG
         // ============================================================
 
+        /// <summary>
+        /// Nút Quay lại: ẩn form này, hiển thị menu chính frm_manhinh_nhanvien.
+        /// </summary>
         private void btnExit_Click(object sender, EventArgs e)
         {
             Hide();
@@ -971,12 +1144,19 @@ namespace DuAn.GUI.frmnhanvien
             }
         }
 
+        /// <summary>
+        /// Nút Hướng dẫn: mở form hướng dẫn lập thực đơn (frmHuongDanLapThucDon).
+        /// </summary>
         private void btnHD_Click(object sender, EventArgs e)
         {
             frmHuongDanLapThucDon frm = new frmHuongDanLapThucDon();
             frm.ShowDialog();
         }
 
+        /// <summary>
+        /// Sự kiện đóng form: hỏi xác nhận "Bạn có chắc chắn muốn thoát không?"
+        /// trước khi cho phép đóng form.
+        /// </summary>
         private void frmLapthucdon2_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
