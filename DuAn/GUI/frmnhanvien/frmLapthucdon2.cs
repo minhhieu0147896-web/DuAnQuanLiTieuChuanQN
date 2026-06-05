@@ -41,8 +41,6 @@ namespace DuAn.GUI.frmnhanvien
         // Ô đang được chọn (active slot) — giờ là Button thay vì SlotButton
         private Button _activeSlot;
         private bool _isLoadingReferenceData;
-        private GroupBox grpSlotIngredients;
-        private DataGridView dgvSlotIngredients;
         private bool _isInitialized;
         private string _currentWeekStatus = "NhapLieu";
 
@@ -209,59 +207,6 @@ namespace DuAn.GUI.frmnhanvien
             ConfigureProgressBar(prgDam);
             ConfigureProgressBar(prgChatXo);
             ConfigureProgressBar(prgChatBeo);
-
-            // Điều chỉnh kích thước form và Splitter
-            this.Size = new Size(1180, 720);
-            this.MinimumSize = new Size(1000, 600);
-            splBody.SplitterDistance = 820;
-
-            // Khởi tạo bảng nguyên liệu hiển thị ở sidebar
-            grpSlotIngredients = new GroupBox
-            {
-                Text = "Thực phẩm sử dụng",
-                Dock = DockStyle.Bottom,
-                Height = 150,
-                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
-                Padding = new Padding(8, 12, 8, 8)
-            };
-            dgvSlotIngredients = new DataGridView
-            {
-                Dock = DockStyle.Fill,
-                AutoGenerateColumns = false,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                AllowUserToResizeRows = false,
-                MultiSelect = false,
-                ReadOnly = true,
-                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-                RowHeadersVisible = false,
-                BackgroundColor = Color.White,
-                BorderStyle = BorderStyle.None,
-                Font = new Font("Segoe UI", 8.5F, FontStyle.Regular)
-            };
-            dgvSlotIngredients.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "TenThucPham",
-                HeaderText = "Thực phẩm",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            });
-            dgvSlotIngredients.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "TyLe",
-                HeaderText = "Định lượng (kg)",
-                Width = 100,
-                DefaultCellStyle = new DataGridViewCellStyle { Format = "N4" }
-            });
-            dgvSlotIngredients.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "DonViTinh",
-                HeaderText = "ĐVT",
-                Width = 40
-            });
-
-            grpSlotIngredients.Controls.Add(dgvSlotIngredients);
-            pnlChooser.Controls.Add(grpSlotIngredients);
-            grpSlotIngredients.SendToBack(); // Đảm bảo dock bottom đúng thứ tự
         }
 
         // ============================================================
@@ -626,7 +571,7 @@ namespace DuAn.GUI.frmnhanvien
             string ghiChu = meta.Meal == MealKind.Sang && meta.Category == DishCategory.Man ? "SANG" : null;
 
             using (frmchonmon frm = new frmchonmon(
-                loaiMon, ghiChu, _selectedMeals, meta.Date, meta.BuoiAn.BuoiAnId, meta.Key, GetSelectedCheDoId()))
+                loaiMon, ghiChu, _selectedMeals, meta.Date, meta.BuoiAn.BuoiAnId, meta.Key))
             {
                 DialogResult result = frm.ShowDialog(this);
                 if (result != DialogResult.OK || frm.MonDaChon == null) return;
@@ -911,39 +856,6 @@ namespace DuAn.GUI.frmnhanvien
             lblStatus.Text = string.Format(
                 "Đã chọn {0}/{1} ô.\nTrạng thái: {2}\n\nRàng buộc:\n{3}\nTrưa/tối: 4 món mặn, 1 canh, 1 rau, 1 tráng miệng.\n\n{4}",
                 selected, total, statusText, breakfastRule, nutritionWarning);
-
-            // Cập nhật nguyên liệu ở sidebar cho ô hiện tại
-            if (_activeSlot != null && _activeSlot.Tag is SlotMetadata activeMeta)
-            {
-                UpdateSidebarIngredients(activeMeta);
-            }
-            else
-            {
-                UpdateSidebarIngredients(null);
-            }
-        }
-
-        private void UpdateSidebarIngredients(SlotMetadata meta)
-        {
-            if (meta != null && _selectedMeals.TryGetValue(meta.Key, out MonAnModel dish))
-            {
-                try
-                {
-                    DataTable dt = B_MonAn.LayDanhSachNguyenLieu(dish.MonAnId, GetSelectedCheDoId());
-                    dgvSlotIngredients.DataSource = dt;
-                    grpSlotIngredients.Text = "Thực phẩm: " + dish.TenMon;
-                }
-                catch (Exception)
-                {
-                    dgvSlotIngredients.DataSource = null;
-                    grpSlotIngredients.Text = "Thực phẩm sử dụng";
-                }
-            }
-            else
-            {
-                dgvSlotIngredients.DataSource = null;
-                grpSlotIngredients.Text = "Chưa chọn món";
-            }
         }
 
         /// <summary>

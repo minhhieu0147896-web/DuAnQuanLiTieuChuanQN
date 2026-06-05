@@ -1,7 +1,6 @@
-using DuAn.DTO;
+﻿using DuAn.DTO;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
@@ -266,34 +265,6 @@ WHERE chedo_id = @cheDoId";
                 return dbCompact.Contains("suahop") || db.Contains("sua") || db.Contains("milk");
 
             return false;
-        }
-
-        public DataTable GetIngredients(int monAnId, int cheDoId)
-        {
-            string query = @"
-                SELECT tp.thucpham_ten AS TenThucPham, 
-                       ct.ty_le AS TyLe, 
-                       tp.thucpham_donvitinh AS DonViTinh,
-                       tp.thucpham_kcal AS Kcal
-                FROM Chi_tiet_mon_an ct
-                INNER JOIN Thuc_pham tp ON ct.thucpham_id = tp.thucpham_id
-                WHERE ct.monan_id = @MonAnId AND ct.chedo_id = @CheDoId";
-
-            using (SqlConnection conn = DataProvider.Instance.GetConnection())
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@MonAnId", monAnId);
-                    cmd.Parameters.AddWithValue("@CheDoId", cheDoId);
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    return dt;
-                }
-            }
         }
 
         private static string NormalizeText(string value)
