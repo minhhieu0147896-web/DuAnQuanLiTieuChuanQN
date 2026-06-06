@@ -50,6 +50,14 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.button7 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.btntracuu = new System.Windows.Forms.Button();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.button9 = new System.Windows.Forms.Button();
             this.hethongcontainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -71,14 +79,6 @@
             this.btnthoat = new System.Windows.Forms.Button();
             this.hethongtrasition = new System.Windows.Forms.Timer(this.components);
             this.slidebartransition = new System.Windows.Forms.Timer(this.components);
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.btntracuu = new System.Windows.Forms.Button();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.button9 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHam)).BeginInit();
             this.slidebar.SuspendLayout();
@@ -94,6 +94,12 @@
             this.flowLayoutPanel3.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.flowLayoutPanel4.SuspendLayout();
+            this.panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            this.flowLayoutPanel5.SuspendLayout();
+            this.panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.hethongcontainer.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -107,12 +113,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.flowLayoutPanel4.SuspendLayout();
-            this.panel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            this.flowLayoutPanel5.SuspendLayout();
-            this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -336,6 +336,94 @@
             this.button7.TabIndex = 0;
             this.button7.Text = "Lịch sử cắt cơm";
             this.button7.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.flowLayoutPanel4.Controls.Add(this.panel17);
+            this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel5);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 161);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(247, 73);
+            this.flowLayoutPanel4.TabIndex = 14;
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.panel17.Controls.Add(this.pictureBox16);
+            this.panel17.Controls.Add(this.btntracuu);
+            this.panel17.Location = new System.Drawing.Point(3, 3);
+            this.panel17.Name = "panel17";
+            this.panel17.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel17.Size = new System.Drawing.Size(344, 67);
+            this.panel17.TabIndex = 4;
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
+            this.pictureBox16.Location = new System.Drawing.Point(17, 0);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox16.Size = new System.Drawing.Size(38, 52);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox16.TabIndex = 1;
+            this.pictureBox16.TabStop = false;
+            // 
+            // btntracuu
+            // 
+            this.btntracuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
+            this.btntracuu.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btntracuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btntracuu.Location = new System.Drawing.Point(-20, -10);
+            this.btntracuu.Name = "btntracuu";
+            this.btntracuu.Size = new System.Drawing.Size(288, 93);
+            this.btntracuu.TabIndex = 10;
+            this.btntracuu.Text = "Tra cứu";
+            this.btntracuu.UseVisualStyleBackColor = false;
+            this.btntracuu.Click += new System.EventHandler(this.btntracuu_Click);
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.flowLayoutPanel5.Controls.Add(this.panel18);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 76);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(247, 73);
+            this.flowLayoutPanel5.TabIndex = 9;
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.panel18.Controls.Add(this.pictureBox17);
+            this.panel18.Controls.Add(this.button9);
+            this.panel18.Location = new System.Drawing.Point(3, 3);
+            this.panel18.Name = "panel18";
+            this.panel18.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel18.Size = new System.Drawing.Size(344, 67);
+            this.panel18.TabIndex = 4;
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
+            this.pictureBox17.Location = new System.Drawing.Point(17, 0);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox17.Size = new System.Drawing.Size(38, 48);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox17.TabIndex = 1;
+            this.pictureBox17.TabStop = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
+            this.button9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button9.Location = new System.Drawing.Point(-45, -18);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(342, 99);
+            this.button9.TabIndex = 0;
+            this.button9.Text = "Lịch sử cắt cơm";
+            this.button9.UseVisualStyleBackColor = false;
             // 
             // hethongcontainer
             // 
@@ -571,94 +659,6 @@
             this.slidebartransition.Interval = 5;
             this.slidebartransition.Tick += new System.EventHandler(this.slidebarstransition_Tick);
             // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.flowLayoutPanel4.Controls.Add(this.panel17);
-            this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel5);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 161);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(247, 73);
-            this.flowLayoutPanel4.TabIndex = 14;
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.panel17.Controls.Add(this.pictureBox16);
-            this.panel17.Controls.Add(this.btntracuu);
-            this.panel17.Location = new System.Drawing.Point(3, 3);
-            this.panel17.Name = "panel17";
-            this.panel17.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel17.Size = new System.Drawing.Size(344, 67);
-            this.panel17.TabIndex = 4;
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
-            this.pictureBox16.Location = new System.Drawing.Point(17, 0);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pictureBox16.Size = new System.Drawing.Size(38, 52);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox16.TabIndex = 1;
-            this.pictureBox16.TabStop = false;
-            // 
-            // btntracuu
-            // 
-            this.btntracuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
-            this.btntracuu.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btntracuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btntracuu.Location = new System.Drawing.Point(-20, -10);
-            this.btntracuu.Name = "btntracuu";
-            this.btntracuu.Size = new System.Drawing.Size(288, 93);
-            this.btntracuu.TabIndex = 10;
-            this.btntracuu.Text = "Tra cứu";
-            this.btntracuu.UseVisualStyleBackColor = false;
-            this.btntracuu.Click += new System.EventHandler(this.btntracuu_Click);
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.flowLayoutPanel5.Controls.Add(this.panel18);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 76);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(247, 73);
-            this.flowLayoutPanel5.TabIndex = 9;
-            // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.panel18.Controls.Add(this.pictureBox17);
-            this.panel18.Controls.Add(this.button9);
-            this.panel18.Location = new System.Drawing.Point(3, 3);
-            this.panel18.Name = "panel18";
-            this.panel18.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel18.Size = new System.Drawing.Size(344, 67);
-            this.panel18.TabIndex = 4;
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
-            this.pictureBox17.Location = new System.Drawing.Point(17, 0);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pictureBox17.Size = new System.Drawing.Size(38, 48);
-            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox17.TabIndex = 1;
-            this.pictureBox17.TabStop = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
-            this.button9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(-45, -18);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(342, 99);
-            this.button9.TabIndex = 0;
-            this.button9.Text = "Lịch sử cắt cơm";
-            this.button9.UseVisualStyleBackColor = false;
-            // 
             // frm_manhinh_quannhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -689,6 +689,12 @@
             this.flowLayoutPanel3.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.hethongcontainer.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -702,12 +708,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.flowLayoutPanel4.ResumeLayout(false);
-            this.panel17.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            this.flowLayoutPanel5.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.ResumeLayout(false);
 
         }

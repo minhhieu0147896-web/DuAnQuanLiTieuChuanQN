@@ -56,27 +56,30 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btnxuatexcel = new System.Windows.Forms.Button();
+            this.btnxuatexcel1 = new System.Windows.Forms.Button();
+            this.cboThangBC = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btntracuu = new System.Windows.Forms.Button();
+            this.btnxuatexcel = new System.Windows.Forms.Button();
             this.lblngay = new System.Windows.Forms.Label();
             this.dtpngay = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvdanhsach = new System.Windows.Forms.DataGridView();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.coltenqn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colmaqn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colbuoianid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colbuoian = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colchedo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnltitle.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -89,8 +92,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdanhsach)).BeginInit();
@@ -107,7 +110,7 @@
             this.pnltitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnltitle.Location = new System.Drawing.Point(0, 0);
             this.pnltitle.Name = "pnltitle";
-            this.pnltitle.Size = new System.Drawing.Size(1210, 73);
+            this.pnltitle.Size = new System.Drawing.Size(1287, 73);
             this.pnltitle.TabIndex = 3;
             this.pnltitle.Paint += new System.Windows.Forms.PaintEventHandler(this.pnltitle_Paint);
             // 
@@ -116,7 +119,7 @@
             this.lblbqs.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblbqs.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblbqs.ForeColor = System.Drawing.Color.White;
-            this.lblbqs.Location = new System.Drawing.Point(522, 25);
+            this.lblbqs.Location = new System.Drawing.Point(560, 25);
             this.lblbqs.Name = "lblbqs";
             this.lblbqs.Size = new System.Drawing.Size(240, 45);
             this.lblbqs.TabIndex = 0;
@@ -139,7 +142,7 @@
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1210, 180);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1287, 180);
             this.tableLayoutPanel1.TabIndex = 5;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -150,9 +153,9 @@
             this.panel6.Controls.Add(this.pictureBox4);
             this.panel6.Controls.Add(this.lblsobuoikhongan_td);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(904, 13);
+            this.panel6.Location = new System.Drawing.Point(961, 13);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(293, 154);
+            this.panel6.Size = new System.Drawing.Size(313, 154);
             this.panel6.TabIndex = 3;
             // 
             // lblqscd2
@@ -193,9 +196,9 @@
             this.panel5.Controls.Add(this.lblsobuoian_td);
             this.panel5.Controls.Add(this.pictureBox3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(607, 13);
+            this.panel5.Location = new System.Drawing.Point(645, 13);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(291, 154);
+            this.panel5.Size = new System.Drawing.Size(310, 154);
             this.panel5.TabIndex = 2;
             // 
             // lblqscd1
@@ -236,9 +239,9 @@
             this.panel4.Controls.Add(this.lbltongbuoit_td);
             this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(310, 13);
+            this.panel4.Location = new System.Drawing.Point(329, 13);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(291, 154);
+            this.panel4.Size = new System.Drawing.Size(310, 154);
             this.panel4.TabIndex = 1;
             // 
             // lbltongquanso
@@ -281,7 +284,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(13, 13);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(291, 154);
+            this.panel3.Size = new System.Drawing.Size(310, 154);
             this.panel3.TabIndex = 0;
             // 
             // lbldonvi
@@ -324,64 +327,94 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 253);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1210, 51);
+            this.panel1.Size = new System.Drawing.Size(1287, 51);
             this.panel1.TabIndex = 6;
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.pictureBox5);
-            this.panel11.Controls.Add(this.btnxuatexcel);
+            this.panel11.Controls.Add(this.btnxuatexcel1);
+            this.panel11.Controls.Add(this.cboThangBC);
+            this.panel11.Controls.Add(this.label1);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(832, 0);
+            this.panel11.Location = new System.Drawing.Point(777, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(378, 51);
+            this.panel11.Size = new System.Drawing.Size(510, 51);
             this.panel11.TabIndex = 9;
+            // 
+            // btnxuatexcel1
+            // 
+            this.btnxuatexcel1.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnxuatexcel1.Location = new System.Drawing.Point(403, 6);
+            this.btnxuatexcel1.Name = "btnxuatexcel1";
+            this.btnxuatexcel1.Size = new System.Drawing.Size(95, 51);
+            this.btnxuatexcel1.TabIndex = 9;
+            this.btnxuatexcel1.Text = "Tra cứu";
+            this.btnxuatexcel1.UseVisualStyleBackColor = false;
+            this.btnxuatexcel1.Click += new System.EventHandler(this.btnxuatexcel1_Click);
+            // 
+            // cboThangBC
+            // 
+            this.cboThangBC.FormattingEnabled = true;
+            this.cboThangBC.Location = new System.Drawing.Point(174, 13);
+            this.cboThangBC.Name = "cboThangBC";
+            this.cboThangBC.Size = new System.Drawing.Size(87, 28);
+            this.cboThangBC.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Thống kê theo tháng: ";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.pictureBox5);
+            this.panel10.Controls.Add(this.btntracuu);
+            this.panel10.Controls.Add(this.btnxuatexcel);
+            this.panel10.Controls.Add(this.lblngay);
+            this.panel10.Controls.Add(this.dtpngay);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(771, 51);
+            this.panel10.TabIndex = 8;
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.SpringGreen;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(173, 8);
+            this.pictureBox5.Location = new System.Drawing.Point(623, 6);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(38, 37);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 9;
             this.pictureBox5.TabStop = false;
             // 
-            // btnxuatexcel
-            // 
-            this.btnxuatexcel.BackColor = System.Drawing.Color.SpringGreen;
-            this.btnxuatexcel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnxuatexcel.Location = new System.Drawing.Point(160, 0);
-            this.btnxuatexcel.Name = "btnxuatexcel";
-            this.btnxuatexcel.Size = new System.Drawing.Size(218, 51);
-            this.btnxuatexcel.TabIndex = 8;
-            this.btnxuatexcel.Text = "Xuất báo cáo";
-            this.btnxuatexcel.UseVisualStyleBackColor = false;
-            this.btnxuatexcel.Click += new System.EventHandler(this.btnxuatexcel_Click);
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.btntracuu);
-            this.panel10.Controls.Add(this.lblngay);
-            this.panel10.Controls.Add(this.dtpngay);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(621, 51);
-            this.panel10.TabIndex = 8;
-            // 
             // btntracuu
             // 
             this.btntracuu.BackColor = System.Drawing.Color.SkyBlue;
-            this.btntracuu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btntracuu.Location = new System.Drawing.Point(526, 0);
+            this.btntracuu.Location = new System.Drawing.Point(481, 0);
             this.btntracuu.Name = "btntracuu";
             this.btntracuu.Size = new System.Drawing.Size(95, 51);
             this.btntracuu.TabIndex = 7;
             this.btntracuu.Text = "Tra cứu";
             this.btntracuu.UseVisualStyleBackColor = false;
             this.btntracuu.Click += new System.EventHandler(this.btntracuu_Click);
+            // 
+            // btnxuatexcel
+            // 
+            this.btnxuatexcel.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnxuatexcel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnxuatexcel.Location = new System.Drawing.Point(607, 0);
+            this.btnxuatexcel.Name = "btnxuatexcel";
+            this.btnxuatexcel.Size = new System.Drawing.Size(164, 51);
+            this.btnxuatexcel.TabIndex = 8;
+            this.btnxuatexcel.Text = "            Xuất báo cáo";
+            this.btnxuatexcel.UseVisualStyleBackColor = false;
+            this.btnxuatexcel.Click += new System.EventHandler(this.btnxuatexcel_Click);
             // 
             // lblngay
             // 
@@ -412,7 +445,7 @@
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1210, 344);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1287, 344);
             this.tableLayoutPanel2.TabIndex = 7;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
@@ -423,7 +456,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(8, 8);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(653, 328);
+            this.panel2.Size = new System.Drawing.Size(695, 328);
             this.panel2.TabIndex = 0;
             // 
             // dgvdanhsach
@@ -466,78 +499,9 @@
             this.dgvdanhsach.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdanhsach.RowHeadersWidth = 62;
             this.dgvdanhsach.RowTemplate.Height = 28;
-            this.dgvdanhsach.Size = new System.Drawing.Size(653, 290);
+            this.dgvdanhsach.Size = new System.Drawing.Size(695, 290);
             this.dgvdanhsach.TabIndex = 12;
             this.dgvdanhsach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdanhsach_CellContentClick);
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel7.Controls.Add(this.label11);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(653, 38);
-            this.panel7.TabIndex = 11;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(178, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(369, 38);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Danh sách quân nhân cắt cơm ";
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.chart1);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(667, 8);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(535, 328);
-            this.panel8.TabIndex = 1;
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(0, 38);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(535, 290);
-            this.chart1.TabIndex = 13;
-            this.chart1.Text = "chart1";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel9.Controls.Add(this.label4);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(535, 38);
-            this.panel9.TabIndex = 12;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(86, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(346, 38);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Biểu đồ thống kê quân số ăn";
             // 
             // coltenqn
             // 
@@ -584,11 +548,80 @@
             this.colchedo.MinimumWidth = 8;
             this.colchedo.Name = "colchedo";
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(695, 38);
+            this.panel7.TabIndex = 11;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(199, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(369, 38);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Danh sách quân nhân cắt cơm ";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.chart1);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(709, 8);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(570, 328);
+            this.panel8.TabIndex = 1;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(0, 38);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(570, 290);
+            this.chart1.TabIndex = 13;
+            this.chart1.Text = "chart1";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel9.Controls.Add(this.label4);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(570, 38);
+            this.panel9.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(104, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(346, 38);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Biểu đồ thống kê quân số ăn";
+            // 
             // frmthongke_cb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1210, 648);
+            this.ClientSize = new System.Drawing.Size(1287, 648);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -613,9 +646,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel11.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdanhsach)).EndInit();
@@ -671,5 +705,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colbuoian;
         private System.Windows.Forms.DataGridViewTextBoxColumn colchedo_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colchedo;
+        private System.Windows.Forms.ComboBox cboThangBC;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnxuatexcel1;
     }
 }

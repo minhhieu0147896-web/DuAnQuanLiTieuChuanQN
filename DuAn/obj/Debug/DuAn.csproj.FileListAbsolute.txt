@@ -103,3 +103,4 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe.config
 D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
 D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmquansoan.resources
+D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmhsqn.resources

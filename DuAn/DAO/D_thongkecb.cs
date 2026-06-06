@@ -53,5 +53,17 @@ namespace DuAn.DAO
 
             return dt;
         }
+        public static DataTable BaoCaoCatComThang(int donvi_id, int thang, int nam)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+            SqlDataAdapter da = new SqlDataAdapter("sp_baocao_catcom_thang", conn);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddWithValue("@donvi_id", donvi_id);
+            da.SelectCommand.Parameters.AddWithValue("@thang", thang);
+            da.SelectCommand.Parameters.AddWithValue("@nam", nam);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
     }
 }

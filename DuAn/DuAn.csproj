@@ -116,6 +116,7 @@
     <Compile Include="DTO\BuoiAnModel.cs" />
     <Compile Include="DTO\catcom.cs" />
     <Compile Include="DTO\ChiTietThucDonModel.cs" />
+    <Compile Include="DTO\hsqb.cs" />
     <Compile Include="DTO\KhoaSo.cs" />
     <Compile Include="DTO\LSBQS.cs" />
     <Compile Include="DTO\LSCC.cs" />
@@ -149,6 +150,12 @@
     </Compile>
     <Compile Include="GUI\frmfornhvhc\frmdsqn.Designer.cs">
       <DependentUpon>frmdsqn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmhsqn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmfornhvhc\frmhsqn.Designer.cs">
+      <DependentUpon>frmhsqn.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmfornhvhc\frmLSQS.cs">
       <SubType>Form</SubType>
@@ -286,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmfornhvhc\frmdsqn.resx">
       <DependentUpon>frmdsqn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmfornhvhc\frmhsqn.resx">
+      <DependentUpon>frmhsqn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmfornhvhc\frmLSQS.resx">
       <DependentUpon>frmLSQS.cs</DependentUpon>

@@ -83,6 +83,9 @@ namespace DuAn.BUL
         {
             return D_QN.GetCheDoByMaQN(maqn);
         }
-
+        public static DataTable GetHoSoQN(int maqn)
+        {
+            return D_QN.GetHoSoQN(maqn);
+        }
     }
 }

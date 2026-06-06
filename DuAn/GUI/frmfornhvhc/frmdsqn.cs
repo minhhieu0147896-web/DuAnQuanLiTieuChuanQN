@@ -100,6 +100,7 @@ namespace DuAn.GUI.frmfornhvhc
         public frmdsqn()
         {
             InitializeComponent();
+           
         }
         void LoadThongKe()
         {
@@ -197,6 +198,8 @@ namespace DuAn.GUI.frmfornhvhc
         {
             string ten=txtten.Text.Trim();
             string inputmaqn= txtmaqn.Text.Trim();
+            string capbac= txtcapbac.Text.Trim();
+            string chucvu= txtchucvu.Text.Trim();   
             if (string.IsNullOrWhiteSpace(inputmaqn))
             {
                 MessageBox.Show("Mã quân nhân không được để trống");
@@ -219,7 +222,7 @@ namespace DuAn.GUI.frmfornhvhc
 
                 int donvi = Convert.ToInt32(cbodonvi.SelectedValue);
                 int chedo = Convert.ToInt32(cbochedo.SelectedValue);
-                quannhan qn = new quannhan(maqn, ten, donvi, chedo);
+                quannhan qn = new quannhan(maqn, ten, donvi, chedo, capbac, chucvu);
                 B_QN.insertQN(qn);
                 MessageBox.Show("Bạn đã thêm thành công");
                 LoadPage();
@@ -243,8 +246,10 @@ namespace DuAn.GUI.frmfornhvhc
             string ten = txtten.Text.Trim();
             int donvi = Convert.ToInt32(cbodonvi.SelectedValue);
             int chedo = Convert.ToInt32(cbochedo.SelectedValue);
+            string capbac = txtcapbac.Text.Trim();
+            string chucvu = txtchucvu.Text.Trim();
 
-            quannhan qn = new quannhan(maqn_cu,ten, donvi, chedo);
+            quannhan qn = new quannhan(maqn_cu,ten, donvi, chedo,capbac, chucvu);
 
             B_QN.UpdateQN(qn);
           
@@ -435,6 +440,10 @@ namespace DuAn.GUI.frmfornhvhc
 
                 txtten.Text = row.Cells["colten"].Value.ToString();
 
+                txtcapbac.Text = row.Cells["colcapbac"].Value.ToString();
+
+                txtchucvu.Text = row.Cells["colchucvu"].Value.ToString();
+
                 if (Session.DonViID.HasValue)
                 {
                     cbodonvi.SelectedValue = Session.DonViID.Value;
@@ -456,6 +465,26 @@ namespace DuAn.GUI.frmfornhvhc
         private void tlpdgv_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pnltitle_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvdsqn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvdsqn_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            int maqn = Convert.ToInt32(dgvdsqn.Rows[e.RowIndex].Cells["colid"].Value);
+
+            frmhsqn frm = new frmhsqn(maqn);
+            frm.ShowDialog();
         }
     }
 }

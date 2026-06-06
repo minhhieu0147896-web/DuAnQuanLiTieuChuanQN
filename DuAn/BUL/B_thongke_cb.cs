@@ -21,6 +21,10 @@ namespace DuAn.BUL
         {
             return D_thongkecb.thongke_tongquan(donvi_id, ngay);
         }
+        public static DataTable BaoCaoCatComThang(int donvi_id, int thang, int nam)
+        {
+            return D_thongkecb.BaoCaoCatComThang(donvi_id, thang, nam);
+        }
     }
 }
 

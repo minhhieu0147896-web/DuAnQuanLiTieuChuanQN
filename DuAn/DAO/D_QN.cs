@@ -36,10 +36,14 @@ namespace DuAn.DAO
             cmd.Parameters.Add("quannhan_hoten", SqlDbType.NVarChar, 50);
             cmd.Parameters.Add("donvi_id", SqlDbType.Int);
             cmd.Parameters.Add("chedo_id", SqlDbType.Int);
+            cmd.Parameters.Add("quannhan_capbac", SqlDbType.NVarChar, 50);
+            cmd.Parameters.Add("quannhan_chucvu", SqlDbType.NVarChar, 50);
             cmd.Parameters["quannhan_id"].Value = qn.Quannhan_id1;
             cmd.Parameters["quannhan_hoten"].Value = qn.Quannhan_ten1;
             cmd.Parameters["donvi_id"].Value = qn.Donvi_id1;
             cmd.Parameters["chedo_id"].Value = qn.Chedo_id1;
+            cmd.Parameters["quannhan_capbac"].Value = qn.Quannhan_capbac1;
+            cmd.Parameters["quannhan_chucvu"].Value = qn.Quannhan_chucvu1;
             conn.Open();                 // MỞ KẾT NỐI
             cmd.ExecuteNonQuery();       // CHẠY INSERT
             conn.Close();                // ĐÓNG
@@ -81,11 +85,12 @@ namespace DuAn.DAO
             SqlCommand cmd = new SqlCommand("sp_updateqn", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-           
             cmd.Parameters.AddWithValue("@quannhan_id", qn.Quannhan_id1);
             cmd.Parameters.AddWithValue("@quannhan_hoten", qn.Quannhan_ten1);
             cmd.Parameters.AddWithValue("@donvi_id", qn.Donvi_id1);
             cmd.Parameters.AddWithValue("@chedo_id", qn.Chedo_id1);
+            cmd.Parameters.AddWithValue("@quannhan_capbac", qn.Quannhan_capbac1);
+            cmd.Parameters.AddWithValue("@quannhan_chucvu", qn.Quannhan_chucvu1);
             conn.Open();
             cmd.ExecuteNonQuery();
 
@@ -314,6 +319,19 @@ namespace DuAn.DAO
             conn.Close();
 
             return chedo;
+        }
+        public static DataTable GetHoSoQN(int maqn)
+        {
+            SqlConnection conn = DataProvider.Instance.GetConnection();
+            SqlCommand cmd = new SqlCommand("sp_gethoso_qn", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@maqn", maqn);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
         }
     }
 }
