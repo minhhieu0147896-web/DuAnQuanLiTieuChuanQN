@@ -48,6 +48,7 @@ namespace DuAn.GUI.frmnhanvien
         // Giúp truy xuất nhanh không cần if/switch dài dòng
         private Label[] _dayHeaders;          // 7 label tiêu đề ngày (T2..CN)
         private UserControl[,] _mealCells;    // [3 dòng buổi, 7 ngày]
+        private ToolTip _toolTip;              // Hiện gợi ý khi rê chuột vào tiêu đề ngày
 
         // Win32 API để đổi màu ProgressBar
         private const int PBM_SETSTATE = 0x0410;
@@ -64,6 +65,9 @@ namespace DuAn.GUI.frmnhanvien
         public frmLapthucdon2()
         {
             InitializeComponent();
+
+            _toolTip = new ToolTip();
+            _toolTip.SetToolTip(lblHeaderT2, "Click để xem chi tiết ngày");
 
             // === CHỐNG FLICKER: DoubleBuffered cho form + container nặng ===
             this.DoubleBuffered = true;
@@ -100,6 +104,21 @@ namespace DuAn.GUI.frmnhanvien
                 lblHeaderT2, lblHeaderT3, lblHeaderT4, lblHeaderT5,
                 lblHeaderT6, lblHeaderT7, lblHeaderCN
             };
+
+            // Gắn sự kiện click, hover, và tooltip cho 7 label tiêu đề ngày
+            foreach (Label lbl in _dayHeaders)
+            {
+                lbl.Cursor = Cursors.Hand;
+                lbl.Click += DayHeader_Click;
+                lbl.MouseEnter += DayHeader_MouseEnter;
+                lbl.MouseLeave += DayHeader_MouseLeave;
+            }
+
+            // Cập nhật tooltip sau khi _dayHeaders đã có (cho tất cả 7 label)
+            foreach (Label lbl in _dayHeaders)
+            {
+                _toolTip.SetToolTip(lbl, "Click để xem chi tiết thống kê ngày");
+            }
 
             _mealCells = new UserControl[3, 7]
             {
@@ -521,6 +540,102 @@ namespace DuAn.GUI.frmnhanvien
         // ============================================================
         // SỰ KIỆN CLICK VÀO SLOT — MỞ FORM CHỌN MÓN
         // ============================================================
+
+        /// <summary>
+        /// Khi rê chuột vào tiêu đề ngày → đổi màu nền đậm hơn
+        /// </summary>
+        private void DayHeader_MouseEnter(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            if (lbl != null)
+                lbl.BackColor = Color.FromArgb(208, 216, 228);
+        }
+
+        /// <summary>
+        /// Khi rê chuột rời khỏi tiêu đề ngày → trả lại màu nền cũ
+        /// </summary>
+        private void DayHeader_MouseLeave(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            if (lbl != null)
+                lbl.BackColor = Color.FromArgb(236, 241, 247);
+        }
+
+        /// <summary>
+        /// Khi click vào tiêu đề ngày (T2..CN) → mở form chi tiết ngày đó
+        /// </summary>
+        private void DayHeader_Click(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            if (lbl == null) return;
+
+            // Tìm chỉ số ngày trong tuần (0 = T2, 6 = CN)
+            int dayIndex = Array.IndexOf(_dayHeaders, lbl);
+            if (dayIndex < 0) return;
+
+            // Tính ngày tương ứng
+            DateTime ngayDuocChon = GetWeekStart(dtpWeek.Value).AddDays(dayIndex);
+
+            // Gom tất cả món đã chọn trong ngày từ _selectedMeals
+            var dsMon = new List<MonAnTheoBuoi>();
+            string ngayKey = ngayDuocChon.ToString("yyyyMMdd");
+
+            foreach (var kvp in _selectedMeals)
+            {
+                // Key có dạng "yyyyMMdd-buoiAnId-category-index"
+                if (!kvp.Key.StartsWith(ngayKey)) continue;
+
+                MonAnModel mon = kvp.Value;
+                if (mon == null) continue;
+
+                // Tách buoiAnId từ key
+                string[] parts = kvp.Key.Split('-');
+                int buoiAnId = parts.Length >= 2 ? int.Parse(parts[1]) : 0;
+
+                // Lấy tên buổi
+                string tenBuoi = LayTenBuoi(buoiAnId);
+
+                dsMon.Add(new MonAnTheoBuoi
+                {
+                    MonAnId = mon.MonAnId,
+                    TenMon = mon.TenMon,
+                    LoaiMon = mon.LoaiMon,
+                    TenBuoi = tenBuoi,
+                    Dam = mon.Dam,
+                    ChatBeo = mon.ChatBeo,
+                    ChatXo = mon.ChatXo
+                });
+            }
+
+            // Lấy chế độ ăn hiện tại
+            int cheDoId = 1;
+            string tenCheDo = "";
+            if (cboCheDo.SelectedValue != null)
+            {
+                cheDoId = Convert.ToInt32(cboCheDo.SelectedValue);
+                tenCheDo = cboCheDo.Text;
+            }
+
+            // Mở form chi tiết
+            using (var frm = new frmChiTietNgay(ngayDuocChon, cheDoId, tenCheDo, dsMon))
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
+        /// <summary>
+        /// Trả về tên buổi từ buoiAnId (1=Sáng, 2=Trưa, 3=Chiều)
+        /// </summary>
+        private string LayTenBuoi(int buoiAnId)
+        {
+            switch (buoiAnId)
+            {
+                case 1: return "Sáng";
+                case 2: return "Trưa";
+                case 3: return "Chiều";
+                default: return "Buổi " + buoiAnId;
+            }
+        }
 
         /// <summary>
         /// Khi người dùng click vào 1 ô món (Button slot) trong lưới.

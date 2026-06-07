@@ -13,7 +13,9 @@
       "Read(C:\\Users\\MINH HIEU\\Downloads/**)",
       "Bash(type *)",
       "Bash(findstr *)",
-      "Bash(\"rmdir /s /q \"e:\\lung)"
+      "Bash(\"rmdir /s /q \"e:\\lung)",
+      "Agent(Explore)",
+      "Bash(c:\\program *)"
     ]
   },
   "$version": 4

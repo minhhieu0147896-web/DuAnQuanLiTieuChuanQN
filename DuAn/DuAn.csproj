@@ -213,6 +213,12 @@
     <Compile Include="GUI\frmnhanvien\frmchonmon.Designer.cs">
       <DependentUpon>frmchonmon.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmnhanvien\frmChiTietNgay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\frmChiTietNgay.Designer.cs">
+      <DependentUpon>frmChiTietNgay.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmnhanvien\frmChonThucDonMau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmchonmon.resx">
       <DependentUpon>frmchonmon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmnhanvien\frmChiTietNgay.resx">
+      <DependentUpon>frmChiTietNgay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\UcMealCellSang.resx">
       <DependentUpon>UcMealCellSang.cs</DependentUpon>

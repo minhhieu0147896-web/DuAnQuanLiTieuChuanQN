@@ -12,7 +12,9 @@
       "Bash(\"c:\\program files (x86)\\microsoft visual studio\\installer\\vswhere.exe\" *)",
       "Read(C:\\Users\\MINH HIEU\\Downloads/**)",
       "Bash(type *)",
-      "Bash(findstr *)"
+      "Bash(findstr *)",
+      "Bash(\"rmdir /s /q \"e:\\lung)",
+      "Agent(Explore)"
     ]
   },
   "$version": 4

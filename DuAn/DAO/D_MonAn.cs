@@ -71,6 +71,26 @@ namespace DuAn.DAO
         }
 
         /// <summary>
+        /// Lấy danh sách nguyên liệu của một món ăn theo chế độ ăn
+        /// </summary>
+        public static DataTable LayNguyenLieu(int monAnId, int cheDoId)
+        {
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("sp_MonAn_LayNguyenLieu", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@monan_id", monAnId);
+                cmd.Parameters.AddWithValue("@chedo_id", cheDoId);
+
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    da.Fill(dt);
+                return dt;
+            }
+        }
+
+        /// <summary>
         /// Lấy danh sách thực phẩm cho ComboBox
         /// </summary>
         public static DataTable LayDanhSachThucPham()

@@ -31,7 +31,7 @@ namespace DuAn.DAO
         // private string connectionString = "Data Source=localhost\\sqlexpress;Initial Catalog=QuanLyTieuChuanQuanNhan;Integrated Security=True;Encrypt=False";
         private string connectionString =
         //"Data Source=DESKTOP-LO80BEU;Initial Catalog=QuanLyTieuChuanQuanNhan1;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
-       "Data Source=localhost\\SQLEXPRESS;Initial Catalog=QuanLyTieuChuanQuanNhan;Integrated Security=True";
+       "Data Source=localhost\\SQL2025;Initial Catalog=QuanLyTieuChuanQuanNhan1;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query)
         {

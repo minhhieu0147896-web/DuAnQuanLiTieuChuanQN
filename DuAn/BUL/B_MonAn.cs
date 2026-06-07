@@ -30,5 +30,10 @@ namespace DuAn.BUL
         {
             return D_MonAn.LayDanhSachCheDo();
         }
+
+        public static DataTable LayDanhSachNguyenLieu(int monAnId, int cheDoId)
+        {
+            return D_MonAn.LayNguyenLieu(monAnId, cheDoId);
+        }
     }
 }
