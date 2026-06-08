@@ -80,6 +80,7 @@ namespace DuAn.GUI.frmnhanvien
             this.lblTitle.Size = new System.Drawing.Size(0, 64);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTitle.Text = "Chọn món";
             //
             // lblEmpty
             //
