@@ -15,7 +15,8 @@
       "Bash(findstr *)",
       "Bash(\"rmdir /s /q \"e:\\lung)",
       "Agent(Explore)",
-      "Bash(c:\\program *)"
+      "Bash(c:\\program *)",
+      "Read(C:\\Users\\MINH HIEU\\AppData\\Roaming\\npm\\node_modules\\@qwen-code\\qwen-code\\bundled\\qc-helper\\docs\\features/**)"
     ]
   },
   "$version": 4

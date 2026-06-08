@@ -14,7 +14,8 @@
       "Bash(type *)",
       "Bash(findstr *)",
       "Bash(\"rmdir /s /q \"e:\\lung)",
-      "Agent(Explore)"
+      "Agent(Explore)",
+      "Bash(c:\\program *)"
     ]
   },
   "$version": 4
