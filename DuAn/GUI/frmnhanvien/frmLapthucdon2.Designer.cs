@@ -97,7 +97,7 @@
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1017, 54);
+            this.pnlHeader.Size = new System.Drawing.Size(1305, 54);
             this.pnlHeader.TabIndex = 0;
             // 
             // lblTitle
@@ -118,7 +118,7 @@
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(241)))), ((int)(((byte)(247)))));
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Location = new System.Drawing.Point(910, 0);
+            this.btnBack.Location = new System.Drawing.Point(1198, 0);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(107, 54);
@@ -135,7 +135,7 @@
             this.pnlToolbar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlToolbar.Name = "pnlToolbar";
             this.pnlToolbar.Padding = new System.Windows.Forms.Padding(21, 11, 21, 11);
-            this.pnlToolbar.Size = new System.Drawing.Size(1017, 77);
+            this.pnlToolbar.Size = new System.Drawing.Size(1305, 77);
             this.pnlToolbar.TabIndex = 1;
             // 
             // flpToolbar
@@ -150,7 +150,7 @@
             this.flpToolbar.Location = new System.Drawing.Point(21, 11);
             this.flpToolbar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpToolbar.Name = "flpToolbar";
-            this.flpToolbar.Size = new System.Drawing.Size(975, 55);
+            this.flpToolbar.Size = new System.Drawing.Size(1263, 55);
             this.flpToolbar.TabIndex = 0;
             this.flpToolbar.WrapContents = false;
             // 
@@ -230,8 +230,8 @@
             // 
             this.splBody.Panel2.Controls.Add(this.pnlChooser);
             this.splBody.Panel2.Padding = new System.Windows.Forms.Padding(14, 13, 14, 13);
-            this.splBody.Size = new System.Drawing.Size(1017, 464);
-            this.splBody.SplitterDistance = 797;
+            this.splBody.Size = new System.Drawing.Size(1305, 724);
+            this.splBody.SplitterDistance = 1085;
             this.splBody.TabIndex = 2;
             // 
             // weekGrid
@@ -289,7 +289,7 @@
             this.weekGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.weekGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.weekGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.weekGrid.Size = new System.Drawing.Size(769, 438);
+            this.weekGrid.Size = new System.Drawing.Size(1057, 698);
             this.weekGrid.TabIndex = 0;
             // 
             // lblHeaderBuoi
@@ -313,7 +313,7 @@
             this.lblHeaderT2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(48)))), ((int)(((byte)(64)))));
             this.lblHeaderT2.Location = new System.Drawing.Point(96, 9);
             this.lblHeaderT2.Name = "lblHeaderT2";
-            this.lblHeaderT2.Size = new System.Drawing.Size(88, 38);
+            this.lblHeaderT2.Size = new System.Drawing.Size(129, 38);
             this.lblHeaderT2.TabIndex = 1;
             this.lblHeaderT2.Text = "Thứ 2";
             this.lblHeaderT2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -324,9 +324,9 @@
             this.lblHeaderT3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHeaderT3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblHeaderT3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(48)))), ((int)(((byte)(64)))));
-            this.lblHeaderT3.Location = new System.Drawing.Point(191, 9);
+            this.lblHeaderT3.Location = new System.Drawing.Point(232, 9);
             this.lblHeaderT3.Name = "lblHeaderT3";
-            this.lblHeaderT3.Size = new System.Drawing.Size(88, 38);
+            this.lblHeaderT3.Size = new System.Drawing.Size(129, 38);
             this.lblHeaderT3.TabIndex = 2;
             this.lblHeaderT3.Text = "Thứ 3";
             this.lblHeaderT3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -337,9 +337,9 @@
             this.lblHeaderT4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHeaderT4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblHeaderT4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(48)))), ((int)(((byte)(64)))));
-            this.lblHeaderT4.Location = new System.Drawing.Point(286, 9);
+            this.lblHeaderT4.Location = new System.Drawing.Point(368, 9);
             this.lblHeaderT4.Name = "lblHeaderT4";
-            this.lblHeaderT4.Size = new System.Drawing.Size(88, 38);
+            this.lblHeaderT4.Size = new System.Drawing.Size(129, 38);
             this.lblHeaderT4.TabIndex = 3;
             this.lblHeaderT4.Text = "Thứ 4";
             this.lblHeaderT4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -350,9 +350,9 @@
             this.lblHeaderT5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHeaderT5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblHeaderT5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(48)))), ((int)(((byte)(64)))));
-            this.lblHeaderT5.Location = new System.Drawing.Point(381, 9);
+            this.lblHeaderT5.Location = new System.Drawing.Point(504, 9);
             this.lblHeaderT5.Name = "lblHeaderT5";
-            this.lblHeaderT5.Size = new System.Drawing.Size(88, 38);
+            this.lblHeaderT5.Size = new System.Drawing.Size(129, 38);
             this.lblHeaderT5.TabIndex = 4;
             this.lblHeaderT5.Text = "Thứ 5";
             this.lblHeaderT5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -363,9 +363,9 @@
             this.lblHeaderT6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHeaderT6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblHeaderT6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(48)))), ((int)(((byte)(64)))));
-            this.lblHeaderT6.Location = new System.Drawing.Point(476, 9);
+            this.lblHeaderT6.Location = new System.Drawing.Point(640, 9);
             this.lblHeaderT6.Name = "lblHeaderT6";
-            this.lblHeaderT6.Size = new System.Drawing.Size(88, 38);
+            this.lblHeaderT6.Size = new System.Drawing.Size(129, 38);
             this.lblHeaderT6.TabIndex = 5;
             this.lblHeaderT6.Text = "Thứ 6";
             this.lblHeaderT6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -376,9 +376,9 @@
             this.lblHeaderT7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHeaderT7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblHeaderT7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(48)))), ((int)(((byte)(64)))));
-            this.lblHeaderT7.Location = new System.Drawing.Point(571, 9);
+            this.lblHeaderT7.Location = new System.Drawing.Point(776, 9);
             this.lblHeaderT7.Name = "lblHeaderT7";
-            this.lblHeaderT7.Size = new System.Drawing.Size(88, 38);
+            this.lblHeaderT7.Size = new System.Drawing.Size(129, 38);
             this.lblHeaderT7.TabIndex = 6;
             this.lblHeaderT7.Text = "Thứ 7";
             this.lblHeaderT7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -389,9 +389,9 @@
             this.lblHeaderCN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHeaderCN.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblHeaderCN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(48)))), ((int)(((byte)(64)))));
-            this.lblHeaderCN.Location = new System.Drawing.Point(666, 9);
+            this.lblHeaderCN.Location = new System.Drawing.Point(912, 9);
             this.lblHeaderCN.Name = "lblHeaderCN";
-            this.lblHeaderCN.Size = new System.Drawing.Size(90, 38);
+            this.lblHeaderCN.Size = new System.Drawing.Size(132, 38);
             this.lblHeaderCN.TabIndex = 7;
             this.lblHeaderCN.Text = "CN";
             this.lblHeaderCN.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -404,7 +404,7 @@
             this.lblMealSang.ForeColor = System.Drawing.Color.White;
             this.lblMealSang.Location = new System.Drawing.Point(13, 48);
             this.lblMealSang.Name = "lblMealSang";
-            this.lblMealSang.Size = new System.Drawing.Size(76, 126);
+            this.lblMealSang.Size = new System.Drawing.Size(76, 213);
             this.lblMealSang.TabIndex = 8;
             this.lblMealSang.Text = "Sáng";
             this.lblMealSang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -415,9 +415,9 @@
             this.lblMealTrua.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMealTrua.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lblMealTrua.ForeColor = System.Drawing.Color.White;
-            this.lblMealTrua.Location = new System.Drawing.Point(13, 175);
+            this.lblMealTrua.Location = new System.Drawing.Point(13, 262);
             this.lblMealTrua.Name = "lblMealTrua";
-            this.lblMealTrua.Size = new System.Drawing.Size(76, 126);
+            this.lblMealTrua.Size = new System.Drawing.Size(76, 213);
             this.lblMealTrua.TabIndex = 9;
             this.lblMealTrua.Text = "Trưa";
             this.lblMealTrua.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -428,9 +428,9 @@
             this.lblMealToi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMealToi.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lblMealToi.ForeColor = System.Drawing.Color.White;
-            this.lblMealToi.Location = new System.Drawing.Point(13, 302);
+            this.lblMealToi.Location = new System.Drawing.Point(13, 476);
             this.lblMealToi.Name = "lblMealToi";
-            this.lblMealToi.Size = new System.Drawing.Size(76, 127);
+            this.lblMealToi.Size = new System.Drawing.Size(76, 213);
             this.lblMealToi.TabIndex = 10;
             this.lblMealToi.Text = "Tối";
             this.lblMealToi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -441,187 +441,188 @@
             this.ucT2Sang.Location = new System.Drawing.Point(96, 50);
             this.ucT2Sang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT2Sang.Name = "ucT2Sang";
-            this.ucT2Sang.Size = new System.Drawing.Size(88, 122);
+            this.ucT2Sang.Size = new System.Drawing.Size(129, 209);
             this.ucT2Sang.TabIndex = 11;
             // 
             // ucT3Sang
             // 
             this.ucT3Sang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT3Sang.Location = new System.Drawing.Point(191, 50);
+            this.ucT3Sang.Location = new System.Drawing.Point(232, 50);
             this.ucT3Sang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT3Sang.Name = "ucT3Sang";
-            this.ucT3Sang.Size = new System.Drawing.Size(88, 122);
+            this.ucT3Sang.Size = new System.Drawing.Size(129, 209);
             this.ucT3Sang.TabIndex = 12;
             // 
             // ucT4Sang
             // 
             this.ucT4Sang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT4Sang.Location = new System.Drawing.Point(286, 50);
+            this.ucT4Sang.Location = new System.Drawing.Point(368, 50);
             this.ucT4Sang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT4Sang.Name = "ucT4Sang";
-            this.ucT4Sang.Size = new System.Drawing.Size(88, 122);
+            this.ucT4Sang.Size = new System.Drawing.Size(129, 209);
             this.ucT4Sang.TabIndex = 13;
             // 
             // ucT5Sang
             // 
             this.ucT5Sang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT5Sang.Location = new System.Drawing.Point(381, 50);
+            this.ucT5Sang.Location = new System.Drawing.Point(504, 50);
             this.ucT5Sang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT5Sang.Name = "ucT5Sang";
-            this.ucT5Sang.Size = new System.Drawing.Size(88, 122);
+            this.ucT5Sang.Size = new System.Drawing.Size(129, 209);
             this.ucT5Sang.TabIndex = 14;
             // 
             // ucT6Sang
             // 
             this.ucT6Sang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT6Sang.Location = new System.Drawing.Point(476, 50);
+            this.ucT6Sang.Location = new System.Drawing.Point(640, 50);
             this.ucT6Sang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT6Sang.Name = "ucT6Sang";
-            this.ucT6Sang.Size = new System.Drawing.Size(88, 122);
+            this.ucT6Sang.Size = new System.Drawing.Size(129, 209);
             this.ucT6Sang.TabIndex = 15;
             // 
             // ucT7Sang
             // 
             this.ucT7Sang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT7Sang.Location = new System.Drawing.Point(571, 50);
+            this.ucT7Sang.Location = new System.Drawing.Point(776, 50);
             this.ucT7Sang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT7Sang.Name = "ucT7Sang";
-            this.ucT7Sang.Size = new System.Drawing.Size(88, 122);
+            this.ucT7Sang.Size = new System.Drawing.Size(129, 209);
             this.ucT7Sang.TabIndex = 16;
             // 
             // ucCNSang
             // 
             this.ucCNSang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucCNSang.Location = new System.Drawing.Point(666, 50);
+            this.ucCNSang.Location = new System.Drawing.Point(912, 50);
             this.ucCNSang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucCNSang.Name = "ucCNSang";
-            this.ucCNSang.Size = new System.Drawing.Size(90, 122);
+            this.ucCNSang.Size = new System.Drawing.Size(132, 209);
             this.ucCNSang.TabIndex = 17;
             // 
             // ucT2Trua
             // 
             this.ucT2Trua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT2Trua.Location = new System.Drawing.Point(96, 177);
+            this.ucT2Trua.Location = new System.Drawing.Point(96, 264);
             this.ucT2Trua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT2Trua.Name = "ucT2Trua";
-            this.ucT2Trua.Size = new System.Drawing.Size(88, 122);
+            this.ucT2Trua.Size = new System.Drawing.Size(129, 209);
             this.ucT2Trua.TabIndex = 18;
             // 
             // ucT3Trua
             // 
             this.ucT3Trua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT3Trua.Location = new System.Drawing.Point(191, 177);
+            this.ucT3Trua.Location = new System.Drawing.Point(232, 264);
             this.ucT3Trua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT3Trua.Name = "ucT3Trua";
-            this.ucT3Trua.Size = new System.Drawing.Size(88, 122);
+            this.ucT3Trua.Size = new System.Drawing.Size(129, 209);
             this.ucT3Trua.TabIndex = 19;
             // 
             // ucT4Trua
             // 
             this.ucT4Trua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT4Trua.Location = new System.Drawing.Point(286, 177);
+            this.ucT4Trua.Location = new System.Drawing.Point(368, 264);
             this.ucT4Trua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT4Trua.Name = "ucT4Trua";
-            this.ucT4Trua.Size = new System.Drawing.Size(88, 122);
+            this.ucT4Trua.Size = new System.Drawing.Size(129, 209);
             this.ucT4Trua.TabIndex = 20;
             // 
             // ucT5Trua
             // 
             this.ucT5Trua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT5Trua.Location = new System.Drawing.Point(381, 177);
+            this.ucT5Trua.Location = new System.Drawing.Point(504, 264);
             this.ucT5Trua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT5Trua.Name = "ucT5Trua";
-            this.ucT5Trua.Size = new System.Drawing.Size(88, 122);
+            this.ucT5Trua.Size = new System.Drawing.Size(129, 209);
             this.ucT5Trua.TabIndex = 21;
             // 
             // ucT6Trua
             // 
             this.ucT6Trua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT6Trua.Location = new System.Drawing.Point(476, 177);
+            this.ucT6Trua.Location = new System.Drawing.Point(640, 264);
             this.ucT6Trua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT6Trua.Name = "ucT6Trua";
-            this.ucT6Trua.Size = new System.Drawing.Size(88, 122);
+            this.ucT6Trua.Size = new System.Drawing.Size(129, 209);
             this.ucT6Trua.TabIndex = 22;
             // 
             // ucT7Trua
             // 
             this.ucT7Trua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT7Trua.Location = new System.Drawing.Point(571, 177);
+            this.ucT7Trua.Location = new System.Drawing.Point(776, 264);
             this.ucT7Trua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT7Trua.Name = "ucT7Trua";
-            this.ucT7Trua.Size = new System.Drawing.Size(88, 122);
+            this.ucT7Trua.Size = new System.Drawing.Size(129, 209);
             this.ucT7Trua.TabIndex = 23;
             // 
             // ucCNTrua
             // 
             this.ucCNTrua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucCNTrua.Location = new System.Drawing.Point(666, 177);
+            this.ucCNTrua.Location = new System.Drawing.Point(912, 264);
             this.ucCNTrua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucCNTrua.Name = "ucCNTrua";
-            this.ucCNTrua.Size = new System.Drawing.Size(90, 122);
+            this.ucCNTrua.Size = new System.Drawing.Size(132, 209);
             this.ucCNTrua.TabIndex = 24;
             // 
             // ucT2Toi
             // 
             this.ucT2Toi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT2Toi.Location = new System.Drawing.Point(96, 304);
+            this.ucT2Toi.Location = new System.Drawing.Point(96, 478);
             this.ucT2Toi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT2Toi.Name = "ucT2Toi";
-            this.ucT2Toi.Size = new System.Drawing.Size(88, 123);
+            this.ucT2Toi.Size = new System.Drawing.Size(129, 209);
             this.ucT2Toi.TabIndex = 25;
             // 
             // ucT3Toi
             // 
             this.ucT3Toi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT3Toi.Location = new System.Drawing.Point(191, 304);
+            this.ucT3Toi.Location = new System.Drawing.Point(232, 478);
             this.ucT3Toi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT3Toi.Name = "ucT3Toi";
-            this.ucT3Toi.Size = new System.Drawing.Size(88, 123);
+            this.ucT3Toi.Size = new System.Drawing.Size(129, 209);
             this.ucT3Toi.TabIndex = 26;
             // 
             // ucT4Toi
             // 
             this.ucT4Toi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT4Toi.Location = new System.Drawing.Point(286, 304);
+            this.ucT4Toi.Location = new System.Drawing.Point(368, 478);
             this.ucT4Toi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT4Toi.Name = "ucT4Toi";
-            this.ucT4Toi.Size = new System.Drawing.Size(88, 123);
+            this.ucT4Toi.Size = new System.Drawing.Size(129, 209);
             this.ucT4Toi.TabIndex = 27;
             // 
             // ucT5Toi
             // 
             this.ucT5Toi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT5Toi.Location = new System.Drawing.Point(381, 304);
+            this.ucT5Toi.Location = new System.Drawing.Point(504, 478);
             this.ucT5Toi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT5Toi.Name = "ucT5Toi";
-            this.ucT5Toi.Size = new System.Drawing.Size(88, 123);
+            this.ucT5Toi.Size = new System.Drawing.Size(129, 209);
             this.ucT5Toi.TabIndex = 28;
             // 
             // ucT6Toi
             // 
             this.ucT6Toi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT6Toi.Location = new System.Drawing.Point(476, 304);
+            this.ucT6Toi.Location = new System.Drawing.Point(640, 478);
             this.ucT6Toi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT6Toi.Name = "ucT6Toi";
-            this.ucT6Toi.Size = new System.Drawing.Size(88, 123);
+            this.ucT6Toi.Size = new System.Drawing.Size(129, 209);
             this.ucT6Toi.TabIndex = 29;
+            this.ucT6Toi.Load += new System.EventHandler(this.ucT6Toi_Load);
             // 
             // ucT7Toi
             // 
             this.ucT7Toi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucT7Toi.Location = new System.Drawing.Point(571, 304);
+            this.ucT7Toi.Location = new System.Drawing.Point(776, 478);
             this.ucT7Toi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucT7Toi.Name = "ucT7Toi";
-            this.ucT7Toi.Size = new System.Drawing.Size(88, 123);
+            this.ucT7Toi.Size = new System.Drawing.Size(129, 209);
             this.ucT7Toi.TabIndex = 30;
             // 
             // ucCNToi
             // 
             this.ucCNToi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucCNToi.Location = new System.Drawing.Point(666, 304);
+            this.ucCNToi.Location = new System.Drawing.Point(912, 478);
             this.ucCNToi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucCNToi.Name = "ucCNToi";
-            this.ucCNToi.Size = new System.Drawing.Size(90, 123);
+            this.ucCNToi.Size = new System.Drawing.Size(132, 209);
             this.ucCNToi.TabIndex = 31;
             // 
             // pnlChooser
@@ -639,7 +640,7 @@
             this.pnlChooser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlChooser.Name = "pnlChooser";
             this.pnlChooser.Padding = new System.Windows.Forms.Padding(16, 14, 16, 14);
-            this.pnlChooser.Size = new System.Drawing.Size(188, 438);
+            this.pnlChooser.Size = new System.Drawing.Size(188, 698);
             this.pnlChooser.TabIndex = 0;
             // 
             // pnlTienDo
@@ -791,7 +792,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1017, 595);
+            this.ClientSize = new System.Drawing.Size(1305, 855);
             this.Controls.Add(this.splBody);
             this.Controls.Add(this.pnlToolbar);
             this.Controls.Add(this.pnlHeader);

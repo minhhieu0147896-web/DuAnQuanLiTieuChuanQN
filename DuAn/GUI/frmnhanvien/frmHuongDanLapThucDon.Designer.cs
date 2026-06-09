@@ -71,6 +71,7 @@ namespace DuAn.GUI.frmnhanvien
             //
             // body.Panel2
             //
+            this.body.Panel2.AutoScroll = true;
             this.body.Panel2.Controls.Add(this.picGuide);
             this.body.Panel2.Padding = new System.Windows.Forms.Padding(18);
             this.body.Size = new System.Drawing.Size(920, 520);
@@ -94,10 +95,9 @@ namespace DuAn.GUI.frmnhanvien
             // picGuide
             //
             this.picGuide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.picGuide.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picGuide.Location = new System.Drawing.Point(18, 18);
             this.picGuide.Name = "picGuide";
-            this.picGuide.Size = new System.Drawing.Size(320, 484);
+            this.picGuide.Size = new System.Drawing.Size(290, 600);
             this.picGuide.TabIndex = 0;
             this.picGuide.TabStop = false;
             //

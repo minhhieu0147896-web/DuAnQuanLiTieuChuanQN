@@ -1289,5 +1289,10 @@ namespace DuAn.GUI.frmnhanvien
         private void lblStatus_Click(object sender, EventArgs e) { }
         private void label1_Click(object sender, EventArgs e) { }
         private void prgChatBeo_Click(object sender, EventArgs e) { }
+
+        private void ucT6Toi_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
