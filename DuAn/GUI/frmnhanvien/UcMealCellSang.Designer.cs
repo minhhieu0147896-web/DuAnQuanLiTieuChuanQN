@@ -19,6 +19,7 @@ namespace DuAn.GUI.frmnhanvien
             this.btnMan1 = new System.Windows.Forms.Button();
             this.btnCanh1 = new System.Windows.Forms.Button();
             this.btnSua1 = new System.Windows.Forms.Button();
+            this.btnCom1 = new System.Windows.Forms.Button();
             this.flpContainer.SuspendLayout();
             this.SuspendLayout();
             //
@@ -29,11 +30,12 @@ namespace DuAn.GUI.frmnhanvien
             this.flpContainer.Controls.Add(this.btnMan1);
             this.flpContainer.Controls.Add(this.btnCanh1);
             this.flpContainer.Controls.Add(this.btnSua1);
+            this.flpContainer.Controls.Add(this.btnCom1);
             this.flpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpContainer.Location = new System.Drawing.Point(0, 0);
             this.flpContainer.Name = "flpContainer";
             this.flpContainer.Padding = new System.Windows.Forms.Padding(6);
-            this.flpContainer.Size = new System.Drawing.Size(130, 152);
+            this.flpContainer.Size = new System.Drawing.Size(130, 196);
             this.flpContainer.TabIndex = 0;
             this.flpContainer.WrapContents = true;
             //
@@ -85,13 +87,29 @@ namespace DuAn.GUI.frmnhanvien
             this.btnSua1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSua1.UseVisualStyleBackColor = false;
             //
+            // btnCom1
+            //
+            this.btnCom1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(240)))));
+            this.btnCom1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(218)))), ((int)(((byte)(226)))));
+            this.btnCom1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCom1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.btnCom1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnCom1.Location = new System.Drawing.Point(10, 142);
+            this.btnCom1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCom1.Name = "btnCom1";
+            this.btnCom1.Size = new System.Drawing.Size(106, 36);
+            this.btnCom1.TabIndex = 3;
+            this.btnCom1.Text = "+ Cơm 1";
+            this.btnCom1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCom1.UseVisualStyleBackColor = false;
+            //
             // UcMealCellSang
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flpContainer);
             this.Name = "UcMealCellSang";
-            this.Size = new System.Drawing.Size(130, 152);
+            this.Size = new System.Drawing.Size(130, 196);
             this.flpContainer.ResumeLayout(false);
             this.ResumeLayout(false);
         }
@@ -100,5 +118,6 @@ namespace DuAn.GUI.frmnhanvien
         private System.Windows.Forms.Button btnMan1;
         private System.Windows.Forms.Button btnCanh1;
         private System.Windows.Forms.Button btnSua1;
+        private System.Windows.Forms.Button btnCom1;
     }
 }

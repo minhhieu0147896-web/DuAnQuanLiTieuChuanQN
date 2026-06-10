@@ -19,6 +19,7 @@ namespace DuAn.GUI.frmnhanvien
             yield return btnCanh1;
             yield return btnRau1;
             yield return btnTrangMieng1;
+            yield return btnCom1;
         }
 
         public Button GetSlotButton(DishCategory category, int index)
@@ -36,6 +37,7 @@ namespace DuAn.GUI.frmnhanvien
             if (category == DishCategory.Canh) return btnCanh1;
             if (category == DishCategory.Rau) return btnRau1;
             if (category == DishCategory.TrangMieng) return btnTrangMieng1;
+            if (category == DishCategory.Com) return btnCom1;
             return null;
         }
 
@@ -54,6 +56,8 @@ namespace DuAn.GUI.frmnhanvien
                 else if (category == DishCategory.Rau && btn.Name.StartsWith("btnRau"))
                     btn.Visible = visible;
                 else if (category == DishCategory.TrangMieng && btn.Name.StartsWith("btnTrangMieng"))
+                    btn.Visible = visible;
+                else if (category == DishCategory.Com && btn.Name.StartsWith("btnCom"))
                     btn.Visible = visible;
             }
         }

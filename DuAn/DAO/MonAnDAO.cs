@@ -147,6 +147,54 @@ namespace DuAn.DAO
             };
         }
 
+        /// <summary>
+        /// Lấy hoặc tự tạo món "Cơm trắng" trong DB nếu chưa có.
+        /// Cơm trắng được tự động thêm vào tất cả các buổi (Sáng/Trưa/Tối).
+        /// Dinh dưỡng 1 suất cơm (~200g cơm chín):
+        ///   Đạm ~4g, Chất béo ~0.5g, Chất xơ ~0.5g
+        /// </summary>
+        public MonAnModel GetOrCreateCom()
+        {
+            const string findQuery = @"SELECT TOP 1 monan_id, monan_loaimon, monan_ten,
+                                              ISNULL(dam, 0) AS dam,
+                                              ISNULL(chat_xo, 0) AS chat_xo,
+                                              ISNULL(chat_beo, 0) AS chat_beo
+                                       FROM Mon_an
+                                       WHERE monan_loaimon = N'Com'
+                                          OR monan_ten = N'Cơm trắng'
+                                          OR monan_ten = N'Cơm'
+                                       ORDER BY monan_id";
+
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(findQuery, conn))
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return MapMonAn(reader);
+                    }
+                }
+            }
+
+            int newId = Convert.ToInt32(DataProvider.Instance.ExecuteScalar("SELECT ISNULL(MAX(monan_id), 0) + 1 FROM Mon_an"));
+            const string insertQuery = @"INSERT INTO Mon_an (monan_id, monan_ten, monan_loaimon, ghi_chu, dam, chat_beo, chat_xo)
+                                         VALUES (@id, N'Cơm trắng', N'Com', N'Tự động thêm vào mọi buổi', 4, 0.5, 0.5)";
+
+            DataProvider.Instance.ExecuteNonQuery(insertQuery, new SqlParameter("@id", newId));
+
+            return new MonAnModel
+            {
+                MonAnId = newId,
+                LoaiMon = "Com",
+                TenMon = "Cơm trắng",
+                Dam = 4,
+                ChatBeo = 0.5,
+                ChatXo = 0.5
+            };
+        }
+
         public NutritionTargetModel GetWeeklyNutritionTarget(int cheDoId)
         {
             const string query = @"
@@ -263,6 +311,9 @@ WHERE chedo_id = @cheDoId";
 
             if (requestedCompact == "suahop")
                 return dbCompact.Contains("suahop") || db.Contains("sua") || db.Contains("milk");
+
+            if (requested == "com" || requestedCompact == "comtrang")
+                return dbCompact.Contains("comtrang") || db.Contains("com trang") || db.Contains("cơm");
 
             return false;
         }
