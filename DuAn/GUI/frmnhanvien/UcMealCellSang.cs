@@ -15,6 +15,7 @@ namespace DuAn.GUI.frmnhanvien
             yield return btnMan1;
             yield return btnCanh1;
             yield return btnSua1;
+            yield return btnCom1;
         }
 
         public Button GetSlotButton(DishCategory category, int index)
@@ -22,6 +23,7 @@ namespace DuAn.GUI.frmnhanvien
             if (category == DishCategory.Man) return btnMan1;
             if (category == DishCategory.Canh) return btnCanh1;
             if (category == DishCategory.SuaHop) return btnSua1;
+            if (category == DishCategory.Com) return btnCom1;
             return null;
         }
 

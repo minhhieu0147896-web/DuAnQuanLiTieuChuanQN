@@ -6,7 +6,8 @@ namespace DuAn.GUI.frmnhanvien
         Canh,
         Rau,
         TrangMieng,
-        SuaHop
+        SuaHop,
+        Com             // Cơm trắng – tự động có trong mọi buổi
     }
 
     public enum MealKind

@@ -4,101 +4,14 @@ using System.Windows.Forms;
 
 namespace DuAn.GUI.frmnhanvien
 {
-    public class frmHuongDanLapThucDon : Form
+    public partial class frmHuongDanLapThucDon : Form
     {
-        private PictureBox picGuide;
-
         public frmHuongDanLapThucDon()
         {
-            BuildLayout();
-        }
-
-        private void BuildLayout()
-        {
-            Text = "Hướng dẫn lập thực đơn tuần";
-            Size = new Size(920, 640);
-            MinimumSize = new Size(840, 580);
-            StartPosition = FormStartPosition.CenterParent;
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
-            MinimizeBox = false;
-            BackColor = Color.White;
-            Font = new Font("Segoe UI", 9F);
-
-            Panel header = new Panel
-            {
-                Dock = DockStyle.Top,
-                Height = 64,
-                BackColor = Color.FromArgb(33, 48, 64),
-                Padding = new Padding(20, 0, 20, 0)
-            };
-
-            Label title = new Label
-            {
-                Dock = DockStyle.Fill,
-                Text = "HƯỚNG DẪN LẬP THỰC ĐƠN TUẦN",
-                ForeColor = Color.White,
-                Font = new Font("Segoe UI", 16F, FontStyle.Bold),
-                TextAlign = ContentAlignment.MiddleLeft
-            };
-            header.Controls.Add(title);
-
-            SplitContainer body = new SplitContainer
-            {
-                Dock = DockStyle.Fill,
-                SplitterDistance = 560,
-                FixedPanel = FixedPanel.Panel2,
-                BackColor = Color.White
-            };
-
-            RichTextBox rtb = new RichTextBox
-            {
-                Dock = DockStyle.Fill,
-                ReadOnly = true,
-                BorderStyle = BorderStyle.None,
-                BackColor = Color.White,
-                Font = new Font("Segoe UI", 10.5F),
-                Text = GetHuongDanText(),
-                Padding = new Padding(18)
-            };
-
-            picGuide = new PictureBox
-            {
-                Dock = DockStyle.Fill,
-                BackColor = Color.FromArgb(245, 247, 250)
-            };
+            InitializeComponent();
             picGuide.Paint += picGuide_Paint;
-
-            Panel footer = new Panel
-            {
-                Dock = DockStyle.Bottom,
-                Height = 56,
-                BackColor = Color.FromArgb(245, 247, 250),
-                Padding = new Padding(18, 8, 18, 8)
-            };
-
-            Button btnClose = new Button
-            {
-                Text = "Đóng",
-                Dock = DockStyle.Right,
-                Width = 110,
-                BackColor = Color.FromArgb(38, 132, 255),
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat,
-                Font = new Font("Segoe UI", 9F, FontStyle.Bold)
-            };
-            btnClose.FlatAppearance.BorderSize = 0;
+            rtbHuongDan.Text = GetHuongDanText();
             btnClose.Click += (s, e) => Close();
-            footer.Controls.Add(btnClose);
-
-            body.Panel1.Padding = new Padding(18);
-            body.Panel2.Padding = new Padding(18);
-            body.Panel1.Controls.Add(rtb);
-            body.Panel2.Controls.Add(picGuide);
-
-            Controls.Add(body);
-            Controls.Add(footer);
-            Controls.Add(header);
         }
 
         private string GetHuongDanText()
@@ -113,33 +26,35 @@ namespace DuAn.GUI.frmnhanvien
 2. Hiểu cấu trúc bảng thực đơn
    - Cột đầu tiên là Buổi: Sáng, Trưa, Tối.
    - Các cột còn lại là Thứ 2 đến Chủ nhật.
-   - Mỗi ô trong bảng là một bữa ăn của một ngày.
+   - Mỗi ô là một vị trí món ăn trong buổi đó.
 
-3. Quy tắc số lượng món
+3. Quy tắc số lượng món mỗi buổi
    - Buổi sáng: 1 món mặn, 1 món canh, 1 sữa hộp.
-   - Buổi trưa: 4 món mặn, 1 món canh, 1 món rau, 1 món tráng miệng.
-   - Buổi tối: 4 món mặn, 1 món canh, 1 món rau, 1 món tráng miệng.
-   - Tất cả các ô + Mặn, + Canh, + Rau, + Tráng miệng, + Sữa hộp đều phải được chọn trước khi lưu.
+   - Buổi trưa: 4 món mặn, 1 canh, 1 rau, 1 tráng miệng.
+   - Buổi tối: giống buổi trưa.
+   - Tất cả các ô phải có món trước khi lưu.
 
 4. Chọn món cho một ô
-   - Bấm vào ô món cần chọn trong bảng.
-   - Form Chọn món sẽ mở ra và chỉ hiển thị các món đúng loại với ô đang chọn.
-   - Double click vào món hoặc chọn món rồi bấm Chọn món.
-   - Form chọn món đóng lại và tên món sẽ hiện ngay trên ô vừa chọn.
+   - Bấm vào ô món trong bảng → Form Chọn món mở ra.
+   - Gõ vào ô 🔍 Tìm món... để lọc danh sách ngay khi gõ.
+   - Bảng bên phải hiện nguyên liệu (số gam) của món đang chọn.
+   - Double click hoặc bấm Chọn món để xác nhận.
+   - Màu xám = món trùng, không chọn được.
+   - Màu vàng = cảnh báo trùng gần hoặc quá nhiều.
 
-5. Xóa hoặc tải lại dữ liệu
-   - Bấm một ô đã chọn món, sau đó bấm Xóa món khỏi ô để bỏ món đó.
-   - Bấm Tải lại từ cơ sở dữ liệu để lấy lại thực đơn đã lưu trong tuần hiện tại.
+5. Xem chi tiết thống kê một ngày (MỚI)
+   - Click vào tiêu đề ngày (T2, T3... CN) ở hàng trên cùng.
+   - Tiêu đề đổi màu + hiện tooltip khi rê chuột vào.
+   - Form Chi tiết ngày mở ra với 2 tab:
+     + Tab Món ăn: danh sách món 3 buổi.
+     + Tab Nguyên liệu tổng: gộp nguyên liệu tất cả món,
+       hiển thị số gam từng thực phẩm.
 
-6. Lưu thực đơn tuần
-   - Chỉ bấm Lưu thực đơn tuần khi tất cả ô bắt buộc đã có món.
-   - Hệ thống sẽ xóa chi tiết cũ của từng ngày/buổi trong tuần và lưu lại danh sách món mới.
-   - Sau khi lưu thành công, trạng thái thực đơn chuyển thành Chờ duyệt.
-
-Lưu ý
-   - Món ăn được lấy từ bảng Mon_an trong cơ sở dữ liệu.
-   - Loại món được phân nhóm theo Mặn, Canh, Rau, Tráng miệng, Sữa hộp.
-   - Nếu form Chọn món không có dữ liệu, hãy kiểm tra cột monan_loaimon trong bảng Mon_an.";
+6. Xóa, tải lại, điền từ mẫu, lưu
+   - Xóa món: chọn ô → bấm nút Xóa trên toolbar.
+   - Tải lại: lấy thực đơn đã lưu từ CSDL.
+   - Điền từ mẫu: chọn thực đơn mẫu có sẵn.
+   - Lưu: lưu toàn bộ tuần, trạng thái → Chờ duyệt.";
         }
 
         private void picGuide_Paint(object sender, PaintEventArgs e)

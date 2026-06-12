@@ -16,7 +16,9 @@
       "Bash(\"rmdir /s /q \"e:\\lung)",
       "Agent(Explore)",
       "Bash(c:\\program *)",
-      "Read(C:\\Users\\MINH HIEU\\AppData\\Roaming\\npm\\node_modules\\@qwen-code\\qwen-code\\bundled\\qc-helper\\docs\\features/**)"
+      "Read(C:\\Users\\MINH HIEU\\AppData\\Roaming\\npm\\node_modules\\@qwen-code\\qwen-code\\bundled\\qc-helper\\docs\\features/**)",
+      "Bash(\"c:\\program files\\microsoft visual studio\\2022\\community\\msbuild\\current\\bin\\amd64\\msbuild.exe\" *)",
+      "Bash(echo *)"
     ]
   },
   "$version": 4

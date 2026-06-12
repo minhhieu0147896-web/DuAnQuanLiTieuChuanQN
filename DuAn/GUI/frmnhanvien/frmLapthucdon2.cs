@@ -311,6 +311,7 @@ namespace DuAn.GUI.frmnhanvien
 
             // 4. Tự động điền sữa nếu là chế độ học viên
             ApplyAutomaticMilkSlots();
+            ApplyAutomaticRiceSlots();
 
             // 5. Cập nhật hiển thị
             RefreshSlots();
@@ -421,6 +422,7 @@ namespace DuAn.GUI.frmnhanvien
                 yield return DishCategory.Canh;
                 if (IsHocVienSelected())
                     yield return DishCategory.SuaHop;
+                yield return DishCategory.Com;       // Cơm trắng – mọi buổi đều có
                 yield break;
             }
 
@@ -428,6 +430,7 @@ namespace DuAn.GUI.frmnhanvien
             yield return DishCategory.Canh;
             yield return DishCategory.Rau;
             yield return DishCategory.TrangMieng;
+            yield return DishCategory.Com;       // Cơm trắng – mọi buổi đều có
         }
 
         /// <summary>
@@ -672,6 +675,10 @@ namespace DuAn.GUI.frmnhanvien
             if (meta.Category == DishCategory.SuaHop && IsHocVienSelected())
                 return;
 
+            // Slot Cơm trắng được tự động điền, không cho chọn món khác
+            if (meta.Category == DishCategory.Com)
+                return;
+
             OpenChooseDishForm(meta);
         }
 
@@ -846,6 +853,7 @@ namespace DuAn.GUI.frmnhanvien
                 _weeklyStatuses[weekKey] = _currentWeekStatus;
 
                 ApplyAutomaticMilkSlots();
+            ApplyAutomaticRiceSlots();
                 RefreshSlots();
                 UpdateStatus();
                 ApplyEditPermissions();
@@ -963,13 +971,13 @@ namespace DuAn.GUI.frmnhanvien
             UpdateNutritionProgress(prgChatBeo, lblChatBeo, "CHẤT BÉO", current.ChatBeo, _weeklyNutritionTarget.ChatBeo, chatBeoPercent);
 
             string breakfastRule = IsHocVienSelected()
-                ? "Sáng: 1 món mặn, 1 canh, tự động có Sữa."
-                : "Sáng: 1 món mặn, 1 canh.";
+                ? "Sáng: 1 món mặn, 1 canh, tự động có Sữa + Cơm."
+                : "Sáng: 1 món mặn, 1 canh, tự động có Cơm.";
             string nutritionWarning = BuildNutritionWarning(damPercent, chatXoPercent, chatBeoPercent);
             string statusText = WeeklyMenuStateManager.GetDisplayName(_currentWeekStatus);
 
             lblStatus.Text = string.Format(
-                "Đã chọn {0}/{1} ô.\nTrạng thái: {2}\n\nRàng buộc:\n{3}\nTrưa/tối: 4 món mặn, 1 canh, 1 rau, 1 tráng miệng.\n\n{4}",
+                "Đã chọn {0}/{1} ô.\nTrạng thái: {2}\n\nRàng buộc:\n{3}\nTrưa/tối: 4 món mặn, 1 canh, 1 rau, 1 tráng miệng, tự động có Cơm.\n\n{4}",
                 selected, total, statusText, breakfastRule, nutritionWarning);
         }
 
@@ -1021,6 +1029,21 @@ namespace DuAn.GUI.frmnhanvien
                 SlotMetadata meta = slot.Tag as SlotMetadata;
                 if (meta != null && meta.Category == DishCategory.SuaHop)
                     _selectedMeals[meta.Key] = milk;
+            }
+        }
+
+        /// <summary>
+        /// Tự động gán món "Cơm trắng" vào tất cả slot Cơm trong mọi buổi.
+        /// Cơm là món mặc định, không cần người dùng chọn.
+        /// </summary>
+        private void ApplyAutomaticRiceSlots()
+        {
+            MonAnModel com = MonAnDAO.Instance.GetOrCreateCom();
+            foreach (Button slot in _slots.Values)
+            {
+                SlotMetadata meta = slot.Tag as SlotMetadata;
+                if (meta != null && meta.Category == DishCategory.Com)
+                    _selectedMeals[meta.Key] = com;
             }
         }
 
@@ -1161,6 +1184,7 @@ namespace DuAn.GUI.frmnhanvien
             if (category == DishCategory.Rau) return "Rau";
             if (category == DishCategory.TrangMieng) return "Tráng miệng";
             if (category == DishCategory.SuaHop) return "Sữa";
+            if (category == DishCategory.Com) return "Cơm";
             return "Mặn";
         }
 
@@ -1182,6 +1206,7 @@ namespace DuAn.GUI.frmnhanvien
             if (category == DishCategory.Rau) return Color.FromArgb(224, 245, 229);
             if (category == DishCategory.TrangMieng) return Color.FromArgb(255, 231, 238);
             if (category == DishCategory.SuaHop) return Color.White;
+            if (category == DishCategory.Com) return Color.FromArgb(255, 252, 240);  // trắng ngà
             return Color.FromArgb(255, 239, 214);
         }
 
@@ -1201,6 +1226,9 @@ namespace DuAn.GUI.frmnhanvien
 
             if (compact.Contains("suahop") || normalized.Contains("sua") || normalized.Contains("milk"))
                 return DishCategory.SuaHop;
+            if (compact.Contains("comtrang") || normalized.Contains("com trang")
+                || normalized.Contains("cơm"))
+                return DishCategory.Com;
             if (compact.Contains("trangmieng") || normalized.Contains("trang mieng")
                 || compact.Contains("traicay") || normalized.Contains("trai cay")
                 || compact.Contains("hoaqua") || normalized.Contains("hoa qua")
@@ -1289,5 +1317,10 @@ namespace DuAn.GUI.frmnhanvien
         private void lblStatus_Click(object sender, EventArgs e) { }
         private void label1_Click(object sender, EventArgs e) { }
         private void prgChatBeo_Click(object sender, EventArgs e) { }
+
+        private void ucT6Toi_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
