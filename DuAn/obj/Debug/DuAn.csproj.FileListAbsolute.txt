@@ -18,6 +18,7 @@ E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Numerics.Vectors.xml
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\System.Security.Cryptography.Xml.xml
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.AssemblyReference.cache
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmbqs.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmdsqn.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmLSQS.resources
@@ -31,6 +32,10 @@ E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmbaocao
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmdsthucpham.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmHuongDanLapThucDon.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmLapthucdon2.resources
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmchonmon.resources
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.UcMealCellSang.resources
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.UcMealCellTruaToi.resources
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmquansoan.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmThemMonAn.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmtinhtpcansudung.resources
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmtrangchu_nv.resources
@@ -46,6 +51,7 @@ E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.CoreCompileInputs.
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.csproj.Up2Date
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.pdb
+<<<<<<< HEAD
 E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.exe.config
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -104,3 +110,6 @@ D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.exe
 D:\DuAnQuanLiTieuChuanQN\DuAn\bin\Debug\DuAn.pdb
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmquansoan.resources
 D:\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmfornhvhc.frmhsqn.resources
+=======
+E:\lung tung\DuAnQuanLiTieuChuanQN\DuAn\obj\Debug\DuAn.GUI.frmnhanvien.frmChiTietNgay.resources
+>>>>>>> d2194783edebdcb8c145d780334b7e5b5b7c6be2

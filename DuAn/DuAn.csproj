@@ -217,6 +217,15 @@
     <Compile Include="GUI\frmnhanvien\frmchonmon.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUI\frmnhanvien\frmchonmon.Designer.cs">
+      <DependentUpon>frmchonmon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\frmChiTietNgay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\frmChiTietNgay.Designer.cs">
+      <DependentUpon>frmChiTietNgay.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmnhanvien\frmChonThucDonMau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +234,20 @@
     </Compile>
     <Compile Include="GUI\frmnhanvien\frmLapthucdon2.Designer.cs">
       <DependentUpon>frmLapthucdon2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\MealEnums.cs" />
+    <Compile Include="GUI\frmnhanvien\SlotMetadata.cs" />
+    <Compile Include="GUI\frmnhanvien\UcMealCellSang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\UcMealCellSang.Designer.cs">
+      <DependentUpon>UcMealCellSang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\UcMealCellTruaToi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\frmnhanvien\UcMealCellTruaToi.Designer.cs">
+      <DependentUpon>UcMealCellTruaToi.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmnhanvien\frmquansoan.cs">
       <SubType>Form</SubType>
@@ -329,6 +352,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmLapthucdon2.resx">
       <DependentUpon>frmLapthucdon2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmnhanvien\frmchonmon.resx">
+      <DependentUpon>frmchonmon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmnhanvien\frmChiTietNgay.resx">
+      <DependentUpon>frmChiTietNgay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmnhanvien\UcMealCellSang.resx">
+      <DependentUpon>UcMealCellSang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmnhanvien\UcMealCellTruaToi.resx">
+      <DependentUpon>UcMealCellTruaToi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmnhanvien\frmquansoan.resx">
       <DependentUpon>frmquansoan.cs</DependentUpon>
