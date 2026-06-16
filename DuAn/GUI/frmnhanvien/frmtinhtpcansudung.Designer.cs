@@ -47,11 +47,6 @@
             this.lblbuoi = new System.Windows.Forms.Label();
             this.pnbang = new System.Windows.Forms.Panel();
             this.dgvlscc = new System.Windows.Forms.DataGridView();
-            this.colstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coltp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coldonvi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coltongsl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coltongtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -244,16 +239,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvlscc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvlscc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvlscc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colstt,
-            this.coltp,
-            this.coldonvi,
-            this.coltongsl,
-            this.coltongtien});
+            // Cột được tạo động trong code-behind
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -266,41 +256,7 @@
             this.dgvlscc.RowTemplate.Height = 28;
             this.dgvlscc.Size = new System.Drawing.Size(1190, 481);
             this.dgvlscc.TabIndex = 4;
-            // 
-            // colstt
-            // 
-            this.colstt.FillWeight = 59.65909F;
-            this.colstt.HeaderText = "STT";
-            this.colstt.MinimumWidth = 8;
-            this.colstt.Name = "colstt";
-            // 
-            // coltp
-            // 
-            this.coltp.FillWeight = 106.7235F;
-            this.coltp.HeaderText = "Thực phẩm";
-            this.coltp.MinimumWidth = 8;
-            this.coltp.Name = "coltp";
-            // 
-            // coldonvi
-            // 
-            this.coldonvi.FillWeight = 106.7235F;
-            this.coldonvi.HeaderText = "Đơn vị";
-            this.coldonvi.MinimumWidth = 8;
-            this.coldonvi.Name = "coldonvi";
-            // 
-            // coltongsl
-            // 
-            this.coltongsl.FillWeight = 106.7235F;
-            this.coltongsl.HeaderText = "Tổng số lượng";
-            this.coltongsl.MinimumWidth = 8;
-            this.coltongsl.Name = "coltongsl";
-            // 
-            // coltongtien
-            // 
-            this.coltongtien.HeaderText = "Tổng tiền";
-            this.coltongtien.MinimumWidth = 8;
-            this.coltongtien.Name = "coltongtien";
-            // 
+            //
             // panel1
             // 
             this.panel1.Controls.Add(this.panel6);
@@ -450,11 +406,6 @@
         private System.Windows.Forms.Label lblbuoi;
         private System.Windows.Forms.Panel pnbang;
         private System.Windows.Forms.DataGridView dgvlscc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colstt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coltp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coldonvi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coltongsl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coltongtien;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox4;

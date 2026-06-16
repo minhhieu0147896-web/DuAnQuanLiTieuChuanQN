@@ -21,7 +21,7 @@ namespace DuAn
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new frmLapthucdon2());
+            Application.Run(new frmmhlogin());
             
             // Application.Run(new frmbqs());
             //  Application.Run(new frmlichsucatcom());

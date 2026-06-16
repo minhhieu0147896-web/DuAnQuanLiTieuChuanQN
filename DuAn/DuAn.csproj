@@ -90,6 +90,7 @@
     <Compile Include="BUL\B_TCTD.cs" />
     <Compile Include="BUL\B_thongkeqn.cs" />
     <Compile Include="BUL\B_thongke_cb.cs" />
+    <Compile Include="BUL\B_TinhThucPham.cs" />
     <Compile Include="BUL\DuplicateChecker.cs" />
     <Compile Include="BUL\ViTriSlotMapper.cs" />
     <Compile Include="BUL\WeeklyMenuFromTemplateFiller.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="DAO\D_TCTD.cs" />
     <Compile Include="DAO\D_thongkecb.cs" />
     <Compile Include="DAO\D_thongkeqn.cs" />
+    <Compile Include="DAO\D_TinhThucPham.cs" />
     <Compile Include="DAO\MonAnDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ThucDonDAO.cs" />

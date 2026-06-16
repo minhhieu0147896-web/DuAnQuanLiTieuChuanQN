@@ -21,7 +21,8 @@
       "Bash(echo *)",
       "mcp__codegraph__codegraph_files",
       "computer_use__list_apps",
-      "computer_use__get_app_state"
+      "computer_use__get_app_state",
+      "computer_use__click"
     ]
   },
   "$version": 4
