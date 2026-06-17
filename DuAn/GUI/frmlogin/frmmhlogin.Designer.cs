@@ -164,7 +164,7 @@
             this.Name = "frmmhlogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "login";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmlogin_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlogin.ResumeLayout(false);

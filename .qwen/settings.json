@@ -23,7 +23,9 @@
       "computer_use__list_apps",
       "computer_use__get_app_state",
       "computer_use__click",
-      "computer_use__get_window_state"
+      "computer_use__get_window_state",
+      "mcp__codegraph__codegraph_callers",
+      "mcp__codegraph__codegraph_explore"
     ]
   },
   "$version": 4
