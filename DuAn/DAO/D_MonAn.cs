@@ -123,5 +123,101 @@ namespace DuAn.DAO
                 return dt;
             }
         }
+
+        /// <summary>
+        /// Lấy danh sách tất cả món ăn
+        /// </summary>
+        public static DataTable LayDanhSachMonAn()
+        {
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("sp_MonAn_DanhSach", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    da.Fill(dt);
+                return dt;
+            }
+        }
+
+        /// <summary>
+        /// Tìm món ăn theo từ khóa (tên hoặc loại món)
+        /// </summary>
+        public static DataTable TimKiemMonAn(string tuKhoa)
+        {
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("sp_MonAn_TimKiem", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@tukhoa", tuKhoa);
+
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    da.Fill(dt);
+                return dt;
+            }
+        }
+
+        /// <summary>
+        /// Lấy thông tin 1 món ăn + danh sách nguyên liệu theo ID.
+        /// Trả về DataSet: Tables[0] = thông tin món, Tables[1] = nguyên liệu.
+        /// </summary>
+        public static DataSet LayMonAnTheoId(int monanId)
+        {
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("sp_MonAn_LayTheoId", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@monan_id", monanId);
+
+                DataSet ds = new DataSet();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    da.Fill(ds);
+                return ds;
+            }
+        }
+
+        /// <summary>
+        /// Cập nhật thông tin món ăn (xóa nguyên liệu cũ để thêm lại sau)
+        /// </summary>
+        public static void CapNhatMonAn(int monanId, string tenMon, string loaiMon,
+            string ghiChu, double? dam, double? chatBeo, double? chatXo)
+        {
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("sp_MonAn_CapNhat", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@monan_id", monanId);
+                cmd.Parameters.AddWithValue("@monan_ten", tenMon);
+                cmd.Parameters.AddWithValue("@monan_loaimon", loaiMon);
+                cmd.Parameters.AddWithValue("@ghi_chu", (object)ghiChu ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@dam", (object)dam ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@chat_beo", (object)chatBeo ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@chat_xo", (object)chatXo ?? DBNull.Value);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// Xóa món ăn và tất cả nguyên liệu liên quan.
+        /// Trả về true nếu xóa thành công.
+        /// </summary>
+        public static bool XoaMonAn(int monanId)
+        {
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("sp_MonAn_Xoa", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@monan_id", monanId);
+
+                conn.Open();
+                int ketQua = Convert.ToInt32(cmd.ExecuteScalar());
+                return ketQua == 1;
+            }
+        }
     }
 }

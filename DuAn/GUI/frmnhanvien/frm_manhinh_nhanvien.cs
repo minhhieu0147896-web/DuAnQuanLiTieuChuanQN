@@ -20,6 +20,7 @@ namespace DuAn.GUI.frmnhanvien
         frmbaocaoquanso fbcqs;
         frmtinhtpcansudung ftpcsd;
         frmquansoan fqsa;
+        frmThemMonAn ftma;
         void CloseAllChildForms()
         {
             foreach (Form child in this.MdiChildren)
@@ -79,8 +80,10 @@ namespace DuAn.GUI.frmnhanvien
                     slidebartransition.Stop();
                     hethongcontainer.Width = slidebar.Width;
                     pndanhsachthucpham.Width = slidebar.Width;
+                    pnmonancontainer.Width = slidebar.Width;
                     baocaocontainer.Width = slidebar.Width;
                     thucdoncontainer.Width = slidebar.Width;
+                    flowLayoutPanel1.Width = slidebar.Width;
 
 
                 }
@@ -94,8 +97,10 @@ namespace DuAn.GUI.frmnhanvien
                     slidebartransition.Stop();
                     hethongcontainer.Width = slidebar.Width;
                     pndanhsachthucpham.Width = slidebar.Width;
+                    pnmonancontainer.Width = slidebar.Width;
                     baocaocontainer.Width = slidebar.Width;
                     thucdoncontainer.Width = slidebar.Width;
+                    flowLayoutPanel1.Width = slidebar.Width;
 
 
                 }
@@ -269,6 +274,16 @@ namespace DuAn.GUI.frmnhanvien
             fqsa.Dock = DockStyle.Fill;
             fqsa.FormClosed += (s, args) => fqsa = null;
             fqsa.Show();
+        }
+
+        private void btnmonan_Click(object sender, EventArgs e)
+        {
+            CloseAllChildForms();
+            ftma = new frmThemMonAn();
+            ftma.MdiParent = this;
+            ftma.Dock = DockStyle.Fill;
+            ftma.FormClosed += (s, args) => ftma = null;
+            ftma.Show();
         }
     }
 }

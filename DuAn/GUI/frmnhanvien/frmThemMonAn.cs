@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Drawing;
 using DuAn.BUL;
 using System.Globalization;
 using System.Text;
@@ -12,6 +13,8 @@ namespace DuAn.GUI.frmnhanvien
         private DataTable dtChiTiet;  // Bảng dữ liệu tạm chứa nguyên liệu đã thêm
         private DataTable dtThucPhamNguon;
         private bool dangLocThucPham;
+        private int tabHienTai = 0;     // 0 = Thêm, 1 = Sửa, 2 = Xóa
+        private int monanIdDangChon;    // ID món đang sửa hoặc đang xem để xóa
 
         public frmThemMonAn()
         {
@@ -26,6 +29,7 @@ namespace DuAn.GUI.frmnhanvien
             KhoiTaoGridChiTiet();
             LoadMaMonMoi();
             LoadComboBoxes();
+            ChuyenTab(0); // Mặc định tab Thêm
         }
 
         // =====================================================
@@ -410,7 +414,7 @@ namespace DuAn.GUI.frmnhanvien
         // =====================================================
 
         /// <summary>
-        /// Lưu món ăn mới vào database
+        /// Lưu món ăn (Thêm mới hoặc Cập nhật tùy theo tab)
         /// </summary>
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -419,21 +423,25 @@ namespace DuAn.GUI.frmnhanvien
 
             try
             {
-                // Lấy dữ liệu từ form
                 int monanId = Convert.ToInt32(txtMaMon.Text);
                 string tenMon = txtTenMon.Text.Trim();
-                string loaiMon = MapLoaiMon(cboLoaiMon.Text);  // Chuyển "Mặn Chính" → "ManChinh"
+                string loaiMon = MapLoaiMon(cboLoaiMon.Text);
                 string ghiChu = string.IsNullOrWhiteSpace(txtGhiChu.Text)
                     ? null : txtGhiChu.Text.Trim();
-
                 double dam = ParseRequiredDouble(txtDam.Text);
                 double chatBeo = ParseRequiredDouble(txtChatBeo.Text);
                 double chatXo = ParseRequiredDouble(txtChatXo.Text);
 
-                // ----- 1. INSERT vào Mon_an -----
-                B_MonAn.ThemMonAn(monanId, tenMon, loaiMon, ghiChu, dam, chatBeo, chatXo);
+                if (tabHienTai == 0) // Tab Thêm: INSERT
+                {
+                    B_MonAn.ThemMonAn(monanId, tenMon, loaiMon, ghiChu, dam, chatBeo, chatXo);
+                }
+                else // Tab Sửa: UPDATE (sp_MonAn_CapNhat đã xóa nguyên liệu cũ)
+                {
+                    B_MonAn.CapNhatMonAn(monanId, tenMon, loaiMon, ghiChu, dam, chatBeo, chatXo);
+                }
 
-                // ----- 2. INSERT từng dòng vào Chi_tiet_mon_an -----
+                // INSERT từng dòng nguyên liệu (dùng chung cho cả Thêm và Sửa)
                 int ctSuccess = 0;
                 foreach (DataRow row in dtChiTiet.Rows)
                 {
@@ -445,9 +453,9 @@ namespace DuAn.GUI.frmnhanvien
                     ctSuccess++;
                 }
 
-                // ----- 3. Thông báo kết quả -----
+                string hanhDong = tabHienTai == 0 ? "thêm" : "cập nhật";
                 MessageBox.Show(
-                    $"Đã thêm món \"{tenMon}\" thành công!\n" +
+                    $"Đã {hanhDong} món \"{tenMon}\" thành công!\n" +
                     $"{ctSuccess}/{dtChiTiet.Rows.Count} nguyên liệu đã được lưu.",
                     "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -578,6 +586,268 @@ namespace DuAn.GUI.frmnhanvien
             }
 
             return true;
+        }
+
+        // =====================================================
+        //  TAB: CHUYỂN TAB + TÌM KIẾM + SỬA + XÓA
+        // =====================================================
+
+        /// <summary>
+        /// Chuyển tab: 0=Thêm, 1=Sửa, 2=Xóa
+        /// </summary>
+        private void ChuyenTab(int tab)
+        {
+            tabHienTai = tab;
+
+            // Highlight nút tab đang chọn
+            Color colorActive = Color.FromArgb(46, 204, 133);  // xanh lá
+            Color colorInactive = Color.FromArgb(100, 100, 100); // xám
+            btnTabThem.BackColor = tab == 0 ? colorActive : colorInactive;
+            btnTabSua.BackColor = tab == 1 ? colorActive : colorInactive;
+            btnTabXoa.BackColor = tab == 2 ? colorActive : colorInactive;
+
+            // Ẩn/hiện ô tìm kiếm và nút xóa
+            txtTimKiem.Visible = (tab == 1 || tab == 2);
+            btnXoaMon.Visible = (tab == 2);
+            btnLuu.Visible = (tab != 2);  // Ẩn nút LƯU ở tab Xóa
+
+            // Đổi tiêu đề form
+            string[] titles = { "THÊM MÓN ĂN MỚI", "SỬA MÓN ĂN", "XÓA MÓN ĂN" };
+            lblTitle.Text = titles[tab];
+
+            // Reset form
+            txtTimKiem.Text = "";
+            txtTimKiem.ForeColor = Color.Gray;
+            txtTimKiem.Text = "🔍 Tìm món ăn...";
+
+            if (tab == 0) // Tab Thêm: reset form để thêm mới
+            {
+                LoadMaMonMoi();
+                txtMaMon.ReadOnly = false;
+                txtTenMon.Clear();
+                cboLoaiMon.SelectedIndex = -1;
+                txtGhiChu.Clear();
+                txtDam.Clear();
+                txtChatBeo.Clear();
+                txtChatXo.Clear();
+                dtChiTiet.Rows.Clear();
+                btnLuu.Text = "LƯU";
+                monanIdDangChon = 0;
+            }
+            else // Tab Sửa / Xóa: khóa mã món
+            {
+                txtMaMon.ReadOnly = true;
+                btnLuu.Text = "LƯU";
+            }
+        }
+
+        private void btnTabThem_Click(object sender, EventArgs e)
+        {
+            ChuyenTab(0);
+        }
+
+        private void btnTabSua_Click(object sender, EventArgs e)
+        {
+            ChuyenTab(1);
+        }
+
+        private void btnTabXoa_Click(object sender, EventArgs e)
+        {
+            ChuyenTab(2);
+        }
+
+        private void txtTimKiem_Enter(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == "🔍 Tìm món ăn...")
+            {
+                txtTimKiem.Text = "";
+                txtTimKiem.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtTimKiem_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTimKiem.Text))
+            {
+                txtTimKiem.Text = "🔍 Tìm món ăn...";
+                txtTimKiem.ForeColor = Color.Gray;
+            }
+        }
+
+        /// <summary>
+        /// Khi gõ text tìm kiếm → lọc và hiển thị món gợi ý
+        /// </summary>
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string tuKhoa = txtTimKiem.Text.Trim();
+            if (string.IsNullOrWhiteSpace(tuKhoa) || tuKhoa == "🔍 Tìm món ăn...")
+                return;
+
+            try
+            {
+                DataTable ketQua = B_MonAn.TimKiemMonAn(tuKhoa);
+
+                if (ketQua.Rows.Count == 1)
+                {
+                    // Chỉ có 1 kết quả → khôi phục grid rồi load thẳng lên form
+                    KhoiTaoGridChiTiet();
+                    int monanId = Convert.ToInt32(ketQua.Rows[0]["monan_id"]);
+                    LoadMonAnLenForm(monanId);
+                }
+                else if (ketQua.Rows.Count > 1)
+                {
+                    // Nhiều kết quả → hiển thị danh sách để chọn qua DataGridView tạm
+                    HienThiKetQuaTimKiem(ketQua);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Bỏ qua lỗi tìm kiếm
+            }
+        }
+
+        /// <summary>
+        /// Load thông tin món ăn lên form từ ID
+        /// </summary>
+        private void LoadMonAnLenForm(int monanId)
+        {
+            try
+            {
+                DataSet ds = B_MonAn.LayMonAnTheoId(monanId);
+
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy món ăn này.", "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DataRow monAn = ds.Tables[0].Rows[0];
+                monanIdDangChon = monanId;
+
+                // Hiển thị thông tin món
+                txtMaMon.Text = monAn["monan_id"].ToString();
+                txtTenMon.Text = monAn["monan_ten"].ToString();
+
+                // Map loại món từ DB sang hiển thị
+                string loaiDB = monAn["monan_loaimon"].ToString();
+                cboLoaiMon.Text = MapLoaiMonNguoc(loaiDB);
+
+                txtGhiChu.Text = monAn["ghi_chu"].ToString();
+                txtDam.Text = Convert.ToDouble(monAn["dam"]).ToString("0.##");
+                txtChatBeo.Text = Convert.ToDouble(monAn["chat_beo"]).ToString("0.##");
+                txtChatXo.Text = Convert.ToDouble(monAn["chat_xo"]).ToString("0.##");
+
+                // Load nguyên liệu
+                dtChiTiet.Rows.Clear();
+                int stt = 1;
+                foreach (DataRow row in ds.Tables[1].Rows)
+                {
+                    dtChiTiet.Rows.Add(
+                        stt++,
+                        Convert.ToInt32(row["thucpham_id"]),
+                        row["thucpham_ten"].ToString(),
+                        Convert.ToInt32(row["chedo_id"]),
+                        row["chedo_ten"].ToString(),
+                        Convert.ToDecimal(row["ty_le"])
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load món ăn: " + ex.Message,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Hiển thị danh sách kết quả tìm kiếm lên DataGridView để người dùng chọn
+        /// </summary>
+        private void HienThiKetQuaTimKiem(DataTable ketQua)
+        {
+            // Dùng DataGridView hiện tại để hiển thị danh sách món tìm được
+            // Lưu DataTable tạm để sau khi chọn xong có thể khôi phục
+            dgvChiTiet.Columns.Clear();
+            dgvChiTiet.AutoGenerateColumns = true;
+            dgvChiTiet.DataSource = ketQua;
+
+            // Gán sự kiện double-click để chọn món
+            dgvChiTiet.CellDoubleClick -= DgvTimKiem_CellDoubleClick;
+            dgvChiTiet.CellDoubleClick += DgvTimKiem_CellDoubleClick;
+        }
+
+        private void DgvTimKiem_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            int monanId = Convert.ToInt32(dgvChiTiet.Rows[e.RowIndex].Cells["monan_id"].Value);
+
+            // Khôi phục DataGridView về trạng thái nguyên liệu TRƯỚC KHI load
+            KhoiTaoGridChiTiet();
+
+            // Sau đó mới load dữ liệu món vào dtChiTiet
+            LoadMonAnLenForm(monanId);
+        }
+
+        /// <summary>
+        /// Map loại món từ DB (vd: "ManChinh") → hiển thị (vd: "Mặn Chính")
+        /// </summary>
+        private string MapLoaiMonNguoc(string loaiDB)
+        {
+            switch (loaiDB)
+            {
+                case "ManChinh":    return "Mặn Chính";
+                case "Canh":        return "Canh";
+                case "Rau":         return "Rau";
+                case "TrangMieng":  return "Tráng Miệng";
+                case "Sua":         return "Sữa";
+                case "Com":         return "Cơm";
+                default:            return loaiDB;
+            }
+        }
+
+        /// <summary>
+        /// Nút XÓA MÓN ĂN (tab Xóa)
+        /// </summary>
+        private void btnXoaMon_Click(object sender, EventArgs e)
+        {
+            if (monanIdDangChon <= 0)
+            {
+                MessageBox.Show("Vui lòng chọn món ăn cần xóa bằng cách tìm kiếm.",
+                    "Chưa chọn món", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string tenMon = txtTenMon.Text;
+            var xacNhan = MessageBox.Show(
+                $"Bạn có chắc chắn muốn xóa món \"{tenMon}\"?\n\nTất cả nguyên liệu của món này cũng sẽ bị xóa.",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (xacNhan != DialogResult.Yes) return;
+
+            try
+            {
+                bool ok = B_MonAn.XoaMonAn(monanIdDangChon);
+
+                if (ok)
+                {
+                    MessageBox.Show($"Đã xóa món \"{tenMon}\" thành công!",
+                        "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Không thể xóa món ăn. Có thể món đang được sử dụng.",
+                        "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa món ăn: " + ex.Message,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

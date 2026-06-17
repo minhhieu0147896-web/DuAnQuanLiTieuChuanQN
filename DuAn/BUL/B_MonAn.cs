@@ -35,5 +35,31 @@ namespace DuAn.BUL
         {
             return D_MonAn.LayNguyenLieu(monAnId, cheDoId);
         }
+
+        public static DataTable LayDanhSachMonAn()
+        {
+            return D_MonAn.LayDanhSachMonAn();
+        }
+
+        public static DataTable TimKiemMonAn(string tuKhoa)
+        {
+            return D_MonAn.TimKiemMonAn(tuKhoa);
+        }
+
+        public static DataSet LayMonAnTheoId(int monanId)
+        {
+            return D_MonAn.LayMonAnTheoId(monanId);
+        }
+
+        public static void CapNhatMonAn(int monanId, string tenMon, string loaiMon,
+            string ghiChu, double? dam, double? chatBeo, double? chatXo)
+        {
+            D_MonAn.CapNhatMonAn(monanId, tenMon, loaiMon, ghiChu, dam, chatBeo, chatXo);
+        }
+
+        public static bool XoaMonAn(int monanId)
+        {
+            return D_MonAn.XoaMonAn(monanId);
+        }
     }
 }

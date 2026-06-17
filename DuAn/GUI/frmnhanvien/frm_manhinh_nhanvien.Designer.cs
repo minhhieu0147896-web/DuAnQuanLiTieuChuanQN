@@ -38,6 +38,10 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.btndstp = new System.Windows.Forms.Button();
+            this.pnmonancontainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel_monan = new System.Windows.Forms.Panel();
+            this.pictureBox_monan = new System.Windows.Forms.PictureBox();
+            this.btnmonan = new System.Windows.Forms.Button();
             this.thucdoncontainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
@@ -106,6 +110,9 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHam)).BeginInit();
             this.slidebar.SuspendLayout();
+            this.pnmonancontainer.SuspendLayout();
+            this.panel_monan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_monan)).BeginInit();
             this.pndanhsachthucpham.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -189,6 +196,7 @@
             // 
             this.slidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.slidebar.Controls.Add(this.pndanhsachthucpham);
+            this.slidebar.Controls.Add(this.pnmonancontainer);
             this.slidebar.Controls.Add(this.thucdoncontainer);
             this.slidebar.Controls.Add(this.baocaocontainer);
             this.slidebar.Controls.Add(this.flowLayoutPanel1);
@@ -243,6 +251,50 @@
             this.btndstp.Text = "Danh sách thực phẩm";
             this.btndstp.UseVisualStyleBackColor = false;
             this.btndstp.Click += new System.EventHandler(this.btndstp_Click);
+            // 
+            // pnmonancontainer
+            // 
+            this.pnmonancontainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.pnmonancontainer.Controls.Add(this.panel_monan);
+            this.pnmonancontainer.Location = new System.Drawing.Point(3, 82);
+            this.pnmonancontainer.Name = "pnmonancontainer";
+            this.pnmonancontainer.Size = new System.Drawing.Size(247, 73);
+            this.pnmonancontainer.TabIndex = 13;
+            // 
+            // panel_monan
+            // 
+            this.panel_monan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.panel_monan.Controls.Add(this.pictureBox_monan);
+            this.panel_monan.Controls.Add(this.btnmonan);
+            this.panel_monan.Location = new System.Drawing.Point(3, 3);
+            this.panel_monan.Name = "panel_monan";
+            this.panel_monan.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel_monan.Size = new System.Drawing.Size(344, 67);
+            this.panel_monan.TabIndex = 4;
+            // 
+            // pictureBox_monan
+            // 
+            this.pictureBox_monan.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox_monan.Location = new System.Drawing.Point(13, 6);
+            this.pictureBox_monan.Name = "pictureBox_monan";
+            this.pictureBox_monan.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox_monan.Size = new System.Drawing.Size(34, 48);
+            this.pictureBox_monan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_monan.TabIndex = 1;
+            this.pictureBox_monan.TabStop = false;
+            // 
+            // btnmonan
+            // 
+            this.btnmonan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(29)))));
+            this.btnmonan.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnmonan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnmonan.Location = new System.Drawing.Point(-16, -18);
+            this.btnmonan.Name = "btnmonan";
+            this.btnmonan.Size = new System.Drawing.Size(342, 99);
+            this.btnmonan.TabIndex = 0;
+            this.btnmonan.Text = "Món ăn";
+            this.btnmonan.UseVisualStyleBackColor = false;
+            this.btnmonan.Click += new System.EventHandler(this.btnmonan_Click);
             // 
             // thucdoncontainer
             // 
@@ -995,6 +1047,9 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHam)).EndInit();
             this.slidebar.ResumeLayout(false);
+            this.pnmonancontainer.ResumeLayout(false);
+            this.panel_monan.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_monan)).EndInit();
             this.pndanhsachthucpham.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
@@ -1111,6 +1166,10 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Button btndstp;
+        private System.Windows.Forms.FlowLayoutPanel pnmonancontainer;
+        private System.Windows.Forms.Panel panel_monan;
+        private System.Windows.Forms.PictureBox pictureBox_monan;
+        private System.Windows.Forms.Button btnmonan;
         private System.Windows.Forms.Timer hethongtrasition;
         private System.Windows.Forms.Timer slidebartransition;
         private System.Windows.Forms.Timer thucdontransition;
