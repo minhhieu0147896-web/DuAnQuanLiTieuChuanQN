@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DuAn.DTO;
-using System.Data.SqlClient;
-using System.Globalization;
 
 namespace DuAn.DAO
 {
@@ -24,60 +25,63 @@ namespace DuAn.DAO
         }
         private ThucDonDAO() { }
 
-        // Lấy hoặc tạo mới thực đơn cho tuần/năm/chế độ
+        /// <summary>
+        /// Lấy thực đơn đã có hoặc tạo mới nếu chưa tồn tại.
+        /// Dựa trên tuần ISO + năm + chế độ ăn.
+        /// </summary>
         public ThucDonModel GetOrCreate(int userId, int chedoId, DateTime ngay)
         {
-            // Lấy tuần ISO và năm
+            // Lấy tuần ISO và năm từ ngày
             GregorianCalendar cal = new GregorianCalendar();
             int tuan = cal.GetWeekOfYear(ngay, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
             int nam = ngay.Year;
 
-            // Kiểm tra xem đã có thực đơn chưa
-            string query = @"SELECT thucdon_id, user_id, chedo_id, trang_thai, thucdon_tuan, thucdon_nam, ngay_thang_nam
-                             FROM Thuc_don
-                             WHERE thucdon_tuan = @tuan AND thucdon_nam = @nam AND chedo_id = @chedoId";
+            // Bước 1: Kiểm tra xem đã có thực đơn cho tuần này chưa
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@tuan", tuan);
-                cmd.Parameters.AddWithValue("@nam", nam);
-                cmd.Parameters.AddWithValue("@chedoId", chedoId);
+                SqlCommand cmd = new SqlCommand("sp_ThucDon_TimTheoTuanNam", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Tuan", tuan);
+                cmd.Parameters.AddWithValue("@Nam", nam);
+                cmd.Parameters.AddWithValue("@CheDoId", chedoId);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
+                        // Đã có thực đơn → trả về luôn
                         return new ThucDonModel
                         {
                             ThucDonId = reader.GetInt32(0),
                             UserId = reader.GetInt32(1),
                             CheDoId = reader.GetInt32(2),
                             TrangThai = reader.GetString(3),
-                            Tuan = reader.GetByte(4),
-                            Nam = reader.GetInt16(5),
+                            Tuan = Convert.ToInt32(reader["thucdon_tuan"]),
+                            Nam = Convert.ToInt32(reader["thucdon_nam"]),
                             NgayLap = reader.GetDateTime(6)
                         };
                     }
                 }
             }
 
-            // Chưa có thì tạo mới
-            int newId = GenerateNewId("Thuc_don", "thucdon_id");
-            string insert = @"INSERT INTO Thuc_don (thucdon_id, user_id, chedo_id, trang_thai, thucdon_tuan, thucdon_nam, ngay_thang_nam)
-                              VALUES (@id, @userId, @chedoId, N'NhapLieu', @tuan, @nam, @ngayLap)";
+            // Bước 2: Chưa có thì tạo thực đơn mới
+            int newId = LayMaThucDonMoi();
+
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(insert, conn);
-                cmd.Parameters.AddWithValue("@id", newId);
-                cmd.Parameters.AddWithValue("@userId", userId);
-                cmd.Parameters.AddWithValue("@chedoId", chedoId);
-                cmd.Parameters.AddWithValue("@tuan", tuan);
-                cmd.Parameters.AddWithValue("@nam", nam);
-                cmd.Parameters.AddWithValue("@ngayLap", ngay.Date);
+                SqlCommand cmd = new SqlCommand("sp_ThucDon_Them", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id", newId);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.Parameters.AddWithValue("@CheDoId", chedoId);
+                cmd.Parameters.AddWithValue("@Tuan", tuan);
+                cmd.Parameters.AddWithValue("@Nam", nam);
+                cmd.Parameters.AddWithValue("@NgayLap", ngay.Date);
                 cmd.ExecuteNonQuery();
             }
 
+            // Trả về thực đơn vừa tạo
             return new ThucDonModel
             {
                 ThucDonId = newId,
@@ -90,20 +94,38 @@ namespace DuAn.DAO
             };
         }
 
-        private int GenerateNewId(string table, string column)
+        /// <summary>
+        /// Lấy mã thực đơn tiếp theo (MAX(thucdon_id) + 1)
+        /// </summary>
+        private int LayMaThucDonMoi()
         {
-            string query = $"SELECT ISNULL(MAX({column}), 0) + 1 FROM {table}";
-            return Convert.ToInt32(DataProvider.Instance.ExecuteScalar(query));
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_ThucDon_LayMaMoi", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                object result = cmd.ExecuteScalar();
+                return Convert.ToInt32(result);
+            }
         }
 
-        // Trong ThucDonDAO.cs
+        /// <summary>
+        /// Cập nhật trạng thái của thực đơn (VD: "NhapLieu" → "HoanThanh")
+        /// Trả về true nếu cập nhật thành công ít nhất 1 dòng.
+        /// </summary>
         public bool UpdateTrangThai(int thucdonId, string trangThaiMoi)
         {
-            string query = "UPDATE Thuc_don SET trang_thai = @trangThai WHERE thucdon_id = @id";
-            int rows = DataProvider.Instance.ExecuteNonQuery(query,
-                new SqlParameter("@trangThai", trangThaiMoi),
-                new SqlParameter("@id", thucdonId));
-            return rows > 0;
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_ThucDon_CapNhatTrangThai", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id", thucdonId);
+                cmd.Parameters.AddWithValue("@TrangThai", trangThaiMoi);
+
+                object result = cmd.ExecuteScalar();
+                return Convert.ToInt32(result) > 0;
+            }
         }
     }
 }

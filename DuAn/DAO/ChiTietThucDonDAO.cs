@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DuAn.DTO;
-using System.Data.SqlClient;
 
 namespace DuAn.DAO
 {
@@ -23,92 +24,51 @@ namespace DuAn.DAO
         }
         private ChiTietThucDonDAO() { }
 
-        // Lấy danh sách chi tiết theo thực đơn, ngày, buổi
+        /// <summary>
+        /// Lấy danh sách chi tiết thực đơn theo thực đơn + ngày + buổi
+        /// </summary>
         public List<ChiTietThucDonModel> GetByThucDonNgayBuoi(int thucdonId, DateTime ngay, int buoianId)
         {
             List<ChiTietThucDonModel> list = new List<ChiTietThucDonModel>();
-            string query = @"SELECT ctd.thucdon_id, ctd.ngay_thang_nam, ctd.buoian_id, ctd.monan_id,
-                            m.monan_ten, m.monan_loaimon, b.buoian_ten,
-                            ISNULL(m.dam, 0) AS dam,
-                            ISNULL(m.chat_xo, 0) AS chat_xo,
-                            ISNULL(m.chat_beo, 0) AS chat_beo
-                     FROM Chi_tiet_thuc_don ctd
-                     INNER JOIN Mon_an m ON ctd.monan_id = m.monan_id
-                     INNER JOIN Buoi_an b ON ctd.buoian_id = b.buoian_id
-                     WHERE ctd.thucdon_id = @thucdonId 
-                       AND ctd.ngay_thang_nam = @ngay 
-                       AND ctd.buoian_id = @buoianId
-                     ORDER BY m.monan_loaimon, m.monan_ten";  // Có thể sắp xếp theo loại món
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@thucdonId", thucdonId);
-                cmd.Parameters.AddWithValue("@ngay", ngay.Date);
-                cmd.Parameters.AddWithValue("@buoianId", buoianId);
+                SqlCommand cmd = new SqlCommand("sp_ChiTietThucDon_LayTheoNgayBuoi", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ThucDonId", thucdonId);
+                cmd.Parameters.AddWithValue("@Ngay", ngay.Date);
+                cmd.Parameters.AddWithValue("@BuoiAnId", buoianId);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        list.Add(new ChiTietThucDonModel
-                        {
-                            ThucDonId = reader.GetInt32(0),
-                            Ngay = reader.GetDateTime(1),
-                            BuoiAnId = reader.GetInt32(2),
-                            MonAnId = reader.GetInt32(3),
-                            TenMon = reader.GetString(4),
-                            LoaiMon = reader.GetString(5),
-                            TenBuoi = reader.GetString(6),
-                            Dam = Convert.ToDouble(reader["dam"]),
-                            ChatXo = Convert.ToDouble(reader["chat_xo"]),
-                            ChatBeo = Convert.ToDouble(reader["chat_beo"])
-                        });
+                        list.Add(MapChiTiet(reader));
                     }
                 }
             }
             return list;
         }
 
+        /// <summary>
+        /// Lấy danh sách chi tiết thực đơn theo thực đơn + ngày (tất cả buổi)
+        /// </summary>
         public List<ChiTietThucDonModel> GetByThucDonNgay(int thucdonId, DateTime ngay)
         {
             List<ChiTietThucDonModel> list = new List<ChiTietThucDonModel>();
-            string query = @"SELECT ctd.thucdon_id, ctd.ngay_thang_nam, ctd.buoian_id, ctd.monan_id,
-                                    m.monan_ten, m.monan_loaimon, b.buoian_ten,
-                                    ISNULL(m.dam, 0) AS dam,
-                                    ISNULL(m.chat_xo, 0) AS chat_xo,
-                                    ISNULL(m.chat_beo, 0) AS chat_beo
-                             FROM Chi_tiet_thuc_don ctd
-                             INNER JOIN Mon_an m ON ctd.monan_id = m.monan_id
-                             INNER JOIN Buoi_an b ON ctd.buoian_id = b.buoian_id
-                             WHERE ctd.thucdon_id = @thucdonId
-                               AND ctd.ngay_thang_nam = @ngay
-                             ORDER BY ctd.buoian_id, m.monan_loaimon, m.monan_ten";
-
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand cmd = new SqlCommand("sp_ChiTietThucDon_LayTheoNgay", conn))
                 {
-                    cmd.Parameters.AddWithValue("@thucdonId", thucdonId);
-                    cmd.Parameters.AddWithValue("@ngay", ngay.Date);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ThucDonId", thucdonId);
+                    cmd.Parameters.AddWithValue("@Ngay", ngay.Date);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            list.Add(new ChiTietThucDonModel
-                            {
-                                ThucDonId = reader.GetInt32(0),
-                                Ngay = reader.GetDateTime(1),
-                                BuoiAnId = reader.GetInt32(2),
-                                MonAnId = reader.GetInt32(3),
-                                TenMon = reader.GetString(4),
-                                LoaiMon = reader.GetString(5),
-                                TenBuoi = reader.GetString(6),
-                                Dam = Convert.ToDouble(reader["dam"]),
-                                ChatXo = Convert.ToDouble(reader["chat_xo"]),
-                                ChatBeo = Convert.ToDouble(reader["chat_beo"])
-                            });
+                            list.Add(MapChiTiet(reader));
                         }
                     }
                 }
@@ -117,62 +77,89 @@ namespace DuAn.DAO
             return list;
         }
 
-        // Thêm mới một chi tiết
+        /// <summary>
+        /// Thêm một món vào chi tiết thực đơn.
+        /// Trả về true nếu thêm thành công, false nếu đã tồn tại (trùng).
+        /// </summary>
         public bool Insert(int thucdonId, DateTime ngay, int buoianId, int monanId)
         {
-            // Kiểm tra trùng lặp
-            string check = @"SELECT COUNT(*) FROM Chi_tiet_thuc_don 
-                     WHERE thucdon_id = @thucdonId 
-                       AND ngay_thang_nam = @ngay 
-                       AND buoian_id = @buoianId 
-                       AND monan_id = @monanId";
-            object result = DataProvider.Instance.ExecuteScalar(check,
-                new SqlParameter("@thucdonId", thucdonId),
-                new SqlParameter("@ngay", ngay.Date),
-                new SqlParameter("@buoianId", buoianId),
-                new SqlParameter("@monanId", monanId));
-            if (Convert.ToInt32(result) > 0)
-                return false; // Đã tồn tại
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_ChiTietThucDon_Them", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ThucDonId", thucdonId);
+                cmd.Parameters.AddWithValue("@Ngay", ngay.Date);
+                cmd.Parameters.AddWithValue("@BuoiAnId", buoianId);
+                cmd.Parameters.AddWithValue("@MonAnId", monanId);
 
-            // Thêm mới
-            string insert = @"INSERT INTO Chi_tiet_thuc_don (thucdon_id, ngay_thang_nam, buoian_id, monan_id)
-                      VALUES (@thucdonId, @ngay, @buoianId, @monanId)";
-            int rows = DataProvider.Instance.ExecuteNonQuery(insert,
-                new SqlParameter("@thucdonId", thucdonId),
-                new SqlParameter("@ngay", ngay.Date),
-                new SqlParameter("@buoianId", buoianId),
-                new SqlParameter("@monanId", monanId));
-            return rows > 0;
+                // SP trả về SELECT 1 (thành công) hoặc SELECT 0 (trùng)
+                object result = cmd.ExecuteScalar();
+                return Convert.ToInt32(result) == 1;
+            }
         }
 
+        /// <summary>
+        /// Xóa một món khỏi chi tiết thực đơn.
+        /// Trả về true nếu xóa ít nhất 1 dòng.
+        /// </summary>
         public bool Delete(int thucdonId, DateTime ngay, int buoianId, int monanId)
         {
-            string delete = @"DELETE FROM Chi_tiet_thuc_don 
-                      WHERE thucdon_id = @thucdonId 
-                        AND ngay_thang_nam = @ngay 
-                        AND buoian_id = @buoianId 
-                        AND monan_id = @monanId";
-            int rows = DataProvider.Instance.ExecuteNonQuery(delete,
-                new SqlParameter("@thucdonId", thucdonId),
-                new SqlParameter("@ngay", ngay.Date),
-                new SqlParameter("@buoianId", buoianId),
-                new SqlParameter("@monanId", monanId));
-            return rows > 0;
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_ChiTietThucDon_Xoa", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ThucDonId", thucdonId);
+                cmd.Parameters.AddWithValue("@Ngay", ngay.Date);
+                cmd.Parameters.AddWithValue("@BuoiAnId", buoianId);
+                cmd.Parameters.AddWithValue("@MonAnId", monanId);
+
+                // SP trả về @@ROWCOUNT
+                object result = cmd.ExecuteScalar();
+                return Convert.ToInt32(result) > 0;
+            }
         }
 
+        /// <summary>
+        /// Xóa tất cả chi tiết theo thực đơn + ngày + buổi.
+        /// Trả về số dòng đã xóa.
+        /// </summary>
         public int DeleteByThucDonNgayBuoi(int thucdonId, DateTime ngay, int buoianId)
         {
-            string delete = @"DELETE FROM Chi_tiet_thuc_don
-                              WHERE thucdon_id = @thucdonId
-                                AND ngay_thang_nam = @ngay
-                                AND buoian_id = @buoianId";
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_ChiTietThucDon_XoaTheoNgayBuoi", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ThucDonId", thucdonId);
+                cmd.Parameters.AddWithValue("@Ngay", ngay.Date);
+                cmd.Parameters.AddWithValue("@BuoiAnId", buoianId);
 
-            return DataProvider.Instance.ExecuteNonQuery(delete,
-                new SqlParameter("@thucdonId", thucdonId),
-                new SqlParameter("@ngay", ngay.Date),
-                new SqlParameter("@buoianId", buoianId));
+                // SP trả về @@ROWCOUNT
+                object result = cmd.ExecuteScalar();
+                return Convert.ToInt32(result);
+            }
         }
 
-
+        /// <summary>
+        /// Ánh xạ từ SqlDataReader sang ChiTietThucDonModel
+        /// </summary>
+        private ChiTietThucDonModel MapChiTiet(SqlDataReader reader)
+        {
+            return new ChiTietThucDonModel
+            {
+                ThucDonId = Convert.ToInt32(reader["thucdon_id"]),
+                Ngay = Convert.ToDateTime(reader["ngay_thang_nam"]),
+                BuoiAnId = Convert.ToInt32(reader["buoian_id"]),
+                MonAnId = Convert.ToInt32(reader["monan_id"]),
+                TenMon = reader["monan_ten"].ToString(),
+                LoaiMon = reader["monan_loaimon"].ToString(),
+                TenBuoi = reader["buoian_ten"].ToString(),
+                Dam = Convert.ToDouble(reader["dam"]),
+                ChatXo = Convert.ToDouble(reader["chat_xo"]),
+                ChatBeo = Convert.ToDouble(reader["chat_beo"])
+            };
+        }
     }
 }

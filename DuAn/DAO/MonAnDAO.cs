@@ -1,6 +1,7 @@
 ﻿using DuAn.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
@@ -24,15 +25,17 @@ namespace DuAn.DAO
         }
         private MonAnDAO() { }
 
-        // Lấy danh sách Loại món (chuỗi) duy nhất
+        /// <summary>
+        /// Lấy danh sách Loại món (chuỗi) duy nhất từ DB
+        /// </summary>
         public List<string> GetAllLoaiMon()
         {
             List<string> list = new List<string>();
-            string query = "SELECT DISTINCT monan_loaimon FROM Mon_an WHERE monan_loaimon IS NOT NULL ORDER BY monan_loaimon";
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlCommand cmd = new SqlCommand("sp_MonAn_LayLoaiMon", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -42,21 +45,17 @@ namespace DuAn.DAO
             return list;
         }
 
-        // Lấy món ăn theo Loại món (chuỗi)
+        /// <summary>
+        /// Lấy danh sách món ăn theo Loại món
+        /// </summary>
         public List<MonAnModel> GetByLoaiMon(string loaiMon)
         {
             List<MonAnModel> list = new List<MonAnModel>();
-            string query = @"SELECT monan_id, monan_loaimon, monan_ten,
-                                    ISNULL(dam, 0) AS dam,
-                                    ISNULL(chat_xo, 0) AS chat_xo,
-                                    ISNULL(chat_beo, 0) AS chat_beo
-                             FROM Mon_an
-                             WHERE monan_loaimon = @LoaiMon
-                             ORDER BY monan_ten";
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlCommand cmd = new SqlCommand("sp_MonAn_LayTheoLoaiMon", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@LoaiMon", loaiMon);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -69,30 +68,30 @@ namespace DuAn.DAO
             return list;
         }
 
+        /// <summary>
+        /// Lấy danh sách món ăn theo nhóm loại món.
+        /// Bước 1: Lọc theo ghi_chú trong DB.
+        /// Bước 2: Lọc tiếp trong C# bằng IsSameDishGroup() để khớp tên nhóm.
+        /// </summary>
         public List<MonAnModel> GetByNhomLoaiMon(string nhomLoaiMon, string ghiChu = null)
         {
             List<MonAnModel> list = new List<MonAnModel>();
-            string query = @"SELECT monan_id, monan_loaimon, monan_ten,
-                                    ISNULL(dam, 0) AS dam,
-                                    ISNULL(chat_xo, 0) AS chat_xo,
-                                    ISNULL(chat_beo, 0) AS chat_beo
-                             FROM Mon_an
-                             WHERE monan_loaimon IS NOT NULL
-                               AND (@GhiChu IS NULL OR UPPER(LTRIM(RTRIM(ISNULL(ghi_chu, '')))) = UPPER(@GhiChu))
-                             ORDER BY monan_loaimon, monan_ten";
 
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand cmd = new SqlCommand("sp_MonAn_LayTheoGhiChu", conn))
                 {
-                    cmd.Parameters.AddWithValue("@GhiChu", string.IsNullOrWhiteSpace(ghiChu) ? (object)DBNull.Value : ghiChu.Trim());
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@GhiChu",
+                        string.IsNullOrWhiteSpace(ghiChu) ? (object)DBNull.Value : ghiChu.Trim());
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             string loaiMon = reader["monan_loaimon"].ToString();
+                            // Lọc lần 2 trong C# để so khớp nhóm (chuẩn hóa tiếng Việt)
                             if (!IsSameDishGroup(loaiMon, nhomLoaiMon))
                                 continue;
 
@@ -105,37 +104,57 @@ namespace DuAn.DAO
             return list;
         }
 
+        /// <summary>
+        /// Tìm hoặc tự tạo món Sữa trong DB nếu chưa có.
+        /// Dùng cho chế độ Học viên (cần sữa trong thực đơn).
+        /// </summary>
         public MonAnModel GetOrCreateSua()
         {
-            const string findQuery = @"SELECT TOP 1 monan_id, monan_loaimon, monan_ten,
-                                              ISNULL(dam, 0) AS dam,
-                                              ISNULL(chat_xo, 0) AS chat_xo,
-                                              ISNULL(chat_beo, 0) AS chat_beo
-                                       FROM Mon_an
-                                       WHERE monan_loaimon = N'Sua'
-                                          OR monan_ten = N'Sữa'
-                                          OR monan_ten = N'Sua'
-                                       ORDER BY monan_id";
-
+            // Bước 1: Tìm món Sữa đã có trong DB chưa
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand(findQuery, conn))
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlCommand cmd = new SqlCommand("sp_MonAn_TimSua", conn))
                 {
-                    if (reader.Read())
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        return MapMonAn(reader);
+                        if (reader.Read())
+                        {
+                            return MapMonAn(reader);
+                        }
                     }
                 }
             }
 
-            int newId = Convert.ToInt32(DataProvider.Instance.ExecuteScalar("SELECT ISNULL(MAX(monan_id), 0) + 1 FROM Mon_an"));
-            const string insertQuery = @"INSERT INTO Mon_an (monan_id, monan_ten, monan_loaimon, ghi_chu, dam, chat_beo, chat_xo)
-                                         VALUES (@id, N'Sữa', N'Sua', N'Tự động cho chế độ Học viên', 6, 6, 0)";
+            // Bước 2: Chưa có thì tạo mới
+            // Lấy mã món tiếp theo (dùng SP có sẵn)
+            int newId;
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_MonAn_LayMaMoi", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                newId = Convert.ToInt32(cmd.ExecuteScalar());
+            }
 
-            DataProvider.Instance.ExecuteNonQuery(insertQuery, new SqlParameter("@id", newId));
+            // Thêm món Sữa vào DB (dùng SP có sẵn)
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_MonAn_Them", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@monan_id", newId);
+                cmd.Parameters.AddWithValue("@monan_ten", "Sữa");
+                cmd.Parameters.AddWithValue("@monan_loaimon", "Sua");
+                cmd.Parameters.AddWithValue("@ghi_chu", "Tự động cho chế độ Học viên");
+                cmd.Parameters.AddWithValue("@dam", 6);
+                cmd.Parameters.AddWithValue("@chat_beo", 6);
+                cmd.Parameters.AddWithValue("@chat_xo", 0);
+                cmd.ExecuteNonQuery();
+            }
 
+            // Trả về model tương ứng
             return new MonAnModel
             {
                 MonAnId = newId,
@@ -148,42 +167,58 @@ namespace DuAn.DAO
         }
 
         /// <summary>
-        /// Lấy hoặc tự tạo món "Cơm trắng" trong DB nếu chưa có.
+        /// Tìm hoặc tự tạo món Cơm trắng trong DB nếu chưa có.
         /// Cơm trắng được tự động thêm vào tất cả các buổi (Sáng/Trưa/Tối).
         /// Dinh dưỡng 1 suất cơm (~200g cơm chín):
         ///   Đạm ~4g, Chất béo ~0.5g, Chất xơ ~0.5g
         /// </summary>
         public MonAnModel GetOrCreateCom()
         {
-            const string findQuery = @"SELECT TOP 1 monan_id, monan_loaimon, monan_ten,
-                                              ISNULL(dam, 0) AS dam,
-                                              ISNULL(chat_xo, 0) AS chat_xo,
-                                              ISNULL(chat_beo, 0) AS chat_beo
-                                       FROM Mon_an
-                                       WHERE monan_loaimon = N'Com'
-                                          OR monan_ten = N'Cơm trắng'
-                                          OR monan_ten = N'Cơm'
-                                       ORDER BY monan_id";
-
+            // Bước 1: Tìm món Cơm trắng đã có trong DB chưa
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand(findQuery, conn))
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlCommand cmd = new SqlCommand("sp_MonAn_TimCom", conn))
                 {
-                    if (reader.Read())
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        return MapMonAn(reader);
+                        if (reader.Read())
+                        {
+                            return MapMonAn(reader);
+                        }
                     }
                 }
             }
 
-            int newId = Convert.ToInt32(DataProvider.Instance.ExecuteScalar("SELECT ISNULL(MAX(monan_id), 0) + 1 FROM Mon_an"));
-            const string insertQuery = @"INSERT INTO Mon_an (monan_id, monan_ten, monan_loaimon, ghi_chu, dam, chat_beo, chat_xo)
-                                         VALUES (@id, N'Cơm trắng', N'Com', N'Tự động thêm vào mọi buổi', 4, 0.5, 0.5)";
+            // Bước 2: Chưa có thì tạo mới
+            // Lấy mã món tiếp theo (dùng SP có sẵn)
+            int newId;
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_MonAn_LayMaMoi", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                newId = Convert.ToInt32(cmd.ExecuteScalar());
+            }
 
-            DataProvider.Instance.ExecuteNonQuery(insertQuery, new SqlParameter("@id", newId));
+            // Thêm món Cơm trắng vào DB (dùng SP có sẵn)
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_MonAn_Them", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@monan_id", newId);
+                cmd.Parameters.AddWithValue("@monan_ten", "Cơm trắng");
+                cmd.Parameters.AddWithValue("@monan_loaimon", "Com");
+                cmd.Parameters.AddWithValue("@ghi_chu", "Tự động thêm vào mọi buổi");
+                cmd.Parameters.AddWithValue("@dam", 4);
+                cmd.Parameters.AddWithValue("@chat_beo", 0.5);
+                cmd.Parameters.AddWithValue("@chat_xo", 0.5);
+                cmd.ExecuteNonQuery();
+            }
 
+            // Trả về model tương ứng
             return new MonAnModel
             {
                 MonAnId = newId,
@@ -195,51 +230,19 @@ namespace DuAn.DAO
             };
         }
 
+        /// <summary>
+        /// Tính tổng dinh dưỡng mục tiêu trong 1 tuần của một chế độ ăn
+        /// (dựa trên Dinh_luong_che_do_chuan)
+        /// </summary>
         public NutritionTargetModel GetWeeklyNutritionTarget(int cheDoId)
         {
-            const string query = @"
-SELECT
-    ISNULL(SUM(so_luong * 7.0 *
-        CASE UPPER(LTRIM(RTRIM(nhom_thucpham)))
-            WHEN 'TINH BOT' THEN 7.0
-            WHEN 'THIT' THEN 20.0
-            WHEN 'CA' THEN 19.0
-            WHEN 'TRUNG' THEN 13.0
-            WHEN 'DAU' THEN 8.0
-            WHEN 'RAU' THEN 2.0
-            WHEN 'TRAI CAY' THEN 0.8
-            WHEN 'SUA' THEN 3.2
-            ELSE 0.0
-        END / 100.0), 0) AS dam,
-    ISNULL(SUM(so_luong * 7.0 *
-        CASE UPPER(LTRIM(RTRIM(nhom_thucpham)))
-            WHEN 'TINH BOT' THEN 1.3
-            WHEN 'DAU' THEN 1.0
-            WHEN 'RAU' THEN 2.5
-            WHEN 'TRAI CAY' THEN 1.8
-            ELSE 0.0
-        END / 100.0), 0) AS chat_xo,
-    ISNULL(SUM(so_luong * 7.0 *
-        CASE UPPER(LTRIM(RTRIM(nhom_thucpham)))
-            WHEN 'TINH BOT' THEN 0.6
-            WHEN 'THIT' THEN 12.0
-            WHEN 'CA' THEN 5.0
-            WHEN 'TRUNG' THEN 11.0
-            WHEN 'DAU' THEN 4.0
-            WHEN 'RAU' THEN 0.2
-            WHEN 'TRAI CAY' THEN 0.2
-            WHEN 'SUA' THEN 3.5
-            ELSE 0.0
-        END / 100.0), 0) AS chat_beo
-FROM Dinh_luong_che_do_chuan
-WHERE chedo_id = @cheDoId";
-
             using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand cmd = new SqlCommand("sp_MonAn_TinhDinhDuongTuan", conn))
                 {
-                    cmd.Parameters.AddWithValue("@cheDoId", cheDoId);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CheDoId", cheDoId);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
@@ -258,6 +261,9 @@ WHERE chedo_id = @cheDoId";
             return new NutritionTargetModel();
         }
 
+        /// <summary>
+        /// Ánh xạ từ SqlDataReader sang MonAnModel
+        /// </summary>
         private static MonAnModel MapMonAn(SqlDataReader reader)
         {
             return new MonAnModel
@@ -271,6 +277,9 @@ WHERE chedo_id = @cheDoId";
             };
         }
 
+        /// <summary>
+        /// Chuyển đổi giá trị object sang double an toàn (trả về 0 nếu NULL)
+        /// </summary>
         private static double ToDouble(object value)
         {
             if (value == null || value == DBNull.Value)
@@ -279,6 +288,11 @@ WHERE chedo_id = @cheDoId";
             return Convert.ToDouble(value, CultureInfo.InvariantCulture);
         }
 
+        /// <summary>
+        /// So sánh tên nhóm loại món (VD: "Mặn chính", "Canh", "Rau"...)
+        /// sau khi chuẩn hóa tiếng Việt (bỏ dấu, lowercase).
+        /// Trả về true nếu cùng nhóm.
+        /// </summary>
         private static bool IsSameDishGroup(string dbLoaiMon, string nhomLoaiMon)
         {
             string db = NormalizeText(dbLoaiMon);
@@ -318,6 +332,9 @@ WHERE chedo_id = @cheDoId";
             return false;
         }
 
+        /// <summary>
+        /// Chuẩn hóa chuỗi tiếng Việt: bỏ dấu, lowercase, trim
+        /// </summary>
         private static string NormalizeText(string value)
         {
             if (string.IsNullOrWhiteSpace(value))

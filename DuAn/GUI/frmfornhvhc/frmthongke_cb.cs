@@ -592,9 +592,9 @@ namespace DuAn.GUI.frmfornhvhc
             using (var conn = DataProvider.Instance.GetConnection())
             {
                 conn.Open();
-                var cmd = new System.Data.SqlClient.SqlCommand(
-                    "SELECT donvi_ten FROM Don_vi WHERE donvi_id=@id", conn);
-                cmd.Parameters.AddWithValue("@id", donvi_id);
+                var cmd = new System.Data.SqlClient.SqlCommand("sp_DonVi_LayTen", conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id", donvi_id);
                 tenDV = cmd.ExecuteScalar()?.ToString() ?? "";
             }
 

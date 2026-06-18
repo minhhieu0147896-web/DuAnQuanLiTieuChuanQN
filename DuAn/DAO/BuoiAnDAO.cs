@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,20 +19,35 @@ namespace DuAn.DAO
         }
         private BuoiAnDAO() { }
 
+        /// <summary>
+        /// Lấy danh sách tất cả bữa ăn từ DB
+        /// </summary>
         public List<BuoiAnModel> GetAll()
         {
             List<BuoiAnModel> list = new List<BuoiAnModel>();
-            string query = "SELECT buoian_id, buoian_ten, buoian_tletienan FROM Buoi_an ORDER BY buoian_id";
-            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
-            foreach (DataRow row in dt.Rows)
+
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
             {
-                list.Add(new BuoiAnModel
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_BuoiAn_DanhSach", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                 {
-                    BuoiAnId = Convert.ToInt32(row["buoian_id"]),
-                    TenBuoi = row["buoian_ten"].ToString(),
-                    TyLeTienAn = Convert.ToDecimal(row["buoian_tletienan"])
-                });
+                    da.Fill(dt);
+                }
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    list.Add(new BuoiAnModel
+                    {
+                        BuoiAnId = Convert.ToInt32(row["buoian_id"]),
+                        TenBuoi = row["buoian_ten"].ToString(),
+                        TyLeTienAn = Convert.ToDecimal(row["buoian_tletienan"])
+                    });
+                }
             }
+
             return list;
         }
     }
