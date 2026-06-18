@@ -41,9 +41,9 @@
             this.lblma.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblma.Location = new System.Drawing.Point(23, 162);
             this.lblma.Name = "lblma";
-            this.lblma.Size = new System.Drawing.Size(140, 28);
+            this.lblma.Size = new System.Drawing.Size(154, 28);
             this.lblma.TabIndex = 0;
-            this.lblma.Text = "Mã Quân nhân";
+            this.lblma.Text = "Mã QN / admin";
             // 
             // txtma
             // 

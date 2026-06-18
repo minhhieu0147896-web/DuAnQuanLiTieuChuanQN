@@ -12,6 +12,7 @@ using DuAn.BUL;
 using DuAn.GUI.frmquannhan;
 using DuAn.GUI.frmfornhvhc;
 using DuAn.GUI.frmlogin;
+using DuAn.GUI.ADMIN;
 
 namespace DuAn.GUI.frmlogin
 {
@@ -24,9 +25,19 @@ namespace DuAn.GUI.frmlogin
 
         private void btnxacnhan_Click(object sender, EventArgs e)
         {
+            string maNhapVao = txtma.Text.Trim();
+
+            if (maNhapVao.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            {
+                frmAdmin formAdmin = new frmAdmin();
+                formAdmin.Show();
+                this.Hide();
+                return;
+            }
+
             int maqn;
 
-            if (!int.TryParse(txtma.Text, out maqn))
+            if (!int.TryParse(maNhapVao, out maqn))
             {
                 MessageBox.Show("Mã quân nhân không hợp lệ");
 

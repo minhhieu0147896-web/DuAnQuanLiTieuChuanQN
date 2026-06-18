@@ -71,8 +71,7 @@ namespace DuAn.BUL
             Button btnXoaMon,
             Button btnDienTuMau,
             Button btnLuu,
-            ComboBox cboCheDo,
-            DateTimePicker dtpWeek)
+            ComboBox cboCheDo)
         {
             foreach (Control slot in slotControls)
             {
@@ -84,7 +83,8 @@ namespace DuAn.BUL
             SetControlEnabled(btnDienTuMau, false);
             SetControlEnabled(btnLuu, false);
             SetControlEnabled(cboCheDo, false);
-            SetControlEnabled(dtpWeek, false);
+            MessageBox.Show("Tuần này đã được duyệt. Không sửa !");
+          
         }
 
         /// <summary>

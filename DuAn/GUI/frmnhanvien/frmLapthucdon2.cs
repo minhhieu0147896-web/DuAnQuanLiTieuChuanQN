@@ -759,7 +759,7 @@ namespace DuAn.GUI.frmnhanvien
             else
             {
                 WeeklyMenuStateManager.LockEditing(
-                    _slots.Values, btnXoaMon, btnDienTuMau, btnLuu, cboCheDo, dtpWeek);
+                    _slots.Values, btnXoaMon, btnDienTuMau, btnLuu, cboCheDo);
             }
         }
 

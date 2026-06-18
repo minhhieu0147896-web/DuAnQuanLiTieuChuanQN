@@ -127,5 +127,48 @@ namespace DuAn.DAO
                 return Convert.ToInt32(result) > 0;
             }
         }
+
+        /// <summary>
+        /// Tìm thực đơn theo tuần, năm và chế độ ăn.
+        /// Hàm này chỉ tìm, không tự tạo thực đơn mới.
+        /// </summary>
+        public ThucDonModel GetByTuanNamCheDo(int tuan, int nam, int chedoId)
+        {
+            using (SqlConnection conn = DataProvider.Instance.GetConnection())
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_ThucDon_TimTheoTuanNam", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Tuan", tuan);
+                cmd.Parameters.AddWithValue("@Nam", nam);
+                cmd.Parameters.AddWithValue("@CheDoId", chedoId);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (!reader.Read())
+                        return null;
+
+                    return new ThucDonModel
+                    {
+                        ThucDonId = Convert.ToInt32(reader["thucdon_id"]),
+                        UserId = Convert.ToInt32(reader["user_id"]),
+                        CheDoId = Convert.ToInt32(reader["chedo_id"]),
+                        TrangThai = reader["trang_thai"].ToString(),
+                        Tuan = Convert.ToInt32(reader["thucdon_tuan"]),
+                        Nam = Convert.ToInt32(reader["thucdon_nam"]),
+                        NgayLap = Convert.ToDateTime(reader["ngay_thang_nam"])
+                    };
+                }
+            }
+        }
+
+        /// <summary>
+        /// Duyệt thực đơn: đổi trạng thái sang DaDuyet.
+        /// </summary>
+        public bool DuyetThucDon(int thucdonId)
+        {
+            return UpdateTrangThai(thucdonId, "DaDuyet");
+        }
     }
 }
