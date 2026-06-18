@@ -642,6 +642,7 @@
             this.pnlChooser.Padding = new System.Windows.Forms.Padding(16, 14, 16, 14);
             this.pnlChooser.Size = new System.Drawing.Size(188, 698);
             this.pnlChooser.TabIndex = 0;
+            this.pnlChooser.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlChooser_Paint);
             // 
             // pnlTienDo
             // 

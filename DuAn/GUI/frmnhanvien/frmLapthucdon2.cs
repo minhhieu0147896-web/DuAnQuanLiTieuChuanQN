@@ -593,7 +593,7 @@ namespace DuAn.GUI.frmnhanvien
 
                 // Tách buoiAnId từ key
                 string[] parts = kvp.Key.Split('-');
-                int buoiAnId = parts.Length >= 2 ? int.Parse(parts[1]) : 0;
+                int buoiAnId = parts.Length >= 2 ? int.Parse(parts[1]) : 0; //chuyển chuỗi ở parts[1] thành số.
 
                 // Lấy tên buổi
                 string tenBuoi = LayTenBuoi(buoiAnId);
@@ -1319,6 +1319,11 @@ namespace DuAn.GUI.frmnhanvien
         private void prgChatBeo_Click(object sender, EventArgs e) { }
 
         private void ucT6Toi_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlChooser_Paint(object sender, PaintEventArgs e)
         {
 
         }
